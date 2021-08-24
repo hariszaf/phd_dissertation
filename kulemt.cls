@@ -223,10 +223,10 @@
 \def\kulemt@subtitle{}
 \define@key{kulemt}{author}{\author{#1}}
 \def\@author{\kulemt@error{No author given}}
-\define@key{kulemt}{supervisor}{%
-  \def\@tempa{#1}\ifx\@tempa\@empty\else \def\kulemt@supervisor{#1}\fi}
-\let\KV@kulemt@promoter\KV@kulemt@supervisor
-\def\kulemt@supervisor{\kulemt@error{No promoter given}}
+\define@key{kulemt}{promotor}{%
+  \def\@tempa{#1}\ifx\@tempa\@empty\else \def\kulemt@promotor{#1}\fi}
+\let\KV@kulemt@promoter\KV@kulemt@promotor
+\def\kulemt@promotor{\kulemt@error{No promoter given}}
 \define@key{kulemt}{assessor}{\def\kulemt@assessor{#1}}
 \def\kulemt@assessor{\kulemt@error{No assessor given}}
 \define@key{kulemt}{assistant}{\def\kulemt@assistant{#1}}
@@ -296,25 +296,27 @@
 \let\kulemt@end@master@def\relax
 \newcount\kulemt@facnum
 \kulemt@facnum\@ne
+% HZ edited
 \def\kulemt@fac@name{%
   \ifcase\kulemt@facnum \or
-    Facult\kulemt@ifdutch{eit Ingenieurswetenschappen}%
+    , \kulemt@ifdutch{Biology Department}%
                          {y of Engineering}%
   \fi}
+
+%   HZ edited: figures/ added 
 \def\kulemt@kulfac@logo#1{%
-  \edef\@tempa{[#1]{logokul\ifnum\kulemt@facnum=\@ne eng\fi}}%
+  \edef\@tempa{[#1]{figures/logouc\ifnum\kulemt@facnum=\@ne\fi}}%
   \expandafter\includegraphics\@tempa}
 \def\kulemt@fac@logo#1{}
 \def\kulemt@fac@copyright{%
   \ifnum\kulemt@facnum >\@ne
     \kulemt@ifdutch d{th}e \MakeLowercase{\noexpand\kulemt@paa@0}::%
   \else
-    Faculteit Ingenieurswetenschappen, Kasteelpark Arenberg 1 bus 2200,
-    B-3001 Heverlee:+32-16-321350:%
+    University of Crete, Biology Department%
   \fi}
 \def\kulemt@paa@#1{%
   \ifcase #1%
-    Promot\kulemt@ifand\kulemt@supervisor{\kulemt@ifdutch{oren}{ers}}{}%
+    Promot\kulemt@ifand\kulemt@promotor{\kulemt@ifdutch{oren}{ers}}{}%
   \or
     Assessor\kulemt@ifand\kulemt@assessor{\kulemt@ifdutch{en}s}{}%
   \or
@@ -524,7 +526,7 @@
   \def\kulemt@paa@fp#1{%
   \begingroup
     \ifcase #1\relax
-      \let\@tempa\kulemt@supervisor
+      \let\@tempa\kulemt@promotor
     \or
       \let\@tempa\kulemt@assessor
     \or
@@ -620,19 +622,24 @@
   required to use the methods, products, schematics and programmes
   described in this work for industrial or commercial use, and for
   submitting this publication in scientific contests.\par}
-\def\kulemt@copyright@dutch{\selectlanguage{dutch}%
-  Zonder voorafgaande schriftelijke toestemming van zowel de
-  \MakeLowercase{\kulemt@paa@0} als de auteur\kulemt@ifand\@author{s}{}
-  is overnemen, kopi\"eren, gebruiken of realiseren van deze uitgave
-  of gedeelten ervan verboden. Voor aanvragen tot of informatie
-  i.v.m.\ het overnemen en/of gebruik en/of realisatie van gedeelten
-  uit deze publicatie, wend u tot \kulemt@contact@print.\par
-  Voorafgaande schriftelijke toestemming van de
-  \MakeLowercase{\kulemt@paa@0} is eveneens vereist voor het
-  aanwenden van de in deze masterproef beschreven (originele)
-  methoden, producten, schakelingen en programma's voor industrieel
-  of commercieel nut en voor de inzending van deze publicatie ter
-  deelname aan wetenschappelijke prijzen of wedstrijden.\par}
+
+% HZ muted the following chunk: consider if you need to have this in greek
+
+  % \def\kulemt@copyright@dutch{\selectlanguage{dutch}%
+%   Zonder voorafgaande schriftelijke toestemming van zowel de
+%   \MakeLowercase{\kulemt@paa@0} als de auteur\kulemt@ifand\@author{s}{}
+%   is overnemen, kopi\"eren, gebruiken of realiseren van deze uitgave
+%   of gedeelten ervan verboden. Voor aanvragen tot of informatie
+%   i.v.m.\ het overnemen en/of gebruik en/of realisatie van gedeelten
+%   uit deze publicatie, wend u tot \kulemt@contact@print.\par
+%   Voorafgaande schriftelijke toestemming van de
+%   \MakeLowercase{\kulemt@paa@0} is eveneens vereist voor het
+%   aanwenden van de in deze masterproef beschreven (originele)
+%   methoden, producten, schakelingen en programma's voor industrieel
+%   of commercieel nut en voor de inzending van deze publicatie ter
+%   deelname aan wetenschappelijke prijzen of wedstrijden.\par}
+
+
 \def\kulemt@copyrightpage{\clearpage
   \thispagestyle{empty}%
   \null \vfill
@@ -654,16 +661,16 @@
 \makepagestyle{filingcard}
 \makeheadrule{filingcard}{\textwidth}{\normalrulethickness}
 \makeevenhead{filingcard}{\kulemt@selectmasterlanguage
-  KU~Leuven \kulemt@fac@name}{}{\kulemt@acyear@t}
+  University of Crete \kulemt@fac@name}{}{\kulemt@acyear@t}
 \makeoddhead{filingcard}{\kulemt@selectmasterlanguage
-  KU~Leuven \kulemt@fac@name}{}{\kulemt@acyear@t}
+University of Crete \kulemt@fac@name}{}{\kulemt@acyear@t}
 \def\kulemt@filingcard{\clearforchapter
   \thispagestyle{filingcard}%
   \begingroup
     \kulemt@selectmasterlanguage
     \begingroup
       \centering \Large
-      \kulemt@ifdutch{Fiche masterproef}{Master's thesis filing card}%
+      \kulemt@ifdutch{PhD disseration}{PhD's thesis filing card}%
       \vskip 1em
     \endgroup
     \begingroup
@@ -702,7 +709,7 @@
     \begingroup \raggedright
       \noindent \kulemt@master@text \par
     \endgroup
-    \@hangfrom{\textit{\kulemt@paa@0}: }\kulemt@supervisor\par
+    \@hangfrom{\textit{\kulemt@paa@0}: }\kulemt@promotor\par
     \@hangfrom{\textit{\kulemt@paa@1}: }\kulemt@assessor\par
     \@hangfrom{\textit{\kulemt@paa@2}: }\kulemt@assistant\par
   \endgroup

@@ -142,9 +142,15 @@ INPUT /home/haris/Documents/projects/phd_dissertation/masterproef.out
 INPUT /home/haris/Documents/projects/phd_dissertation/masterproef.out
 OUTPUT /home/haris/Documents/projects/phd_dissertation/masterproef.out
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvr8t.tfm
-INPUT /home/haris/Documents/projects/phd_dissertation/logokuleng.pdf
-INPUT /home/haris/Documents/projects/phd_dissertation/logokuleng.pdf
-INPUT /home/haris/Documents/projects/phd_dissertation/logokuleng.pdf
+INPUT /home/haris/Documents/projects/phd_dissertation/figures/logouc.eps
+INPUT /home/haris/Documents/projects/phd_dissertation/figures/logouc.eps
+INPUT /home/haris/Documents/projects/phd_dissertation/figures/logouc.eps
+INPUT /home/haris/Documents/projects/phd_dissertation/figures/logouc-eps-converted-to.pdf
+INPUT /home/haris/Documents/projects/phd_dissertation/figures/logouc-eps-converted-to.pdf
+INPUT /home/haris/Documents/projects/phd_dissertation/figures/logouc.eps
+INPUT /home/haris/Documents/projects/phd_dissertation/figures/logouc-eps-converted-to.pdf
+INPUT /home/haris/Documents/projects/phd_dissertation/figures/logouc-eps-converted-to.pdf
+INPUT /home/haris/Documents/projects/phd_dissertation/figures/logouc-eps-converted-to.pdf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvr8t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvr8t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvb8t.tfm
@@ -187,6 +193,7 @@ INPUT /usr/share/texmf/fonts/tfm/public/lm/lmsy6.tfm
 INPUT /usr/share/texmf/tex/latex/lm/omxlmex.fd
 INPUT /usr/share/texmf/tex/latex/lm/omxlmex.fd
 INPUT /usr/share/texmf/fonts/tfm/public/lm/lmex10.tfm
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbxi10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /home/haris/Documents/projects/phd_dissertation/masterproef.lof
@@ -202,6 +209,7 @@ INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmcsc10.tfm
 OUTPUT /home/haris/Documents/projects/phd_dissertation/chapters/chap-1.aux
 INPUT /home/haris/Documents/projects/phd_dissertation/chapters/chap-1.tex
 INPUT /home/haris/Documents/projects/phd_dissertation/chapters/chap-1.tex
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbxi10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /home/haris/Documents/projects/phd_dissertation/masterproef.bbl
@@ -223,6 +231,7 @@ INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb
+INPUT /usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmr10.pfb
