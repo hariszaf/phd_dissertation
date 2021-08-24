@@ -6,3 +6,5 @@
 *.gz
 *.fls
 *.lof
+*.bbl
+*.blg
