@@ -115,6 +115,8 @@ INPUT /home/haris/Documents/projects/phd_dissertation/chapters/intro.aux
 INPUT /home/haris/Documents/projects/phd_dissertation/chapters/intro.aux
 INPUT /home/haris/Documents/projects/phd_dissertation/chapters/chap-1.aux
 INPUT /home/haris/Documents/projects/phd_dissertation/chapters/chap-1.aux
+INPUT /home/haris/Documents/projects/phd_dissertation/chapters/chap-n.aux
+INPUT /home/haris/Documents/projects/phd_dissertation/chapters/chap-n.aux
 OUTPUT /home/haris/Documents/projects/phd_dissertation/masterproef.aux
 INPUT /usr/share/texmf/tex/latex/lm/t1lmr.fd
 INPUT /usr/share/texmf/tex/latex/lm/t1lmr.fd
@@ -212,6 +214,9 @@ INPUT /home/haris/Documents/projects/phd_dissertation/chapters/chap-1.tex
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbxi10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbx12.tfm
+OUTPUT /home/haris/Documents/projects/phd_dissertation/chapters/chap-n.aux
+INPUT /home/haris/Documents/projects/phd_dissertation/chapters/chap-n.tex
+INPUT /home/haris/Documents/projects/phd_dissertation/chapters/chap-n.tex
 INPUT /home/haris/Documents/projects/phd_dissertation/masterproef.bbl
 INPUT /home/haris/Documents/projects/phd_dissertation/masterproef.bbl
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmr8.tfm
@@ -223,6 +228,8 @@ INPUT /home/haris/Documents/projects/phd_dissertation/chapters/intro.aux
 INPUT /home/haris/Documents/projects/phd_dissertation/chapters/intro.aux
 INPUT /home/haris/Documents/projects/phd_dissertation/chapters/chap-1.aux
 INPUT /home/haris/Documents/projects/phd_dissertation/chapters/chap-1.aux
+INPUT /home/haris/Documents/projects/phd_dissertation/chapters/chap-n.aux
+INPUT /home/haris/Documents/projects/phd_dissertation/chapters/chap-n.aux
 INPUT /home/haris/Documents/projects/phd_dissertation/masterproef.out
 INPUT /home/haris/Documents/projects/phd_dissertation/masterproef.out
 INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc
