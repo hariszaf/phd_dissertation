@@ -1,41 +1,45 @@
-\documentclass[master=elt,masteroption=eg,english]{kulemt}
+
+\documentclass[master=elt,masteroption=eg]{kulemt}
+
 \setup{title={Microbial communities through the lens of data integration, knowledge aggregation and metabolic networks analysis},
   author={Haris Zafeiropoulos},
-  promotor={Prof. Emmanouil Ladoukakis},
-  assessor={Dr Evangelos Pafilis},
-  assistant={Dr Christoforos Nikolaou}}
-% De volgende \setup mag verwijderd worden als geen fiche gewenst is.
+  promotor={Prof. Emmanouil Ladoukakis \\ Dr Evangelos Pafilis \\ Dr Christoforos Nikolaou},
+  assessor={},
+  assistant={}}
+
+% The following \setup may be deleted if no chip is desired.
 \setup{filingcard,
-  translatedtitle={Beste masterproef ooit al geschreven},
+  translatedtitle={},
   udc=621.3,
   shortabstract={Hier komt een heel bondig abstract van hooguit 500
     woorden. \LaTeX\ commando's mogen hier gebruikt worden. Blanco lijnen
     (of het commando \texttt{\string\pa r}) zijn wel niet toegelaten!
     \endgraf \lipsum[2]}}
-% Verwijder de "%" op de volgende lijn als je de kaft wil afdrukken
-%\setup{coverpageonly}
-% Verwijder de "%" op de volgende lijn als je enkel de eerste pagina's wil
-% afdrukken en de rest bv. via Word aanmaken.
+
+% Remove the "%" on the next line if you want to print the cover
+% \setup{coverpageonly}
+% Remove the "%" on the next line if you only want the first pages. Print % and create the rest eg via Word.
 %\setup{frontpagesonly}
 
-% Kies de fonts voor de gewone tekst, bv. Latin Modern
+% Choose the fonts for the regular text, e.g. Latin Modern
 \setup{font=lm}
 
-% Hier kun je dan nog andere pakketten laden of eigen definities voorzien
+% Here you can load other packages or provide your own definitions
 
-% Tenslotte wordt hyperref gebruikt voor pdf bestanden.
-% Dit mag verwijderd worden voor de af te drukken versie.
+% Finally, hyperref is used for PDF files.
+% This may be removed for the printable version.
 \usepackage[pdfusetitle,colorlinks,plainpages=false]{hyperref}
-
+\usepackage[english,greek]{babel}
+\usepackage[utf8x]{inputenc}
 %%%%%%%
-% Om wat tekst te genereren wordt hier het lipsum pakket gebruikt.
-% Bij een echte masterproef heb je dit natuurlijk nooit nodig!
+% To generate some text, the lipsum package is used here.
+% Of course you never need this with a real master's thesis!
 \IfFileExists{lipsum.sty}%
  {\usepackage{lipsum}\setlipsumdefault{11-13}}%
- {\newcommand{\lipsum}[1][11-13]{\par Hier komt wat tekst: lipsum ##1.\par}}
 %%%%%%%
 
-%\includeonly{chap-n}
+
+
 \begin{document}
 
 \begin{preface}
@@ -47,30 +51,34 @@
 
 \tableofcontents*
 
+% ---------------------
+%  Abstract in english 
+% ---------------------
 \begin{abstract}
   The \texttt{abstract} environment contains a more extensive overview of
   the work. But it should be limited to one page.
-
-  \lipsum[1]
 \end{abstract}
 
-\begin{abstract*}
-  In dit \texttt{abstract} environment wordt een al dan niet uitgebreide
-  Nederlandse samenvatting van het werk gegeven.
-  Wanneer de tekst voor een Nederlandstalige master in het Engels wordt
-  geschreven, wordt hier normaal een uitgebreide samenvatting verwacht,
-  bijvoorbeeld een tiental bladzijden. 
+% ---------------------
+%  Abstract in greek
+% ---------------------
 
-  \lipsum[1]
+\begin{abstract*}
+
+   γεια σου φίλε ..
+   
 \end{abstract*}
 
-% Een lijst van figuren en tabellen is optioneel
-%\listoffigures
-%\listoftables
-% Bij een beperkt aantal figuren en tabellen gebruik je liever het volgende:
-\listoffiguresandtables
-% De lijst van symbolen is eveneens optioneel.
-% Deze lijst moet wel manueel aangemaakt worden, bv. als volgt:
+% A list of figures and tables is optional
+\listoffigures
+\listoftables
+
+% With a limited number of figures and tables, you prefer to use the following:
+% \listoffiguresandtables
+
+
+% The list of symbols is also optional.
+% This list must be created manually, e.g. as follows:
 \chapter{List of Abbreviations and Symbols}
 \section*{Abbreviations}
 \begin{flushleft}
@@ -94,25 +102,28 @@
   \end{tabularx}
 \end{flushleft}
 
-% Nu begint de eigenlijke tekst
+
+% Now the actual text begins
 \mainmatter
 
 \include{chapters/intro}
-\include{chapters/chap-1}
-% \include{chap-2}
-% % ... en zo verder tot
-\include{chapters/chap-n}
-% \include{conclusion}
 
-% Indien er bijlagen zijn:
+\include{chapters/chap-1}
+
+\include{chapters/chap-n}
+
+\include{chapters/conclusion}
+
+% If there are attachments
 \appendixpage*          % indien gewenst
 \appendix
 % \include{app-A}
 % \include{app-n}
 
-\backmatter
-% Na de bijlagen plaatst men nog de bibliografie.
-% Je kan de  standaard "abbrv" bibliografiestijl vervangen door een andere.
+\backmatter 
+
+% The bibliography is placed after the appendices.
+% You can replace the default "abbrv" bibliography style with another.
 \bibliographystyle{abbrv}
 \bibliography{references}
 
