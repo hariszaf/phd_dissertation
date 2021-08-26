@@ -208,14 +208,20 @@
 
 \define@key{kulemt}{font}{%
   \edef\@tempa{\zap@space#1 \@empty}%
-  \expandafter\kulemt@set@font\@tempa::\@empty}
+  \expandafter\kulemt@set@font\@tempa::\@empty} 
+
+
 \def\kulemt@set@font#1:#2:#3\@empty{%
   \expandafter\let\expandafter\@tempa
     \csname kulemt@set@font@#1\endcsname
   \ifx\@tempa\relax
     \kulemt@error{Font `#1' is ignored because it is an unknown font}%
   \else \@tempa{#2}\fi}
-\let\kulemt@loadfont@\@empty
+
+
+\let\kulemt@loadfont@\@empty 
+
+
 \kulemt@add@once@opts{font}\kulemt@loadfont@{%
   \kulemt@loadfont@ \kulemt@loadmt}
 \def\kulemt@set@font@cm#1{\let\kulemt@loadfont@\relax}
@@ -234,7 +240,7 @@
     \RequirePackage[scaled=.9]{helvet}}%
   \IfFileExists{lmodern.sty}{%
     \g@addto@macro\kulemt@loadfont@{%
-      \renewcommand{\ttdefault}{lmtt}}}{}} 
+      \renewcommand{\ttdefault}{lmss}}}{}} 
 
 \def\kulemt@set@font@times#1{%
   \def\kulemt@loadfont@{%
@@ -243,7 +249,7 @@
     \RequirePackage[scaled=.9]{helvet}}%
   \IfFileExists{lmodern.sty}{%
     \g@addto@macro\kulemt@loadfont@{%
-      \renewcommand{\ttdefault}{lmtt}}}{}} 
+      \renewcommand{\ttdefault}{lmss}}}{}} 
       
 \def\kulemt@set@font@utopia#1{%
   \IfFileExists{fourier.sty}%
@@ -253,7 +259,7 @@
        \RequirePackage[scaled=.9]{helvet}}%
      \IfFileExists{lmodern.sty}{%
        \g@addto@macro\kulemt@loadfont@{%
-         \renewcommand{\ttdefault}{lmtt}}}{}}%
+         \renewcommand{\ttdefault}{lmss}}}{}}%
     {\kulemt@opt@missingpkg{font=utopia}{fourier}}}
 
 \define@key{kulemt}{title}{\title{#1}}
