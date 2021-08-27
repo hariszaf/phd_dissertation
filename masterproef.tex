@@ -31,6 +31,11 @@
 \usepackage[pdfusetitle,colorlinks,plainpages=false]{hyperref}
 \usepackage[english,greek]{babel}
 \usepackage[utf8x]{inputenc}
+
+% To enable the \citeauthor function
+\usepackage[numbers]{natbib}
+
+
 %%%%%%%
 % To generate some text, the lipsum package is used here.
 % Of course you never need this with a real master's thesis!
@@ -41,6 +46,7 @@
 
 
 \begin{document}
+\bibliographystyle{plainnat}
 
 \begin{preface}
   
@@ -130,7 +136,7 @@
 
 % The bibliography is placed after the appendices.
 % You can replace the default "abbrv" bibliography style with another.
-\bibliographystyle{abbrv}
+% \bibliographystyle{alpha}
 \bibliography{references}
 
 \end{document}

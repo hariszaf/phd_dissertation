@@ -8,3 +8,5 @@
 *.lof
 *.bbl
 *.blg
+*.bcf
+*.xml
