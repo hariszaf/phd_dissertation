@@ -669,12 +669,65 @@
 % -------------------------
 \def\kulemt@eptamelis{\clearpage
   \thispagestyle{empty}%
-  \textbf{Members of the examination committee and reading committee}
+
+  
+  \begin{center}
+   
+    \LARGE	\textbf{Members of the examination committee \\
+    \& \\
+    reading committee} 
+
+    \hfill \break
+   
+    \normalsize \textbf{Prof. Emmanouil Ladoukakis} \\
+    Univeristy of Crete \\
+    Biology Department
+
+    \hfill \break
+
+    \textbf{Dr Evangelos Pafilis} \\ 
+    Hellenic Centre for Marine Research \\ Institute of Marine Biology, Biotechnology and Aquaculture 
+
+    \hfill \break
+
+    \textbf{Dr Christoforos Nikolaou} \\
+    Biomedical Sciences Research Center “Alexander Fleming” \\ Institute of Bioinnovation
+
+    \hfill \break
+
+    \textbf{Dr Jens Carlsson} \\
+    University College Dublin \\
+    School of Biology and Environmental Science/Earth Institute
+
+    \hfill \break
+
+    \textbf{Dr Christina Pavloudi} \\
+    George Washington University, US \\
+
+    \hfill \break
+
+    \textbf{Prof Elias Tsigaridas} \\ 
+    Sorbonne Universit\'e and Paris Universit\'e \\
+    Inria Paris and IMJ-PRG
+
+    \hfill \break
+
+    \textbf{Prof Karoline Faust} \\
+    KU Leuven \\
+    Department of Microbiology and Immunology, Rega Institute
+
+    \hfill \break
+
+
+  \end{center}
+
+
+
   \null \vfill
-  \begingroup
-    \parindent\z@ \parskip .5\baselineskip \sloppypar
-    \copyright\space Copyright University of Crete\vskip\baselineskip
-  \endgroup
+%   \begingroup
+%     \parindent\z@ \parskip .5\baselineskip \sloppypar
+%     \copyright\space Copyright University of Crete\vskip\baselineskip
+%   \endgroup
   \clearpage}
 
 
