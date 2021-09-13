@@ -74,26 +74,36 @@
    
 \end{abstract*}
 
+
+% ---------------------------------------------------
+% Before main tex and after the abstracts... 
+% ---------------------------------------------------
+
 % A list of figures and tables is optional
 \listoffiguresandtables
 
 
-% With a limited number of figures and tables, you prefer to use the following:
-% \listoffiguresandtables
-
-
-% The list of symbols is also optional.
-% This list must be created manually, e.g. as follows:
+% A section for abbreviations and symbols
 \chapter{List of Abbreviations and Symbols}
+
+% The abbrevieations mentioned
 \section*{Abbreviations}
 \begin{flushleft}
   \renewcommand{\arraystretch}{1.1}
   \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
-    LoG   & Laplacian-of-Gaussian \\
-    MSE   & Mean Square error \\
-    PSNR  & Peak Signal-to-Noise ratio \\
+    NGS   & Next Generation Sequencing \\
+    HPC   & High Performance Computing \\
+    MCMC  & Markov Chain Monte Carlo \\
+    MMCS  & Multiphase Monte Carlo Sampling \\
+    PREGO & PRocess Environment OrGanism \\
+    PEMA  & Pipeline for Environmental DNA Metabarcoding Analysis \\
+    DARN  & Dark mAtteR iNvestigator \\
+    
   \end{tabularx}
 \end{flushleft}
+
+
+% The symbols mentioned
 \section*{Symbols}
 \begin{flushleft}
   \renewcommand{\arraystretch}{1.1}
@@ -108,6 +118,9 @@
 \end{flushleft}
 
 
+% ---------------------------------------------------
+% The main text!
+% ---------------------------------------------------
 
 % Now the actual text begins
 \mainmatter
