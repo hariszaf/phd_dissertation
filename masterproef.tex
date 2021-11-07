@@ -14,7 +14,7 @@
   shortabstract={Hier komt een heel bondig abstract van hooguit 500
     woorden. \LaTeX\ commando's mogen hier gebruikt worden. Blanco lijnen
     (of het commando \texttt{\string\pa r}) zijn wel niet toegelaten!
-    \endgraf \lipsum[2]}}
+    \endgraf }}
 
 % Remove the "%" on the next line if you want to print the cover
 % \setup{coverpageonly}
@@ -28,21 +28,24 @@
 
 % Finally, hyperref is used for PDF files.
 % This may be removed for the printable version.
-\usepackage[pdfusetitle,colorlinks,plainpages=false]{hyperref}
+\usepackage[pdfusetitle, colorlinks, plainpages=false]{hyperref}
 \usepackage[english,greek]{babel}
 \usepackage[utf8x]{inputenc}
 
 % To enable the \citeauthor function
 \usepackage[numbers]{natbib}
 
+% To have multirows in tables
+\usepackage{multirow}
+
+
 
 %%%%%%%
 % To generate some text, the lipsum package is used here.
 % Of course you never need this with a real master's thesis!
-\IfFileExists{lipsum.sty}%
- {\usepackage{lipsum}\setlipsumdefault{11-13}}%
+% \IfFileExists{lipsum.sty}%
+%  {\usepackage{lipsum}\setlipsumdefault{11-13}}%
 %%%%%%%
-
 
 
 \begin{document}

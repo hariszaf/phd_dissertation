@@ -7,11 +7,14 @@ This chapter will be about finding the taxa present in an environment sample.
 
 First we will discuss a few things about the biodiversity assessment methods in general in terms of a short introduction. 
 
+
 \section{Metabarcoding..}
 Then we will describe PEMA
 
 
 \begin{figure}{}
+   \centering
+   \includegraphics{figures/pema_workflow.jpeg}
    \caption{workflow from publication}
 \end{figure}
 
@@ -19,12 +22,30 @@ Then we will describe PEMA
 
 
 \section{.. has caveats}
+
 And here we will talk about DARN
 
 
+% Table with COI and COI like sequences per rersource per domain
+\begin{table}[]
+   \begin{tabular}{lllll}
+   \hline
+   \multicolumn{1}{|l|}{\multirow{2}{*}{Resources}} & \multicolumn{2}{l|}{bacteria}                                             & \multicolumn{2}{l|}{archaea}                                              \\ \cline{2-5} 
+   \multicolumn{1}{|l|}{}                           & \multicolumn{1}{l|}{\# of sequences} & \multicolumn{1}{l|}{\# of strains} & \multicolumn{1}{l|}{\# of sequences} & \multicolumn{1}{l|}{\# of strains} \\ \hline
+   BOLD                                             & 3,917                                & 2,267                              & 117                                  & 117                                \\
+   PFam-oriented                                    & 9,154                                & 4,532                              & 217                                  & 115                                \\ \hline
+   \multicolumn{1}{|l|}{Total unique entries}       & \multicolumn{1}{l|}{11,421}          & \multicolumn{1}{l|}{6,798}         & \multicolumn{1}{l|}{334}             & \multicolumn{1}{l|}{201}           \\ \hline
+   \end{tabular}
+   \caption{Number of sequences and taxonomic species per domain of life and resources. The (\#) symbols stands for “number”.}
+   \label{tab:sequences_per_domain}
+\end{table}
+
+
+% Phylogenetic tree figure with the placelemnts of the consensus seqs on the tree
 \begin{figure}{}
    \centering
-   \caption{COI - reference phylogenetic tree}
+   \includegraphics{figures/dingo_placemnets.png}
+   \caption{Placements of the consensus sequences used to build the COI reference phylogenetic tree for the DARN tool, onto the phylogenetic tree (stroke width for the branches of the tree is 5). The color coding represents the placements per branch, with a range from zero (blue) to a maximum of 2 (blue). The 1 leaf – 1 placement relationship, as well as the maximum of 2 placements in the color coding bar, indicate the proper placement of each consensus sequence to its corresponding branch.}
 \end{figure}
 
 
