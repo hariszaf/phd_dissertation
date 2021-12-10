@@ -3,6 +3,13 @@ On this repository I will have all related text, figures and code for figures re
 
 
 
+## About this .tex stucture 
+
+
+* go the `.cls` file to:
+   1. edit the Committee 
+   2. add the abstract of the thesis
+   3. set the frontpage of the document
 
 
 ## Tasks
