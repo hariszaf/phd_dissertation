@@ -695,26 +695,45 @@
 
     \hfill \break
 
-    \textbf{Dr Jens Carlsson} \\
-    University College Dublin \\
-    School of Biology and Environmental Science/Earth Institute
+   %  \textbf{Dr Jens Carlsson} \\
+   %  University College Dublin \\
+   %  School of Biology and Environmental Science/Earth Institute
 
     \hfill \break
 
-    \textbf{Dr Christina Pavloudi} \\
-    George Washington University, US \\
+
+    \textbf{
+       Please let me know if you would like to suggest 
+       someone in particular!
+       Here are some thoughts of mine for the rest of the committe, 
+       feel free to share yours! 
+    } \\
+    I am considering of asking \textbf{Dr Jens Carlsson} who is familiar with my work on COI
+    as well as \textbf{Prof Faust} that I will 
+    join her lab for a few months (for an EMBO short term fellowsip) \\
+
+    Also, \textbf{Prof. Elias Tsigaridas} that we have worked together on flux sampling. \\
+
+    Finally, in case that it is ok to have non permanent researchers in the committe, 
+    \textbf{Dr. Christina Pavloudi} with whom I have worked all these years. 
+
+
+
+
+    %  \textbf{Dr Christina Pavloudi} \\
+   %  George Washington University, US \\
 
     \hfill \break
 
-    \textbf{Prof Elias Tsigaridas} \\ 
-    Sorbonne Universit\'e and Paris Universit\'e \\
-    Inria Paris and IMJ-PRG
+   %  \textbf{Prof Elias Tsigaridas} \\ 
+   %  Sorbonne Universit\'e and Paris Universit\'e \\
+   %  Inria Paris and IMJ-PRG
 
     \hfill \break
 
-    \textbf{Prof Karoline Faust} \\
-    KU Leuven \\
-    Department of Microbiology and Immunology, Rega Institute
+   %  \textbf{Prof Karoline Faust} \\
+   %  KU Leuven \\
+   %  Department of Microbiology and Immunology, Rega Institute
 
     \hfill \break
 
