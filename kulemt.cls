@@ -695,21 +695,17 @@
 
     \hfill \break
 
-   %  \textbf{Dr Jens Carlsson} \\
-   %  University College Dublin \\
-   %  School of Biology and Environmental Science/Earth Institute
+    \textbf{Dr Jens Carlsson} \\
+    University College Dublin \\
+    School of Biology and Environmental Science/Earth Institute
 
     \hfill \break
 
 
     \textbf{
-       Please let me know if you would like to suggest 
-       someone in particular!
-       Here are some thoughts of mine for the rest of the committe, 
-       feel free to share yours! 
+       Here are some thoughts of mine for the rest of the committe! 
     } \\
-    I am considering of asking \textbf{Dr Jens Carlsson} who is familiar with my work on COI
-    as well as \textbf{Prof Faust} that I will 
+    I am considering of \textbf{Prof Faust} that I will 
     join her lab for a few months (for an EMBO short term fellowsip) \\
 
     Also, \textbf{Prof. Elias Tsigaridas} that we have worked together on flux sampling. \\

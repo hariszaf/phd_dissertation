@@ -5,30 +5,76 @@
 % SECTION 1
 \section{Microbial communities: structure \& function}
 
+Microbes, i.e. Bacteria, Archaea and small Eukaryotes such as protoza, are omnipresent and impact global ecosystem functions \citep{falkowski2008microbial} through their abundance \citep{bar2018biomass}, versatility \citep{rees2017improving} and interactions \citep{rottjers2018hairballs}. 
+
+
+% These facts have inspired microbiologists from diverse scientific fields to study their genotype and phenotype [5], their metabolism [6] and their interactions with the environment [7].
+
+
+
 \subsection{The role of microbial communities in biogeochemical cycles}
 
-\subsection{HTS approaches to study the microbiome}
+
+\subsection{Microbial interactions: unravelling the microbiome}
+
+% \subsection{Methods for microbial interactions inference}
+
+% \subsection{Competition and mutualism: a dialectic relationship}
 
 
 % SECTION 2
-\section{Microbial interactions: the way to unravel the microbiome}
+\section{Bioinformatics challenges in HTS approaches}
 
-\subsection{Methods for microbial interactions inference}
-
-\subsection{Competition and mutualism: a dialectic relationship}
 
 
 % SECTION 3
-\section{The hypersaline Tristomo swamp: a case study of an extreme environment}
-
+\section{Data integration \& data mining in the era of omics}
 
 
 % SECTION 4
+\section{Sampling the flux space of a metabolic model: challenges \& potential}
+
+
+
+% SECTION 5
+\section{The hypersaline Tristomo swamp: a case study of an extreme environment}
+
+
+% SECTION 6
+\section{Systems biology from a computational resources point-of-view}
+
+
+
+
+
+% SECTION 7
 \section{Aims and objectives}
 
+The aim of this PhD was double; 
+on the one hand, to enhance the analysis of microbiome data by building algorithms and software to address some of the on-going computational challenges on the field.
+On the other, to exploit these methods to identify taxa, functions, especially related to sulfur cycle, and microbial interactions that support life in microbial community assemblages in hypersaline sediments.
+All parts of this work are computational. 
+
+In \textbf{Chapter 2}, challenges derived from the analysis of HTS amplicon data are examined.
+A bioinformatics pipeline, called \texttt{pema}, for the analysis of several marker genes was developed, combinining several new technologies that allow large scale analysis of hundreds of samples. 
+In addition, a software tool called \texttt{darn}, was built to investigate the unassigned sequences in amplicon data of the COI marker gene. 
+
+In \textbf{Chapter 3}, data integration, data mining and text-mining methods were exploited to build a knowledge-base, called \texttt{prego}, including millions of associations between:
+\begin{enumerate}
+   \item microbial taxa and the environments they have been found in 
+   \item microbial taxa and biological processes they occur
+   \item environmental types and the biological processes that take place there
+\end{enumerate}
+
+In \textbf{Chapter 4}, the challenges of flux sampling in metabolic models of high dimensions was presented along with a Multiphase Monte Carlo Sampling (MMCS) algorithm we developed. 
+
+In \textbf{Chapter 5}, sediment samples from a hypersaline swamp in Tristomo, Karpathos Greece were analysed using both amplicon and shotgun metagenomics. 
+The taxonomic and the functional profiles of the microbial communities present there were investigated. 
+Key microbial interactions for the assemblages were infered. 
+All the methods developed and presented in the previous chapters were used to enhance the analysis of this microbiome.
+
+In \textbf{Chapter 6}, the history of the IMBBC-HCMR HPC facility was presented indicating the vast needs of computing resources in modern analyses in general and in microbial studies more specifically. 
 
 
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "thesis"
-%%% End: 
+Finally, in the \textbf{Conclusions} chapter, general discussion and conclusions that have derived from this research were presented. 
+
