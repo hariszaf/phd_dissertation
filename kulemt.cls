@@ -705,19 +705,10 @@
     \textbf{
        Here are some thoughts of mine for the rest of the committe! 
     } \\
-    I am considering of \textbf{Prof Faust} that I will 
-    join her lab for a few months (for an EMBO short term fellowsip) \\
-
-    Also, \textbf{Prof. Elias Tsigaridas} that we have worked together on flux sampling. \\
-
-    Finally, in case that it is ok to have non permanent researchers in the committe, 
-    \textbf{Dr. Christina Pavloudi} with whom I have worked all these years. 
-
-
-
-
-    %  \textbf{Dr Christina Pavloudi} \\
-   %  George Washington University, US \\
+    \textbf{Prof Faust} \\
+    \textbf{Prof. Elias Tsigaridas} \\
+    \textbf{Prof. Klappa} \\
+    \textbf{Prof L.J.J}
 
     \hfill \break
 
@@ -743,7 +734,8 @@
 %     \parindent\z@ \parskip .5\baselineskip \sloppypar
 %     \copyright\space Copyright University of Crete\vskip\baselineskip
 %   \endgroup
-  \clearpage}
+  \clearpage
+  }
 
 
 

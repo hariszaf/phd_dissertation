@@ -31,6 +31,68 @@ Microbes, i.e. Bacteria, Archaea and small Eukaryotes such as protoza, are omnip
 \section{Data integration \& data mining in the era of omics}
 
 
+\subsection{Metadata: a key issue for the microbiome community}
+
+The Community initially focused on developing open science "best practices" for the research community. 
+The paper "The metagenomic data life-cycle: standards and best practices" \citep{ten2017metagenomic} provided the foundation for FAIR data management in the domain. 
+These best practices advocated using community standards for contextual provenance and metadata at all stages of the research data life cycle.
+
+Alongside archived sequence data, access to comprehensive metadata is important to contextualise where the data originated. 
+On submission, submitters are given the option to provide details regarding when, where and how their samples were collected with the opportunity to align provided metadata against community developed standards where possible. 
+However, challenges associated with metadata deposition mean submitters do not always provide comprehensive metadata - these challenges can range from: 
+lack of training and outreach resulting in submitters not fully understanding the importance of metadata and how to comply with standards; 
+as well as the trade-offs for the archives to provide complex and thorough validation vs simple user interfaces to ensure both compliance and submission are as easy as possible. 
+For the ENA, extensive documentation exists on how to submit data which both encourages compliance with metadata standards and provides separate submission guidelines for different data types - usage of the documentation can mitigate common errors and often aid first-time submitters but does not reach the full user-base. 
+
+FAIR principles, to provide a multilayer set of metadata required by the different scientific communities, reflecting the inherently multi-disciplinary character of environmental microbiology. 
+The various layers of metadata necessary for the FAIRification of MAGs should include:
+\begin{enumerate}
+   \item Environmental data describing the sample of origin
+   \item Sequencing technology or technologies
+   \item Details on the computational pipeline for metagenome assembly, binning and quality assessment
+   \item Connection to an existing taxonomy schema
+\end{enumerate}
+
+
+
+OSD’s open access strategy and provenance for metadata annotation is reflected in its ENA and Pangea submissions. 
+Among others Standardization and training are key aspects across OSD: from sampling protocols to metadata checklists and guidelines. 
+This is inline with aims of the Elixir microbiome community (see Sections “Mobilising raw data and metadata”, “Training - lack of training”); 
+spreading the experience to other biomes can benefit such ends.
+
+
+Open questions: 
+Metadata standard definition: minimum set and formats (Some flexibility will have to be considered in sharing standards between domain-specific communities).
+Systems to extract the vast amount of metadata locked in the scientific literature and provide them in standard format (explored by the Biodiversity Focus Group).
+
+
+Metadata associated with the raw data, the assembled data, and the workflow. The necessary scripts will be written in Python using standard libraries and Biopython. 
+Metadata of the cleaned data
+Metadata associated with the data sequencing, sample collection (MIMS), and quality control analyses will be generated according to the ENA manifest to enable uploading and archiving of the data to ENA.
+Metadata of the assembled data
+Because the workflow is distributed, it is necessary for EBI-MGnify to verify the provenance of the data workflow through registration and a verification test. A unique calculated hash generated from the data and workflow code will serve as a key for verification. This metadata will be generated at this step and together with the metadata associated with the assembly, uploaded to ENA/MGnify for further downstream functional annotation.
+Metadata to accompany the taxonomic inventories
+Metadata associated with the previous two steps will be summarised for inclusion with the taxonomic inventories (biom file format and CSV) for publication on the EMBRC GOs website.
+
+
+\begin{itemize}
+   \item Metadata of the cleaned data; metadata associated with the data sequencing, sample collection (MIMS), and quality control analyses
+   \item Metadata of the assembled data
+   \item Metadata to accompany the taxonomic inventories
+
+\end{itemize}  
+
+
+
+
+\subsection{Ontologies \& databases: the corner stone of mordern biology}
+
+
+
+
+
+
+
 % SECTION 4
 \section{Sampling the flux space of a metabolic model: challenges \& potential}
 
@@ -50,9 +112,11 @@ Microbes, i.e. Bacteria, Archaea and small Eukaryotes such as protoza, are omnip
 % SECTION 7
 \section{Aims and objectives}
 
-The aim of this PhD was double; 
-on the one hand, to enhance the analysis of microbiome data by building algorithms and software to address some of the on-going computational challenges on the field.
-On the other, to exploit these methods to identify taxa, functions, especially related to sulfur cycle, and microbial interactions that support life in microbial community assemblages in hypersaline sediments.
+The aim of this PhD was double:
+\begin{enumerate}
+   \item to enhance the analysis of microbiome data by building algorithms and software to address some of the on-going computational challenges on the field.
+   \item to exploit these methods to identify taxa, functions, especially related to sulfur cycle, and microbial interactions that support life in microbial community assemblages in hypersaline sediments.
+\end{enumerate}
 All parts of this work are computational. 
 
 In \textbf{Chapter 2}, challenges derived from the analysis of HTS amplicon data are examined.
