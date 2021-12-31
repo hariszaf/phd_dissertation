@@ -8,14 +8,6 @@
          approaches at the community level}
 \label{cha:dingo}
 
-% ADD AN INTRO FOR THE SECTION
-
-
-% The relationship between genotype and phenotype is fundamental to biology.
-% Many levels of control are introduced when moving from one to the other. 
-% Systems biology aims at deciphering "the strategy" both at the cell and at higher levels of organization, in case of multicell species, that enables organisms to produce orderly adaptive behavior in the face of widely varying genetic and environmental conditions (\cite{strohman2002maneuvering}); the term "strategy" is used as per \cite{polanyi1968life}.
-% Systems biology approaches aim at interpreting how a system's properties emerge; from the cell to the community level.
-
 
 \section{A New MCMC Algorithm for Sampling the Flux Space of
 Metabolic Networks}
@@ -79,12 +71,86 @@ Metabolic Networks}
    \end{figure}
 
 
+% MMCS CONTRIBUTION
+\subsection{Contribution}
+
+   We introduce a Multi-phase Monte Carlo Sampling (MMCS) algorithm
+   % (Section~\ref{sec:MMCS} and Algorithm~\ref{alg:MMCS})
+   to sample from a polytope~$P$. 
+   In particular, we split the sampling procedure in phases where, starting from $P$,
+   each phase uses the sample to round the polytope and provide it as input to the next phase.
+   
+   This improves the efficiency of the random walk in the next phase, see
+   % Figure~\ref{fig:mmcs_phases} and Table~\ref{tab:sampling_phases}. 
+   For sampling, we propose an improved variant of Billiard Walk 
+   % (Section~\ref{sec:billiard} and Algorithm~\ref{alg:billiard}) 
+   that enjoys faster arithmetic complexity per step. 
+   We also handle efficiently the potential arithmetic inaccuracies near to the boundary, see~\cite{ChePioCaz18} for a detailed treatment.
+
+   We accompany the MMCS algorithm with a powerful MCMC diagnostic, namely the
+   estimation of Effective Sample Size (ESS), to identify a satisfactory
+   convergence to the uniform distribution. However, our method is flexible and we
+   can use any random walk and combination of MCMC diagnostics to decide
+   convergence.
+
+   The open-source implementation of our algorithms%
+   \footnote{\url{https://github.com/GeomScale/volume_approximation/tree/v1.1.0-2}} 
+   provides a complete software framework to sample efficiently in metabolic networks. 
+   We demonstrate the efficiency of our tools by performing experiments on almost all
+   the metabolic networks that are publicly available and by comparing with the
+   state-of-the-art software packages, like \texttt{cobra}
+   % (Section~\ref{subsec:experiments}). 
+   Our implementation is faster than \texttt{cobra}
+   for low dimensional models, with a speed-up that ranges from $10$ to $100$
+   times; 
+   this gap on running times increases for bigger models
+   % (Table~\ref{tab:results1}). 
+   We measure the quality of the sample our software produces using two widely used diagnostics, i.e., ESS and potential scale reduction factor (PSRF)~\cite{Gelman92}. 
+   The highlight of our method is the ability to sample from the most complicated human metabolic network that is accessible today, namely Recon3D. 
+   In Figure 1 
+   % ~\ref{fig:copulas} 
+   we estimate marginal univariate and bivariate flux distributions in Recon3D which validate: 
+
+   \begin{itemize}
+      \item the quality of the sample by confirming a mutually exclusive pair of biochemical pathways, and that
+      \item our method indeed generates steady states. 
+   \end{itemize} 
+   
+   In particular, our software can sample $1.44\cdot 10^5$ points from  a $5\,335$-dimensional polytope in a day using modest hardware. 
+   This set of points suffices for the majority of systems biology analytics. 
+   To our understanding this task is out of reach for existing software.
+
+   Lastly, MMCS algorithm is quite general sampling scheme and so it has the potential 
+   to also address other hard computational problems like multivariate integration 
+   and volume estimation of polytopes. 
+
+   A preliminary version of this paper appeared in~\cite{chalki2021SoCG}. 
+   The current full version contains additional and more detailed experimental results, all the proofs of the various statements and theorems, the pseudocode of all the algorithms, an updated discussion of previous work,
+   and a more detailed presentation of our approach and tools.
+
+   % --------------  like a "bridge" ------------
+
+   % In the next section we present a thorough description of both the biological and the geometrical
+   % notions that are the backbone of our framework. 
+   % Section~\ref{sec:billiard}
+   % details the Billard Walk random walk, while we introduce our Multiphase Monte Carlo
+   % Sampling algorithms in 
+   % Section~\ref{sec:MMCS}.
+   % Finally, in
+   % Section~\ref{sec:experiments} 
+   % we present our open-source implementation and various
+   % experimental results to highlight he potential our approach. 
+   % We conclude in
+   % Section~\ref{sec:conclusion}, where we also present some future directions.
 
 
+
+
+% MMCS METHODS
 \subsection{Methods}
 
 
-\subsubsection{Efficient Billiard walk}
+\subsubsection*{Efficient Billiard walk}
 
    \begin{figure}[h]
       \centering
@@ -187,7 +253,7 @@ Metabolic Networks}
 
 
 
-   \subsubsection{Multiphase Monte Carlo Sampling algorithm}
+   \subsubsection*{Multiphase Monte Carlo Sampling algorithm}
 
    \begin{figure}[!htbp]
       \includegraphics[width=1.0\columnwidth]{figures/sampling_extra_phase_croped.png}
@@ -198,10 +264,10 @@ Metabolic Networks}
       \label{fig:mmcs}
    \end{figure}
 
-
+% MMCS RESULTS
 \subsection{Results}
 
-
+% MMCS DISCUSSION
 \subsection{Discussion}
 
    Flux sampling at the community level!
