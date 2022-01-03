@@ -56,7 +56,7 @@
 % 
 % ----------------------------------------
 
-
+\newpage
 
 % SECTION 3
 \section[The Dark mAtteR iNvestigator (DARN) tool: getting to know the known unknowns in COI amplicon data]{The Dark mAtteR iNvestigator (DARN) tool: getting to know the known unknowns in COI amplicon data\footnote{For author contributions, please refer to the relevant section. Modified version of the published review.}}
@@ -124,14 +124,19 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    Initially, $1,315,378$ sequences were retrieved corresponding to $183,330$ unique species from all eukaryotic taxa. 
    With respect to bacteria and archaea, $3,917$ bacterial COI sequences were obtained from the BOLD database \citep{ratnasingham2007bold}. 
    Similarly, $117$ sequences from archaea were obtained from BOLD. 
-   In addition, for all the PFam protein sequences related to the accession number for COX1 (\href{http://www.ncbi.nlm.nih.gov/nuccore/PF00115}{PF00115}), the respective DNA sequences were extracted from their corresponding genomes. 
+   In addition, for all the PFam protein sequences related to the accession number for 
+   COX1 (\href{http://www.ncbi.nlm.nih.gov/nuccore/PF00115}{PF00115}), the respective DNA sequences were extracted from their corresponding genomes. 
    This way an additional $217$ archaeal and $9,154$ bacterial sequences were obtained (see Table 1). 
    In total, sequences from $15$ archaeal, $371$ bacterial families and 60 taxonomic groups of higher level not assigned in the family level, were gathered. 
    An overview of the approach that was followed is presented in Figure 1. 
+
    The large number of obtained sequences effectively prevents a phylogenetic tree construction encompassing their total number in terms of building a single phylogenetic tree covering all of the three domains of life (archaea, bacteria, eukaryota). 
-
-
+   Therefore, consensus representative sequences from each of the three datasets were constructed using 
+   the PhAT algorithm \citep{czech2019methods}; 
+   based on the entropy of a set of sequences, PhAT groups sequences into a given target number of groups so they reflect the diversity of all the sequences in the dataset. 
+   As PhAT uses a multiple sequence alignment (MSA) as input, all the three domain-specific datasets were aligned using the MAFFT alignment software tool v7.453 \citep{katoh2002mafft, nakamura2018parallelization}.
    
+   % Table with sequences numbers
    \begin{table}[h]
       \begin{tabular}{@{}lllll@{}}
       \toprule
@@ -144,31 +149,91 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    \end{table}
 
 
-   Therefore, consensus representative sequences from each of the three datasets were constructed using the PhAT algorithm (Czech et al. 2019); 
-   based on the entropy of a set of sequences, PhAT groups sequences into a given target number of groups so they reflect the diversity of all the sequences in the dataset. 
-   As PhAT uses a multiple sequence alignment (MSA) as input, all the three domain-specific datasets were aligned using the MAFFT alignment software tool v7.453 (Katoh et al. 2002). 
    In the case of Eukaryotes, the alignment of the corresponding sequences would be impractically long because of their large number ($~183$K sequences). 
    To address this challenge, a two-step procedure was followed; 
-   a sequence subset of $500$ sequences (reference set) was selected and aligned and then used as a backbone for the alignment of all the remaining eukaryotic COI sequences. 
+   a sequence subset of $500$ sequences (\textit{reference set}) was selected and aligned and then used as a backbone for the alignment of all the remaining eukaryotic COI sequences. 
    All sequences were considered reliable as they were retrieved from curated databases (Midori2 and BOLD). 
    To build the reference set, a number ($n$) of the longest sequences from each of the various phyla were chosen, proportionally to the number ($m$) of sequences of each phylum (see Supplementary Table 1). 
-   The --min-tax-level parameter of the PhAT algorithm corresponded to the class level, for the case of eukaryotes and to the family level for archaea and bacteria. 
+   The \texttt{--min-tax-level} parameter of the PhAT algorithm corresponded to the class level, for the case of eukaryotes and to the family level for archaea and bacteria. 
    This parameter forced the PhAT algorithm to build at least one consensus sequence for each class and family respectively. 
    The taxonomy level was not the same for the case of eukaryotes sequence dataset and those of bacteria and archaea, as the number of unique eukaryotic families was one order of magnitude higher. 
-   The PhAT algorithm was invoked through the gappa v0.6.1 collection of algorithms (Czech et al. 2020).
+   The PhAT algorithm was invoked through the gappa v0.6.1 collection of algorithms \citep{czech2020genesis}.
 
 
-
-
-
-
-
-
-   \begin{figure}[h]
+   % Figure with the DARN methodology steps
+   \begin{figure}
       \centering
       \includegraphics[width=100mm]{figures/darn_methodology.jpg}
-      \caption{DARN methodology: figure in the publication}
+      \caption{
+         Overview of the approach followed to build the COI reference tree of life. 
+         Sequences were retrieved from Midori 2 (eukaryotes) and BOLD (bacteria and archaea) repositories. 
+         Consensus sequences at the family level were built for each domain specific dataset. 
+         MAFFT and consensus sequences at the family level were built using the PhAT algorithm. 
+         The COI reference tree was finally built using IQ-TREE2. 
+         Noun project icons by Arthur Slain and A. Beale.
+      }
    \end{figure}
+
+
+   A total of 1,109 consensus sequences ($70\%$ of total consensus sequences) were built covering the eukaryotic taxa, 
+   while $463$ ($29\%$) bacterial and $21$ ($1\%$) archaeal consensus sequences were included. 
+   The per-domain, consensus sequences returned can be found under the \texttt{consensus\_seqs} directory on 
+   the GitHub repository 
+   (see \texttt{\_consensus.fasta} files). 
+   These sequences were then merged as a single dataset and aligned to build a reference MSA; 
+   this time MAFFT was set to return using the \texttt{--globalpair} algorithm and the \texttt{--maxiterate} parameter 
+   equal to $1,000$. 
+   The MSA returned was then trimmed with the ClipKIT software package \citep{steenwyk2020clipkit} to keep only phylogenetically informative sites. 
+   The final MSA is available on GitHub, see \texttt{trimmed\_all\_consensus\_aligned\_adjust\_dir.aln}.
+
+   The reference tree was then built based on this trimmed MSA using the IQ-TREE2 software \citep{hoang2018ufboot2, minh2020iq}.
+   ModelFinder was invoked through IQ-TREE2 and the \texttt{GTR+F+R10} model was chosen based on the 
+   Bayesian Information Criterion (BIC) among $286$ models that were tested. 
+   The phylogenetic tree was then built using $1,000$ bootstrap replicates (\texttt{-B} $1,000$) and 
+   $1,000$ bootstrap replicates for Shimodaira–Hasegawa-like approximate likelihood ratio test (SH-aLRT) (\texttt{1,000} $1000$).
+   
+   In the \texttt{.iqtree} file there are the branch support values; SH-aLRT support (\%) / ultrafast bootstrap support (\%).
+   
+   A thorough description of all the implementation steps for building the reference tree is presented in this 
+   \href{https://colab.research.google.com/drive/1XorHsBm1uqx5TTZsH7SeVRkUA2SS8dnY}{Google Collab Notebook}. 
+   The computational resources of the IMBBC High Performance Computing system, called Zorba \citep{zafeiropoulos20210s}, were exploited to address the needs of the tasks.
+
+
+
+\subsubsection*{Investigating COI dark matter}
+
+   The COI reference tree was subsequently used to build and implement the Dark mAtteR iNvestigator (DARN) software tool. 
+   DARN uses a \texttt{.fasta} file with DNA sequences as input and returns an overview of sequence assignments per domain (eukaryotes, bacteria, archaea) after placing the query sequences of the sample on the branches of the reference tree. 
+   Sequences that are not assigned to a domain are grouped as "distant". 
+   It is necessary for the input sequences to represent the proper strand of the locus, 
+   i.e. input reads should have forward orientation. 
+   Optionally, DARN invokes the orient module of the vsearch package \citep{rognes2016vsearch} to implement this step, in case the user is not sure about the orientation of the sequences to be analysed.
+
+   The focal query sequences are aligned with respect to the reference MSA using the PaPaRa 2.0 algorithm \citep{berger2012papara}. 
+   The query sequences are then split to build a discrete query MSA. 
+   Finally, the Evolutionary Placement Algorithm EPA-ng \citep{barbera2019epa} is used to assign the query sequences to the reference tree.
+
+   To visualise the query sequence assignments, a two-step method was developed. 
+   First, DARN invokes the gappa examine assign tool which taxonomically assigns placed query sequences by making use of the likelihood weight ratio (LWR) that was assigned to this exact taxonomic path. 
+   In the DARN framework, by making use of the \texttt{--per-query-results} and \texttt{--best-hit} flags, the gappa assign software assigns the LWR of each placement of the query sequences to a taxonomic rank that was built based on the taxonomies included in the reference tree. 
+   The first flag ensures that the gappa assign tool will return a tabular file containing one assignment profile per input query while the latter will only return the assignment with the highest LWR. 
+   DARN automatically parses this output of gappa assign to build two input Krona profile files based on 
+
+   \begin{itemize}
+      \item the LWR values of each query sequence and
+      \item an adjustive approach where all the best hits get the same value in a binary approach (presence - absence)
+   \end{itemize}
+   
+   In the \texttt{final\_outcome} directory that DARN creates, two \texttt{.html} files, one for each of the Krona plots; 
+   Krona plots are built using the ktImportText command of KronaTools \citep{ondov2011interactive}. 
+   In addition four \texttt{.fasta} files are generated including the sequences of the sample that have been assigned to each domain or as "distant". 
+   A \texttt{.json} file with the metadata of the analysis is also returned including the identities of the sequences assigned to each domain.
+
+   DARN also runs the gappa assign tool with the \texttt{--per-query-results} flag only. 
+   This way, the user can have a thorough overview of each sample’s sequence assignments, as a sequence may be assigned to more than one branch of the reference tree, sometimes even to different domains. 
+   However, in cases with sequences assigned to multiple branches, the likelihood scores are most typically up to 100-fold to 1000-fold different.
+
+   DARN source code as well as all data sequences and scripts for building the reference phylogenetic tree are available on \href{https://github.com/hariszaf/darn}{GitHub}.
 
 
 
@@ -176,48 +241,118 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 \subsection{Results \& Validation}
 
 
+\subsubsection*{Evaluation of the phylogenetic tree}
+
+   The inferred phylogenetic tree is shown in Figure 2, with the bacterial (light blue) and archaeal (dark green) branches highlighted;
+   in Suppl. material 3: Fig. S1 the distribution of the eukaryotic phyla on the tree is presented. 
+   As shown, bacteria and archaea can be distinguished from eukaryotes. 
+   Scattered bacterial branches that are present among eukaryotic ones represent the diversity of the COI locus. 
+   To evaluate the phylogenetic tree, the set of consensus sequences were placed on it using the EPA-ng algorithm. 
+   The placements (see \texttt{.jplace} through a phylogenetic tree viewer, e.g. iTOL) verified that the phylogenetic tree built is valid, as the consensus sequences have been placed in their corresponding taxonomic branches (Suppl. material 4: Fig. S2; the figure was built using the heat-tree module of the gappa examine tool).
+
+   % FIGURE WITH PLACEMENTS
+   \begin{figure}[H]
+      \centering
+      \includegraphics[width=135mm]{figures/placements_of_consensus_seqs_transpaernt.png}
+      \caption{
+         Phylogenetic tree of the consensus sequences retrieved; the tree that DARN makes use of. Light blue: bacterial branches. 
+         Dark green: archaeal branches. White: eukaryotic branches.
+      }
+   \end{figure}
+
 
 \newpage
 
-\begin{sidewaystable}
-   
-   \begin{tabular}{@{}ccccccccccc@{}}
-   
-   \toprule
-   \thisfloatpagestyle{empty}
-   \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Sample(s) \\ accession number\end{tabular}} & \multirow{2}{*}{Envo type} & \multirow{2}{*}{Sample type} & \multirow{2}{*}{Primer set} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Amplicon \\ length (bp)\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Bioinfo \\ pipeline(s)\end{tabular}} & \multirow{2}{*}{\# of ASVs} & \multicolumn{4}{c}{\begin{tabular}[c]{@{}c@{}}$\sim$\% of sequence assignments per domain \\ (if PEMA, using d = 10)\end{tabular}} \\ \cmidrule(l){8-11} 
-    &  &  &  &  &  &  & \multicolumn{1}{c|}{Eukaryotes} & \multicolumn{1}{c|}{Bacteria} & \multicolumn{1}{c|}{Archaea} & \multicolumn{1}{c|}{distant} \\ \midrule
-   \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}ERS6449795–\\ ERS6449829\end{tabular}} & \multirow{2}{*}{marine} & \multirow{2}{*}{eDNA} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}jgHCO2198 - \\ jgLCO1490 \\ and \\ LoboF1 - \\ LoboR1\end{tabular}} & \multirow{2}{*}{658} & \begin{tabular}[c]{@{}c@{}}QIIME2 - \\ Dada2\end{tabular} & 13,376 & 11 & 88.0 & 0.02 & 0.003 \\
-    &  &  &  &  & \begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 10)\end{tabular} & 39,454 & 25 & 75.0 & 0.1 & 0.4 \\
-   \multirow{6}{*}{\begin{tabular}[c]{@{}c@{}}ERS6463899–\\ ERS6463901\end{tabular}} & \multirow{9}{*}{\begin{tabular}[c]{@{}c@{}}marine \\ reef\end{tabular}} & \multirow{15}{*}{eDNA} & \multirow{15}{*}{\begin{tabular}[c]{@{}c@{}}mlCOIintF - \\ jgHCO2198\end{tabular}} & \multirow{15}{*}{313} & JAMP & \multirow{5}{*}{1,304} & \multirow{5}{*}{35} & \multirow{5}{*}{65.0} & \multirow{5}{*}{-} & \multirow{5}{*}{0.2} \\
-    &  &  &  &  & dada2 &  &  &  &  &  \\
-    &  &  &  &  & PEAR &  &  &  &  &  \\
-    &  &  &  &  & vsearch &  &  &  &  &  \\
-    &  &  &  &  & DnoisE &  &  &  &  &  \\
-    &  &  &  &  & \multirow{4}{*}{\begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 10)\end{tabular}} & \multirow{4}{*}{11,545} & \multirow{4}{*}{46} & \multirow{4}{*}{50.0} & \multirow{4}{*}{1} & \multirow{4}{*}{3} \\
-   \begin{tabular}[c]{@{}c@{}}ERS6463906–\\ ERS6463911\end{tabular} &  &  &  &  &  &  &  &  &  &  \\
-   \begin{tabular}[c]{@{}c@{}}ERS6463913–\\ ERS6463918\end{tabular} &  &  &  &  &  &  &  &  &  &  \\
-   \begin{tabular}[c]{@{}c@{}}ERS6463920–\\ ERS6463922\end{tabular} &  &  &  &  &  &  &  &  &  &  \\
-   \multirow{6}{*}{\begin{tabular}[c]{@{}c@{}}ERS6463744–\\ ERS6463761\end{tabular}} & \multirow{6}{*}{\begin{tabular}[c]{@{}c@{}}marine \\ mangrove\end{tabular}} &  &  &  & JAMP & \multirow{5}{*}{663} & \multirow{5}{*}{40} & \multirow{5}{*}{60.0} & \multirow{5}{*}{-} & \multirow{5}{*}{0.6} \\
-    &  &  &  &  & dada2 &  &  &  &  &  \\
-    &  &  &  &  & PEAR &  &  &  &  &  \\
-    &  &  &  &  & vsearch &  &  &  &  &  \\
-    &  &  &  &  & DnoisE &  &  &  &  &  \\
-    &  &  &  &  & \begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 10)\end{tabular} & 5,879 & 49 & 47.0 & 1.0 & 2.0 \\
-   ERR3460466 & marine & bulk & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}mlCOIintF - \\ jgHCO2198\end{tabular}} & \multirow{3}{*}{313} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 2)\end{tabular}} & 193 & 99 & 1 & - & - \\
-   ERR3460467 & marine & bulk &  &  &  & 74 & 97 & 0.0 & - & 3 \\
-   ERR3460470 & marine & eDNA &  &  &  & 184 & 71 & 28.0 & 0 & 1 \\
-   ERS6488992 & lentic & \multirow{3}{*}{eDNA} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}fwhF2 - \\ EPTDr2\end{tabular}} & \multirow{3}{*}{142} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 10)\end{tabular}} & 416 & 85 & 7 & 3 & 5 \\
-   ERS6488993 & lentic &  &  &  &  & 315 & 99.2 & 0.4 & 0.4 & - \\
-   ERS6488994 & lentic &  &  &  &  & 823 & 90 & 4 & 2 & 4 \\
-   ERS6488995 & lotic & eDNA & BF3 - BR2 & 458 & \begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 10)\end{tabular} & 1,940 & 64 & 34.0 & 2 & 0.3 \\ \bottomrule
-   \end{tabular}
+\subsubsection*{DARN using mock community data}
 
-   \caption{DARN outcome over the samples or set of samples. Assignment fractions of the sequences per domain per sample in the DARN results over the samples.}
+   To examine whether the phylogenetic-based taxonomy assignment addresses a real-world issue, a local blast database was built using the total number of the consensus sequences retrieved. 
+   As expected, when the consensus sequences were blasted against this local blastdb, all were matched with their corresponding sequences. 
+   However, when a mock dataset was used to evaluate the two approaches (\texttt{blastdb} and the phylogenetic tree) none of the bacterial sequences were captured as bacteria after \texttt{blastn} against the local blastdb (see output file here). 
+   All bacterial sequences returned an incorrect eukaryotic assignment. 
+   Contrarily, when the phylogenetic tree was used, all the bacterial sequences were captured.
 
+
+\subsubsection*{DARN using real community data}
+
+   To evaluate DARN on the presence of dark matter we analysed a wide range of cases to show the ability of DARN to detect and estimate dark matter under various conditions. 
+   Both eDNA and bulk samples, from marine, lotic and lentic environments, were selected to reflect various combinations of primer and amplicon lengths, PCR protocols and bioinformatics analyses (Table 2).
+
+   % BIG TABLE WITH DARN OUTPUT TABLES
+   \begin{sidewaystable}
+      
+      \begin{tabular}{@{}ccccccccccc@{}}
+      
+      \toprule
+      % \thisfloatpagestyle{empty}
+      \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Sample(s) \\ accession number\end{tabular}} & \multirow{2}{*}{Envo type} & \multirow{2}{*}{Sample type} & \multirow{2}{*}{Primer set} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Amplicon \\ length (bp)\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Bioinfo \\ pipeline(s)\end{tabular}} & \multirow{2}{*}{\# of ASVs} & \multicolumn{4}{c}{\begin{tabular}[c]{@{}c@{}}$\sim$\% of sequence assignments per domain \\ (if PEMA, using d = 10)\end{tabular}} \\ \cmidrule(l){8-11} 
+      &  &  &  &  &  &  & \multicolumn{1}{c|}{Eukaryotes} & \multicolumn{1}{c|}{Bacteria} & \multicolumn{1}{c|}{Archaea} & \multicolumn{1}{c|}{distant} \\ \midrule
+      \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}ERS6449795-\\ ERS6449829\end{tabular}} & \multirow{2}{*}{marine} & \multirow{2}{*}{eDNA} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}jgHCO2198 - \\ jgLCO1490 \\ and \\ LoboF1 - \\ LoboR1\end{tabular}} & \multirow{2}{*}{658} & \begin{tabular}[c]{@{}c@{}}QIIME2 - \\ Dada2\end{tabular} & 13,376 & 11 & 88.0 & 0.02 & 0.003 \\
+      &  &  &  &  & \begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 10)\end{tabular} & 39,454 & 25 & 75.0 & 0.1 & 0.4 \\
+      \multirow{6}{*}{\begin{tabular}[c]{@{}c@{}}ERS6463899–\\ ERS6463901\end{tabular}} & \multirow{9}{*}{\begin{tabular}[c]{@{}c@{}}marine \\ reef\end{tabular}} & \multirow{15}{*}{eDNA} & \multirow{15}{*}{\begin{tabular}[c]{@{}c@{}}mlCOIintF - \\ jgHCO2198\end{tabular}} & \multirow{15}{*}{313} & JAMP & \multirow{5}{*}{1,304} & \multirow{5}{*}{35} & \multirow{5}{*}{65.0} & \multirow{5}{*}{-} & \multirow{5}{*}{0.2} \\
+      &  &  &  &  & dada2 &  &  &  &  &  \\
+      &  &  &  &  & PEAR &  &  &  &  &  \\
+      &  &  &  &  & vsearch &  &  &  &  &  \\
+      &  &  &  &  & DnoisE &  &  &  &  &  \\
+      &  &  &  &  & \multirow{4}{*}{\begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 10)\end{tabular}} & \multirow{4}{*}{11,545} & \multirow{4}{*}{46} & \multirow{4}{*}{50.0} & \multirow{4}{*}{1} & \multirow{4}{*}{3} \\
+      \begin{tabular}[c]{@{}c@{}}ERS6463906–\\ ERS6463911\end{tabular} &  &  &  &  &  &  &  &  &  &  \\
+      \begin{tabular}[c]{@{}c@{}}ERS6463913–\\ ERS6463918\end{tabular} &  &  &  &  &  &  &  &  &  &  \\
+      \begin{tabular}[c]{@{}c@{}}ERS6463920–\\ ERS6463922\end{tabular} &  &  &  &  &  &  &  &  &  &  \\
+      \multirow{6}{*}{\begin{tabular}[c]{@{}c@{}}ERS6463744–\\ ERS6463761\end{tabular}} & \multirow{6}{*}{\begin{tabular}[c]{@{}c@{}}marine \\ mangrove\end{tabular}} &  &  &  & JAMP & \multirow{5}{*}{663} & \multirow{5}{*}{40} & \multirow{5}{*}{60.0} & \multirow{5}{*}{-} & \multirow{5}{*}{0.6} \\
+      &  &  &  &  & dada2 &  &  &  &  &  \\
+      &  &  &  &  & PEAR &  &  &  &  &  \\
+      &  &  &  &  & vsearch &  &  &  &  &  \\
+      &  &  &  &  & DnoisE &  &  &  &  &  \\
+      &  &  &  &  & \begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 10)\end{tabular} & 5,879 & 49 & 47.0 & 1.0 & 2.0 \\
+      ERR3460466 & marine & bulk & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}mlCOIintF - \\ jgHCO2198\end{tabular}} & \multirow{3}{*}{313} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 2)\end{tabular}} & 193 & 99 & 1 & - & - \\
+      ERR3460467 & marine & bulk &  &  &  & 74 & 97 & 0.0 & - & 3 \\
+      ERR3460470 & marine & eDNA &  &  &  & 184 & 71 & 28.0 & 0 & 1 \\
+      ERS6488992 & lentic & \multirow{3}{*}{eDNA} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}fwhF2 - \\ EPTDr2\end{tabular}} & \multirow{3}{*}{142} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 10)\end{tabular}} & 416 & 85 & 7 & 3 & 5 \\
+      ERS6488993 & lentic &  &  &  &  & 315 & 99.2 & 0.4 & 0.4 & - \\
+      ERS6488994 & lentic &  &  &  &  & 823 & 90 & 4 & 2 & 4 \\
+      ERS6488995 & lotic & eDNA & BF3 - BR2 & 458 & \begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 10)\end{tabular} & 1,940 & 64 & 34.0 & 2 & 0.3 \\ \bottomrule
+      \end{tabular}
+
+      \caption{DARN outcome over the samples or set of samples. Assignment fractions of the sequences per domain per sample in the DARN results over the samples.}
+
+   \end{sidewaystable}
+
+   % \newpage
+
+
+   More specifically, 57 marine, surface water, eDNA samples from Ireland were analysed through 
+      a. QIIME2 \citep{bolyen2018qiime} and DADA2 \citep{callahan2016dada2} and, 
+      b. PEMA \citep{zafeiropoulos2020pema}. 
+   Similarly, 18 mangrove and 18 reef marine eDNA samples from Honduras, were analyzed using 
+      a. \href{https://github.com/VascoElbrecht/JAMP}{JAMP v0.74} and DnoisE \citep{antich2021denoise} and 
+      b. PEMA. 
+   Furthermore, a sediment sample and two samples from Autonomous Reef Monitoring Structures (ARMS) one conserved in DMSO and another in ethanol from the Obst et al. (2020) \citep{obst2020marine} dataset were analysed using PEMA. 
+   In addition, one lotic and two lentic samples from Norway were analysed using PEMA. 
+   For the case of the lentic samples, multiple parameter sets regarding the ASVs inference step were implemented; 
+   i.e the $d$ parameter of the Swarm v2 \citep{mahe2015swarm} that PEMA invokes was set equal to 2 and 10 to cover 
+   a great range of different cases \citep{kamenova2020flexible}. 
+   DARN was then executed using the ASVs retrieved in each case as input. 
+   All the DARN analyses and the PEMA runs were performed on an Intel(R) Xeon(R) CPU E5649 @ 2.53GHz server of 24 CPUs and 142 GB RAM in the Area52 Research Group at the University College Dublin.
+
+   The number of sequences returned, using various bioinformatic analyses, ranged from circa 3k to $214k$ (Table 2) in the different amplicon datasets used. 
+   A coherent visual representation of the DARN outcome for all the datasets is 
+   available \href{https://hariszaf.github.io/darn/}{here}. 
+   The visual and interactive properties of the Krona plot allow the user to navigate through the taxonomy. 
+   Furthermore, DARN also supports a thorough investigation per OTU/ASV, as it returns a \texttt{.json} file with 
+   all the OTUs/ASVs ids that have been assigned in each of the four categories (Bacteria, Archaea, Eukaryotes and distant).
    
-\end{sidewaystable}
-
+   Significant proportions of non-eukaryote DARN assignments were observed in all marine eDNA samples (Table 2). 
+   Bacterial assignments made up the largest proportion of the non-eukaryotic assignments 
+   ($35.3\%$ on average and more than $75\%$ of the OTUs/ASVs in some cases), however, archaeal assignments 
+   were also detected to a great extent as well ($18.4\%$ on average). 
+   The lentic samples were those with the shortest amplicon length among those analysed ($142$ bp); 
+   hence, for their orientation a database with only the shortest consensus sequences ($<700$ bp) was used, as otherwise a great number of sequences did not have sufficient number of hits and was discarded (see Suppl. material 2: Table S2). 
+   It is worth mentioning that in this case, the initial number of raw reads ranged 
+   from $~53,000$ (ERS6488992, ERS6488993) to $~88,000$ (ERS6488993) while the number of ASVs returned 
+   (using Swarm with $d$ parameter equal to $10$) ranged from $365$ (ERS6488993) to $823$ (ERS6488993). 
+   This relatively low number of ASVs could indicate that targeting such small COI regions could decrease the 
+   co-amplification of non-targeted sequences. 
+   In the case of bulk samples (Table 2) only a low proportion of the sequences were not assigned as Eukaryotes, suggesting that non-eukaryotic sequences are more abundant in environmental samples. 
+   This could be expected since prokaryotes are amplified as whole organisms from environmental samples, while metazoa that are usually the targeted taxa in COI studies, are amplified from DNA traces or/and other parts of biological source material.
 
 
 
