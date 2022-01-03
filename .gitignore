@@ -12,3 +12,4 @@
 *.xml
 *.fls
 *latexmk
+*.pdf
