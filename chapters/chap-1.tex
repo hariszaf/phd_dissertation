@@ -8,7 +8,11 @@
 \label{cha:2}
 
 
-
+% ----------------------------------------
+% 
+%      PEMA
+% 
+% ----------------------------------------
 % SECTION 2
 \section[PEMA: a flexible Pipeline for Environmental DNA Metabarcoding Analysis of the 16S/18S ribosomal RNA, ITS, and COI marker genes]{
    PEMA: a flexible Pipeline for Environmental DNA Metabarcoding Analysis of the 16S/18S ribosomal RNA, ITS, and COI marker genes\footnote{For author contributions, please refer to the relevant section. Modified version of the published review; extra features have been added and discussed on this thesis.}
@@ -22,31 +26,519 @@
    % PEMA INTRODUCITON
    \subsection{Introduction}
 
+   Environmental DNA (eDNA) metabarcoding inaugurates a new era in bio- and eco-monitoring \citep{pavan2015dna}. 
+   eDNA refers to genetic material obtained directly from environmental samples (soil, sediment, water, etc.) without any obvious signs of biological source material \citep{thomsen2015environmental}. 
+   Metabarcoding is the combination of DNA taxonomy, based on taxa-specific marker genes (e.g., 16S ribosomal RNA [rRNA] for Bacteria and Archaea, cytochrome oxidase subunit 1 [COI] and 18S rRNA for Metazoa, ITS for Fungi), and high-throughput DNA sequencing technologies; thus, simultaneous identification of a mixture of organisms is attainable \citep{ji2013reliable}. 
+   eDNA metabarcoding attempts to turn the page on the way biodiversity is perceived and monitored \citep{ji2013reliable}. 
+   This combination is considered to be a potential holistic approach that, once standardized, allows for higher detection capacity and at a lower cost compared to conventional methods of biodiversity assessment. 
+   However, from the raw read sequence files to an amplicon study's results, the bioinformatics analysis required can be troublesome for many researchers.
 
-      \begin{figure}[ht]
-         \centering
-         \includegraphics[width=0.95\columnwidth]{figures/pema_workflow.jpeg}
-         \caption{The PEMA workflow: figure from publication}
-      \end{figure}
-
-
+   Well-established pipelines are available to process metabarcoding data for the case of 16S and 18S rRNA marker genes and bacterial communities (e.g., mothur \citep{schloss2009introducing}, QIIME 2 \citep{bolyen2018qiime}, LotuS \citep{hildebrand2014lotus}). 
+   However, certain limitations accompany each of these and occasionally they can be far from easy-to-use software. Moreover, there is a great need for similarly straightforward and benchmarked approaches for the analysis of other marker genes. With respect to the COI and ITS marker genes, a number of pipelines have been implemented, e.g., \href{https://github.com/enormandeau/barque}{Barque}, ScreenForBio \citep{axtner2019efficient}, and PIPITS \citep{gweon2015pipits}. 
+   However, there is still need for a fast, flexible, easy-to-install, and easy-to-use pipeline for both COI and ITS marker genes.
+   
+   The pipelines mentioned above, although entrenched, are still hindered by a series of hurdles. 
+   Among the most prominent are technical difficulties in installation and use, strict limitations in setting parameters for the algorithms invoked, and incompetence in partial re-execution of an analysis.
+   
+   Moreover, given the computational demands of such analyses, access to high - performance computing (HPC) systems might be mandatory, e.g., to process studies with a large number of samples. 
+   This is timely given the ongoing investment of national and international efforts (e.g., see 
+   \href{https://www.esfri.eu/sites/default/files/u4/ESFRI_SCRIPTA_VOL3_INNO_double_page.pdf}{European Strategy Forum on Research Infrastructures}) 
+   to serve the broad biological community via commonly accessible infrastructures.
+   
    % PEMA CONTRIBUTION
    \subsection{Contribution}
+
+   PEMA (Pipeline for Environmental DNA Metabarcoding Analysis) is an open source pipeline that bundles state-of-the-art bioinformatic tools for all necessary steps of amplicon analysis and aims to address the aforementioned issues. 
+   It is designed for paired-end sequencing studies and is implemented in the BDS \citep{cingolani2015bigdatascript} programming language. 
+   BDS's ad hoc task parallelism and task synchronization supports heavyweight computation, which PEMA inherits. 
+   In addition, BDS supports "checkpoint" files that can be used for partial re-execution and crash recovery of the pipeline. 
+   PEMA builds on this feature to serve tool and parameter exploratory customization for optimal metabarcoding analysis fine tuning.
+   Switching effortlessly between (molecular) operational taxonomic unit ([M]OTU) clustering and amplicon sequence variant (ASV) inference algorithms is a pertinent example. 
+   Finally, via software containerization technologies such as Docker \citep{rad2017introduction} and Singularity \citep{kurtzer2017singularity}, with the latter being HPC-centered, PEMA is distributed in an easy to download and install fashion on a range of systems, from regular computers to cloud or HPC environments.
+   
+   From the biological perspective, monitoring biodiversity at all its different levels is of great importance. Because there is not a single marker gene to detect all taxa, researchers need to use different genes targeting each great taxonomy group separately \citep{coissac2012bioinformatic}. 
+   To that end, PEMA supports the metabarcoding analysis of both prokaryotic communities, based on the 16S rRNA marker gene, and eukaryotic ones, based on the ITS (for Fungi) and COI and 18S rRNA (for Metazoa) marker genes \citep{coissac2012bioinformatic}.
+   
+   As high-throughput sequencing (HTS) data become more and more accurate, ASVs, i.e., marker gene amplified sequence reads that differ in $≥1$ nucleotide from each other, become easier to resolve [15] \citep{callahan2017exact}. 
+   The use of ASVs instead of OTUs has been suggested \citep{callahan2017exact}; 
+   however, the choice of which approach to use should be based on each study's objective(s) \citep{pauvert2019bioinformatics}.
+   
+   PEMA supports both OTU clustering and ASV inference for all marker genes 
+   (see “OTU clustering vs ASV inference” in the “Results and Discussion” section). 
+   Two clustering algorithms, VSEARCH \citep{rognes2016vsearch} and CROP \citep{hao2011clustering}, are used for the clustering of reads in (M)OTUs—the former for the case of the 16S/18S rRNA marker genes, the latter for the case of COI and ITS. 
+   Swarm v2 \citep{mahe2015swarm} allows ASV inference in all cases.
+   
+   Taxonomic assignment is performed in an alignment-based approach, making use of the CREST LCAClassifier \citep{lanzen2012crest} and the Silva database \citep{quast2012silva} for the case of 16S and 18S rRNA marker genes; 
+   the Unite database \citep{rillig2019role} is used for the ITS gene. 
+   In the 16S marker gene case, phylogeny-based assignment is also supported, based on RAxML-ng \citep{kozlov2019raxml}, 
+   EPA-ng \citep{barbera2019epa}, and Silva \citep{quast2012silva}. 
+   For the COI marker gene, the RDPClassifier \citep{wang2007naive} and the MIDORI database \citep{machida2017metazoan} are used for the taxonomic assignment. 
+   In addition, ecological and phylogenetic analysis are facilitated via the \texttt{phyloseq} R package \citep{mcmurdie2013phyloseq}.
+   
+   All the pipeline- and third-party module–controlling parameters are defined in a plain "parameter-value pair" text file. Its straightforward format eases the analysis fine tuning, complementary to the aforementioned checkpoint mechanism. A tutorial about PEMA and installation guidance can be found on \href{https://github.com/hariszaf/pema}{PEMA's GitHub repository} .
 
 
    % PEMA METHODS
    \subsection{Methods \& Implementation}
 
+   PEMA's architecture comprises 4 main parts taking place in tandem (Fig. 1). A detailed description of the tools invoked by PEMA and their licenses is included in Additional File 1: Supplementary Methods.
+
+   \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.95\columnwidth]{figures/pema_workflow.jpeg}
+      \caption{PEMA comprises 4 parts. The first step (top left) is the quality control and pre-processing of the Illumina sequencing reads. This step is common for both 16S rRNA and COI marker genes. The second step (top right) is the clustering of reads to (M)OTUs or their inferring to ASVs. The third step (bottom left) is the taxonomy assignment to the generated (M)OTUs/ASVs. In the fourth step (bottom right), the results of the metabarcoding analysis are provided to the user and visualized. *noun project icons by: ProSymbols (US), IconMark (PH), Nithinan Tatah (TH). clustering figure adapted from DOI: 10.7717/peerj.1420/fig-1}
+   \end{figure}
+
+
+   \subsubsection*{Part 1: Quality control and pre-processing of raw data}
+
+   First, FastQC \citep{fastqc} is used to obtain an overall read-quality summary; visual inspection of each sample's quality may recommend removing those insufficient quality, as well as samples with a low number of reads, and rerunning the analysis. 
+   To correct errors produced by the sequencer, PEMA incorporates a number of tools. 
+   Trimmomatic \citep{bolger2014trimmomatic} implements a series of trimming steps, which either remove parts of the sequences corresponding to the adapters or the primers, trim and crop parts of the reads, or even remove a read completely, when it fails to reach the quality-filtering standards set by the user. 
+   Cutadapt \citep{martin2011cutadapt} is used additionally for the case of ITS to address the variability in length of this marker gene (see Additional File 1: Supplementary Methods). 
+   BayesHammer \citep{nikolenko2013bayeshammer}, an algorithm of the SPAdes assembly toolkit \citep{bankevich2012spades}, revises incorrectly called bases. 
+   PANDAseq \citep{masella2012pandaseq} assembles the overlapping paired-end reads, and then the \texttt{obiuniq} program of OBITools \citep{boyer2016obitools} groups all the identical sequences in every sample, keeping track of their abundances. 
+   The VSEARCH package \citep{rognes2016vsearch} is then invoked for chimera removal; 
+   however, if the Swarm v2 algorithm is selected, this step will be performed after the ASV inference (see next section).
+
+
+   \subsubsection*{Part 2: (M)OTU clustering and ASV inference}
+
+   Quality-controlled and processed sequences are subsequently clustered into (M)OTUs or treated as input for inferring ASVs. 
+   For the case of 16S and 18S rRNA marker genes, VSEARCH \citep{rognes2016vsearch} is used for OTU clustering, while ASVs can be identified by the Swarm v2 algorithm \citep{mahe2015swarm}. 
+   VSEARCH is an accurate and fast tool that can handle large datasets; at the same time it is a great alternative for USEARCH \citep{edgar2010search} because it is distributed under an open source license.
+
+   For the ITS and COI marker genes, CROP \citep{hao2011clustering}, an unsupervised probabilistic Bayesian clustering algorithm that models the clustering process using birth-death Markov chain Monte Carlo (MCMC), is used. 
+   The CROP clustering algorithm is adjusted by a series of parameters that need to be tuned by the user (namely, $b$, $e$, and $z$).
+   These parameters depend on specific dataset properties such as the length and the number of reads. 
+   PEMA automatically adjusts $b$, $e$, and $z$ by collecting such information and applying the CROP recommended parameter-setting rules \citep{hao2011clustering}. 
+   ASV inference is conducted by Swarm v2 \cite{mahe2015swarm} in this case too.
+
+   Because the Swarm v2 algorithm is not affected by chimeras (F. Mahé, personal communication), when Swarm v2 is selected, chimera removal occurs after the clustering (see Additional File 1: Supplementary Methods: Swarm v2). 
+   This leads to a computational time gain as chimeras are sought among ASVs, instead of ungrouped reads.
+
+   Last, any singletons, i.e., sequences with only 1 read, occurring after the (M)OTU clustering or the ASV inference may be removed according to the user's parameter settings.
+
+
+   \subsubsection*{Part 3: Taxonomy assignment}
+
+   Alignment-based taxonomy assignment is supported for all marker gene analyses. 
+   In the case of the 16S/18S rRNA and ITS marker genes, the LCAClassifier algorithm of the CREST set of resources and tools [20] is used together with the Silva \citep{quast2012silva} and the Unite \citep{nilsson2019unite} database, respectively, to assign taxonomy to the OTUs. 
+   Two versions of Silva are included in PEMA: 128 (29 September 2016) and 132 (13 December 2017). 
+   Because classifiers need first to be trained for each database they use, for future Silva \citep{quast2012silva} versions new PEMA versions will be available.
+
+   For the COI marker gene, PEMA uses the RDPClassifier \citep{wang2007naive} and the MIDORI reference database \citep{machida2017metazoan} to assign taxonomy of the MOTUs. 
+   The MIDORI database contains quality-controlled metazoan mitochondrial gene sequences from GenBank \citep{benson2018genbank}.
+
+   Intended primarily for studies from less explored environments, phylogeny - based assignment is available for 16S rRNA marker gene data. 
+   PEMA maps OTUs to a custom reference tree of 1,000 Silva-derived consensus sequences (created using RAxML-ng \citep{kozlov2019raxml} and gappa [phat algorithm] \citep{czech2019methods}, Fig. 2A). 
+   PaPaRa \citep{berger2012papara} and EPA-ng \citep{barbera2019epa} combine the OTU clustering output and the reference tree to produce a phylogeny-aware alignment and map the 16S rRNA OTUs to the custom reference tree. 
+   Beyond the context of PEMA, users may visualize the output with tree viewers such as iTOL \citep{letunic2021interactive} (Fig. 2B).
+
+   \begin{figure}[h]
+      \centering
+      \includegraphics[width=115mm]{figures/pema_phylogenetic_tree.jpeg}
+      \caption{
+         Phylogeny - based taxonomy assignment. 
+         A: Building a reference tree for the phylogeny-based taxonomy assignment to 16S rRNA marker gene OTUs: from the latest edition of Silva SSU, all entries referring to Bacteria and Archaea were used and using the “art” algorithm, 10,000 consensus taxa were kept. 
+         B: Using PaPaRa and the OTUs that come up from every analysis, an MSA was made and EPA - ng took over the phylogeny - based taxonomy assignment. *noun project icons by: Rockicon and A Beale.
+      }
+   \end{figure}
+
+   \subsubsection*{Part 4: Ecological downstream analysis of the taxonomically assigned (M)OTU/ASV tables}
+
+   PEMA's major output is either an (M)OTU or an ASV table with the assigned taxonomies and the abundances of each taxon in every sample. 
+   For each sample of the analysis, a subfolder containing statistics about the quality of its reads, as well as the taxonomies and their abundances, is also returned.
+
+   Via the \texttt{phyloseq} R package \citep{mcmurdie2013phyloseq}, downstream ecological analysis of the taxonomically assigned OTUs or ASVs is supported. 
+   This includes $\alpha-$ and $\beta-$diversity analysis, taxonomic composition, statistical comparisons, and calculation of correlations between samples.
+
+   When selected, in addition to the phyloseq \citep{mcmurdie2013phyloseq} output, a multiple sequence alignment (MSA) and a phylogenetic tree of the OTU/ASVs retrieved can be returned; 
+   for the MSA, the MAFFT \citep{katoh2002mafft, nakamura2018parallelization} aligner is invoked while the latter is built by RAxML-ng \citep{kozlov2019raxml}.
+
+
+   \subsubsection*{PEMA container-based installation}
+
+   An easy way of installing PEMA is via its containers. 
+   A Dockerized PEMA version is \href{ https://hub.docker.com/r/hariszaf/pema}{available}. 
+   Singularity users can \textit{pull} the PEMA image from as described in \href{https://github.com/hariszaf/pema}{PEMA GitHub repository}. 
+   Between the 2 containers, the Singularity-based one is recommended for HPC environments owing to Singularity's improved security and file accessing properties, 
+   see \href{here}{https://dev.to/grokcode/singularity--a-docker-for-hpc-environments-i6p}. 
+   PEMA can also be found in the bio.tools (id: PEMA) and SciCruch (PEMA, \href{https://scicrunch.org/resolver/RRID:SCR_017676}{RRID:SCR\_017676}) databases. 
+   For detailed documentation, see \href{https://hariszaf.github.io/pema_documentation/}{here}.
+
+   \subsubsection*{PEMA output}
+
+   All PEMA - related files (i.e., intermediate files, final output, checkpoint files, and per - analysis parameters) are grouped in distinct (self - explanatory) subfolders per major PEMA pipeline step. 
+   In the last subfolder, i.e., subfolder 8, the results are further split into folders per sample. 
+   This eases further analysis both within the PEMA framework (e.g., partial re-execution for parameter exploration) and beyond. 
+   An extra subfolder is created when an ecological analysis via the \texttt{phyloseq} package has been selected.
+
+
+   \subsubsection*{PEMA modules added after publication} \footnote{REMEMBER TO WRITE THIS PART}
+
+
    % PEMA RESULTS
    \subsection{Results \& Validation}
+
+   \subsubsection*{Evaluation}
+
+   To evaluate PEMA, 2 approaches were followed. 
+   First, PEMA was benchmarked against mock community datasets. 
+   Second, PEMA was used to analyse previously published datasets. 
+   PEMA's output was then compared with the original study outcome, as well as with the output of QIIME2, LotuS, Mothur, and Barque (where applicable).
+
+   Four mock communities, 1 for each marker gene, were used. With respect to the 16S rRNA marker gene, a mock community of Gohl et al. \citep{gohl2016systematic} with 20 different bacterial species was studied. 
+   Correspondingly, in the case of the 18S rRNA marker gene, a mock community of Bradley et al. \citep{bradley2016} with 12 algal species was used; 
+   for the ITS, one of Bakker \citep{bakker2018fungal} including 19 different fungal taxa; 
+   and for the case of the COI marker gene, a mock community of Bista et al. \citep{bista2018performance} containing 14 metazoan species. 
+   More information on the mock communities, their original studies, and the results of PEMA for various combinations of parameters can be found in Additional File 2: Mock Communities.
+
+   Complementary to the mock community evaluation, 2 publicly available datasets from published studies were investigated through PEMA. 
+   For the 16S rRNA marker gene, the dataset reported by Pavloudi et al. \citep{pavloudi2017sediment} was used; 
+   the original study aimed at investigating the sediment prokaryotic diversity along a transect river–lagoon–open sea. 
+   For the COI case, the dataset of Bista et al. \citep{bista2017annual} was used; 
+   this study investigated whether eDNA can be used for the accurate detection of chironomids (a taxonomic group of macroinvertebrates) in a freshwater habitat.
+
+   In both approaches, the respective \texttt{.fastq} files were downloaded from the European Nucleotide Archive (ENA) of the European Bioinformatics Institute ENA-(EBI) using \textit{ENA File Downloader version 1.2} \citep{harrison2019european} and PEMA was run on the in-house HPC cluster.
+
+   All analyses were conducted on identical Dell M630 nodes (128 GB RAM, 20 physical Intel Xeon 2.60 GHz cores).
+
+
+   \subsubsection*{Mock community evaluation}
+
+   PEMA was tested against mock communities. 
+   An evaluation of its accuracy must capture 
+   (i) how many of PEMA's predictions are true (i.e., the percent of correctly assigned taxa among all predicted taxa) and 
+   (ii) how many of the taxa existing in the mock community were recovered successfully by PEMA. 
+   The precision statistical metric was used to assess the former, and recall, the latter. 
+   In addition, the $F1$-score was used as a combined metric of both precision and recall. 
+   Precision is calculated as the ratio of true-positive results (TP) over the total number of true- ($TP$) and false-positive results ($FP$) predicted by a model, as follows: $precision = TP/(TP + FP)$; 
+   recall is the ratio of TP over the total number of TP and false-negative results (FN): $recall = TP/(TP + FN)$. 
+   The $F1$-score is the precision and recall harmonic mean and is calculated by means of the following formula: 
+   $F1 = 2 × (precision × recall)/(precision + recall)$ \citep{sammut2011encyclopedia}.
+
+   Adequate accuracy was achieved when PEMA was used to recover the marker gene–specific mock communities at the genus level.
+   Precision and recall scores of ∼80\% or more were observed, with 2 exceptions in precision but also 3 very high scores in recall. 
+   Overall the F1-scores ranged from 74\% to 86\%. 
+   A detailed description of the benchmark methodology and statistics analysis is given in Additional File 2: Mock Communities.
+
+   Detailed presentation of per-marker-gene–specific mock community recovery via PEMA is provided in the following sections. 
+   Several different sets of parameters were chosen for each marker gene. 
+   Each marker gene has special features (e.g., length variability, sequence variability), and each Illumina run has its own intrinsic biases (e.g., primers used, PCR protocol); 
+   thus, parameter tuning plays a crucial part in metabarcoding analyses.
+
+   In an attempt to thoroughly analyse the sequence data from the mock communities, various sets of parameters were tested on the basis of the experimental details of the published studies but also in an exploratory way. 
+   Many different parameter settings were tested, especially for the steps of quality trimming of the reads and the OTU clustering/ASV inference. 
+   The differences in their output indicate how sensitive this method is, as well as the great need of a mock community in every metabarcoding study—both as a control but also as a \textit{tuning system} for the parameter setting of the pipeline used.
+
+   \subsubsection*{16S rRNA}
+
+   When PEMA was performed with the Swarm v2 algorithm ($d$ = 3, strictness = 0.6) without removal of singletons, 18 of the 20 taxa were identified to the genus level and 3 of these even to the species level. 
+   There were 2 species that were not found in any of the PEMA runs. 
+   According to Gohl et al. \citep{gohl2016systematic}, there was a discrepancy in the identification of those 2 species that was dependent on the amplification protocol used. 
+   It is worth mentioning that as d increases, taxa cannot be identified to species level at all; 
+   however, $FP$ assignments decrease. 
+   Thus, when $d$ = 30 and strictness = 0.6 for the KAPA samples, Enterococcus was not identified at all; 
+   however, PEMA finds its greatest $F1$ value (at the genus level, see Table 1) as the FP assignments returned are minimized. 
+   When PEMA was run using the VSEARCH clustering algorithm, high precision values were returned in all cases ($>$0.79). 
+   However, the recall values were decreased when using Swarm v2 (0.65–0.68).
+
+
+   \begin{table*}
+      \begin{center}
+         \begin{tabular}{@{}cccc@{}}
+            \toprule
+            \multicolumn{1}{c}{\textbf{Marker gene}} & \multicolumn{1}{c}{\textbf{Precision}} & \multicolumn{1}{c}{\textbf{Recall}} & \multicolumn{1}{c}{\textbf{F1}} \\ \midrule
+            16S rRNA & 0.81 & 0.85 & 0.83 \\
+            18S rRNA & 0.75 & 0.90 & 0.82 \\
+            ITS & 0.79 & 0.94 & 0.86 \\
+            COI & 0.62 & 0.93 & 0.74
+            \end{tabular}
+            \caption{Summary benchmark of PEMA marker - gene – specific mock community recovery (precision)}              
+      \end{center}
+    \end{table*}
+
+
+
+
+   \subsubsection*{18S rRNA}
+
+   When PEMA was performed using the Swarm v2 algorithm ($d$ = 1, strictness = 0.5), 3 of 12 community members were identified to species level (\textit{Isochrysis galbana}, \textit{Nannochloropsis oculata}, and \textit{Thalassiosira pseudonana}), 6 to genus, and the remaining 3 to class; 
+   the latter were all the green algae species (Chlorophyta) of the mock community. 
+   However, a better $F1$-score ($0.82$) was achieved when the class of Chlorophyceae was not found at all ($d$ = 1, strictness = 0.3) because the FPs were decreased to only $1$. 
+   When the VSEARCH algorithm was used, \textit{I. galbana} was identified only to the genus level, the \textit{Nannochloropsis} to the order level (Eustigmatales), and the \textit{Poterioochromonas} genus to its class (Chrysophyceae).
+
+
+   \subsubsection*{ITS}
+
+   When PEMA was performed using the Swarm v2 algorithm ($d$ = 20) and targeting the ITS2 region, ASVs from 5 of the 19 species of the mock community were assigned to species level, $10$ to genus, $2$ to family, and $2$ to class level. 
+   Contrary to the study by Bakker \citep{bakker2018fungal}, PEMA identified the genus Chytriomyces in all $3$ samples, as well as the Ustilaginaceae family. 
+   Only $1$ FP assignment was recorded. 
+   When the CROP algorithm was used, PEMA's output was less accurate; 
+   the \textit{Fusarium} species contained in the mock community were not identified further than their family (Nectriaceae). 
+   As mentioned by Bakker \citep{bakker2018fungal}, many reads deriving from the \textit{Fusarium spp.} were not assigned to species level because of the quality-trimming step. 
+   In addition, a manually assembled reference database for the taxonomy assignment was used in the initial study, containing only sequences of the mock community species, which biased this step, making the results not directly comparable to our case.
+
+
+   \subsubsection*{COI}
+
+   When PEMA was performed on the Bista et al. dataset \citep{bista2018performance} and using Swarm v2 ($d$ = 10), it identified $12$ of the $14$ species included in the mock community. 
+   The sole non - identified species were \textit{Bithynia leachii} and \textit{Anisus vortex}. For \textit{B. leachii} no entry exists in the MIDORI database, version \texttt{MIDORI\_LONGEST\_1.1}. 
+   However, the existence of another species of the genus \textit{Bithynia} was recorded. 
+   With respect to \textit{A. vortex}, PEMA returned a high abundance ASV assigned to the \textit{Anisus} genus but with a low confidence level. 
+   PEMA managed to identify all the members of the mock community. 
+   This includes \textit{Physa fontinalis}, which was originally not designed to be a member of the mock community but, as Bista et al. \citep{bista2018performance} explain, was recorded owing to cross - contamination. 
+   In the case of the COI marker gene, unique sequences with low abundances (singletons or doubletons) often lead to spurious MOTUs/ASVs. 
+   Thus, as shown in Additional File 2: Mock Communities, the FP assignments are decreased when these low-abundant sequences are removed; 
+   also, the abundance of the assignments (i.e., read counts) retrieved can indicate $FP$ assignments. 
+   Thus, $TP$ assignments occur in greater abundance, with hundreds or even thousands of reads—contrary to most of the $FP$ results, whose abundance is $<10$ read counts. 
+   That is mostly for the case of the COI marker gene because eukaryotes are under study; 
+   eukaryotes have a great number of copies of this marker gene — different numbers of copies among the different species — and not just a single one as is almost always the case in bacteria. 
+   Therefore, assignments with such low abundances should be doubted as TP results in analyses on real datasets.
+
+
+
+   \subsubsection*{Comparison with existing software}
+
+   PEMA's features were compared with those of mothur \citep{schloss2009introducing}, QIIME 2 \citep{bolyen2018qiime}, LotuS \citep{hildebrand2014lotus} and Barque. 
+   Table 2 presents a detailed comparison among the $4$ tools' features in terms of marker gene support, diversity and phylogeny analysis capability, parameter setting and mode of execution, operation system availability, and HPC suitability. 
+   As shown, PEMA is equally feature - rich, if not richer in certain feature categories, compared with the other software packages. In particular, PEMA's support for COI marker gene studies is distinctive; 
+   $2$ methods for taxonomy assignment are supported, and PEMA's easy parameter setting, step - by - step execution, and container distribution render it user and analysis friendly.
+
+   % COMPARISON TABLE
+   \begin{table}[]
+      \begin{tabular}{@{}cccccc@{}}
+         
+         \toprule
+         \textbf{Feature} & \textbf{LotuS} & \textbf{QIIME 2} & \textbf{mothur} & \textbf{Barque} & \textbf{PEMA} \\ \midrule
+         
+         16S rRNA & \ding{51} & \ding{51} & \ding{51} & & \ding{51} \\
+         18S rRNA & \ding{51} & \ding{51} & \ding{51} & & \ding{51} \\
+         ITS & \ding{51} & \ding{51} & & & \ding{51} \\
+         COI &  & &  & \ding{51} & \ding{51} \\  \midrule
+
+         diversity indices & & \ding{51} & \ding{51} & &  \ding{51} \\
+         \begin{tabular}[c]{@{}c@{}}alignment-based \\ taxonomy assignment\end{tabular} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
+         \begin{tabular}[c]{@{}c@{}}phylogenetic-based \\ taxonomy assignment\end{tabular} & \ding{51} & \ding{51} & & & \ding{51} \\ \midrule
+
+         \begin{tabular}[c]{@{}c@{}}parameters assigned \\ in the command line\end{tabular} & \ding{51} & \ding{51} & \ding{51} & & \\
+         \begin{tabular}[c]{@{}c@{}}parameters assigned \\ through a text file\end{tabular} & \ding{51} & & & \ding{51} & \ding{51} \\
+         step-by-step execution & \ding{51} & \ding{51} & \ding{51} & & \ding{51} \\
+         all steps in one go possible & \ding{51} & & & \ding{51} & \ding{51} \\ \midrule
+
+         \begin{tabular}[c]{@{}c@{}}available for any\\ Operating System \\ (Linux, OSX, Windows)\end{tabular} & & \ding{51} & \ding{51} & & \ding{51} \\
+         traditional application installation & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \\
+         available as a virtual machine & & \ding{51} & & &\\
+         available as a container & & \ding{51} & & & \ding{51} \\
+         \begin{tabular}[c]{@{}c@{}}available for HPC as a container \\ (Singularity container)\end{tabular} & & & & &  \ding{51} 
+      \end{tabular}
+      \caption{Comparison of the basic features of the different pipelines}
+   \end{table}
+
+
+   \subsubsection*{Evaluation on real datasets and against other tools}
+
+   In the following sections, a comparative study on real datasets of the 16S rRNA and COI marker genes is presented. 
+   Analyses using PEMA and the pipelines mentioned above that support each of these $2$ marker genes were performed, both with multiple sets of parameters. 
+   It is typical for pipelines to invoke a variety of established tools. 
+   In many cases, a number of tools are common among different pipelines. 
+   Therefore, it is important to stress that such comparisons should not be taken into account strictly; 
+   declaring that one pipeline is better than another is not trivial. 
+   Potentials and limitations of both the pipelines and the metabarcoding method, as well as the importance of the role of the pipeline user, are underlined in the following sections.
+
+   \subsubsection*{16S rRNA marker gene analysis evaluation}
+
+   To evaluate PEMA's performance, a comparative analysis of the Pavloudi et al. \citep{pavloudi2017sediment} dataset with mothur \citep{schloss2009introducing}, QIIME 2 \citep{bolyen2018qiime}, LotuS \citep{hildebrand2014lotus} and PEMA was conducted.
+
+   It is known that the choice of parameters affects the output of each analysis; 
+   therefore, it is expected that different user choices might distort the derived outputs. 
+   For this reason and for a direct comparison of the pipelines, we have included all the commands and parameters chosen in the framework of this study in Additional File 1: Supplementary Methods. 
+   The results of the processing of the sequences by PEMA are presented in Table S1. 
+   All analyses were conducted on identical Dell M630 nodes ($128$ GB RAM, $20$ physical Intel Xeon $2.60$ GHz cores). 
+   LotuS, mothur, and QIIME 2 operated in a single-thread (core) fashion. 
+   PEMA, given the BDS intrinsic parallelization \citep{cingolani2015bigdatascript}, operated with up to the maximum number of node cores (in this case $20$).
+
+   The execution time and the reported OTU number of each tool are presented in Table 3. 
+   LotuS and PEMA resulted in a final number of OTUs comparable to that of Pavloudi et. al \citep{pavloudi2017sediment}. 
+   Clearly, owing to PEMA's parallel execution support, the analysis time can be significantly reduced ($∼1.5$ hours in this case). 
+   The execution time depends on the parameters chosen for each software (see Additional File 1: Supplementary Methods).
+
+
+   \begin{table}[]
+      \begin{tabular}{@{}lllllll@{}}
+      \toprule
+      \textbf{} & \textbf{} & \multicolumn{2}{l}{\textbf{QIIME 2}} & \textbf{} & \textbf{} &  \\ \midrule
+      \textbf{Parameter} & \textbf{LotuS} & \textbf{mothur} & \textbf{Deblur} & \textbf{DADA2} & \textbf{PEMA} & \textbf{Pavloudi et al. \citep{pavloudi2017sediment}} \\
+      No. of OTUs & 9,849 & 142,669 & 517 & 1,023 & 6,028 & 7,050 \\
+      Execution time (h) & ∼9 & ∼67\footnote{($∼56$ if the reference database is already built).} & 2.5 & ∼5 & ∼1.5 & ∼26 \\ \bottomrule
+      \end{tabular}
+      \caption{∼56}
+   \end{table}
+
+   Owing to the non - full overlap of the sequence reads, mothur resulted in an inflated number of OTUs; 
+   thus, it was excluded from further analyses. 
+   The results of all the pipelines were analysed with the phyloseq script that is provided with PEMA. 
+   The taxonomic assignment of the PEMA - retrieved OTUs is shown in Fig. 3. 
+   The phyla that were found in the samples are similar to the ones that were found in the original study \citep{pavloudi2017sediment}. 
+   Although the lowest number of OTUs was found in the marine station (Kal) (Supplementary Table S3), which is not in accordance with Pavloudi et. al \citep{pavloudi2017sediment}, the general trend of a decreasing number of OTUs with increasing salinity was observed as in the original study (Supplementary Fig. S1). 
+   Notably, this result was not observed with the other tested pipelines (Supplementary Table S3). 
+   Furthermore, each of the pipelines resulted in a different taxonomic profile (Supplementary Figs S2–S4), with an extreme case of missing the order of Betaproteobacteriales (Supplementary Figs S5–S7).
+
+
+   Moreover, when the PERMANOVA analysis was run for the results of PEMA, LotuS, and DADA2, it was clear that the microbial community composition was significantly different in each of the $3$ sampled habitats (i.e., river, lagoon, open sea) (PERMANOVA: F.Model = $7.0718$, $P < 0.001$; F.Model = $6.5901$, $P < 0.001$; F.Model = $2.2484$, $P < 0.05$, respectively), which is in accordance with Pavloudi et al. \citep{pavloudi2017sediment}. 
+   However, this was not the case with Deblur (PERMANOVA: $P > 0.05$). 
+   Overall, PEMA's output is in accordance with the original study \citep{pavloudi2017sediment}, and seen through this perspective PEMA performed equally well with the other tested pipelines, along with having the shortest execution time.
+
+
+   \begin{figure}
+      \centering
+      \includegraphics[width=105mm]{figures/giaa022fig3.jpeg}
+      \caption{
+         OTU bar plot at the phylum level. Bar plot depicting the taxonomy of the retrieved OTUs from PEMA for the dataset of Pavloudi et al. \citep{pavloudi2017sediment}, at the phylum level for the case of the 16S marker gene. AR: Arachthos; ARO: Arachthos Neochori; ARDelta: Arachthos Delta; LOin: Logarou station inside the lagoon; LOout: Logarou station in the channel connecting the lagoon to the gulf; Kal: Kalamitsi.
+      }
+   \end{figure}
+
+
+
+
+
+   \subsubsection*{COI marker gene analysis evaluation}
+
+   Bista et al. \citep{bista2017annual} created 2 COI libraries of different sizes: COIS ($235$ - bp amplicon size) and COIF ($658$ - bp amplicon size). 
+   The sequencing reads of COIS were selected for PEMA's evaluation; 
+   the COIF sequencing read pairs had no overlap so as to be merged and therefore were not considered appropriate for the analysis.
+
+   As previously, PEMA's performance was evaluated through a comparative analysis of the Bista et al. \citep{bista2017annual} dataset with \href{https://github.com/enormandeau/barque}{Barque}; 
+   the commands and parameters chosen can be found in Additional File 1: Supplementary Methods. 
+   Regarding the creation of the MOTU table, in the Bista et al. \citep{bista2017annual} study VSEARCH \citep{rognes2016vsearch} was used with a clustering at $97\%$ similarity threshold. 
+   Afterwards, the BLAST+ (megablast) algorithm \citep{camacho2009blast} was used against a manually created database including all NCBI GenBank COI sequences of length $>100$  bp (June 2015) while excluding environmental sequences and higher taxonomic level information \citep{bista2017annual}. 
+   As discussed in the publication, this approach resulted in $138$ unique MOTUs of which $73$ were assigned to species level. 
+   For PEMA's evaluation, the chosen clustering algorithm was Swarm v2, using different options for the cluster radius ($d$) parameter (Table 4); 
+   according to Mahé et al. \citep{mahe2015swarm}, this is the most important parameter because it affects the number of MOTUs that are being created. 
+   The resulting MOTUs were classified against the MIDORI reference database \citep{machida2017metazoan} using RDPClassifier \citep{wang2007naive}. 
+   The results of the processing of the sequences are reported in Supplementary Table S3. 
+   For the case of Barque, the BOLD Database was used \citep{ratnasingham2007bold}.
+
+
+
+   \begin{table}[]
+      \begin{center}    
+         \begin{tabular}{@{}llllll@{}}
+         \toprule
+         \textbf{Parameter} & \textit{\textbf{d = 1}} & \textit{\textbf{d = 2}} & \textit{\textbf{d = 3}} & \textit{\textbf{d = 10}} & \textit{\textbf{d = 13}} \\ \midrule
+         \begin{tabular}[c]{@{}l@{}}MOTUs after pre-process\\  and clustering steps\end{tabular} & 83,791 & 59,833 & 33,227 & 7,384 & 4,829 \\
+         MOTUs after chimera removal & 80,347 & 57,863 & 32,539 & 7,339 & 4,796 \\
+         Non-singleton MOTUs & 6,381 & 4,947 & 2,658 & 1,914 & 1,634 \\
+         Assigned species & 62 & 83 & 86 & 86 & 84 \\
+         Execution time (h) & 2:01:35 & 2:09:49 & 1:51:44 & 2:17:26 & 2:31:15 \\ \bottomrule
+         \end{tabular}
+         \caption{PEMA'sa output and execution time; PEMA's output and execution time (using a 20-core node) for different values of Swarm's d parameter.}
+      \end{center}
+   \end{table}
+
+
+
+   As shown in Table 4, PEMA resulted in 83 species-level MOTUs with a cluster radius ($d$) of $2$, which is similar to the findings of the published study (i.e., $73$ species). 
+   Although both the clustering algorithm and the taxonomy assignment methods were different between the original \citep{bista2017annual} and the present study, the results regarding the number of unique species present in the samples are in agreement to a considerable extent.
+
+   The computational time required by PEMA for the completion of the analysis is also reported in Table 4. 
+   Regardless of the value of the d parameter, all analyses were completed in $∼2$ hours, i.e., fast enough to allow parameter testing and customization.
+   Regarding Barque, the analysis resulted in the identification of $51$ species-level MOTUs and was concluded in $15$ minutes. 
+   This difference is due to the error correction step of PEMA (BayesHammer algorithm \citep{nikolenko2013bayeshammer}), which plays an important part in the enhanced results that PEMA returns, but it also requires a certain computational time; 
+   Barque does not have an analogous step, and therefore its overall execution time is shorter.
+   
+   PEMA performed better than Barque at identifying taxa that were included in the positive control contents of the published study (Table 5).
+
+
+   \begin{table}[]
+      \begin{tabular}{@{}lll@{}}
+      \toprule
+
+      \textbf{Barque} & \textbf{PEMA} & \textbf{Bista et al. {[}50{]}} \\ \midrule
+
+      \textit{Ablabesmyia monilis*} & \textit{Ablabesmyia monilis*} & \textit{Ablabesmyia monilis} \\
+      & \textit{Crangonyx pseudogracilis*} & \textit{Crangonyx pseudogracilis} \\
+      & \textit{Radix sp.*} & \textit{Radix sp.} \\
+      & Chironomidae sp.* & Chironomidae sp. \\
+      & \textit{Ancylus sp.**} & \textit{Ancylus fluviatilis} \\
+      & \textit{\begin{tabular}[c]{@{}l@{}}Athripsodes aterrimus, \\ Athripsodes cinereus**\end{tabular}} & \textit{Athripsodes albifrons} \\
+      \textit{Chironomus anthracinus**} & \textit{\begin{tabular}[c]{@{}l@{}}Chironomus sp., \\ Chironomus anthracinus, \\ Chironomus pseudothummi,\\  Chironomus riparius**\end{tabular}} & \textit{Chironomus tentans} \\
+      \textit{Polypedilum sordens**} &  & \textit{Polypedilum nubeculosum} \\
+      \textit{Athripsodes aterrimus**} &  & \textit{Athripsodes albifrons} \\ \bottomrule
+      \end{tabular}
+      \caption{Comparison of the taxonomy of retrieved MOTUs among PEMA, Barque, and the positive controls of Bista et al. \citep{bista2017annual} ; * 
+      Taxonomies identical to the published study (species level), ** Taxonomies identical to the published study (genus level).}
+
+   \end{table}
+      
+
 
 
    % PEMA DISCUSSION
    \subsection{Discussion}
 
+   \subsubsection*{OTU clustering vs ASV inference}
+
+   There is an ongoing discussion about whether ASVs exceed OTUs. 
+   The strongest argument to this end is that ASVs are real biological sequences. 
+   Hence, they can be compared between different studies in a straightforward way; 
+   considered as consistent labels. 
+   In comparison, de novo OTUs are constructed, or “clustered,” with respect to the emergent features of each specific dataset. 
+   Therefore, OTUs defined in $2$ different datasets cannot be directly compared.
+
+   However, the OTU concept is not compulsorily related to the clustering approach; 
+   it is widely used to describe results based on its biological meaning but it does not imply clustering. 
+   In addition, according to Callahan et al. \citep{callahan2017exact}, "ASV methods infer the biological sequences in the sample prior to the introduction of amplification and sequencing errors, and distinguish sequence variants differing by as little as one nucleotide." 
+   As a result, ASVs could be considered as OTUs of higher resolution.
+
+   It is due to this concept confusion that algorithms whose rationale is considerably closer to the variant-based approach are still considered as OTU clustering algorithms \citep{callahan2017exact}. 
+   Swarm v2 produces all possible \textit{microvariants} of an amplicon to implement an exact-string comparison \citep{mahe2015swarm}. 
+   Furthermore, real biological sequences, \textit{clouds of microvariants} are produced as its output, which can be used for comparisons between different studies. Thus, Swarm v2 can be considered as an ASV-inferring algorithm.
+
+   Traditional clustering methods have certain limitations such as arbitrary global clustering thresholds and centroid selection because they depend on the input order and are time-consuming, etc. \citep{mahe2014swarm}, which variant-based approaches manage to address. 
+   However certain algorithms for OTU clustering such as VSEARCH have been proven to be especially reliable, and they are widely used by many researchers. 
+   Furthermore, ASVs intend to improve taxonomic resolution; however, a vast number of inferred ASVs (see \href{http://fiererlab.org/2017/05/02/lumping-versus-splitting-is-it-time-for-microbial-ecologists-to-abandon-otus/}{here} for more) can lead to inflation of diversity estimates, especially in the case of microbial communities, thus making the analysis even more complicated.
+
+   ASV or OTU approaches are supported by PEMA, although we have found that similar ecological results are produced by both these methods, as also suggested by Glassman and Martiny \citep{glassman2018broadscale}.
+
+
+   \subsubsection*{Beyond environmental ecology, ongoing and future work}
+
+   PEMA is mainly intended to support eDNA metabarcoding analysis and be directly applicable to next - generation biodiversity / ecological assessment studies. 
+   Given that community composition analysis may also serve additional research fields, e.g., microbial pathology, the potential impact of such pipelines is expected to be much higher. 
+   Ongoing PEMA work focuses on serving a wide scientific audience and on making it applicable to more types of studies. 
+   The easy set - up and execution of PEMA allows users to work closely with national and European HPC / e - infrastructures (e.g., \href{https://www.elixir-greece.org/}{ELIXIR Greece}, \href{https://www.lifewatch.eu/}{LifeWatch ERIC}, \href{ http://www.embrc.eu}{EMBRC ERIC}). 
+   To that end and in a mid - term perspective, a CWL version of PEMA will be explored. 
+   The aim of this effort is to reach out to a wider scientific audience and address both their ongoing as well as future analysis needs.
+
+   By supporting the analysis of the most commonly used marker genes for Bacteria and Archaea (16S rRNA), Fungi (ITS), and Metazoa (COI/18S rRNA), a holistic biodiversity assessment approach is now possible through PEMA and eDNA metabarcoding; although, from a mid-term perspective, it is our intention to allow ad hoc and in - house databases to be used as reference for the taxonomy assignment.
+
+   \subsubsection*{Conclusions}
+
+   PEMA is an accurate, execution - friendly and fast pipeline for eDNA metabarcoding analysis. 
+   It provides a per - sample analysis output, different taxonomy assignment methods, and graphics - based biodiversity / ecological analysis. 
+   This way, in addition to (M)OTU/ASV calling, it provides users with both an informative study overview and detailed result snapshots.
+
+   Thanks to a nominal number of installation and execution commands required for PEMA to be set and run, it is considered essentially user friendly. 
+   In addition, PEMA's strategic choice of a single parameter file, implementation programming language, and multiple container - type distribution grant it speed (running in parallel), on - demand partial pipeline enactment, and provision for HPC - system – based sharing.
+
+   All the aforementioned features render PEMA attractive for biodiversity / ecological assessment analyses. 
+   By supporting the analysis of the most commonly used marker genes for Prokaryotes (Bacteria and Archaea), as well as Eukaryotes (Fungi and Metazoa), PEMA allows assessment of biodiversity in different levels of biodiversity. 
+   Applications may mainly concern environmental ecology, with possible extensions to such fields as microbial pathology and gut microbiome, in line with modern research needs, from low volume to big data.
+
 
 
 \newpage
+
+
+
+
+
+
+
+
+
 
 
 
@@ -116,7 +608,6 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
 % DARN METHODS
 \subsection{Methods \& Implementation}
-
 \subsubsection*{Building the COI tree of life}
 
    Sequences for the COI region from all the three domains of life were retrieved from curated databases. 
@@ -239,8 +730,6 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
 % DARN RESULTS
 \subsection{Results \& Validation}
-
-
 \subsubsection*{Evaluation of the phylogenetic tree}
 
    The inferred phylogenetic tree is shown in Figure 2, with the bacterial (light blue) and archaeal (dark green) branches highlighted;
@@ -406,6 +895,7 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 %    \includegraphics[width=0.65\columnwidth]{figures/darn_placemnets.png}
 %    \caption{Placements of the consensus sequences used to build the COI reference phylogenetic tree for the DARN tool, onto the phylogenetic tree (stroke width for the branches of the tree is 5). The color coding represents the placements per branch, with a range from zero (blue) to a maximum of 2 (blue). The 1 leaf – 1 placement relationship, as well as the maximum of 2 placements in the color coding bar, indicate the proper placement of each consensus sequence to its corresponding branch.}
 % \end{figure}
+
 
 
 \section{A workflow for marine Genomic Observatories data analysis}
