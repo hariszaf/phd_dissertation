@@ -532,16 +532,6 @@
 \newpage
 
 
-
-
-
-
-
-
-
-
-
-
 % ----------------------------------------
 % 
 %      DARN
@@ -551,13 +541,17 @@
 \newpage
 
 % SECTION 3
-\section[The Dark mAtteR iNvestigator (DARN) tool: getting to know the known unknowns in COI amplicon data]{The Dark mAtteR iNvestigator (DARN) tool: getting to know the known unknowns in COI amplicon data\footnote{For author contributions, please refer to the relevant section. Modified version of the published review.}}
+\section[The Dark mAtteR iNvestigator (DARN) tool: getting to know the known unknowns in COI amplicon data]{
+   The Dark mAtteR iNvestigator (DARN) tool: getting to know the known unknowns in COI amplicon data\footnote{
+      For author contributions, please refer to the relevant section. Modified version of the published review.
+   }
+}
 
 \textbf{Citation:} \\
 Zafeiropoulos, H., Gargan, L., Hintikka, S., Pavloudi, C. and Carlsson, J., 2021. The Dark mAtteR iNvestigator (DARN) tool: getting to know the known unknowns in COI amplicon data. Metabarcoding and Metagenomics, 5, p.e69657, \\
 doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
-\subsection{Introduction}
+   \subsection{Introduction}
 
    % Parts of the following need to be moved in the main Intro
 
@@ -596,7 +590,7 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
 
 % DARN CONTRIBUTION
-\subsection{Contribution}
+   \subsection{Contribution}
    The co-amplification of prokaryotes explained above, is a major reason for why many Operational Taxonomic Units (OTUs) and/or Amplicon Sequence Variants (ASVs) in eDNA metabarcoding studies cannot get taxonomy assignments when metazoan reference databases are used (c.f. Aylagas et al. 2016 \citep{aylagas2016benchmarking}) or they are assigned to metazoan taxa but with very low confidence estimates. 
    Despite the presence of such OTUs/ASVs to a varying degree in metabarcoding studies using the COI marker gene \citep{siddall2009barcoding}, to the best of our knowledge, there has not been a thorough investigation of the origin for these sequences. 
    Although unassignable sequences could be informative, there have been few attempts to further investigate this dark matter (e.g., \citep{sinniger2016worldwide, haenel2017ngs}).
@@ -607,8 +601,8 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
 
 % DARN METHODS
-\subsection{Methods \& Implementation}
-\subsubsection*{Building the COI tree of life}
+   \subsection{Methods \& Implementation}
+   \subsubsection*{Building the COI tree of life}
 
    Sequences for the COI region from all the three domains of life were retrieved from curated databases. 
    Eukaryotic sequences were retrieved from the Midori reference 2 database (version: GB239) \citep{machida2017metazoan}. 
@@ -691,7 +685,7 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
 
 
-\subsubsection*{Investigating COI dark matter}
+   \subsubsection*{Investigating COI dark matter}
 
    The COI reference tree was subsequently used to build and implement the Dark mAtteR iNvestigator (DARN) software tool. 
    DARN uses a \texttt{.fasta} file with DNA sequences as input and returns an overview of sequence assignments per domain (eukaryotes, bacteria, archaea) after placing the query sequences of the sample on the branches of the reference tree. 
@@ -729,8 +723,8 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
 
 % DARN RESULTS
-\subsection{Results \& Validation}
-\subsubsection*{Evaluation of the phylogenetic tree}
+   \subsection{Results \& Validation}
+   \subsubsection*{Evaluation of the phylogenetic tree}
 
    The inferred phylogenetic tree is shown in Figure 2, with the bacterial (light blue) and archaeal (dark green) branches highlighted;
    in Suppl. material 3: Fig. S1 the distribution of the eukaryotic phyla on the tree is presented. 
@@ -752,7 +746,7 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
 \newpage
 
-\subsubsection*{DARN using mock community data}
+   \subsubsection*{DARN using mock community data}
 
    To examine whether the phylogenetic-based taxonomy assignment addresses a real-world issue, a local blast database was built using the total number of the consensus sequences retrieved. 
    As expected, when the consensus sequences were blasted against this local blastdb, all were matched with their corresponding sequences. 
@@ -761,7 +755,7 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    Contrarily, when the phylogenetic tree was used, all the bacterial sequences were captured.
 
 
-\subsubsection*{DARN using real community data}
+   \subsubsection*{DARN using real community data}
 
    To evaluate DARN on the presence of dark matter we analysed a wide range of cases to show the ability of DARN to detect and estimate dark matter under various conditions. 
    Both eDNA and bulk samples, from marine, lotic and lentic environments, were selected to reflect various combinations of primer and amplicon lengths, PCR protocols and bioinformatics analyses (Table 2).
@@ -846,7 +840,7 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
 
 % DARN DISCUSSION
-\subsection{Discussion}
+   \subsection{Discussion}
 
    By making use of a COI - oriented reference phylogenetic tree built from $1,593$ consensus sequences, to phylogenetically place sequences from COI metabarcoding samples onto it, the surmise for including bacteria, algae, fungi etc. \citep{yang2013testing, aylagas2016benchmarking} was verified. 
    Our results demonstrate that standard metabarcoding approaches based on the COI gene region of the mitochondrial genome will not only amplify eukaryotes, but also a large proportion of non-target prokaryotic organisms, such as bacteria and archaea. 
