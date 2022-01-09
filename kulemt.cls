@@ -351,7 +351,6 @@
 \def\kulemt@fac@name{%
   \ifcase\kulemt@facnum \or
     , \kulemt@ifenglish{Biology Department}%
-                         {y of Engineering}%
   \fi}
 
 
@@ -660,10 +659,6 @@
 
 
 
-
-
-
-
 % -------------------------
 % Committee
 % -------------------------
@@ -863,3 +858,5 @@ University of Crete \kulemt@fac@name}{}{\kulemt@acyear@t}
 
 %%
 %% End of file `kulemt.cls'.
+
+
