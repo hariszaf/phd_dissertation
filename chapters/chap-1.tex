@@ -23,6 +23,30 @@
    doi: \href{https://doi.org/10.1093/gigascience/giaa022}{10.1093/gigascience/giaa022}.
 
 
+   \subsection{Abstract}
+   \textbf{Background:} 
+   Environmental DNA and metabarcoding allow the identification of a mixture of species and launch 
+   a new era in bio- and eco-assessment. 
+   Many steps are required to obtain taxonomically assigned matrices from raw data. For most of these, 
+   a plethora of tools are available; each tool's execution parameters need to be tailored to reflect each experiment's idiosyncrasy. 
+   Adding to this complexity, the computation capacity of high-performance computing systems is frequently required for such analyses. 
+   To address the difficulties, bioinformatic pipelines need to combine state-of-the art technologies and 
+   algorithms with an easy to get-set-use framework, allowing researchers to tune each study. 
+   Software containerization technologies ease the sharing and running of software packages across operating systems; 
+   thus, they strongly facilitate pipeline development and usage. 
+   Likewise programming languages specialized for big data pipelines incorporate features like roll-back checkpoints and on-demand partial pipeline execution.
+
+   \textbf{Findings:}
+   PEMA is a containerized assembly of key metabarcoding analysis tools that requires low effort in setting up, running, and customizing to researchers' needs. 
+   Based on third-party tools, PEMA performs read pre-processing, (molecular) operational taxonomic unit 
+   clustering, amplicon sequence variant inference, and taxonomy assignment for 16S and 18S ribosomal RNA, as well as ITS and COI marker gene data. 
+   Owing to its simplified parameterization and checkpoint support, PEMA allows users to explore alternative algorithms for specific steps of the pipeline without the need of a complete re-execution. 
+   PEMA was evaluated against both mock communities and previously published datasets and achieved results of comparable quality.
+
+   \textbf{Conclusions:}
+   A high-performance computing–based approach was used to develop PEMA; however, it can be used in personal computers as well. 
+   PEMA's time-efficient performance and good results will allow it to be used for accurate environmental DNA metabarcoding analysis, thus enhancing the applicability of next-generation biodiversity assessment studies.
+   
    % PEMA INTRODUCITON
    \subsection{Introduction}
 
@@ -477,7 +501,6 @@
 
    % PEMA DISCUSSION
    \subsection{Discussion}
-
    \subsubsection*{OTU clustering vs ASV inference}
 
    There is an ongoing discussion about whether ASVs exceed OTUs. 
@@ -501,8 +524,6 @@
    Furthermore, ASVs intend to improve taxonomic resolution; however, a vast number of inferred ASVs (see \href{http://fiererlab.org/2017/05/02/lumping-versus-splitting-is-it-time-for-microbial-ecologists-to-abandon-otus/}{here} for more) can lead to inflation of diversity estimates, especially in the case of microbial communities, thus making the analysis even more complicated.
 
    ASV or OTU approaches are supported by PEMA, although we have found that similar ecological results are produced by both these methods, as also suggested by Glassman and Martiny \citep{glassman2018broadscale}.
-
-
    \subsubsection*{Beyond environmental ecology, ongoing and future work}
 
    PEMA is mainly intended to support eDNA metabarcoding analysis and be directly applicable to next - generation biodiversity / ecological assessment studies. 
@@ -513,7 +534,6 @@
    The aim of this effort is to reach out to a wider scientific audience and address both their ongoing as well as future analysis needs.
 
    By supporting the analysis of the most commonly used marker genes for Bacteria and Archaea (16S rRNA), Fungi (ITS), and Metazoa (COI/18S rRNA), a holistic biodiversity assessment approach is now possible through PEMA and eDNA metabarcoding; although, from a mid-term perspective, it is our intention to allow ad hoc and in - house databases to be used as reference for the taxonomy assignment.
-
    \subsubsection*{Conclusions}
 
    PEMA is an accurate, execution - friendly and fast pipeline for eDNA metabarcoding analysis. 
@@ -542,14 +562,26 @@
 
 % SECTION 3
 \section[The Dark mAtteR iNvestigator (DARN) tool: getting to know the known unknowns in COI amplicon data]{
-   The Dark mAtteR iNvestigator (DARN) tool: getting to know the known unknowns in COI amplicon data\footnote{
-      For author contributions, please refer to the relevant section. Modified version of the published review.
+      The Dark mAtteR iNvestigator (DARN) tool: getting to know the known unknowns in COI amplicon data\footnote{
+      For author contributions and supplementary material please refer to the relevant sections. 
+      Modified version of the published review.
    }
 }
 
 \textbf{Citation:} \\
 Zafeiropoulos, H., Gargan, L., Hintikka, S., Pavloudi, C. and Carlsson, J., 2021. The Dark mAtteR iNvestigator (DARN) tool: getting to know the known unknowns in COI amplicon data. Metabarcoding and Metagenomics, 5, p.e69657, \\
 doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
+
+   \subsection{Abstract}
+   The mitochondrial cytochrome C oxidase subunit I gene (COI) is commonly used in environmental DNA (eDNA) metabarcoding studies, especially for assessing metazoan diversity. 
+   Yet, a great number of COI operational taxonomic units (OTUs) or/and amplicon sequence variants (ASVs) retrieved from such studies do not get a taxonomic assignment with a reference sequence. 
+   To assess and investigate such sequences, we have developed the Dark mAtteR iNvestigator (DARN) software tool. For this purpose, a reference COI-oriented phylogenetic tree was built from $1,593$ consensus sequences covering all the three domains of life. 
+   With respect to eukaryotes, consensus sequences at the family level were constructed from 183,330 sequences retrieved from the Midori reference 2 database, which represented $70\%$ of the initial number of reference sequences. 
+   Similarly, sequences from $431$ bacterial and $15$ archaeal taxa at the family level ($29\%$ and $1\%$ of the initial number of reference sequences respectively) were retrieved from the BOLD and the PFam databases. 
+   DARN makes use of this phylogenetic tree to investigate COI pre-processed sequences of amplicon samples to provide both a tabular and a graphical overview of their phylogenetic assignments. 
+   To evaluate DARN, both environmental and bulk metabarcoding samples from different aquatic environments using various primer sets were analysed. 
+   We demonstrate that a large proportion of non-target prokaryotic organisms, such as bacteria and archaea, are also amplified in eDNA samples and we suggest prokaryotic COI sequences to be included in the reference databases used for the taxonomy assignment to allow for further analyses of dark matter. 
+   DARN source code is available on GitHub at \href{https://github.com/hariszaf/darn}{https://github.com/hariszaf/darn} and as a Docker image at \href{https://hub.docker.com/r/hariszaf/darn}{https://hub.docker.com/r/hariszaf/darn}.
 
    \subsection{Introduction}
 
@@ -682,9 +714,6 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    A thorough description of all the implementation steps for building the reference tree is presented in this 
    \href{https://colab.research.google.com/drive/1XorHsBm1uqx5TTZsH7SeVRkUA2SS8dnY}{Google Collab Notebook}. 
    The computational resources of the IMBBC High Performance Computing system, called Zorba \citep{zafeiropoulos20210s}, were exploited to address the needs of the tasks.
-
-
-
    \subsubsection*{Investigating COI dark matter}
 
    The COI reference tree was subsequently used to build and implement the Dark mAtteR iNvestigator (DARN) software tool. 
@@ -734,7 +763,7 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    The placements (see \texttt{.jplace} through a phylogenetic tree viewer, e.g. iTOL) verified that the phylogenetic tree built is valid, as the consensus sequences have been placed in their corresponding taxonomic branches (Suppl. material 4: Fig. S2; the figure was built using the heat-tree module of the gappa examine tool).
 
    % FIGURE WITH PLACEMENTS
-   \begin{figure}[H]
+   \begin{figure}[h]
       \centering
       \includegraphics[width=135mm]{figures/placements_of_consensus_seqs_transpaernt.png}
       \caption{
@@ -745,7 +774,6 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
 
 \newpage
-
    \subsubsection*{DARN using mock community data}
 
    To examine whether the phylogenetic-based taxonomy assignment addresses a real-world issue, a local blast database was built using the total number of the consensus sequences retrieved. 
@@ -753,8 +781,6 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    However, when a mock dataset was used to evaluate the two approaches (\texttt{blastdb} and the phylogenetic tree) none of the bacterial sequences were captured as bacteria after \texttt{blastn} against the local blastdb (see output file \href{https://github.com/hariszaf/darn/blob/pfam/evaluation/consensus_blast_assignments.txt}{here}). 
    All bacterial sequences returned an incorrect eukaryotic assignment. 
    Contrarily, when the phylogenetic tree was used, all the bacterial sequences were captured.
-
-
    \subsubsection*{DARN using real community data}
 
    To evaluate DARN on the presence of dark matter we analysed a wide range of cases to show the ability of DARN to detect and estimate dark matter under various conditions. 
@@ -763,36 +789,82 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    % BIG TABLE WITH DARN OUTPUT TABLES
    \begin{sidewaystable}
       
-      \begin{tabular}{@{}ccccccccccc@{}}
+      \begin{tabular}{@{}cccccccccc@{}}
       
       \toprule
-      % \thisfloatpagestyle{empty}
-      \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Sample(s) \\ accession number\end{tabular}} & \multirow{2}{*}{Envo type} & \multirow{2}{*}{Sample type} & \multirow{2}{*}{Primer set} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Amplicon \\ length (bp)\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Bioinfo \\ pipeline(s)\end{tabular}} & \multirow{2}{*}{\# of ASVs} & \multicolumn{4}{c}{\begin{tabular}[c]{@{}c@{}}$\sim$\% of sequence assignments per domain \\ (if PEMA, using d = 10)\end{tabular}} \\ \cmidrule(l){8-11} 
-      &  &  &  &  &  &  & \multicolumn{1}{c|}{Eukaryotes} & \multicolumn{1}{c|}{Bacteria} & \multicolumn{1}{c|}{Archaea} & \multicolumn{1}{c|}{distant} \\ \midrule
-      \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}ERS6449795-\\ ERS6449829\end{tabular}} & \multirow{2}{*}{marine} & \multirow{2}{*}{eDNA} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}jgHCO2198 - \\ jgLCO1490 \\ and \\ LoboF1 - \\ LoboR1\end{tabular}} & \multirow{2}{*}{658} & \begin{tabular}[c]{@{}c@{}}QIIME2 - \\ Dada2\end{tabular} & 13,376 & 11 & 88.0 & 0.02 & 0.003 \\
-      &  &  &  &  & \begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 10)\end{tabular} & 39,454 & 25 & 75.0 & 0.1 & 0.4 \\
-      \multirow{6}{*}{\begin{tabular}[c]{@{}c@{}}ERS6463899–\\ ERS6463901\end{tabular}} & \multirow{9}{*}{\begin{tabular}[c]{@{}c@{}}marine \\ reef\end{tabular}} & \multirow{15}{*}{eDNA} & \multirow{15}{*}{\begin{tabular}[c]{@{}c@{}}mlCOIintF - \\ jgHCO2198\end{tabular}} & \multirow{15}{*}{313} & JAMP & \multirow{5}{*}{1,304} & \multirow{5}{*}{35} & \multirow{5}{*}{65.0} & \multirow{5}{*}{-} & \multirow{5}{*}{0.2} \\
-      &  &  &  &  & dada2 &  &  &  &  &  \\
-      &  &  &  &  & PEAR &  &  &  &  &  \\
-      &  &  &  &  & vsearch &  &  &  &  &  \\
-      &  &  &  &  & DnoisE &  &  &  &  &  \\
-      &  &  &  &  & \multirow{4}{*}{\begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 10)\end{tabular}} & \multirow{4}{*}{11,545} & \multirow{4}{*}{46} & \multirow{4}{*}{50.0} & \multirow{4}{*}{1} & \multirow{4}{*}{3} \\
-      \begin{tabular}[c]{@{}c@{}}ERS6463906–\\ ERS6463911\end{tabular} &  &  &  &  &  &  &  &  &  &  \\
-      \begin{tabular}[c]{@{}c@{}}ERS6463913–\\ ERS6463918\end{tabular} &  &  &  &  &  &  &  &  &  &  \\
-      \begin{tabular}[c]{@{}c@{}}ERS6463920–\\ ERS6463922\end{tabular} &  &  &  &  &  &  &  &  &  &  \\
-      \multirow{6}{*}{\begin{tabular}[c]{@{}c@{}}ERS6463744–\\ ERS6463761\end{tabular}} & \multirow{6}{*}{\begin{tabular}[c]{@{}c@{}}marine \\ mangrove\end{tabular}} &  &  &  & JAMP & \multirow{5}{*}{663} & \multirow{5}{*}{40} & \multirow{5}{*}{60.0} & \multirow{5}{*}{-} & \multirow{5}{*}{0.6} \\
-      &  &  &  &  & dada2 &  &  &  &  &  \\
-      &  &  &  &  & PEAR &  &  &  &  &  \\
-      &  &  &  &  & vsearch &  &  &  &  &  \\
-      &  &  &  &  & DnoisE &  &  &  &  &  \\
-      &  &  &  &  & \begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 10)\end{tabular} & 5,879 & 49 & 47.0 & 1.0 & 2.0 \\
-      ERR3460466 & marine & bulk & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}mlCOIintF - \\ jgHCO2198\end{tabular}} & \multirow{3}{*}{313} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 2)\end{tabular}} & 193 & 99 & 1 & - & - \\
-      ERR3460467 & marine & bulk &  &  &  & 74 & 97 & 0.0 & - & 3 \\
-      ERR3460470 & marine & eDNA &  &  &  & 184 & 71 & 28.0 & 0 & 1 \\
-      ERS6488992 & lentic & \multirow{3}{*}{eDNA} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}fwhF2 - \\ EPTDr2\end{tabular}} & \multirow{3}{*}{142} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 10)\end{tabular}} & 416 & 85 & 7 & 3 & 5 \\
-      ERS6488993 & lentic &  &  &  &  & 315 & 99.2 & 0.4 & 0.4 & - \\
-      ERS6488994 & lentic &  &  &  &  & 823 & 90 & 4 & 2 & 4 \\
-      ERS6488995 & lotic & eDNA & BF3 - BR2 & 458 & \begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 10)\end{tabular} & 1,940 & 64 & 34.0 & 2 & 0.3 \\ \bottomrule
+
+      % HEAD LINE 1 
+      \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Sample(s) \\ accession number\end{tabular}} & 
+         \multirow{2}{*}{Sample type} & 
+         \multirow{2}{*}{Primer set} & 
+         \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Amplicon \\ length (bp)\end{tabular}} & 
+         \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Bioinfo \\ pipeline(s)\end{tabular}} & 
+         \multirow{2}{*}{\# of ASVs} & \multicolumn{4}{c}{\begin{tabular}[c]{@{}c@{}}$\sim$\% of sequence assignments per domain \\ (if PEMA\footnote{The $d$ parameter equals $10$ except mentioned otherwise})\end{tabular}} \\ \cmidrule(l){7-10} 
+      
+      % HEAD LINE 2 - DOMAINS 
+      &  &  &  &  &  & \multicolumn{1}{c|}{Eukaryotes} & 
+         \multicolumn{1}{c|}{Bacteria} & 
+         \multicolumn{1}{c|}{Archaea} & 
+         \multicolumn{1}{c|}{distant} \\ \midrule
+
+      % LINE 1
+      \multirow{4}{*}{
+         \begin{tabular}[c]{c@{}c@{}}
+            ERS6449795- \\ ERS6449829 
+         \end{tabular}
+      } & 
+      
+      \multirow{4}{*}{eDNA} & 
+
+      \multirow{4}{*}{
+         \begin{tabular}[c]{c@{}c@{}c@{}c@{}}
+            jgHCO2198 - \\ jgLCO1490 \& \\ LoboF1 - \\ LoboR1
+         \end{tabular}
+      } & 
+
+      \multirow{4}{*}{658} & 
+
+      \multirow{4}{*}{
+         \begin{tabular}[c]{c@{}c@{}}
+            QIIME2 - \\ Dada2 \\ PEMA \\ &
+         \end{tabular} 
+
+      } & 13,376 & 11 & 88.0 & 0.02 & 0.003 \\ & & & & \\
+      
+      % \multirow{2}{*}{ 
+         % \begin{tabular}[c]{c@{}c@{}}
+         %    PEMA
+         % \end{tabular} 
+      % } 
+      & & & & & 39,454 & 25 & 75.0 & 0.1 & 0.4 \\  
+         
+      \\
+      \midrule
+
+      % LINE 2
+      \multirow{6}{*}{\begin{tabular}[c]{@{}c@{}}ERS6463899–\\ ERS6463901\end{tabular}} & \multirow{15}{*}{eDNA} & \multirow{15}{*}{\begin{tabular}[c]{@{}c@{}}mlCOIintF - \\ jgHCO2198\end{tabular}} & \multirow{15}{*}{313} & JAMP & \multirow{5}{*}{1,304} & \multirow{5}{*}{35} & \multirow{5}{*}{65.0} & \multirow{5}{*}{-} & \multirow{5}{*}{0.2} \\
+
+      &  &  &  & dada2 &  &  &  &  &  \\
+      &  &  &  & PEAR &  &  &  &  &  \\
+      &  &  &  & vsearch &  &  &  &  &  \\
+      &  &  &  & DnoisE &  &  &  &  &  \\
+      &  &  &  & \multirow{4}{*}{\begin{tabular}[c]{@{}c@{}}PEMA\end{tabular}} & \multirow{4}{*}{11,545} & \multirow{4}{*}{46} & \multirow{4}{*}{50.0} & \multirow{4}{*}{1} & \multirow{4}{*}{3} \\
+      \begin{tabular}[c]{@{}c@{}}ERS6463906–\\ ERS6463911\end{tabular} &  &  &  &  &  &  &  &  &  \\
+      \begin{tabular}[c]{@{}c@{}}ERS6463913–\\ ERS6463918\end{tabular} &  &  &  &  &  &  &  &  &  \\
+      \begin{tabular}[c]{@{}c@{}}ERS6463920–\\ ERS6463922\end{tabular} &  &  &  &  &  &  &  &  &  \\
+      \multirow{6}{*}{\begin{tabular}[c]{@{}c@{}}ERS6463744–\\ ERS6463761\end{tabular}} &  &  &  & JAMP & \multirow{5}{*}{663} & \multirow{5}{*}{40} & \multirow{5}{*}{60.0} & \multirow{5}{*}{-} & \multirow{5}{*}{0.6} \\
+      &  &  &  & dada2 &  &  &  &  &  \\
+      &  &  &  & PEAR &  &  &  &  &  \\
+      &  &  &  & vsearch &  &  &  &  &  \\
+      &  &  &  & DnoisE &  &  &  &  &  \\
+      &  &  &  & \begin{tabular}[c]{@{}c@{}}PEMA\end{tabular} & 5,879 & 49 & 47.0 & 1.0 & 2.0 \\
+      ERR3460466  & bulk & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}mlCOIintF - \\ jgHCO2198\end{tabular}} & \multirow{3}{*}{313} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}PEMA \\ (d = 2)\end{tabular}} & 193 & 99 & 1 & - & - \\
+      ERR3460467 & bulk &  &  &  & 74 & 97 & 0.0 & - & 3 \\
+      ERR3460470 & eDNA &  &  &  & 184 & 71 & 28.0 & 0 & 1 \\
+      ERS6488992 & \multirow{3}{*}{eDNA} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}fwhF2 - \\ EPTDr2\end{tabular}} & \multirow{3}{*}{142} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}PEMA\end{tabular}} & 416 & 85 & 7 & 3 & 5 \\
+      ERS6488993 &  &  &  &  & 315 & 99.2 & 0.4 & 0.4 & - \\
+      ERS6488994 &  &  &  &  & 823 & 90 & 4 & 2 & 4 \\
+      ERS6488995 & eDNA & BF3 - BR2 & 458 & \begin{tabular}[c]{@{}c@{}}PEMA \end{tabular} & 1,940 & 64 & 34.0 & 2 & 0.3 \\ \bottomrule
       \end{tabular}
 
       \caption{DARN outcome over the samples or set of samples. Assignment fractions of the sequences per domain per sample in the DARN results over the samples.}
