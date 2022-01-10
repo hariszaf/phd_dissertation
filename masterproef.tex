@@ -1,5 +1,5 @@
 
-\documentclass[master=elt,masteroption=eg]{kulemt}
+\documentclass[master=elt, cleveref, autoref, masteroption=eg]{kulemt}
 
 \setup{title={Microbial communities through the lens of 
                high throughput sequencing,
@@ -10,92 +10,66 @@
   assessor={},
   assistant={}}
 
-% The following \setup may be deleted if no chip is desired.
-% \setup{filingcard,
-%   translatedtitle={},
-%   udc=621.3,
-%   shortabstract={Hier komt een heel bondig abstract van hooguit 500
-%     woorden. \LaTeX\ commando's mogen hier gebruikt worden. Blanco lijnen
-%     (of het commando \texttt{\string\pa r}) zijn wel niet toegelaten!
-%     \endgraf }}
-
-% Remove the "%" on the next line if you want to print the cover
-% \setup{coverpageonly}
-% Remove the "%" on the next line if you only want the first pages. Print % and create the rest eg via Word.
-%\setup{frontpagesonly}
-
 % Choose the fonts for the regular text, e.g. Latin Modern
 \setup{font=utopia}
 
 % Here you can load other packages or provide your own definitions
 
 % Finally, hyperref is used for PDF files.
-% This may be removed for the printable version.
 \usepackage[pdfusetitle, colorlinks, plainpages=false]{hyperref}
 \usepackage[english,greek]{babel}
 \usepackage[utf8x]{inputenc}
-
 % To enable the \citeauthor function
 \usepackage[numbers]{natbib}
-
 % To have multirows in tables
 \usepackage{multirow}
-
 % To write MMCS algorithm
 \usepackage{algorithmic}
-
 % To have rotated tables
 \usepackage{rotating} 
-% To remove page numbering in pages with rotating tables
-\usepackage{floatpag}
 
-\usepackage{float}
+% To remove page numbering in pages with rotating tables
+% \usepackage{floatpag}
+% \usepackage{float}
 
 % To have check boxes
 \usepackage{pifont}
 
-
+% Set the depth of Table of Contents
 \setcounter{tocdepth}{3}
 
-
-
-
+%Begin the document 
 \begin{document}
 
+% PREFACE
 \begin{preface}
   
-   
+   Here I ll talk about people.    
   
 \end{preface}
 
+
+% TOC
 \tableofcontents
 
-% ---------------------
+
 %  Abstract in english 
-% ---------------------
 \begin{abstract}
 
+   Short description on this dissertation.
 
 \end{abstract}
 
-% ---------------------
-%  Abstract in greek
-% ---------------------
 
+%  Abstract in greek
 \begin{abstract*}
 
    Και στα ελληνικά
    
 \end{abstract*}
 
-
-% ---------------------------------------------------
-% Before main tex and after the abstracts... 
-% ---------------------------------------------------
-
 % A list of figures and tables is optional
 \listoffiguresandtables
-
 
 % A section for abbreviations and symbols
 \chapter{List of Abbreviations and Symbols}
@@ -154,22 +128,21 @@
 \include{chapters/conclusion}
 
 % If there are attachments
-\appendixpage*          % indien gewenst
+\appendixpage*          
 \appendix
 % \include{app-A}
 % \include{app-n}
 
 \backmatter 
 
-% The bibliography is placed after the appendices.
-% You can replace the default "abbrv" bibliography style with another.
-% \bibliographystyle{alpha}
+% The bibliography
 \bibliographystyle{ieeetr.bst}
 \bibliography{references}
 
+% The one-page CV
+\include{chapters/one-pagep-cv}
+
+% End of document
 \end{document}
 
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: t
-%%% End: 
+
