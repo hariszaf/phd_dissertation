@@ -16,7 +16,7 @@
 % Here you can load other packages or provide your own definitions
 
 % Finally, hyperref is used for PDF files.
-\usepackage[pdfusetitle, colorlinks, plainpages=false]{hyperref}
+\usepackage[pdfusetitle, colorlinks, citecolor=cyan, plainpages=false]{hyperref}
 \usepackage[english,greek]{babel}
 \usepackage[utf8x]{inputenc}
 % To enable the \citeauthor function
@@ -80,6 +80,7 @@
   \renewcommand{\arraystretch}{1.1}
   \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
     NGS   & Next Generation Sequencing \\
+    eDNA  & environmental DeoxyriboNucleic Acid \\
     HPC   & High Performance Computing \\
     MCMC  & Markov Chain Monte Carlo \\
     MMCS  & Multiphase Monte Carlo Sampling \\
@@ -127,11 +128,15 @@
 % Finally... 
 \include{chapters/conclusion}
 
+
 % If there are attachments
 \appendixpage*          
 \appendix
-% \include{app-A}
-% \include{app-n}
+\include{appendices/app-A}
+\include{appendices/app-B}
+\include{appendices/app-C}
+\include{appendices/app-D}
+
 
 \backmatter 
 

@@ -17,10 +17,11 @@
 \section[PEMA: a flexible Pipeline for Environmental DNA Metabarcoding Analysis of the 16S/18S ribosomal RNA, ITS, and COI marker genes]{
    PEMA: a flexible Pipeline for Environmental DNA Metabarcoding Analysis of the 16S/18S ribosomal RNA, ITS, and COI marker genes\footnote{For author contributions, please refer to the relevant section. Modified version of the published review; extra features have been added and discussed on this thesis.}
 }
+\label{publ:pema}
 
    \textbf{Citation:} \\ 
    Zafeiropoulos, H., Viet, H.Q., Vasileiadou, K., Potirakis, A., Arvanitidis, C., Topalis, P., Pavloudi, C. and Pafilis, E., 2020. PEMA: a flexible Pipeline for Environmental DNA Metabarcoding Analysis of the 16S/18S ribosomal RNA, ITS, and COI marker genes. GigaScience, 9(3), p.giaa022, \\ 
-   doi: \href{https://doi.org/10.1093/gigascience/giaa022}{10.1093/gigascience/giaa022}.
+   DOI: \href{https://doi.org/10.1093/gigascience/giaa022}{10.1093/gigascience/giaa022}.
 
 
    \subsection{Abstract}
@@ -58,7 +59,7 @@
    However, from the raw read sequence files to an amplicon study's results, the bioinformatics analysis required can be troublesome for many researchers.
 
    Well-established pipelines are available to process metabarcoding data for the case of 16S and 18S rRNA marker genes and bacterial communities (e.g., mothur \citep{schloss2009introducing}, QIIME 2 \citep{bolyen2018qiime}, LotuS \citep{hildebrand2014lotus}). 
-   However, certain limitations accompany each of these and occasionally they can be far from easy-to-use software. Moreover, there is a great need for similarly straightforward and benchmarked approaches for the analysis of other marker genes. With respect to the COI and ITS marker genes, a number of pipelines have been implemented, e.g., \href{https://github.com/enormandeau/barque}{Barque}, ScreenForBio \citep{axtner2019efficient}, and PIPITS \citep{gweon2015pipits}. 
+   However, certain limitations accompany each of these and occasionally they can be far from easy-to-use software. Moreover, there is a great need for similarly straightforward and benchmarked approaches for the analysis of other marker genes. With respect to the COI and ITS marker genes, a number of pipelines have been implemented, e.g., \href{https://github.com/enormandeau/barque}{Barque}\footnote{\href{https://github.com/enormandeau/barque}{https://github.com/enormandeau/barque}}, ScreenForBio \citep{axtner2019efficient}, and PIPITS \citep{gweon2015pipits}. 
    However, there is still need for a fast, flexible, easy-to-install, and easy-to-use pipeline for both COI and ITS marker genes.
    
    The pipelines mentioned above, although entrenched, are still hindered by a series of hurdles. 
@@ -66,7 +67,7 @@
    
    Moreover, given the computational demands of such analyses, access to high - performance computing (HPC) systems might be mandatory, e.g., to process studies with a large number of samples. 
    This is timely given the ongoing investment of national and international efforts (e.g., see 
-   \href{https://www.esfri.eu/sites/default/files/u4/ESFRI_SCRIPTA_VOL3_INNO_double_page.pdf}{European Strategy Forum on Research Infrastructures}) 
+   \href{https://www.esfri.eu/sites/default/files/u4/ESFRI_SCRIPTA_VOL3_INNO_double_page.pdf}{European Strategy Forum on Research Infrastructures}\footnote{\href{https://www.esfri.eu/sites/default/files/u4/ESFRI_SCRIPTA_VOL3_INNO_double_page.pdf}{https://www.esfri.eu/sites/default/files/u4/ESFRI\_SCRIPTA\_VOL3\_INNO\_double\_page.pdf}}) 
    to serve the broad biological community via commonly accessible infrastructures.
    
    % PEMA CONTRIBUTION
@@ -99,18 +100,19 @@
    For the COI marker gene, the RDPClassifier \citep{wang2007naive} and the MIDORI database \citep{machida2017metazoan} are used for the taxonomic assignment. 
    In addition, ecological and phylogenetic analysis are facilitated via the \texttt{phyloseq} R package \citep{mcmurdie2013phyloseq}.
    
-   All the pipeline- and third-party module–controlling parameters are defined in a plain "parameter-value pair" text file. Its straightforward format eases the analysis fine tuning, complementary to the aforementioned checkpoint mechanism. A tutorial about PEMA and installation guidance can be found on \href{https://github.com/hariszaf/pema}{PEMA's GitHub repository} .
+   All the pipeline- and third-party module–controlling parameters are defined in a plain "parameter-value pair" text file. Its straightforward format eases the analysis fine tuning, complementary to the aforementioned checkpoint mechanism. A tutorial about PEMA and installation guidance can be found on \href{https://github.com/hariszaf/pema}{PEMA's GitHub repository}\footnote{\href{https://github.com/hariszaf/pema}{https://github.com/hariszaf/pema}}.
 
 
    % PEMA METHODS
    \subsection{Methods \& Implementation}
 
-   PEMA's architecture comprises 4 main parts taking place in tandem (Fig. 1). A detailed description of the tools invoked by PEMA and their licenses is included in Additional File 1: Supplementary Methods.
+   PEMA's architecture comprises 4 main parts taking place in tandem (Figure~\ref{fig:pema-nutshell}). A detailed description of the tools invoked by PEMA and their licenses is included in Additional File 1: Supplementary Methods.
 
    \begin{figure}[h]
       \centering
       \includegraphics[width=0.95\columnwidth]{figures/pema_workflow.jpeg}
-      \caption{PEMA comprises 4 parts. The first step (top left) is the quality control and pre-processing of the Illumina sequencing reads. This step is common for both 16S rRNA and COI marker genes. The second step (top right) is the clustering of reads to (M)OTUs or their inferring to ASVs. The third step (bottom left) is the taxonomy assignment to the generated (M)OTUs/ASVs. In the fourth step (bottom right), the results of the metabarcoding analysis are provided to the user and visualized. *noun project icons by: ProSymbols (US), IconMark (PH), Nithinan Tatah (TH). clustering figure adapted from DOI: 10.7717/peerj.1420/fig-1}
+      \caption[PEMA in a nutshell]{PEMA comprises 4 parts. The first step (top left) is the quality control and pre-processing of the Illumina sequencing reads. This step is common for both 16S rRNA and COI marker genes. The second step (top right) is the clustering of reads to (M)OTUs or their inferring to ASVs. The third step (bottom left) is the taxonomy assignment to the generated (M)OTUs/ASVs. In the fourth step (bottom right), the results of the metabarcoding analysis are provided to the user and visualized. *noun project icons by: ProSymbols (US), IconMark (PH), Nithinan Tatah (TH). clustering figure adapted from DOI: 10.7717/peerj.1420/fig-1}
+      \label{fig:pema-nutshell}
    \end{figure}
 
 
@@ -155,18 +157,19 @@
    The MIDORI database contains quality-controlled metazoan mitochondrial gene sequences from GenBank \citep{benson2018genbank}.
 
    Intended primarily for studies from less explored environments, phylogeny - based assignment is available for 16S rRNA marker gene data. 
-   PEMA maps OTUs to a custom reference tree of 1,000 Silva-derived consensus sequences (created using RAxML-ng \citep{kozlov2019raxml} and gappa [phat algorithm] \citep{czech2019methods}, Fig. 2A). 
+   PEMA maps OTUs to a custom reference tree of 1,000 Silva-derived consensus sequences (created using RAxML-ng \citep{kozlov2019raxml} and gappa [phat algorithm] \citep{czech2019methods}, Figure~\ref{fig:pema-phylogeny-assignment}A). 
    PaPaRa \citep{berger2012papara} and EPA-ng \citep{barbera2019epa} combine the OTU clustering output and the reference tree to produce a phylogeny-aware alignment and map the 16S rRNA OTUs to the custom reference tree. 
-   Beyond the context of PEMA, users may visualize the output with tree viewers such as iTOL \citep{letunic2021interactive} (Fig. 2B).
+   Beyond the context of PEMA, users may visualize the output with tree viewers such as iTOL \citep{letunic2021interactive} (Figure~\ref{fig:pema-phylogeny-assignment}B).
 
    \begin{figure}[h]
       \centering
       \includegraphics[width=115mm]{figures/pema_phylogenetic_tree.jpeg}
-      \caption{
+      \caption[Phylogeny - based taxonomy assignment in PEMA]{
          Phylogeny - based taxonomy assignment. 
          A: Building a reference tree for the phylogeny-based taxonomy assignment to 16S rRNA marker gene OTUs: from the latest edition of Silva SSU, all entries referring to Bacteria and Archaea were used and using the “art” algorithm, 10,000 consensus taxa were kept. 
          B: Using PaPaRa and the OTUs that come up from every analysis, an MSA was made and EPA - ng took over the phylogeny - based taxonomy assignment. *noun project icons by: Rockicon and A Beale.
       }
+      \label{fig:pema-phylogeny-assignment}
    \end{figure}
 
    \subsubsection*{Part 4: Ecological downstream analysis of the taxonomically assigned (M)OTU/ASV tables}
@@ -187,7 +190,7 @@
    A Dockerized PEMA version is \href{ https://hub.docker.com/r/hariszaf/pema}{available}. 
    Singularity users can \textit{pull} the PEMA image from as described in \href{https://github.com/hariszaf/pema}{PEMA GitHub repository}. 
    Between the 2 containers, the Singularity-based one is recommended for HPC environments owing to Singularity's improved security and file accessing properties, 
-   see \href{here}{https://dev.to/grokcode/singularity--a-docker-for-hpc-environments-i6p}. 
+   see \href{https://dev.to/grokcode/singularity--a-docker-for-hpc-environments-i6p}{here}\footnote{\href{https://dev.to/grokcode/singularity--a-docker-for-hpc-environments-i6p}{https://dev.to/grokcode/singularity--a-docker-for-hpc-environments-i6p}}. 
    PEMA can also be found in the bio.tools (id: PEMA) and SciCruch (PEMA, \href{https://scicrunch.org/resolver/RRID:SCR_017676}{RRID:SCR\_017676}) databases. 
    For detailed documentation, see \href{https://hariszaf.github.io/pema_documentation/}{here}.
 
@@ -264,7 +267,7 @@
    It is worth mentioning that as d increases, taxa cannot be identified to species level at all; 
    however, $FP$ assignments decrease. 
    Thus, when $d$ = 30 and strictness = 0.6 for the KAPA samples, Enterococcus was not identified at all; 
-   however, PEMA finds its greatest $F1$ value (at the genus level, see Table 1) as the FP assignments returned are minimized. 
+   however, PEMA finds its greatest $F1$ value (at the genus level, see Table~\ref{table:pema-precision}) as the FP assignments returned are minimized. 
    When PEMA was run using the VSEARCH clustering algorithm, high precision values were returned in all cases ($>$0.79). 
    However, the recall values were decreased when using Swarm v2 (0.65–0.68).
 
@@ -279,7 +282,8 @@
             ITS & 0.79 & 0.94 & 0.86 \\
             COI & 0.62 & 0.93 & 0.74
             \end{tabular}
-            \caption{Summary benchmark of PEMA marker - gene – specific mock community recovery (precision)}              
+            \caption[Summary benchmark of PEMA marker - gene - specific mock community recovery]{Summary benchmark of PEMA marker - gene – specific mock community recovery (precision)}
+            \label{table:pema-precision}
       \end{center}
     \end{table*}
 
@@ -326,7 +330,7 @@
    \subsubsection*{Comparison with existing software}
 
    PEMA's features were compared with those of mothur \citep{schloss2009introducing}, QIIME 2 \citep{bolyen2018qiime}, LotuS \citep{hildebrand2014lotus} and Barque. 
-   Table 2 presents a detailed comparison among the $4$ tools' features in terms of marker gene support, diversity and phylogeny analysis capability, parameter setting and mode of execution, operation system availability, and HPC suitability. 
+   Table~\ref{table:pema-feature-comparisons} presents a detailed comparison among the $4$ tools' features in terms of marker gene support, diversity and phylogeny analysis capability, parameter setting and mode of execution, operation system availability, and HPC suitability. 
    As shown, PEMA is equally feature - rich, if not richer in certain feature categories, compared with the other software packages. In particular, PEMA's support for COI marker gene studies is distinctive; 
    $2$ methods for taxonomy assignment are supported, and PEMA's easy parameter setting, step - by - step execution, and container distribution render it user and analysis friendly.
 
@@ -357,7 +361,8 @@
          available as a container & & \ding{51} & & & \ding{51} \\
          \begin{tabular}[c]{@{}c@{}}available for HPC as a container \\ (Singularity container)\end{tabular} & & & & &  \ding{51} 
       \end{tabular}
-      \caption{Comparison of the basic features of the different pipelines}
+      \caption[Comparison of the basic features of the different metabarcoding bioinformatics pipelines]{Comparison of the basic features of the different pipelines}
+      \label{table:pema-feature-comparisons}
    \end{table}
 
 
@@ -383,7 +388,7 @@
    LotuS, mothur, and QIIME 2 operated in a single-thread (core) fashion. 
    PEMA, given the BDS intrinsic parallelization \citep{cingolani2015bigdatascript}, operated with up to the maximum number of node cores (in this case $20$).
 
-   The execution time and the reported OTU number of each tool are presented in Table 3. 
+   The execution time and the reported OTU number of each tool are presented in Table~\ref{table:pema-compare-times}. 
    LotuS and PEMA resulted in a final number of OTUs comparable to that of Pavloudi et. al \citep{pavloudi2017sediment}. 
    Clearly, owing to PEMA's parallel execution support, the analysis time can be significantly reduced ($∼1.5$ hours in this case). 
    The execution time depends on the parameters chosen for each software (see Additional File 1: Supplementary Methods).
@@ -397,17 +402,18 @@
       No. of OTUs & 9,849 & 142,669 & 517 & 1,023 & 6,028 & 7,050 \\
       Execution time (h) & ∼9 & ∼67\footnote{($∼56$ if the reference database is already built).} & 2.5 & ∼5 & ∼1.5 & ∼26 \\ \bottomrule
       \end{tabular}
-      \caption{OTU predictions and execution time for the different pipelines. \\ * $∼56$ if the reference database is already built}
+      \caption[OTU predictions and execution time for the different pipelines]{OTU predictions and execution time for the different pipelines. \\ * $∼56$ if the reference database is already built}
+      \label{table:pema-compare-times}
    \end{table}
 
    Owing to the non - full overlap of the sequence reads, mothur resulted in an inflated number of OTUs; 
    thus, it was excluded from further analyses. 
    The results of all the pipelines were analysed with the phyloseq script that is provided with PEMA. 
-   The taxonomic assignment of the PEMA - retrieved OTUs is shown in Fig. 3. 
+   The taxonomic assignment of the PEMA - retrieved OTUs is shown in Figure~\ref{fig:pema-barplot}. 
    The phyla that were found in the samples are similar to the ones that were found in the original study \citep{pavloudi2017sediment}. 
-   Although the lowest number of OTUs was found in the marine station (Kal) (Supplementary Table S3), which is not in accordance with Pavloudi et. al \citep{pavloudi2017sediment}, the general trend of a decreasing number of OTUs with increasing salinity was observed as in the original study (Supplementary Fig. S1). 
+   Although the lowest number of OTUs was found in the marine station (Kal) (Supplementary Table S3), which is not in accordance with Pavloudi et. al \citep{pavloudi2017sediment}, the general trend of a decreasing number of OTUs with increasing salinity was observed as in the original study (Supplementary Figure S1). 
    Notably, this result was not observed with the other tested pipelines (Supplementary Table S3). 
-   Furthermore, each of the pipelines resulted in a different taxonomic profile (Supplementary Figs S2–S4), with an extreme case of missing the order of Betaproteobacteriales (Supplementary Figs S5–S7).
+   Furthermore, each of the pipelines resulted in a different taxonomic profile (Supplementary Figures S2–S4), with an extreme case of missing the order of Betaproteobacteriales (Supplementary Figures S5–S7).
 
 
    Moreover, when the PERMANOVA analysis was run for the results of PEMA, LotuS, and DADA2, it was clear that the microbial community composition was significantly different in each of the $3$ sampled habitats (i.e., river, lagoon, open sea) (PERMANOVA: F.Model = $7.0718$, $P < 0.001$; F.Model = $6.5901$, $P < 0.001$; F.Model = $2.2484$, $P < 0.05$, respectively), which is in accordance with Pavloudi et al. \citep{pavloudi2017sediment}. 
@@ -418,9 +424,10 @@
    \begin{figure}
       \centering
       \includegraphics[width=105mm]{figures/giaa022fig3.jpeg}
-      \caption{
+      \caption[OTU bar plot at the phylum level.]{
          OTU bar plot at the phylum level. Bar plot depicting the taxonomy of the retrieved OTUs from PEMA for the dataset of Pavloudi et al. \citep{pavloudi2017sediment}, at the phylum level for the case of the 16S marker gene. AR: Arachthos; ARO: Arachthos Neochori; ARDelta: Arachthos Delta; LOin: Logarou station inside the lagoon; LOout: Logarou station in the channel connecting the lagoon to the gulf; Kal: Kalamitsi.
       }
+      \label{fig:pema-barplot}
    \end{figure}
 
 
@@ -438,7 +445,7 @@
    Regarding the creation of the MOTU table, in the Bista et al. \citep{bista2017annual} study VSEARCH \citep{rognes2016vsearch} was used with a clustering at $97\%$ similarity threshold. 
    Afterwards, the BLAST+ (megablast) algorithm \citep{camacho2009blast} was used against a manually created database including all NCBI GenBank COI sequences of length $>100$  bp (June 2015) while excluding environmental sequences and higher taxonomic level information \citep{bista2017annual}. 
    As discussed in the publication, this approach resulted in $138$ unique MOTUs of which $73$ were assigned to species level. 
-   For PEMA's evaluation, the chosen clustering algorithm was Swarm v2, using different options for the cluster radius ($d$) parameter (Table 4); 
+   For PEMA's evaluation, the chosen clustering algorithm was Swarm v2, using different options for the cluster radius ($d$) parameter (Table~\ref{table:pema-exec-times}); 
    according to Mahé et al. \citep{mahe2015swarm}, this is the most important parameter because it affects the number of MOTUs that are being created. 
    The resulting MOTUs were classified against the MIDORI reference database \citep{machida2017metazoan} using RDPClassifier \citep{wang2007naive}. 
    The results of the processing of the sequences are reported in Supplementary Table S3. 
@@ -457,22 +464,23 @@
          Assigned species & 62 & 83 & 86 & 86 & 84 \\
          Execution time (h) & 2:01:35 & 2:09:49 & 1:51:44 & 2:17:26 & 2:31:15 \\ \bottomrule
          \end{tabular}
-         \caption{PEMA'sa output and execution time; PEMA's output and execution time (using a 20-core node) for different values of Swarm's d parameter.}
+         \caption[PEMA'sa output and execution time]{PEMA'sa output and execution time; PEMA's output and execution time (using a 20-core node) for different values of Swarm's d parameter.}
+         \label{table:pema-exec-times}
       \end{center}
    \end{table}
 
 
 
-   As shown in Table 4, PEMA resulted in 83 species-level MOTUs with a cluster radius ($d$) of $2$, which is similar to the findings of the published study (i.e., $73$ species). 
+   As shown in Table~\ref{table:pema-exec-times}, PEMA resulted in 83 species-level MOTUs with a cluster radius ($d$) of $2$, which is similar to the findings of the published study (i.e., $73$ species). 
    Although both the clustering algorithm and the taxonomy assignment methods were different between the original \citep{bista2017annual} and the present study, the results regarding the number of unique species present in the samples are in agreement to a considerable extent.
 
-   The computational time required by PEMA for the completion of the analysis is also reported in Table 4. 
+   The computational time required by PEMA for the completion of the analysis is also reported in Table~\ref{table:pema-exec-times}. 
    Regardless of the value of the d parameter, all analyses were completed in $∼2$ hours, i.e., fast enough to allow parameter testing and customization.
    Regarding Barque, the analysis resulted in the identification of $51$ species-level MOTUs and was concluded in $15$ minutes. 
    This difference is due to the error correction step of PEMA (BayesHammer algorithm \citep{nikolenko2013bayeshammer}), which plays an important part in the enhanced results that PEMA returns, but it also requires a certain computational time; 
    Barque does not have an analogous step, and therefore its overall execution time is shorter.
    
-   PEMA performed better than Barque at identifying taxa that were included in the positive control contents of the published study (Table 5).
+   PEMA performed better than Barque at identifying taxa that were included in the positive control contents of the published study (Table~\ref{table:pema-taxonomies-pema-barque}).
 
 
    \begin{table}[]
@@ -491,9 +499,9 @@
       \textit{Polypedilum sordens**} &  & \textit{Polypedilum nubeculosum} \\
       \textit{Athripsodes aterrimus**} &  & \textit{Athripsodes albifrons} \\ \bottomrule
       \end{tabular}
-      \caption{Comparison of the taxonomy of retrieved MOTUs among PEMA, Barque, and the positive controls of Bista et al. \citep{bista2017annual} ; * 
+      \caption[Comparing taxonomies retrieved from PEMA and Barque pipelines]{Comparison of the taxonomy of retrieved MOTUs among PEMA, Barque, and the positive controls of Bista et al. \citep{bista2017annual} ; * 
       Taxonomies identical to the published study (species level), ** Taxonomies identical to the published study (genus level).}
-
+      \label{table:pema-taxonomies-pema-barque}
    \end{table}
       
 
@@ -548,6 +556,37 @@
    Applications may mainly concern environmental ecology, with possible extensions to such fields as microbial pathology and gut microbiome, in line with modern research needs, from low volume to big data.
 
 
+
+\subsection{Supplementary Material}
+
+You may find the Supplementary files of this study through 
+\href{https://academic.oup.com/gigascience/article/9/3/giaa022/5803335#supplementary-data}{PEMA's publication}
+% \footnote{\href{https://academic.oup.com/gigascience/article/9/3/giaa022/5803335#supplementary-data}{https://academic.oup.com/gigascience/article/9/3/giaa022/5803335\#supplementary-data}}
+
+
+\textbf{Additional File 1:} Supplementary Methods: Description of tools invoked by PEMA and their licences. Description of the commands, along with their parameters, used to run PEMA, mothur, LotuS, and QIIME 2.
+
+\textbf{Additional File 2:} Mock Communities: Details about the mock communities chosen and their corresponding studies, as well as the returned output of PEMA for each for a number of sets of parameters.
+
+\textbf{Supplementary Table S1:} Number of sequences after each pre-processing step for the case of 16S rRNA gene.
+
+\textbf{Supplementary Table S3:} Number of sequences after each pre-processing step for the case of COI, dataset from Bista et al. \citep{bista2017annual}.
+
+\textbf{Supplementary Table S2:} Diversity indices of the samples.
+
+\textbf{Supplementary Figure S1:} Linear regression between the number of OTUs (averaged per sampling station) and the salinity of the sampling stations. L: Lagoon; S: Sea; R: River; AR: Arachthos; ARO: Arachthos Neochori; ARDelta: Arachthos Delta; LOin: Logarou station inside the lagoon; LOout: Logarou station in the channel connecting the lagoon to the gulf; Kal: Kalamitsi.
+
+\textbf{Supplementary Figure S2:} Bar plot depicting the taxonomy of the retrieved OTUs from LotuS at the phylum level.
+
+\textbf{Supplementary Figure S3:} Bar plot depicting the taxonomy of the retrieved OTUs from QIIME 2 using Deblur at the phylum level.
+
+\textbf{Supplementary Figure S4:} Bar plot depicting the taxonomy of the retrieved OTUs from QIIME 2 using DADA2 at the phylum level.
+
+\textbf{Supplementary Figure S5:} Bar plot depicting the taxonomy of the retrieved OTUs from LotuS at the class of Betaproteobacteriales.
+
+\textbf{Supplementary Figure S6:} Bar plot depicting the taxonomy of the retrieved OTUs from QIIME 2 using Deblur at the class of Betaproteobacteriales.
+
+\textbf{Supplementary Figure S7:} Bar plot depicting the taxonomy of the retrieved OTUs from PEMA at the class of Betaproteobacteriales.
 
 \newpage
 
@@ -645,7 +684,7 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    COX1 (\href{http://www.ncbi.nlm.nih.gov/nuccore/PF00115}{PF00115}), the respective DNA sequences were extracted from their corresponding genomes. 
    This way an additional $217$ archaeal and $9,154$ bacterial sequences were obtained (see Table 1). 
    In total, sequences from $15$ archaeal, $371$ bacterial families and 60 taxonomic groups of higher level not assigned in the family level, were gathered. 
-   An overview of the approach that was followed is presented in Figure 1. 
+   An overview of the approach that was followed is presented in Figure~\ref{fig:darn-build-tree}. 
 
    The large number of obtained sequences effectively prevents a phylogenetic tree construction encompassing their total number in terms of building a single phylogenetic tree covering all of the three domains of life (archaea, bacteria, eukaryota). 
    Therefore, consensus representative sequences from each of the three datasets were constructed using 
@@ -662,7 +701,8 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
       BOLD & 3,917 & 2,267 & 117 & 117 \\
       PFam-oriented & 9,154 & 4,532 & 217 & 115 \\ \bottomrule
       \end{tabular}
-      \caption{Number of sequences and taxonomic species per domain of life and resources. The (\#) symbols stands for "number".}
+      \caption[Number of sequences and taxonomic species per domain of life and resources]{Number of sequences and taxonomic species per domain of life and resources. The (\#) symbols stands for "number".}
+      \label{table:darn-seq-per-domain}
    \end{table}
 
 
@@ -670,7 +710,7 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    To address this challenge, a two-step procedure was followed; 
    a sequence subset of $500$ sequences (\textit{reference set}) was selected and aligned and then used as a backbone for the alignment of all the remaining eukaryotic COI sequences. 
    All sequences were considered reliable as they were retrieved from curated databases (Midori2 and BOLD). 
-   To build the reference set, a number ($n$) of the longest sequences from each of the various phyla were chosen, proportionally to the number ($m$) of sequences of each phylum (see Supplementary Table 1). 
+   To build the reference set, a number ($n$) of the longest sequences from each of the various phyla were chosen, proportionally to the number ($m$) of sequences of each phylum (see Supplementary Table~\ref{table:darn-seq-per-domain}). 
    The \texttt{--min-tax-level} parameter of the PhAT algorithm corresponded to the class level, for the case of eukaryotes and to the family level for archaea and bacteria. 
    This parameter forced the PhAT algorithm to build at least one consensus sequence for each class and family respectively. 
    The taxonomy level was not the same for the case of eukaryotes sequence dataset and those of bacteria and archaea, as the number of unique eukaryotic families was one order of magnitude higher. 
@@ -681,7 +721,7 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    \begin{figure}
       \centering
       \includegraphics[width=100mm]{figures/darn_methodology.jpg}
-      \caption{
+      \caption[Building the COI reference tree of life]{
          Overview of the approach followed to build the COI reference tree of life. 
          Sequences were retrieved from Midori 2 (eukaryotes) and BOLD (bacteria and archaea) repositories. 
          Consensus sequences at the family level were built for each domain specific dataset. 
@@ -689,6 +729,7 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
          The COI reference tree was finally built using IQ-TREE2. 
          Noun project icons by Arthur Slain and A. Beale.
       }
+      \label{fig:darn-build-tree}
    \end{figure}
 
 
@@ -755,21 +796,22 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    \subsection{Results \& Validation}
    \subsubsection*{Evaluation of the phylogenetic tree}
 
-   The inferred phylogenetic tree is shown in Figure 2, with the bacterial (light blue) and archaeal (dark green) branches highlighted;
-   in Suppl. material 3: Fig. S1 the distribution of the eukaryotic phyla on the tree is presented. 
+   The inferred phylogenetic tree is shown in Figure~\ref{fig:darn-ref-placements}, with the bacterial (light blue) and archaeal (dark green) branches highlighted;
+   in Supplementary material 3: Figure S1 the distribution of the eukaryotic phyla on the tree is presented. 
    As shown, bacteria and archaea can be distinguished from eukaryotes. 
    Scattered bacterial branches that are present among eukaryotic ones represent the diversity of the COI locus. 
    To evaluate the phylogenetic tree, the set of consensus sequences were placed on it using the EPA-ng algorithm. 
-   The placements (see \texttt{.jplace} through a phylogenetic tree viewer, e.g. iTOL) verified that the phylogenetic tree built is valid, as the consensus sequences have been placed in their corresponding taxonomic branches (Suppl. material 4: Fig. S2; the figure was built using the heat-tree module of the gappa examine tool).
+   The placements (see \texttt{.jplace} through a phylogenetic tree viewer, e.g. iTOL) verified that the phylogenetic tree built is valid, as the consensus sequences have been placed in their corresponding taxonomic branches (Supplementary material 4: Figure S2; the figure was built using the heat-tree module of the gappa examine tool).
 
    % FIGURE WITH PLACEMENTS
    \begin{figure}[h]
       \centering
       \includegraphics[width=135mm]{figures/placements_of_consensus_seqs_transpaernt.png}
-      \caption{
+      \caption[Placements of the consensus COI sequences on the reference COI tree]{
          Phylogenetic tree of the consensus sequences retrieved; the tree that DARN makes use of. Light blue: bacterial branches. 
          Dark green: archaeal branches. White: eukaryotic branches.
       }
+      \label{fig:darn-ref-placements}
    \end{figure}
 
 
@@ -784,7 +826,7 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    \subsubsection*{DARN using real community data}
 
    To evaluate DARN on the presence of dark matter we analysed a wide range of cases to show the ability of DARN to detect and estimate dark matter under various conditions. 
-   Both eDNA and bulk samples, from marine, lotic and lentic environments, were selected to reflect various combinations of primer and amplicon lengths, PCR protocols and bioinformatics analyses (Table 2).
+   Both eDNA and bulk samples, from marine, lotic and lentic environments, were selected to reflect various combinations of primer and amplicon lengths, PCR protocols and bioinformatics analyses (Table~\ref{table:darn-samples-outcomes}).
 
    % BIG TABLE WITH DARN OUTPUT TABLES
    \begin{sidewaystable}
@@ -867,7 +909,8 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
       ERS6488995 & eDNA & BF3 - BR2 & 458 & \begin{tabular}[c]{@{}c@{}}PEMA \end{tabular} & 1,940 & 64 & 34.0 & 2 & 0.3 \\ \bottomrule
       \end{tabular}
 
-      \caption{DARN outcome over the samples or set of samples. Assignment fractions of the sequences per domain per sample in the DARN results over the samples.}
+      \caption[DARN outcome over the samples or set of samples]{DARN outcome over the samples or set of samples. Assignment fractions of the sequences per domain per sample in the DARN results over the samples.}
+      \label{table:darn-samples-outcomes}
 
    \end{sidewaystable}
 
@@ -888,14 +931,14 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    DARN was then executed using the ASVs retrieved in each case as input. 
    All the DARN analyses and the PEMA runs were performed on an Intel(R) Xeon(R) CPU E5649 @ 2.53GHz server of 24 CPUs and 142 GB RAM in the Area52 Research Group at the University College Dublin.
 
-   The number of sequences returned, using various bioinformatic analyses, ranged from circa 3k to $214k$ (Table 2) in the different amplicon datasets used. 
+   The number of sequences returned, using various bioinformatic analyses, ranged from circa 3k to $214k$ (Table~\ref{table:darn-samples-outcomes}) in the different amplicon datasets used. 
    A coherent visual representation of the DARN outcome for all the datasets is 
-   available \href{https://hariszaf.github.io/darn/}{here}. 
+   available \href{https://hariszaf.github.io/darn/}{here}\footnote{\href{https://hariszaf.github.io/darn/}{https://hariszaf.github.io/darn/}}. 
    The visual and interactive properties of the Krona plot allow the user to navigate through the taxonomy. 
    Furthermore, DARN also supports a thorough investigation per OTU/ASV, as it returns a \texttt{.json} file with 
    all the OTUs/ASVs ids that have been assigned in each of the four categories (Bacteria, Archaea, Eukaryotes and distant).
    
-   Significant proportions of non-eukaryote DARN assignments were observed in all marine eDNA samples (Table 2). 
+   Significant proportions of non-eukaryote DARN assignments were observed in all marine eDNA samples (Table~\ref{table:darn-samples-outcomes}). 
    Bacterial assignments made up the largest proportion of the non-eukaryotic assignments 
    ($35.3\%$ on average and more than $75\%$ of the OTUs/ASVs in some cases), however, archaeal assignments 
    were also detected to a great extent as well ($18.4\%$ on average). 
@@ -906,7 +949,7 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    (using Swarm with $d$ parameter equal to $10$) ranged from $365$ (ERS6488993) to $823$ (ERS6488993). 
    This relatively low number of ASVs could indicate that targeting such small COI regions could decrease the 
    co-amplification of non-targeted sequences. 
-   In the case of bulk samples (Table 2) only a low proportion of the sequences were not assigned as Eukaryotes, suggesting that non-eukaryotic sequences are more abundant in environmental samples. 
+   In the case of bulk samples (Table~\ref{table:darn-samples-outcomes}) only a low proportion of the sequences were not assigned as Eukaryotes, suggesting that non-eukaryotic sequences are more abundant in environmental samples. 
    This could be expected since prokaryotes are amplified as whole organisms from environmental samples, while metazoa that are usually the targeted taxa in COI studies, are amplified from DNA traces or/and other parts of biological source material.
 
 
@@ -936,42 +979,7 @@ doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    The approach is also adaptable to other markers than COI. Moreover, the approach presented here allows researchers to better understand the known unknowns and shed light on the dark matter of their metabarcoding sequence data.
 
 
-
-% % Table with COI and COI like sequences per rersource per domain
-% \begin{table}[!htbp]
-%    \begin{tabular}{lllll}
-%    \hline
-%    \multicolumn{1}{|l|}{\multirow{2}{*}{Resources}} & \multicolumn{2}{l|}{bacteria}                                             & \multicolumn{2}{l|}{archaea}                                              \\ \cline{2-5} 
-%    \multicolumn{1}{|l|}{}                           & \multicolumn{1}{l|}{\# of sequences} & \multicolumn{1}{l|}{\# of strains} & \multicolumn{1}{l|}{\# of sequences} & \multicolumn{1}{l|}{\# of strains} \\ \hline
-%    BOLD                                             & 3,917                                & 2,267                              & 117                                  & 117                                \\
-%    PFam-oriented                                    & 9,154                                & 4,532                              & 217                                  & 115                                \\ \hline
-%    \multicolumn{1}{|l|}{Total unique entries}       & \multicolumn{1}{l|}{11,421}          & \multicolumn{1}{l|}{6,798}         & \multicolumn{1}{l|}{334}             & \multicolumn{1}{l|}{201}           \\ \hline
-%    \end{tabular}
-%    \caption{Number of sequences and taxonomic species per domain of life and resources. The (\#) symbols stands for “number”.}
-%    \label{tab:sequences_per_domain}
-% \end{table}
-
-
-
-
-
-% Phylogenetic tree figure with the placelemnts of the consensus seqs on the tree
-% \begin{figure}[!htbp]
-%    \centering
-%    \includegraphics[width=0.65\columnwidth]{figures/darn_placemnets.png}
-%    \caption{Placements of the consensus sequences used to build the COI reference phylogenetic tree for the DARN tool, onto the phylogenetic tree (stroke width for the branches of the tree is 5). The color coding represents the placements per branch, with a range from zero (blue) to a maximum of 2 (blue). The 1 leaf – 1 placement relationship, as well as the maximum of 2 placements in the color coding bar, indicate the proper placement of each consensus sequence to its corresponding branch.}
-% \end{figure}
-
-
-
 \section{A workflow for marine Genomic Observatories data analysis}
 
 
 
-
-
-
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "thesis"
-%%% End: 

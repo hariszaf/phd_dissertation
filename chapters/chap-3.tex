@@ -31,7 +31,7 @@ Metabolic Networks}
 
    \begin{figure}[!htbp]
       \includegraphics[width=1.0\columnwidth]{figures/flux_sampling_workflow.png}
-      \caption{
+      \caption[From DNA sequences to distributions of metabolic fluxes]{
          From DNA sequences to distributions of metabolic fluxes.
          (A) The genes of an organism provide us with the enzymes that it can potentially produce. Enzymes are like a blueprint for the reactions they can catalyze.
          (B) Using the enzymes we identify the reactions in the organism.
@@ -54,7 +54,7 @@ Metabolic Networks}
    \begin{figure}[h]
       \centering
       \includegraphics[width=125mm]{figures/copulas_cropped.png}
-      \caption{
+      \caption[Flux distributions in the most recent human metabolic network Recon3D]{
          Flux distributions in the most recent human metabolic network Recon3D~\cite{brunk2018recon3d}. 
          We estimate the flux distributions of the reactions catalyzed by the enzymes Hexokinase (D-Glucose:ATP) (HEX), Glucose-6-Phosphate Phosphatase, Edoplasmic Reticular (G6PPer)
          and Phosphoenolpyruvate carboxykinase (GTP) (PEPCK).
@@ -68,6 +68,7 @@ Metabolic Networks}
          and a negative dependency when the mass is concentrated along the down-diagonal (HEX - PEPCK). %~\cite{Cales18}.
          The bottom line contains the  reactions and their stoichiometry.
       }
+      \label{fig:sampling-on-recond3d}
    \end{figure}
 
 
@@ -156,7 +157,6 @@ Metabolic Networks}
       \centering
       \textbf{Algorithm 1: }Billiard Walk$(P, p, \rho, \tau, W)$
       \medskip
-      \label{alg:billiard}
 
       \begin{algorithmic}
          \REQUIRE polytope $P$; point $p \in P$; upper bound on the number of reflections
@@ -215,7 +215,7 @@ Metabolic Networks}
 
 
       \end{algorithmic}
-         
+      \label{alg:billiard}   
    \end{figure}
 
    At each step of Billiard Walk, we compute the intersection point of a ray, say
@@ -257,7 +257,7 @@ Metabolic Networks}
 
    \begin{figure}[!htbp]
       \includegraphics[width=1.0\columnwidth]{figures/sampling_extra_phase_croped.png}
-      \caption{
+      \caption[A Multiphase Monte Carlo Sampling algorithm]{
          An illustration of our Multiphase Monte Carlo Sampling algorithm. The method is given an integer $n$ and starts at phase $i=0$ sampling from $P_0$. In each phase it samples a maximum number of points $\lambda$. If the sum of Effective Sample Size in each phase becomes larger than $n$ before the total number of samples in $P_i$ reaches $\lambda$ then the algorithm terminates. Otherwise, we proceed to a  new phase.
     We map back to $P_0$ all the generated samples of each phase.
       }
