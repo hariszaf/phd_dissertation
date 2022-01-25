@@ -501,16 +501,16 @@
 \renewcommand*\clearforchapter{%
   \if@mainmatter
     \if@openleft
-      \cleartoverso
+      % \cleartoverso
     \else
       \if@openright
-        \cleartorecto
+      %   \cleartorecto
       \else
-        \clearpage
+      %   \clearpage
       \fi
     \fi
   \else
-    \clearpage
+   %  \clearpage
   \fi}
 \makeoddhead{ruled}{}{}{%
   \if@mainmatter \rightmark \else \scshape\leftmark \fi}
@@ -696,28 +696,20 @@
 
     \hfill \break
 
-
-    \textbf{
-       Here are some thoughts of mine for the rest of the committe! 
-    } \\
-    \textbf{Prof Faust} \\
-    \textbf{Prof. Elias Tsigaridas} \\
-    \textbf{Prof. Klappa} \\
-    \textbf{Prof L.J.J}
+    \textbf{Prof. Ioannis Karakassis}\\
+    University of Crete \\
+    Department of Biology
 
     \hfill \break
 
-   %  \textbf{Prof Elias Tsigaridas} \\ 
-   %  Sorbonne Universit\'e and Paris Universit\'e \\
-   %  Inria Paris and IMJ-PRG
+    \textbf{Prof. Karoline Faust} \\
+    KU Leuven \\
+    Department of Microbiology and Immunology, Rega Institute
 
     \hfill \break
 
-   %  \textbf{Prof Karoline Faust} \\
-   %  KU Leuven \\
-   %  Department of Microbiology and Immunology, Rega Institute
-
-    \hfill \break
+    
+    One to go: Afous, Klappa or Elias
 
 
   \end{center}
