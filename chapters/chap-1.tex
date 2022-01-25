@@ -84,7 +84,7 @@
    From the biological perspective, monitoring biodiversity at all its different levels is of great importance. Because there is not a single marker gene to detect all taxa, researchers need to use different genes targeting each great taxonomy group separately \citep{coissac2012bioinformatic}. 
    To that end, PEMA supports the metabarcoding analysis of both prokaryotic communities, based on the 16S rRNA marker gene, and eukaryotic ones, based on the ITS (for Fungi) and COI and 18S rRNA (for Metazoa) marker genes \citep{coissac2012bioinformatic}.
    
-   As high-throughput sequencing (HTS) data become more and more accurate, ASVs, i.e., marker gene amplified sequence reads that differ in $≥1$ nucleotide from each other, become easier to resolve [15] \citep{callahan2017exact}. 
+   As high-throughput sequencing (HTS) data become more and more accurate, ASVs, i.e., marker gene amplified sequence reads that differ in $≥1$ nucleotide from each other, become easier to resolve \citep{callahan2017exact}. 
    The use of ASVs instead of OTUs has been suggested \citep{callahan2017exact}; 
    however, the choice of which approach to use should be based on each study's objective(s) \citep{pauvert2019bioinformatics}.
    
@@ -111,7 +111,8 @@
    \begin{figure}[h]
       \centering
       \includegraphics[width=0.95\columnwidth]{figures/pema_workflow.jpeg}
-      \caption[PEMA in a nutshell]{PEMA comprises 4 parts. The first step (top left) is the quality control and pre-processing of the Illumina sequencing reads. This step is common for both 16S rRNA and COI marker genes. The second step (top right) is the clustering of reads to (M)OTUs or their inferring to ASVs. The third step (bottom left) is the taxonomy assignment to the generated (M)OTUs/ASVs. In the fourth step (bottom right), the results of the metabarcoding analysis are provided to the user and visualized. *noun project icons by: ProSymbols (US), IconMark (PH), Nithinan Tatah (TH). clustering figure adapted from DOI: 10.7717/peerj.1420/fig-1}
+      \caption[PEMA in a nutshell]{PEMA comprises 4 parts. The first step (top left) is the quality control and pre-processing of the Illumina sequencing reads. This step is common for both 16S rRNA and COI marker genes. The second step (top right) is the clustering of reads to (M)OTUs or their inferring to ASVs. The third step (bottom left) is the taxonomy assignment to the generated (M)OTUs/ASVs. In the fourth step (bottom right), the results of the metabarcoding analysis are provided to the user and visualized. *noun project icons by: ProSymbols (US), IconMark (PH), Nithinan Tatah (TH). clustering figure adapted from 
+      DOI: \href{https://peerj.com/articles/1420/\#fig-1}{10.7717/peerj.1420/fig-1}}
       \label{fig:pema-nutshell}
    \end{figure}
 
@@ -271,7 +272,7 @@
    When PEMA was run using the VSEARCH clustering algorithm, high precision values were returned in all cases ($>$0.79). 
    However, the recall values were decreased when using Swarm v2 (0.65–0.68).
 
-
+   % PEMA MARKER-GENE-SPECIFIC RECOVERY
    \begin{table*}
       \begin{center}
          \begin{tabular}{@{}cccc@{}}
@@ -393,7 +394,7 @@
    Clearly, owing to PEMA's parallel execution support, the analysis time can be significantly reduced ($∼1.5$ hours in this case). 
    The execution time depends on the parameters chosen for each software (see Additional File 1: Supplementary Methods).
 
-
+   % PEMA COMPARISON TIMES
    \begin{table}[]
       \begin{tabular}{@{}lllllll@{}}
       \toprule
@@ -405,6 +406,7 @@
       \caption[OTU predictions and execution time for the different pipelines]{OTU predictions and execution time for the different pipelines. \\ * $∼56$ if the reference database is already built}
       \label{table:pema-compare-times}
    \end{table}
+
 
    Owing to the non - full overlap of the sequence reads, mothur resulted in an inflated number of OTUs; 
    thus, it was excluded from further analyses. 
@@ -420,7 +422,7 @@
    However, this was not the case with Deblur (PERMANOVA: $P > 0.05$). 
    Overall, PEMA's output is in accordance with the original study \citep{pavloudi2017sediment}, and seen through this perspective PEMA performed equally well with the other tested pipelines, along with having the shortest execution time.
 
-
+   % OTU BAR PLOT
    \begin{figure}
       \centering
       \includegraphics[width=105mm]{figures/giaa022fig3.jpeg}
@@ -429,9 +431,6 @@
       }
       \label{fig:pema-barplot}
    \end{figure}
-
-
-
 
 
    \subsubsection*{COI marker gene analysis evaluation}
@@ -452,7 +451,7 @@
    For the case of Barque, the BOLD Database was used \citep{ratnasingham2007bold}.
 
 
-
+   % PEMA OUTPUT AND EXECUTION TIME
    \begin{table}[]
       \begin{center}    
          \begin{tabular}{@{}llllll@{}}
@@ -464,11 +463,10 @@
          Assigned species & 62 & 83 & 86 & 86 & 84 \\
          Execution time (h) & 2:01:35 & 2:09:49 & 1:51:44 & 2:17:26 & 2:31:15 \\ \bottomrule
          \end{tabular}
-         \caption[PEMA'sa output and execution time]{PEMA'sa output and execution time; PEMA's output and execution time (using a 20-core node) for different values of Swarm's d parameter.}
+         \caption[PEMA's output and execution time]{PEMA'sa output and execution time; PEMA's output and execution time (using a 20-core node) for different values of Swarm's d parameter.}
          \label{table:pema-exec-times}
       \end{center}
    \end{table}
-
 
 
    As shown in Table~\ref{table:pema-exec-times}, PEMA resulted in 83 species-level MOTUs with a cluster radius ($d$) of $2$, which is similar to the findings of the published study (i.e., $73$ species). 
@@ -482,7 +480,7 @@
    
    PEMA performed better than Barque at identifying taxa that were included in the positive control contents of the published study (Table~\ref{table:pema-taxonomies-pema-barque}).
 
-
+   % TABLE WITH SPECIES NAMES PEMA AND BARQUE
    \begin{table}[]
       \begin{tabular}{@{}lll@{}}
       \toprule
@@ -505,11 +503,12 @@
    \end{table}
       
 
-
-
    % PEMA DISCUSSION
    \subsection{Discussion}
+   \label{sec:pema-discussion}
+
    \subsubsection*{OTU clustering vs ASV inference}
+   \label{subsec:otu-asv}
 
    There is an ongoing discussion about whether ASVs exceed OTUs. 
    The strongest argument to this end is that ASVs are real biological sequences. 
@@ -532,7 +531,9 @@
    Furthermore, ASVs intend to improve taxonomic resolution; however, a vast number of inferred ASVs (see \href{http://fiererlab.org/2017/05/02/lumping-versus-splitting-is-it-time-for-microbial-ecologists-to-abandon-otus/}{here} for more) can lead to inflation of diversity estimates, especially in the case of microbial communities, thus making the analysis even more complicated.
 
    ASV or OTU approaches are supported by PEMA, although we have found that similar ecological results are produced by both these methods, as also suggested by Glassman and Martiny \citep{glassman2018broadscale}.
+
    \subsubsection*{Beyond environmental ecology, ongoing and future work}
+   \label{subsec:pema-future}
 
    PEMA is mainly intended to support eDNA metabarcoding analysis and be directly applicable to next - generation biodiversity / ecological assessment studies. 
    Given that community composition analysis may also serve additional research fields, e.g., microbial pathology, the potential impact of such pipelines is expected to be much higher. 
@@ -542,7 +543,9 @@
    The aim of this effort is to reach out to a wider scientific audience and address both their ongoing as well as future analysis needs.
 
    By supporting the analysis of the most commonly used marker genes for Bacteria and Archaea (16S rRNA), Fungi (ITS), and Metazoa (COI/18S rRNA), a holistic biodiversity assessment approach is now possible through PEMA and eDNA metabarcoding; although, from a mid-term perspective, it is our intention to allow ad hoc and in - house databases to be used as reference for the taxonomy assignment.
+
    \subsubsection*{Conclusions}
+   \label{subsec:pema-conclusion}
 
    PEMA is an accurate, execution - friendly and fast pipeline for eDNA metabarcoding analysis. 
    It provides a per - sample analysis output, different taxonomy assignment methods, and graphics - based biodiversity / ecological analysis. 
@@ -557,11 +560,11 @@
 
 
 
-\subsection{Supplementary Material}
+   \subsection{Supplementary Material}
 
-You may find the Supplementary files of this study through 
-\href{https://academic.oup.com/gigascience/article/9/3/giaa022/5803335#supplementary-data}{PEMA's publication}
-% \footnote{\href{https://academic.oup.com/gigascience/article/9/3/giaa022/5803335#supplementary-data}{https://academic.oup.com/gigascience/article/9/3/giaa022/5803335\#supplementary-data}}
+   You may find the Supplementary files of this study through 
+   \href{https://academic.oup.com/gigascience/article/9/3/giaa022/5803335#supplementary-data}{PEMA's publication}
+   \footnote{\href{https://academic.oup.com/gigascience/article/9/3/giaa022/5803335\#supplementary-data}{https://academic.oup.com/gigascience/article/9/3/giaa022/5803335\#supplementary-data}}
 
 
 \textbf{Additional File 1:} Supplementary Methods: Description of tools invoked by PEMA and their licences. Description of the commands, along with their parameters, used to run PEMA, mothur, LotuS, and QIIME 2.
@@ -609,7 +612,7 @@ You may find the Supplementary files of this study through
 
 \textbf{Citation:} \\
 Zafeiropoulos, H., Gargan, L., Hintikka, S., Pavloudi, C. and Carlsson, J., 2021. The Dark mAtteR iNvestigator (DARN) tool: getting to know the known unknowns in COI amplicon data. Metabarcoding and Metagenomics, 5, p.e69657, \\
-doi: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
+DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
    \subsection{Abstract}
    The mitochondrial cytochrome C oxidase subunit I gene (COI) is commonly used in environmental DNA (eDNA) metabarcoding studies, especially for assessing metazoan diversity. 

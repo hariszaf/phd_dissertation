@@ -100,7 +100,7 @@
 \subsection{Methods \& Implementation}
 \label{sec:prego-methods}
 
-   PREGO is a resource designed to assist molecular ecologists in acquiring a single point overview of what-where-who process–environment–organism associations. The system is comprised of two main parts: (a) a server that periodically harvests data and extracts process-environment-organism associations from the scientific literature, environmental samples, and genome annotation sequences (Figure 1, step 1 to 5) and (b) a web-based interface as well as an Application Programming Interface (API) that provides users and programmers with a friendly way to extract and navigate across the process–environment–organism associations (Figure 1, step 6).
+   PREGO is a resource designed to assist molecular ecologists in acquiring a single point overview of what-where-who process–environment–organism associations. The system is comprised of two main parts: (a) a server that periodically harvests data and extracts process-environment-organism associations from the scientific literature, environmental samples, and genome annotation sequences (Figure~\ref{fig:prego-pipeline}, step 1 to 5) and (b) a web-based interface as well as an Application Programming Interface (API) that provides users and programmers with a friendly way to extract and navigate across the process–environment–organism associations (Figure~\ref{fig:prego-pipeline}, step 6).
 
    \begin{figure}[h]
       \centering
@@ -122,8 +122,11 @@
 
    PREGO supports three entity types: \textit{Process}, \textit{Environment}, and \textit{Organism}. 
    For interoperability and consistency, an ontology or taxonomy is adopted for each type of entity.
-   Processes are represented as Gene Ontology (GO) terms and are grouped either as Biological processes (GObp) or as Molecular functions (GOmf). In addition, Environments are represented by terms from the Environmental Ontology. Organisms are represented by the microbial NCBI Taxonomy Ids (Bacteria, Archaea, and unicellular eukaryotes). For the unicellular eukaryotes, a custom list was populated with the unicellular eukaryotic taxa using a curated list.
-   PREGO's contents are mainly divided into three distinct channels of information based on data origin and format (Figure 1, step 1). The \textit{Literature} channel exploits scientific publications, i.e., abstracts and full text open access scientific publications (Table~\ref{table:prego1} and Section~\ref{subsec:prego-tm}). 
+   Processes are represented as Gene Ontology (GO) terms and are grouped either as Biological processes (GObp) or as Molecular functions (GOmf). 
+   In addition, Environments are represented by terms from the Environmental Ontology. 
+   Organisms are represented by the microbial NCBI Taxonomy Ids (Bacteria, Archaea, and unicellular eukaryotes). For the unicellular eukaryotes, a custom list was populated with the unicellular eukaryotic taxa using a curated list.
+   PREGO's contents are mainly divided into three distinct channels of information based on data origin and format (Figure~\ref{fig:prego-pipeline}, step 1). 
+   The \textit{Literature} channel exploits scientific publications, i.e., abstracts and full text open access scientific publications (Table~\ref{table:prego1} and Section~\ref{subsec:prego-tm}). 
    Through the \textit{Annotated Genomes and Isolates} channel, PREGO retrieves genome annotations and their accompanying metadata (Table~\ref{table:prego1} and Section~\ref{subsec:prego-isolates}). 
    Finally, the \textit{Environmental Samples} channel supports the integration of metagenomic analyses from both amplicon and shotgun studies. 
    These include taxonomic and functional profiles along with their corresponding metadata (Table~\ref{table:prego1}, more details in Section~\ref{subsec:prego-envsamples}).
@@ -154,9 +157,10 @@
 
    In cases in which the retrieved data and metadata are in text form, they are standardized to the aforementioned identifiers and taxonomies using Named Entity Recognition (NER) tools, namely the EXTRACT tagger \citep{pafilis2016extract, jensen2016one}. 
    In cases where data contain KEGG Orthology terms and/or Uniref identifiers, they are mapped to the respective GOmf using the mapping files available from the UniProt (see Appendix~\ref{app:A}). 
-   Associations are extracted after the mapping and standardization of the entities from each resource (Figure 1, step 3).
+   Associations are extracted after the mapping and standardization of the entities from each resource (Figure~\ref{fig:prego-pipeline}, step 3).
    The association extraction pipeline is distinct for each channel and resource because of differences in the data type origin (see \texttt{prego\_gathering\_data} in the Availability of Supporting Source Codes section). 
-   By the means of navigation, the large number of associations returned to the user require a type of sorting; ideally, one that ranks the most trustworthy associations at the top. 
+   By the means of navigation, the large number of associations returned to the user require a type of sorting; 
+   ideally, one that ranks the most trustworthy associations at the top. 
    For those reasons, each channel of PREGO has a dedicated scoring scheme bounded within the (0,5] space for consistency. 
    In Appendix ~\ref{app:A} , the scoring scheme of each channel is elaborated.
 
@@ -226,8 +230,8 @@
 
    PREGO is a multi-tier web-based application. 
    It is hosted on a 64 GB RAM DELL R540, 20 core, Debian server. 
-   Custom API clients (written in Python) are responsible for retrieving the data and metadata from each source (Figure 1, step 2). 
-   These clients as well as the subsequent methodology (Figure 1, step 3 to 6) are updated in regular cycles using custom daemons (see Appendix~\ref{app:B}, Figure A1). 
+   Custom API clients (written in Python) are responsible for retrieving the data and metadata from each source (Figure~\ref{fig:prego-pipeline}, step 2). 
+   These clients as well as the subsequent methodology (Figure~\ref{fig:prego-pipeline}, step 3 to 6) are updated in regular cycles using custom daemons (see Appendix~\ref{app:B}, Figure~\ref{fig:devops}). 
    The \textit{mamba/blackmamba} web framework underlies communication to the Postgres association-holding database and the client-side communication. 
    HTML 5, Ajax, JQuery, and custom Javascript enhance the user web experience. 
    PREGO supports widely used browsers (e.g., Chrome, Firefox, Safari, Edge) in various operating systems, such as Windows 10, Linux (Ubuntu 18), and MacOS (10.12, 11).
@@ -240,11 +244,11 @@
    \subsubsection*{The PREGO Web Resource}
    \label{subsec:prego-web-resource}
 
-   Users can access the PREGO contents through its web User Interface (UI) (Figures 2 and 3), its Application Programming Interface (API) (Figure 4), or bulk download of all associations (Appendix D). 
-   The User Interface comes with two search fields: a plain text search and a sequence search (Figure 2a). 
+   Users can access the PREGO contents through its web User Interface (UI) (Figures~\ref{fig:prego_ui} and \ref{fig:prego_ui_resources}), its Application Programming Interface (API) (Figure~\ref{fig:prego_api_schema}), or bulk download of all associations (Appendix D). 
+   The User Interface comes with two search fields: a plain text search and a sequence search (Figure~\ref{fig:prego_ui}a). 
    The latter is used when the user wants to search for a taxon sequence (see Section~\ref{subsec:prego-seq-search} for supported sequence databases). 
    The plain text search supports three types of entry points; the user can search for a taxon name, e.g., \textit{Methanosarcina mazei}, an environmental type, e.g., lagoon, or a biological process e.g., methanogenesis. 
-   In all entry points, PREGO returns an overview page consisting of tabs with associations of the entity of interest with the entities of the two other types (Figure~\ref{fig:prego_ui}b–d) as well as Documents and Downloads tabs (Figure 2e,f).
+   In all entry points, PREGO returns an overview page consisting of tabs with associations of the entity of interest with the entities of the two other types (Figure~\ref{fig:prego_ui}b–d) as well as Documents and Downloads tabs (Figure~\ref{fig:prego_ui}e,f).
 
 
    \begin{figure}[h]
@@ -263,8 +267,16 @@
 
 
    Regarding the association tabs, when a taxon is used as a query, PREGO returns an overview page consisting of tabs for environments, biological processes, and molecular functions. When an environmental type is used as input, PREGO returns the organisms that have been found to be related to it, as well as the Biological Processes observed in the given environment. 
-   Lastly, if a biological process is under study, PREGO returns a tab with the organisms along with another tab with the Environments related to the process. Notably, only the associations with scores higher than 0.5 are presented in the web platform and are sorted in descending order based on their score. The score is visualized with a five-star system (see Appendix~\ref{app:C} for the scoring scheme).
-   Every association tab contains three tables with associations derived from the PREGO channels (see Section~\ref{sec:prego-methods}) along with their supported evidence. The user can both search and scroll through these tables, which makes knowledge extraction easier in cases where, for example, Isolate data contain hundreds of associations. In the Literature channel, each association is supported by the scientific articles with text-mining identified co-mentions. When a user clicks on an association, a popup window appears. This window displays abstracts or excerpts of full text with the associated entities highlighted (Figure 3a). Additionally, the Environmental Samples and Genome annotations and Isolates channels support evidence for each association by providing links to more detailed information. In the former channel, when the users click on an association, they are redirected to pertinent sample pages of MGnify (Figure 3b). Similarly, the latter redirects users to JGI and NCBI genomes when the associations originated from JGI—IMG and Struo, respectively (Figure 3c).
+   Lastly, if a biological process is under study, PREGO returns a tab with the organisms along with another tab with the Environments related to the process. 
+   Notably, only the associations with scores higher than $0.5$ are presented in the web platform and are sorted in descending order based on their score. 
+   The score is visualized with a five-star system (see Appendix~\ref{app:C} for the scoring scheme).
+   Every association tab contains three tables with associations derived from the PREGO channels (see Section~\ref{sec:prego-methods}) along with their supported evidence. 
+   The user can both search and scroll through these tables, which makes knowledge extraction easier in cases where, for example, Isolate data contain hundreds of associations. 
+   In the \textit{Literature} channel, each association is supported by the scientific articles with text-mining identified co-mentions. 
+   When a user clicks on an association, a popup window appears. This window displays abstracts or excerpts of full text with the associated entities highlighted (Figure~\ref{fig:prego_ui_resources}a). 
+   Additionally, the Environmental Samples and Genome annotations and Isolates channels support evidence for each association by providing links to more detailed information. 
+   In the former channel, when the users click on an association, they are redirected to pertinent sample pages of MGnify (Figure~\ref{fig:prego_ui_resources}b). 
+   Similarly, the latter redirects users to JGI and NCBI genomes when the associations originated from JGI—IMG and Struo, respectively (Figure~\ref{fig:prego_ui_resources}c).
 
 
    \begin{figure}[h]
@@ -305,7 +317,7 @@
    \label{subsec:envo-taxa}
 
    Based on Pavloudi et al. (2017) \citep{pavloudi2017diversity}, several bacterial and archaeal SRM were found in lagoonal sediments, after amplifying and sequencing the dissimilatory sulfite reductase $\beta$-subunit (dsrB). 
-   Using PREGO for the case of Desulfobacteraceae, the family in which the majority of the observed OTUs of the study belonged to, several environmental types similar to lagoons were retrieved from both the Literature and the Environmental samples channels (Figure 3a,b). Moreover, most of them had a high z-score, such as “sediment”, \textit{"sludge"}, and \textit{"activated sludge"}. 
+   Using PREGO for the case of Desulfobacteraceae, the family in which the majority of the observed OTUs of the study belonged to, several environmental types similar to lagoons were retrieved from both the \textit{Literature} and the \textit{Environmental samples} channels (Figure~\ref{fig:prego_ui_resources}a,b). Moreover, most of them had a high $z$-score, such as \textit{"sediment"}, \textit{"sludge"}, and \textit{"activated sludge"}. 
    Several dissimilar environmental types were associated with Desulfobacteraceae, e.g., \textit{"oil reservoir"} indicating them as potential environments where sulfate reduction takes place. 
    However, the presence of taxa within that family in different environments, from \textit{"sea water"} to \textit{"forest"} and \textit{"Wastewater treatment plant"}, may suggest that this family has ubiquitous representatives in diverse conditions.
 
@@ -401,10 +413,18 @@
    \end{table}
 
 
-   As shown in Figure 5, in its current version (December 2021), PREGO knowledge base covers $157$ bacterial phyla ($107$ are Candidatus), $23$ phyla from archaea ($18$ are Candidatus), and $22$ unicellular eukaryotic phyla described in the NCBI Taxonomy database. 
+   As shown in Figure~\ref{fig:prego-entities}, in its current version (December 2021), PREGO knowledge base covers $157$ bacterial phyla ($107$ are Candidatus), $23$ phyla from archaea ($18$ are Candidatus), and $22$ unicellular eukaryotic phyla described in the NCBI Taxonomy database. 
    The number of bacterial taxa present among the associations of each phylum ranges from the order of $10$s, as in the case of \textit{Candidatus Coatesbacteria}, to hundreds of thousands, e.g., Actinobacteriae. 
    The number of environmental types, found among the PREGO associations for each phylum, ranges from just a few to up to $1000$. 
    Similarly, the number of biological processes that have been related to the various phyla may range from less than a dozen, e.g., Yanofskybacteria to up to several thousands, e.g., Bacteroidetes. On the contrary, the number of molecular functions found to be related to taxa of each phylum is rather constant in all three domains.
+
+   \begin{figure}
+      \centering
+      \includegraphics[width=0.85\textwidth]{figures/figure_5_all_channels_ranks.png}  
+      \caption[Summary of the unique entities per phylum for each of the four entity types on PREGO]{Summary of all the unique entities per phylum for each of the four entity types (in log10 scale) that appear in PREGO. Phyla are grouped based on their superkingdom (in log10 scale). Only phyla for which associations are available in the PREGO platform are mentioned.
+      }
+      \label{fig:prego-entities}
+   \end{figure}
 
 
 
@@ -416,9 +436,16 @@
    \subsection*{PREGO Contents}
    \label{subsec:prego-contents-disc}
 
-   On its current version and according to the NCBI Taxonomy that it is based on, PREGO manages to cover a great range of microbial taxa, as most (if not all phyla) are present in the knowledge base (Figure 5). The different number of organisms’ entities per phylum highlights the diverse number of the members of the various phyla. On the contrary, the similar number of molecular functions in all cases indicates the robustness of the main metabolic processes required for life. With respect to biological processes, their number per phylum varies to some extent, especially for the case of Bacteria and Archaea. That could be observed as, in many cases, phyla that have been recently described using molecular techniques have not been studied extensively yet, e.g., Candidatus Delongbacteria. As expected, the number of environmental types that have been associated with members of each phylum varies, as a phylum may be universally present, while others could be strongly niche-specific (e.g., Hydrothermarchaeota).
+   On its current version and according to the NCBI Taxonomy that it is based on, PREGO manages to cover a great range of microbial taxa, as most (if not all phyla) are present in the knowledge base (Figure~\ref{fig:prego-entities}). 
+   The different number of organisms' entities per phylum highlights the diverse number of the members of the various phyla. On the contrary, the similar number of molecular functions in all cases indicates the robustness of the main metabolic processes required for life. 
+   With respect to biological processes, their number per phylum varies to some extent, especially for the case of Bacteria and Archaea. 
+   That could be observed as, in many cases, phyla that have been recently described using molecular techniques have not been studied extensively yet, e.g., Candidatus Delongbacteria. 
+   As expected, the number of environmental types that have been associated with members of each phylum varies, as a phylum may be universally present, while others could be strongly niche-specific (e.g., Hydrothermarchaeota).
 
-   Because of its three different channels, PREGO manages to extract associations both in the species and higher taxonomic levels. The Isolates channel supports explicit associations at the species level (Table 3 and Figure S3). Interestingly, the number of such genomes seems to have reached a plateau for now, as PREGO-like platforms include the same order of magnitude. The Literature channel, on the other hand, promotes the extraction of associations at higher taxonomic levels (Table 3 and Figure S1). This also applies to environment—organisms associations derived from the Environmental Samples channel (Table 3 and Figure S2). Associations regarding biological processes, though, are strongly enhanced by the Literature channel and the massive increase of literature.
+   Because of its three different channels, PREGO manages to extract associations both in the species and higher taxonomic levels. The Isolates channel supports explicit associations at the species level (Table~\ref{table:prego3} and Figure S3). 
+   Interestingly, the number of such genomes seems to have reached a plateau for now, as PREGO-like platforms include the same order of magnitude. 
+   The \textit{Literature} channel, on the other hand, promotes the extraction of associations at higher taxonomic levels (Table~\ref{table:prego3} and Figure S1). 
+   This also applies to environment—organisms associations derived from the Environmental Samples channel (Table~\ref{table:prego3} and Figure S2). Associations regarding biological processes, though, are strongly enhanced by the Literature channel and the massive increase of literature.
 
 
    % ASSOCIATIOS TABLE - table:prego3
@@ -457,7 +484,7 @@
       \label{table:prego3}
    \end{sidewaystable}
 
-   Additionally, the text mining methodology of the Literature channel has retrieved most of the entities present in PREGO knowledge base (Table 2). 
+   Additionally, the text mining methodology of the Literature channel has retrieved most of the entities present in PREGO knowledge base (Table~\ref{table:prego2}). 
    A significant contribution to the taxa with associations is due to the PMC OA processing by the text mining pipeline of the Literature channel. 
    This is in-line with reports in other applications of text mining when using full text articles \citep{westergaard2018comprehensive}. 
    However, the resulting associations are suggestive because of the text mining nature, and therefore subject for further review by the users.
@@ -467,7 +494,8 @@
    \label{subsec:prego-similar-platforms}
 
    There is an emerging niche for tools similar to PREGO to bring forward microbe associations and metadata. 
-   Table 4 summarizes the common and different features of BacDive, WoM, NMDC data portal, and PREGO. All of them commonly share the environmental associations and biological/metabolic processes with the microbes.
+   Table~\ref{table:prego4} summarizes the common and different features of BacDive, WoM, NMDC data portal, and PREGO. 
+   All of them commonly share the environmental associations and biological/metabolic processes with the microbes.
 
    BacDive is a well-established platform with a focus on phenotype and cultivation information for about 100,000 prokaryotes, bacteria, and archaea. 
    It has a high level of curation for most of its input types, like literature, internal databases, and personal collections. 

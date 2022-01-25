@@ -15,7 +15,7 @@ The Genome Annotation and Isolates channel has fixed values of scores depending 
 On the other hand, Environmental Samples channel data are based on samples, which contain metagenomes and OTU tables. 
 Thus, it has two levels of organization, microbes with metadata, and sample identifiers. Each association of two entities is scored based on the number of samples they co-occur. 
 A Literature channel scoring scheme is based on the co-mention of a pair of entities in each document, paragraph, and sentence. The differences in the nature of data require different scoring schemes in these channels.
-The contingency table (Table A1) of two random variables, $X$ and $Y$ are the starting point for the calculation of scores. The term $X = 1$ might be a specific NCBI id and $Y = 1$ a ENVO term. 
+The contingency table (Table~\ref{table:pregoA1}) of two random variables, $X$ and $Y$ are the starting point for the calculation of scores. The term $X = 1$ might be a specific NCBI id and $Y = 1$ a ENVO term. 
 The $c_{1,1}$ is the number of instances that two terms of $X = 1$ and $Y = 1$ are co-occurring, i.e., the joint frequency. 
 The marginals are the $c_{1,.}$ and $c{.,1}$ for $x$ and $y$, respectively, which are the backgrounds for each entity type. 
 Different handling of these frequencies leads to different measures. 
