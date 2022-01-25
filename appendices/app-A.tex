@@ -1,12 +1,14 @@
-\chapter{A bit of history}
+\chapter{Mappings}
 \label{app:A}
 
 
-
-Daniel Machado is at among the greatest researches these days on the field. 
-Machado used to work with Kiral Patil, who is a 
-
-
+PREGO produces entity identifiers either by Named Entity Recognition (NER) with the EXTRACT tagger or by mapping retrieved identifiers to the selected ones. 
+PREGO adopted NCBI taxonomy identifiers for taxa, Environmental Ontology for environments and Gene Ontology as a structure knowledge scheme for Processes (GObp) and Molecular Functions (GOmfs). 
+The latter was for reasons that are two-fold, first Gene Ontology has a Creative Commons Attribution 4.0 License and second there are many resources that have mapped their identifiers to Gene Ontology.
+MG-RAST metagenomes and JGI/IMG isolates annotations come with KEGG orthology (KO) terms; 
+Struo-oriented genome annotations, on the other hand, have Uniprot50 ids. The mapping from KO to GOmf and Uniprot50 to GOmf is implemented via UniProtKB mapping files of their FTP server (see \texttt{idmapping.dat} and \texttt{idmapping\_selected.tab} files). 
+By using the 3-column mapping file, the initial annotations were mapped to GOmf. As a complement, a list of metabolism-oriented KEGG ORTHOLOGY (KO) terms has been built (see \textit{prego\_mappings} in the Availability of Supporting Source Codes section).
+Finally, as STRUO annotations refer to GTDB genomes, \href{http://ftp.tue.mpg.de/ebio/projects/struo/GTDB_release89/metadata/}{publicly available mappings} (accessed on 24 December 2021) were used to link the genomes used with their corresponding NCBI Taxonomy entries.
 
 
 
