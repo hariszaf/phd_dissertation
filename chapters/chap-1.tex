@@ -193,7 +193,7 @@
    Between the 2 containers, the Singularity-based one is recommended for HPC environments owing to Singularity's improved security and file accessing properties, 
    see \href{https://dev.to/grokcode/singularity--a-docker-for-hpc-environments-i6p}{here}\footnote{\href{https://dev.to/grokcode/singularity--a-docker-for-hpc-environments-i6p}{https://dev.to/grokcode/singularity--a-docker-for-hpc-environments-i6p}}. 
    PEMA can also be found in the bio.tools (id: PEMA) and SciCruch (PEMA, \href{https://scicrunch.org/resolver/RRID:SCR_017676}{RRID:SCR\_017676}) databases. 
-   For detailed documentation, see \href{https://hariszaf.github.io/pema_documentation/}{here}.
+   For detailed documentation, see \href{https://hariszaf.github.io/pema_documentation/}{here}\footnote{\href{https://hariszaf.github.io/pema_documentation/}{https://hariszaf.github.io/pema\_documentation/}}.
 
    \subsubsection*{PEMA output}
 
@@ -439,7 +439,7 @@
    The sequencing reads of COIS were selected for PEMA's evaluation; 
    the COIF sequencing read pairs had no overlap so as to be merged and therefore were not considered appropriate for the analysis.
 
-   As previously, PEMA's performance was evaluated through a comparative analysis of the Bista et al. \citep{bista2017annual} dataset with \href{https://github.com/enormandeau/barque}{Barque}; 
+   As previously, PEMA's performance was evaluated through a comparative analysis of the Bista et al. \citep{bista2017annual} dataset with \href{https://github.com/enormandeau/barque}{Barque}\footnote{\href{https://github.com/enormandeau/barque}{https://github.com/enormandeau/barque}}; 
    the commands and parameters chosen can be found in Additional File 1: Supplementary Methods. 
    Regarding the creation of the MOTU table, in the Bista et al. \citep{bista2017annual} study VSEARCH \citep{rognes2016vsearch} was used with a clustering at $97\%$ similarity threshold. 
    Afterwards, the BLAST+ (megablast) algorithm \citep{camacho2009blast} was used against a manually created database including all NCBI GenBank COI sequences of length $>100$  bp (June 2015) while excluding environmental sequences and higher taxonomic level information \citep{bista2017annual}. 
@@ -557,9 +557,6 @@
    All the aforementioned features render PEMA attractive for biodiversity / ecological assessment analyses. 
    By supporting the analysis of the most commonly used marker genes for Prokaryotes (Bacteria and Archaea), as well as Eukaryotes (Fungi and Metazoa), PEMA allows assessment of biodiversity in different levels of biodiversity. 
    Applications may mainly concern environmental ecology, with possible extensions to such fields as microbial pathology and gut microbiome, in line with modern research needs, from low volume to big data.
-
-
-
    \subsection{Supplementary Material}
 
    You may find the Supplementary files of this study through 
@@ -626,15 +623,31 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    DARN source code is available on GitHub at \href{https://github.com/hariszaf/darn}{https://github.com/hariszaf/darn} and as a Docker image at \href{https://hub.docker.com/r/hariszaf/darn}{https://hub.docker.com/r/hariszaf/darn}.
 
    \subsection{Introduction}
+   \label{sec:darn-intro}
 
    % Parts of the following need to be moved in the main Intro
+   \subsubsection*{Metabarcoding: concept and caveats}
+   \label{subsec:darn-intro-metabar}
 
+   DNA metabarcoding is a rapidly evolving method that is being more frequently employed i
+   n a range of fields, such as biodiversity, biomonitoring, molecular ecology and others 
+   \citep{deiner2017environmental, ruppert2019past}. 
+   Environmental DNA (eDNA) metabarcoding, targeting DNA directly isolated from environmental samples
+   (e.g., water, soil or sediment, \citep{taberlet2012environmental}), is considered a holistic approach 
+   (Stat et al. 2017) in terms of biodiversity assessment, providing high detection capacity. 
+   At the same time, it allows wide-scale rapid bio-assessment \citep{stat2017ecosystem} at a relatively
+   low cost as compared to traditional biodiversity survey methods \citep{ji2013reliable}.
 
+   The underlying idea of the method is to take advantage of genetic markers, i.e. marker loci, 
+   using primers anchored in conserved regions. 
+   These universal markers should have enough sequence variability to allow distinction among 
+   related taxa and be flanked by conserved regions allowing for universal or semi-universal primer design \citep{deagle2014dna}. 
    In the case of eukaryotes, the target is most commonly mitochondrial due to higher copy numbers than nuclear DNA and the potential for species level identification. 
    Furthermore, mitochondria are nearly universally present in eukaryotic organisms, especially in case of metazoa, and can be easily sequenced and used for identification of the species composition of a sample \citep{taberlet2012towards}. 
    However, it is essential that comprehensive public databases containing well curated, up-to-date sequences from voucher specimens are available \citep{schenekar2020reference}. 
    This way, sequences generated by universal primers can be compared with the ones in reference databases, assessing sample OTU composition. 
    The taxonomy assignment step of the eDNA metabarcoding method and thus, the identification via DNA-barcoding, is only as good and accurate as the reference databases \citep{cilleros2019unlocking}. 
+
    Nevertheless, there is not a truly “universal” genetic marker that is capable of being amplified for all species across different taxa \citep{kress2015dna}. 
    Different markers have been used for different taxonomic groups \citep{deiner2017environmental}. 
    While bacterial and archaeal diversity is often based on the 16S rRNA gene, for eukaryotes a diverse set of loci is used from the analogous eukaryotic rRNA gene array (e.g., ITS, 18S or 28S rRNA), chloroplast genes (for plants) and mitochondrial DNA (for eukaryotes) in an attempt for species - specific resolution \citep{coissac2012bioinformatic}. 
@@ -642,9 +655,10 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    There are cases where COI has been the standard marker for metabarcoding, such as in the assessment of freshwater macroinvertebrates \citep{elbrecht2017validation} even though not all taxonomic groups can be differentiated to the species level using this locus \citep{deiner2017environmental}; 
    for example, in case of fish other loci are widely used such as 12S rRNA gene (hereafter referred to as 12S rRNA) \citep{miya2020mifish}.
 
+   \subsubsection*{The COI locus}
+   \label{subsec:darn-intro-coi}
 
    The mitochondrial cytochrome c oxidase subunit I (also called cox1 or/and COI) is a gene fragment of ~700 bp, widely used for metazoan diversity assessment. Here we present some of the reasons that microbial eukaryotes and prokaryotes are also amplified in such studies, raising the issue of the known unknown sequences.
-
    COI is a fundamental part of the heme aa3-type mitochondrial cytochrome c oxidase complex: the terminal electron acceptor in the respiratory chain. 
    Even if aa3-type Cox have been found in bacteria, there are also other cytochrome c oxidase (Cox) groups, such as the cbb3-type cytochrome c oxidases (cbb3-Cox) and the cytochrome ba3 \citep{ekici2012biogenesis, schimo2017cytochrome}.
 
@@ -652,8 +666,6 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    Numts are nonfunctional copies of mtDNA in the nucleus that have been found in major clades of eukaryotic organisms \citep{bensasson2001mitochondrial}.
 
    Thus, as Mioduchowska et al. (2018) \citep{mioduchowska2018instances} highlight, when universal primers are used targeting the COI locus, it is possible to co-amplify both non-target numts and prokaryotes \citep{siddall2009barcoding}. This has led to multiple erroneous DNA barcoding cases and it is now not rare to encounter bacterial sequences described as metazoan in databases such as GenBank \citep{mioduchowska2018instances}.
-
-
 
    Even though there are various known issues \citep{deagle2014dna}, COI is indeed considered as the “gold standard” for community DNA metabarcoding of bulk metazoan samples \citep{andujar2018coi}; 
    bulk is an environmental sample containing mainly organisms from the taxonomic group under study providing high quality and quantity of DNA \citep{taberletanalysis}. 
@@ -665,18 +677,25 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
 % DARN CONTRIBUTION
    \subsection{Contribution}
+   \label{sec:darn-contribution}
+
    The co-amplification of prokaryotes explained above, is a major reason for why many Operational Taxonomic Units (OTUs) and/or Amplicon Sequence Variants (ASVs) in eDNA metabarcoding studies cannot get taxonomy assignments when metazoan reference databases are used (c.f. Aylagas et al. 2016 \citep{aylagas2016benchmarking}) or they are assigned to metazoan taxa but with very low confidence estimates. 
    Despite the presence of such OTUs/ASVs to a varying degree in metabarcoding studies using the COI marker gene \citep{siddall2009barcoding}, to the best of our knowledge, there has not been a thorough investigation of the origin for these sequences. 
    Although unassignable sequences could be informative, there have been few attempts to further investigate this dark matter (e.g., \citep{sinniger2016worldwide, haenel2017ngs}).
+   
    The aim of this study was to build a framework for extracting such non-target, potentially unassigned (or assigned with low confidence) sequences from COI environmental sequence samples, hereafter referred to as “dark matter” as per Bernard et al. (2018) \citep{bernard2018microbial}. 
    We argue that the vast majority of these sequences represent microbial taxa, such as bacteria and archaea. 
+   
    More specifically, based on the previously described methodology by Barbera et al. (2019) \citep{barbera2019epa} (see also full stack example of the EPA-ng algorithm) for large-scale phylogenetic placements, we built a framework to estimate to what extent the OTUs/ASVs retrieved in an environmental sample represent target taxa or not. 
    That is, to evaluate the taxonomy assignment step in a metabarcoding analysis, by checking the phylogenetic placement of dark matter sequences. Similar studies have provided great insight into other marker genes, e.g. \citep{jamy2020long}.
 
 
 % DARN METHODS
    \subsection{Methods \& Implementation}
+   \label{sec:darn-methods}
+
    \subsubsection*{Building the COI tree of life}
+   \label{subsec:darn-methods-tree}
 
    Sequences for the COI region from all the three domains of life were retrieved from curated databases. 
    Eukaryotic sequences were retrieved from the Midori reference 2 database (version: GB239) \citep{machida2017metazoan}. 
@@ -736,7 +755,7 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    \end{figure}
 
 
-   A total of 1,109 consensus sequences ($70\%$ of total consensus sequences) were built covering the eukaryotic taxa, 
+   A total of $1,109$ consensus sequences ($70\%$ of total consensus sequences) were built covering the eukaryotic taxa, 
    while $463$ ($29\%$) bacterial and $21$ ($1\%$) archaeal consensus sequences were included. 
    The per-domain, consensus sequences returned can be found under the \texttt{consensus\_seqs} directory on 
    the GitHub repository 
@@ -758,7 +777,10 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    A thorough description of all the implementation steps for building the reference tree is presented in this 
    \href{https://colab.research.google.com/drive/1XorHsBm1uqx5TTZsH7SeVRkUA2SS8dnY}{Google Collab Notebook}. 
    The computational resources of the IMBBC High Performance Computing system, called Zorba \citep{zafeiropoulos20210s}, were exploited to address the needs of the tasks.
+
+
    \subsubsection*{Investigating COI dark matter}
+   \label{subsec:darn-methods-investigate}
 
    The COI reference tree was subsequently used to build and implement the Dark mAtteR iNvestigator (DARN) software tool. 
    DARN uses a \texttt{.fasta} file with DNA sequences as input and returns an overview of sequence assignments per domain (eukaryotes, bacteria, archaea) after placing the query sequences of the sample on the branches of the reference tree. 
@@ -797,7 +819,9 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
 % DARN RESULTS
    \subsection{Results \& Validation}
+   \label{darn-results}
    \subsubsection*{Evaluation of the phylogenetic tree}
+   \label{darn-results-tree-evaluation}
 
    The inferred phylogenetic tree is shown in Figure~\ref{fig:darn-ref-placements}, with the bacterial (light blue) and archaeal (dark green) branches highlighted;
    in Supplementary material 3: Figure S1 the distribution of the eukaryotic phyla on the tree is presented. 
@@ -917,15 +941,13 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
    \end{sidewaystable}
 
-   % \newpage
-
 
    More specifically, 57 marine, surface water, eDNA samples from Ireland were analysed through 
       a. QIIME2 \citep{bolyen2018qiime} and DADA2 \citep{callahan2016dada2} and, 
       b. PEMA \citep{zafeiropoulos2020pema}. 
    Similarly, 18 mangrove and 18 reef marine eDNA samples from Honduras, were analyzed using 
       a. \href{https://github.com/VascoElbrecht/JAMP}{JAMP v0.74} and DnoisE \citep{antich2021denoise} and 
-      b. PEMA. 
+      b. PEMA
    Furthermore, a sediment sample and two samples from Autonomous Reef Monitoring Structures (ARMS) one conserved in DMSO and another in ethanol from the Obst et al. (2020) \citep{obst2020marine} dataset were analysed using PEMA. 
    In addition, one lotic and two lentic samples from Norway were analysed using PEMA. 
    For the case of the lentic samples, multiple parameter sets regarding the ASVs inference step were implemented; 
@@ -959,6 +981,7 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
 % DARN DISCUSSION
    \subsection{Discussion}
+   \label{darn-discusssion}
 
    By making use of a COI - oriented reference phylogenetic tree built from $1,593$ consensus sequences, to phylogenetically place sequences from COI metabarcoding samples onto it, the surmise for including bacteria, algae, fungi etc. \citep{yang2013testing, aylagas2016benchmarking} was verified. 
    Our results demonstrate that standard metabarcoding approaches based on the COI gene region of the mitochondrial genome will not only amplify eukaryotes, but also a large proportion of non-target prokaryotic organisms, such as bacteria and archaea. 
@@ -982,7 +1005,9 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    The approach is also adaptable to other markers than COI. Moreover, the approach presented here allows researchers to better understand the known unknowns and shed light on the dark matter of their metabarcoding sequence data.
 
 
-\section{A workflow for marine Genomic Observatories data analysis}
+
+% \newpage
+% \section{A workflow for marine Genomic Observatories data analysis}
 
 
 

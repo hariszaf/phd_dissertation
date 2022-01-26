@@ -1,3 +1,848 @@
+
+% ---------------------------------------------------------------
+% MMCS algorithm - SoCG 2021
+% ---------------------------------------------------------------
+% Please use the format Author12 for a publication with first author Author in 2012 and try to have a sorted file
+
+@article{schellenberger2009use,
+  title={Use of randomized sampling for analysis of metabolic networks},
+  author={Schellenberger, Jan and Palsson, Bernhard {\O.}},
+  journal={Journal of biological chemistry},
+  volume={284},
+  number={9},
+  pages={5457--5461},
+  year={2009},
+  publisher={ASBMB}
+}
+
+@misc{chalkis2021geometric,
+      title={Geometric algorithms for sampling the flux space of metabolic networks}, 
+      author={Apostolos Chalkis and Vissarion Fisikopoulos and Elias Tsigaridas and Haris Zafeiropoulos},
+      year={2021},
+      eprint={2012.05503},
+      archivePrefix={arXiv},
+      primaryClass={q-bio.QM}
+}
+
+@phdthesis{CousinsThesis17,
+title = {Efficient high-dimensional sampling and integration},
+author = {B. Cousins},
+school = {Georgia Institute of Technology},
+address="Georgia, U.S.A.",
+year = {2017}
+}
+
+@article{Kalai06,
+ ISSN = {0364765X, 15265471},
+ URL = {http://www.jstor.org/stable/25151723},
+ abstract = {We apply the method known as simulated annealing to the following problem in convex optimization: Minimize a linear function over an arbitrary convex set, where the convex set is specified only by a membership oracle. Using distributions from the Boltzmann-Gibbs family leads to an algorithm that needs only O*(√n) phases for instances in ${\Bbb R}^{n}$ . This gives an optimization algorithm that makes $O^{\ast}(n^{4.5})$ calls to the membership oracle, in the worst case, compared to the previous best guarantee of O*(n⁵). The benefits of using annealing here are surprising because such problems have no local minima that are not also global minima. Hence, we conclude that one of the advantages of simulated annealing, in addition to avoiding poor local minima, is that in these problems it converges faster to the minima that it finds. We also give a proof that under certain general conditions, the Boltzmann-Gibbs distributions are optimal for annealing on these convex problems.},
+ author = {Adam Tauman Kalai and Santosh Vempala},
+ journal = {Mathematics of Operations Research},
+ number = {2},
+ pages = {253--266},
+ publisher = {INFORMS},
+ title = {Simulated Annealing for Convex Optimization},
+ volume = {31},
+ year = {2006}
+}
+
+@article{Bertsimas04,
+author = {Bertsimas, Dimitris and Vempala, Santosh},
+title = {Solving Convex Programs by Random Walks},
+year = {2004},
+issue_date = {July 2004},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {51},
+number = {4},
+issn = {0004-5411},
+url = {https://doi.org/10.1145/1008731.1008733},
+doi = {10.1145/1008731.1008733},
+abstract = {Minimizing a convex function over a convex set in n-dimensional space is a basic, general problem with many interesting special cases. Here, we present a simple new algorithm for convex optimization based on sampling by a random walk. It extends naturally to minimizing quasi-convex functions and to other generalizations.},
+journal = {J. ACM},
+month = jul,
+pages = {540–556},
+numpages = {17},
+keywords = {polynomial time, Convex programs, random walks}
+}
+
+@article{Dieker15,
+ ISSN = {0364765X, 15265471},
+ URL = {http://www.jstor.org/stable/24540983},
+ abstract = {Stochastic billiards can be used for approximate sampling from the boundary of a bounded convex set through the Markov Chain Monte Carlo paradigm. This paper studies how many steps of the underlying Markov chain are required to get samples (approximately) from the uniform distribution on the boundary of the set, for sets with an upper bound on the curvature of the boundary. Our main theorem implies a polynomial-time algorithm for sampling from the boundary of such sets.},
+ author = {A. B. Dieker and Santosh S. Vempala},
+ journal = {Mathematics of Operations Research},
+ number = {4},
+ pages = {888--901},
+ publisher = {INFORMS},
+ title = {Stochastic Billiards for Sampling from the Boundary of a Convex Set},
+ volume = {40},
+ year = {2015}
+}
+
+@article{Gretton12,
+  author  = {Arthur Gretton and Karsten M. Borgwardt and Malte J. Rasch and Bernhard Sch{{\"o}}lkopf and Alexander Smola},
+  title   = {A Kernel Two-Sample Test},
+  journal = {Journal of Machine Learning Research},
+  year    = {2012},
+  volume  = {13},
+  number  = {25},
+  pages   = {723-773},
+  url     = {http://jmlr.org/papers/v13/gretton12a.html}
+}
+
+@techreport{ChePioCaz18,
+  TITLE = {{Hamiltonian Monte Carlo with boundary reflections, and application to polytope volume calculations}},
+  AUTHOR = {Chevallier, A. and Pion, S. and Cazals, F.},
+  URL = {https://hal.archives-ouvertes.fr/hal-01919855},
+  TYPE = {Research Report},
+  NUMBER = {RR-9222},
+  INSTITUTION = {{INRIA Sophia Antipolis, France}},
+  YEAR = {2018},
+  KEYWORDS = {Random walk ; HMC ; Billiard walk ; Polytope ; Importance sampling ; Billiard ; Marche al{\'e}atoire},
+  PDF = {https://hal.archives-ouvertes.fr/hal-01919855/file/RR-9222.pdf},
+  HAL_ID = {hal-01919855},
+  HAL_VERSION = {v1},
+}
+
+@article{Chen18,
+  author  = {Yuansi Chen and Raaz Dwivedi and Martin J. Wainwright and Bin Yu},
+  title   = {Fast MCMC Sampling Algorithms on Polytopes},
+  journal = {Journal of Machine Learning Research},
+  year    = {2018},
+  volume  = {19},
+  number  = {55},
+  pages   = {1-86},
+  url     = {http://jmlr.org/papers/v19/18-158.html}
+}
+
+@inproceedings{VempalaRiem18,
+author = {Lee, Yin Tat and Vempala, Santosh S.},
+title = {Convergence Rate of Riemannian Hamiltonian Monte Carlo and Faster Polytope Volume Computation},
+year = {2018},
+isbn = {9781450355599},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3188745.3188774},
+doi = {10.1145/3188745.3188774},
+abstract = {We give the first rigorous proof of the convergence of Riemannian Hamiltonian Monte Carlo, a general (and practical) method for sampling Gibbs distributions. Our analysis shows that the rate of convergence is bounded in terms of natural smoothness parameters of an associated Riemannian manifold. We then apply the method with the manifold defined by the log barrier function to the problems of (1) uniformly sampling a polytope and (2) computing its volume, the latter by extending Gaussian cooling to the manifold setting. In both cases, the total number of steps needed is O*(mn2/3), improving the state of the art. A key ingredient of our analysis is a proof of an analog of the KLS conjecture for Gibbs distributions over manifolds.},
+booktitle = {Proceedings of the 50th Annual ACM SIGACT Symposium on Theory of Computing},
+pages = {1115–1121},
+numpages = {7},
+keywords = {Hamiltonian Dynamics, Polytopes, Volume Computation, Sampling},
+location = {Los Angeles, CA, USA},
+series = {STOC 2018}
+}
+
+@article{lularevic2019improving,
+  title={Improving the accuracy of flux balance analysis through the implementation of carbon availability constraints for intracellular reactions},
+  author={Lularevic, Maximilian and Racher, Andrew J and Jaques, Colin and Kiparissides, Alexandros},
+  journal={Biotechnology and bioengineering},
+  volume={116},
+  number={9},
+  pages={2339--2352},
+  year={2019},
+  publisher={Wiley Online Library}
+}
+
+@article{kohl2010systems,
+  title={Systems biology: an approach},
+  author={Kohl, Peter and Crampin, Edmund J and Quinn, TA and Noble, Denis},
+  journal={Clinical Pharmacology \& Therapeutics},
+  volume={88},
+  number={1},
+  pages={25--33},
+  year={2010},
+  publisher={Wiley Online Library}
+}
+
+@book{noble2008music,
+  title={The music of life: biology beyond genes},
+  author={Noble, Denis},
+  year={2008},
+  publisher={Oxford University Press}
+}
+
+@article{geyer92,
+author = "Geyer, Charles J.",
+doi = "10.1214/ss/1177011137",
+fjournal = "Statistical Science",
+journal = "Statist. Sci.",
+month = "11",
+number = "4",
+pages = "473--483",
+publisher = "The Institute of Mathematical Statistics",
+title = "Practical {M}arkov Chain {Monte Carlo}",
+url = "https://doi.org/10.1214/ss/1177011137",
+volume = "7",
+year = "1992"
+}
+
+@article{Adamczak10,
+	title = {Quantitative estimates of the convergence of the empirical covariance matrix in log-concave ensembles},
+	volume = {23},
+	issn = {0894-0347, 1088-6834},
+	doi = {10.1090/S0894-0347-09-00650-X},
+	abstract = {Let be an isotropic convex body in . Given , how many independent points uniformly distributed on are needed for the empirical covariance matrix to approximate the identity up to with overwhelming probability? Our paper answers this question posed by Kannan, Lovász, and Simonovits. More precisely, let be a centered random vector with a log-concave distribution and with the identity as covariance matrix. An example of such a vector is a random point in an isotropic convex body. We show that for any , there exists , such that if and are i.i.d. copies of , then with probability larger than .},
+	language = {en},
+	number = {2},
+	urldate = {2020-08-11},
+	journal = {Journal of the American Mathematical Society},
+	author = {Adamczak, Radosław and Litvak, Alexander and Pajor, Alain and Tomczak-Jaegermann, Nicole},
+	year = {2010},
+	keywords = {approximation of covariance matrices, Convex bodies, isotropic measures, log-concave measures, norm of random matrices, random matrices, uniform laws of large numbers},
+	pages = {535--561},
+	file = {Full Text PDF:files/274/Adamczak et al. - 2010 - Quantitative estimates of the convergence of the e.pdf:application/pdf;Snapshot:files/275/S0894-0347-09-00650-X.html:text/html}
+}
+
+@misc{Shiri20,
+      title={On Radial Isotropic Position: Theory and Algorithms}, 
+      author={Shiri Artstein-Avidan and Haim Kaplan and Micha Sharir},
+      year={2020},
+      eprint={2005.04918},
+      archivePrefix={arXiv},
+      primaryClass={cs.CG}
+}
+
+@article{Cousins15,
+  author = {Ben Cousins and Santosh Vempala},
+  title ={A practical volume algorithm},
+  journal = {Mathematical Programming Computation},
+  volume={8},
+  number={2},
+  pages={133--160},
+  year={2016},
+  publisher={Springer}
+  }
+
+@InProceedings{Chalkis20,
+author="Chalkis, Apostolos
+and Emiris, Ioannis Z.
+and Fisikopoulos, Vissarion",
+editor="Bigatti, Anna Maria
+and Carette, Jacques
+and Davenport, James H.
+and Joswig, Michael
+and de Wolff, Timo",
+title="Practical Volume Estimation of Zonotopes by a New Annealing Schedule for Cooling Convex Bodies",
+booktitle="Mathematical Software -- ICMS 2020",
+year="2020",
+publisher="Springer International Publishing",
+address="Cham",
+pages="212--221",
+abstract="We study the problem of estimating the volume of convex polytopes, focusing on zonotopes. Although a lot of effort is devoted to practical algorithms for polytopes given as an intersection of halfspaces, there is no such method for zonotopes. Our algorithm is based on Multiphase Monte Carlo (MMC) methods, and our main contributions include: (i) a new uniform sampler employing Billiard Walk for the first time in volume computation, (ii) a new simulated annealing generalizing existing MMC by making use of adaptive convex bodies which fit to the input, thus drastically reducing the number of phases. Extensive experiments on zonotopes show our algorithm requires sub-linear number of oracle calls in the dimension, while the best theoretical bound is cubic. Moreover, our algorithm can be easily generalized to any convex body. We offer an open-source, optimized C++ implementation, and analyze its performance. Our code tackles problems intractable so far, offering the first efficient algorithm for zonotopes which scales to high dimensions (e.g. one hundred dimensions in less than 1 h).",
+isbn="978-3-030-52200-1"
+}
+
+@article{Lovasz06,
+author = {L\'aszl\'o Lovász and Santosh Vempala},
+title = {Simulated annealing in convex bodies and an ${O}^*(n^4)$ volume algorithms},
+journal = {J. Computer \& System Sciences},
+volume = {72},
+pages = {392--417},
+year  = {2006}
+}
+
+@article{LovSim,
+author = {L\'aszl\'o Lov\'asz and Ravi Kannan and Mikl\'os Simonovits},
+title = {Random walks and an ${O}^*(n^5)$ volume algorithm for convex bodies},
+journal = {Random Structures and Algorithms},
+volume = {11},
+pages = {1--50},
+year  = {1997}
+}
+
+@article{Bordel10,
+    author = {Bordel, Sergio AND Agren, Rasmus AND Nielsen, Jens},
+    journal = {{PLOS} Computational Biology},
+    publisher = {Public Library of Science},
+    title = {Sampling the Solution Space in Genome-Scale Metabolic Networks Reveals Transcriptional Regulation in Key Enzymes},
+    year = {2010},
+    month = {07},
+    volume = {6},
+    url = {https://doi.org/10.1371/journal.pcbi.1000859},
+    pages = {1-13},
+    abstract = {Author Summary The sequencing of full genomes and the development of high-throughput analysis technologies have made available both genome-scale metabolic networks and simultaneous transcription data for all the genes of an organism. Genome-scale metabolic models, with the assumption of steady state for the internal metabolites, allow the definition of a region of feasible metabolic flux distributions. This space of solutions can be further constrained using experimental flux measurements (normally production or uptake rates of external compounds). Here a random sampling method was used to obtain average values and standard deviations for all the reaction rates in a genome-scale model. These values were used to quantify the significance of changes in metabolic fluxes between different conditions. The significance in flux changes can be compared to the changes in gene transcription of the corresponding enzymes. Our method allowed for identification of specific reactions that are transcriptionally regulated, and we further identified that these reactions can be ascribed to a few key transcription factors. This suggests that the regulation of metabolism has evolved to contain a few flux-regulating transcription factors that could be the target for genetic manipulations in order to redirect fluxes.},
+    number = {7},
+    doi = {10.1371/journal.pcbi.1000859}
+}
+
+@book{klipp2016systems,
+  title={Systems biology: a textbook},
+  author={Klipp, Edda and Liebermeister, Wolfram and Wierling, Christoph and Kowald, Axel},
+  year={2016},
+  publisher={John Wiley \& Sons}
+}
+@book{palsson2015systems,
+  title={Systems biology},
+  author={Palsson, Bernhard {\O.}},
+  year={2015},
+  publisher={Cambridge university press}
+}
+
+@book{palsson2006systems,
+  title={Systems biology: properties of reconstructed networks},
+  author={Palsson, Bernhard {\O.}},
+  year={2006},
+  publisher={Cambridge university press}
+}
+
+
+% Articles
+
+@article{wiback2004monte,
+  title={{Monte Carlo} sampling can be used to determine the size and shape of the steady-state flux space},
+  author={Wiback, Sharon J and Famili, Iman and Greenberg, Harvey J and Palsson, Bernhard {\O.}},
+  journal={Journal of theoretical biology},
+  volume={228},
+  number={4},
+  pages={437--447},
+  year={2004},
+  publisher={Elsevier}
+}
+
+@article{wolf2018physical,
+  title={Physical foundations of biological complexity},
+  author={Wolf, Yuri I and Katsnelson, Mikhail I and Koonin, Eugene V},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={115},
+  number={37},
+  pages={E8678--E8687},
+  year={2018},
+  publisher={National Acad Sciences}
+}
+
+@article{Gelman92,
+	title = {Inference from {Iterative} {Simulation} {Using} {Multiple} {Sequences}},
+	volume = {7},
+	issn = {0883-4237},
+	url = {https://www.jstor.org/stable/2246093},
+	abstract = {The {Gibb}s sampler, the algorithm of Metropolis and similar iterative simulation methods are potentially very helpful for summarizing multivariate distributions. Used naively, however, iterative simulation can give misleading answers. Our methods are simple and generally applicable to the output of any iterative simulation; they are designed for researchers primarily interested in the science underlying the data and models they are analyzing, rather than for researchers interested in the probability theory underlying the iterative simulations themselves. Our recommended strategy is to use several independent sequences, with starting points sampled from an overdispersed distribution. At each step of the iterative simulation, we obtain, for each univariate estimand of interest, a distributional estimate and an estimate of how much sharper the distributional estimate might become if the simulations were continued indefinitely. Because our focus is on applied inference for Bayesian posterior distributions in real problems, which often tend toward normality after transformations and marginalization, we derive our results as normal-theory approximations to exact Bayesian inference, conditional on the observed simulations. The methods are illustrated on a random-effects mixture model applied to experimental measurements of reaction times of normal and schizophrenic patients.},
+	number = {4},
+	urldate = {2020-08-13},
+	journal = {Statistical Science},
+	author = {Gelman, Andrew and Rubin, Donald B.},
+	year = {1992},
+	note = {Publisher: Institute of Mathematical Statistics},
+	pages = {457--472}
+}
+
+@incollection{John48,
+	address = {Basel},
+	title = {Extremum {Problems} with {Inequalities} as {Subsidiary} {Conditions}},
+	isbn = {978-3-0348-0439-4},
+	url = {https://doi.org/10.1007/978-3-0348-0439-4_9},
+	abstract = {This paper deals with an extension of Lagrange’s multiplier rule to the case, where the subsidiary conditions are inequalities instead of equations. Only extrema of differentiable functions of a finite number of variables will be considered. There may however be an infinite number of inequalities prescribed. Lagrange’s rule for the situation considered here differs from the ordinary one, in that the multipliers may always be assumed to be positive. This makes it possible to obtain sufficient conditions for the occurence or a minimum in terms of the first derivatives only.},
+	language = {en},
+	urldate = {2020-08-12},
+	booktitle = {Traces and {Emergence} of {Nonlinear} {Programming}},
+	publisher = {Springer},
+	author = {John, Fritz},
+	editor = {Giorgi, Giorgio and Kjeldsen, Tinne Hoff},
+	year = {2014},
+	doi = {10.1007/978-3-0348-0439-4_9},
+	keywords = {Convex Body, Convex Hull, Convex Region, Small Sphere, Spherical Diameter},
+	pages = {197--215}
+}
+
+@article{swainston16,
+	title = {Recon 2.2: from reconstruction to model of human metabolism},
+	volume = {12},
+	issn = {1573-3890},
+	shorttitle = {Recon 2.2},
+	url = {https://doi.org/10.1007/s11306-016-1051-4},
+	doi = {10.1007/s11306-016-1051-4},
+	abstract = {The human genome-scale metabolic reconstruction details all known metabolic reactions occurring in humans, and thereby holds substantial promise for studying complex diseases and phenotypes. Capturing the whole human metabolic reconstruction is an on-going task and since the last community effort generated a consensus reconstruction, several updates have been developed.},
+	language = {en},
+	number = {7},
+	urldate = {2020-12-02},
+	journal = {Metabolomics},
+	author = {Swainston, Neil and Smallbone, Kieran and Hefzi, Hooman and Dobson, Paul D. and Brewer, Judy and Hanscho, Michael and Zielinski, Daniel C. and Ang, Kok Siong and Gardiner, Natalie J. and Gutierrez, Jahir M. and Kyriakopoulos, Sarantos and Lakshmanan, Meiyappan and Li, Shangzhong and Liu, Joanne K. and Martínez, Veronica S. and Orellana, Camila A. and Quek, Lake-Ee and Thomas, Alex and Zanghellini, Juergen and Borth, Nicole and Lee, Dong-Yup and Nielsen, Lars K. and Kell, Douglas B. and Lewis, Nathan E. and Mendes, Pedro},
+	month = jun,
+	year = {2016},
+	pages = {109},
+	file = {Springer Full Text PDF:files/315/Swainston et al. - 2016 - Recon 2.2 from reconstruction to model of human m.pdf:application/pdf}
+}
+
+@article{Roy20,
+author = {Roy, Vivekananda},
+title = {{Convergence Diagnostics for Markov Chain Monte Carlo}},
+journal = {Annual Review of Statistics and Its Application},
+volume = {7},
+number = {1},
+pages = {387-412},
+year = {2020},
+doi = {10.1146/annurev-statistics-031219-041300}
+}
+
+@book{golub13,
+  title={Matrix Computations},
+  author={Gene H.Golub and Charles F. Van Loan},
+  isbn={9781421407944},
+  lccn={2012943449},
+  series={Johns Hopkins Studies in the Mathematical Sciences},
+  year={2013},
+  publisher={Johns Hopkins University Press}
+}
+
+@misc{Laddha20,
+      title={{Convergence of Gibbs Sampling: Coordinate Hit-and-Run Mixes Fast}},
+      author={Aditi Laddha and Santosh Vempala},
+      year={2020},
+      eprint={2009.11338},
+      archivePrefix={arXiv},
+      primaryClass={cs.DS}
+}
+
+@misc{Chalkis19,
+      title={Practical Volume Estimation by a New Annealing Schedule for Cooling Convex Bodies}, 
+      author={Apostolos Chalkis and Ioannis Z. Emiris and Vissarion Fisikopoulos},
+      year={2019},
+      eprint={1905.05494},
+      archivePrefix={arXiv},
+      primaryClass={cs.CG}
+}
+
+@misc{Narayanan20,
+      title={On the mixing time of coordinate Hit-and-Run}, 
+      author={Hariharan Narayanan and Piyush Srivastava},
+      year={2020},
+      eprint={2009.14004},
+      archivePrefix={arXiv},
+      primaryClass={cs.DS}
+}
+
+@article{galas2014describing,
+  title={Describing the complexity of systems: multivariable “set complexity” and the information basis of systems biology},
+  author={Galas, David J and Sakhanenko, Nikita A and Skupin, Alexander and Ignac, Tomasz},
+  journal={Journal of Computational Biology},
+  volume={21},
+  number={2},
+  pages={118--140},
+  year={2014},
+  publisher={Mary Ann Liebert, Inc. 140 Huguenot Street, 3rd Floor New Rochelle, NY 10801 USA}
+}
+
+@article{ross2009complex,
+  title={Complex systems: from chemistry to systems biology},
+  author={Ross, John and Arkin, Adam P},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={106},
+  number={16},
+  pages={6433--6434},
+  year={2009},
+  publisher={National Acad Sciences}
+}
+
+@article{ideker2001new,
+  title={A new approach to decoding life: systems biology},
+  author={Ideker, Trey and Galitski, Timothy and Hood, Leroy},
+  journal={Annual review of genomics and human genetics},
+  volume={2},
+  number={1},
+  pages={343--372},
+  year={2001},
+  publisher={Annual Reviews 4139 El Camino Way, PO Box 10139, Palo Alto, CA 94303-0139, USA}
+}
+
+@article{schramski2015metabolic,
+  title={Metabolic theory predicts whole-ecosystem properties},
+  author={Schramski, John R and Dell, Anthony I and Grady, John M and Sibly, Richard M and Brown, James H},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={112},
+  number={8},
+  pages={2617--2622},
+  year={2015},
+  publisher={National Acad Sciences}
+}
+
+@article{strange2005end,
+  title={The end of “naive reductionism”: rise of systems biology or renaissance of physiology?},
+  author={Strange, Kevin},
+  journal={American Journal of Physiology-Cell Physiology},
+  volume={288},
+  number={5},
+  pages={C968--C974},
+  year={2005},
+  publisher={American Physiological Society}
+}
+
+@InProceedings{Cales18,
+  author ={Ludovic Cal\`es and
+			   Apostolos Chalkis and
+               Ioannis Z. Emiris and
+               Vissarion Fisikopoulos},
+  title ={{Practical Volume Computation of Structured Convex Bodies, and an Application to Modeling Portfolio Dependencies and Financial Crises}},
+  booktitle ={34th International Symposium on Computational Geometry (SoCG 2018)},
+  pages ={19:1--19:15},
+  series ={LIPIcs},
+  year ={2018},
+  volume ={99},
+  editor ={Bettina Speckmann and Csaba D. T{\'o}th},
+  publisher ={Schloss Dagstuhl--Leibniz-Zentrum fuer Informatik},
+  address ={Dagstuhl, Germany},
+  doi ={10.4230/LIPIcs.SoCG.2018.19}
+}
+
+@article{quinn2016sample,
+  title={From sample to multi-omics conclusions in under 48 hours. mSystems 1: e00038-16},
+  author={Robert A. Quinn and Jose A. Navas-Molina and Embriette R. Hyde and Se Jin Song and Yoshiki V{\'a}zquez-Baeza and Greg Humphrey and James Gaffney and Jeremiah J. Minich and Alexey V. Melnik and Jakob Herschend and Jeff DeReus and Austin Durant and Rachel J. Dutton and Mahdieh Khosroheidari and Clifford Green and Ricardo da Silva and Pieter C. Dorrestein and Rob Knight},
+  journal={Crossref, Medline},
+  year={2016}
+}
+
+@incollection{levy2012reverse,
+  title={Reverse ecology: from systems to environments and back},
+  author={Levy, Roie and Borenstein, Elhanan},
+  booktitle={Evolutionary systems biology},
+  pages={329--345},
+  year={2012},
+  publisher={Springer}
+}
+@article{Haraldsdottir17,
+  author          = {Haraldsd\'ottir, Hulda S and Cousins, Ben and Thiele, Ines
+                  and Fleming, Ronan M.T and Vempala, Santosh},
+  title           = "{CHRR}: coordinate hit-and-run with rounding for uniform
+                  sampling of constraint-based models",
+  journal         = {Bioinformatics},
+  volume          = 33,
+  number          = 11,
+  pages           = {1741-1743},
+  year            = 2017,
+  month           = 01,
+  issn            = {1367-4803},
+  doi             = {10.1093/bioinformatics/btx052}
+}
+
+@article{stryer1986biochemistry,
+  title={Biochemistry},
+  author={Stryer, Lubert and Augustyniak, J},
+  year={1986},
+  publisher={Panstwowe Wydawnictwo Naukowe}
+}
+
+@article{buchman2002community,
+  title={The community of the self},
+  author={Buchman, Timothy G},
+  journal={Nature},
+  volume={420},
+  number={6912},
+  pages={246--251},
+  year={2002},
+  publisher={Nature Publishing Group}
+}
+
+
+@article{papoutsakis2000equations,
+  title={Equations and calculations for fermentations of butyric acid bacteria},
+  author={Papoutsakis, Eleftherios Terry},
+  journal={Biotechnology and bioengineering},
+  volume={67},
+  number={6},
+  pages={813--826},
+  year={2000},
+  publisher={Wiley Online Library}
+}
+
+@article{fell1986fat,
+  title={Fat synthesis in adipose tissue. An examination of stoichiometric constraints},
+  author={Fell, David A and Small, J Rankin},
+  journal={Biochemical Journal},
+  volume={238},
+  number={3},
+  pages={781--786},
+  year={1986},
+  publisher={Portland Press Ltd.}
+}
+
+@article{orth2010flux,
+  title={What is flux balance analysis?},
+  author={Orth, Jeffrey D and Thiele, Ines and Palsson, Bernhard {\O.}},
+  journal={Nature biotechnology},
+  volume={28},
+  number={3},
+  pages={245--248},
+  year={2010},
+  publisher={Nature Publishing Group}
+}
+
+
+@article{kaufman1998direction,
+  title={Direction choice for accelerated convergence in hit-and-run sampling},
+  author={Kaufman, David E and Smith, Robert L},
+  journal={Operations Research},
+  volume={46},
+  number={1},
+  pages={84--95},
+  year={1998},
+  publisher={INFORMS}
+}
+
+@article{haraldsdottir2017chrr,
+  title={{CHRR}: coordinate hit-and-run with rounding for uniform sampling of constraint-based models},
+  author={Haraldsd{\'o}ttir, Hulda S and Cousins, Ben and Thiele, Ines and Fleming, Ronan MT and Vempala, Santosh},
+  journal={Bioinformatics},
+  volume={33},
+  number={11},
+  pages={1741--1743},
+  year={2017},
+  publisher={Oxford University Press}
+}
+
+@article{heirendt2019creation,
+  title={Creation and analysis of biochemical constraint-based models using the COBRA Toolbox v. 3.0},
+  author={Heirendt, Laurent and Arreckx, Sylvain and Pfau, Thomas and Mendoza, Sebasti{\'a}n N and Richelle, Anne and Heinken, Almut and Haraldsd{\'o}ttir, Hulda S and Wachowiak, Jacek and Keating, Sarah M and Vlasov, Vanja and others},
+  journal={Nature protocols},
+  volume={14},
+  number={3},
+  pages={639--702},
+  year={2019},
+  publisher={Nature Publishing Group}
+}
+
+@article{fallahi2020comparison,
+  title={A comparison of {Monte Carlo} sampling methods for metabolic network models},
+  author={Fallahi, Shirin and Skaug, Hans J and Alendal, Guttorm},
+  journal={{PLOS One}},
+  volume={15},
+  number={7},
+  pages={e0235393},
+  year={2020},
+  publisher={Public Library of Science San Francisco, CA USA}
+}
+
+@article{brunk2018recon3d,
+  title={Recon{3D} enables a three-dimensional view of gene variation in human metabolism},
+  author={Brunk, Elizabeth and Sahoo, Swagatika and Zielinski, Daniel C and Altunkaya, Ali and Dr{\"a}ger, Andreas and Mih, Nathan and Gatto, Francesco and Nilsson, Avlant and Gonzalez, German Andres Preciat and Aurich, Maike Kathrin and others},
+  journal={Nature biotechnology},
+  volume={36},
+  number={3},
+  pages={272},
+  year={2018},
+  publisher={Nature Publishing Group}
+}
+
+
+@article{perez2016metabolic,
+  title={Metabolic network modeling of microbial interactions in natural and engineered environmental systems},
+  author={Perez-Garcia, Octavio and Lear, Gavin and Singhal, Naresh},
+  journal={Frontiers in microbiology},
+  volume={7},
+  pages={673},
+  year={2016},
+  publisher={Frontiers}
+}
+
+@article{bernstein2019metabolic,
+  title={Metabolic network percolation quantifies biosynthetic capabilities across the human oral microbiome},
+  author={Bernstein, David B and Dewhirst, Floyd E and Segre, Daniel},
+  journal={Elife},
+  volume={8},
+  pages={e39733},
+  year={2019},
+  publisher={eLife Sciences Publications Limited}
+}
+
+
+@article{thiele2010protocol,
+  title={A protocol for generating a high-quality genome-scale metabolic reconstruction},
+  author={Thiele, Ines and Palsson, Bernhard {\O.}},
+  journal={Nature protocols},
+  volume={5},
+  number={1},
+  pages={93},
+  year={2010},
+  publisher={Nature Publishing Group}
+}
+
+@article{king2016bigg,
+  title={BiGG Models: A platform for integrating, standardizing and sharing genome-scale models},
+  author={King, Zachary A and Lu, Justin and Dr{\"a}ger, Andreas and Miller, Philip and Federowicz, Stephen and Lerman, Joshua A and Ebrahim, Ali and Palsson, Bernhard {\O.} and Lewis, Nathan E},
+  journal={Nucleic acids research},
+  volume={44},
+  number={D1},
+  pages={D515--D522},
+  year={2016},
+  publisher={Oxford University Press}
+}
+
+@article{Noronha18,
+    author = {Noronha, Alberto and Modamio, Jennifer and Jarosz, Yohan and Guerard, Elisabeth and Sompairac, Nicolas and Preciat, German and Daníelsdóttir, Anna Dröfn and Krecke, Max and Merten, Diane and Haraldsdóttir, Hulda S and Heinken, Almut and Heirendt, Laurent and Magnúsdóttir, Stefanía and Ravcheev, Dmitry A and Sahoo, Swagatika and Gawron, Piotr and Friscioni, Lucia and Garcia, Beatriz and Prendergast, Mabel and Puente, Alberto and Rodrigues, Mariana and Roy, Akansha and Rouquaya, Mouss and Wiltgen, Luca and Žagare, Alise and John, Elisabeth and Krueger, Maren and Kuperstein, Inna and Zinovyev, Andrei and Schneider, Reinhard and Fleming, Ronan M T and Thiele, Ines},
+    title = "{The Virtual Metabolic Human database: integrating human and gut microbiome metabolism with nutrition and disease}",
+    journal = {Nucleic Acids Research},
+    volume = {47},
+    number = {D1},
+    pages = {D614-D624},
+    year = {2018},
+    month = {10},
+    abstract = "{A multitude of factors contribute to complex diseases and can be measured with ‘omics’ methods. Databases facilitate data interpretation for underlying mechanisms. Here, we describe the Virtual Metabolic Human (VMH, www.vmh.life) database encapsulating current knowledge of human metabolism within five interlinked resources ‘Human metabolism’, ‘Gut microbiome’, ‘Disease’, ‘Nutrition’, and ‘ReconMaps’. The VMH captures 5180 unique metabolites, 17 730 unique reactions, 3695 human genes, 255 Mendelian diseases, 818 microbes, 632 685 microbial genes and 8790 food items. The VMH’s unique features are (i) the hosting of the metabolic reconstructions of human and gut microbes amenable for metabolic modeling; (ii) seven human metabolic maps for data visualization; (iii) a nutrition designer; (iv) a user-friendly webpage and application-programming interface to access its content; (v) user feedback option for community engagement and (vi) the connection of its entities to 57 other web resources. The VMH represents a novel, interdisciplinary database for data interpretation and hypothesis generation to the biomedical community.}",
+    issn = {0305-1048},
+    doi = {10.1093/nar/gky992},
+}
+
+@article{Gryazina14,
+title = "Random sampling: Billiard Walk algorithm",
+journal = "European Journal of Operational Research",
+volume = "238",
+number = "2",
+pages = "497 - 504",
+year = "2014",
+issn = "0377-2217",
+doi = "https://doi.org/10.1016/j.ejor.2014.03.041",
+author = "Elena Gryazina and Boris Polyak",
+keywords = "Sampling, Monte-Carlo, Hit-and-Run, Billiards",
+abstract = "Hit-and-Run is known to be one of the best random sampling algorithms, its mixing time is polynomial in dimension. However in practice, the number of steps required to obtain uniformly distributed samples is rather high. We propose a new random walk algorithm based on billiard trajectories. Numerical experiments demonstrate much faster convergence to the uniform distribution."
+}
+
+@article{Polyak14,
+title = "Billiard walk - a new sampling algorithm for control and optimization",
+journal = "IFAC Proceedings Volumes",
+volume = "47",
+number = "3",
+pages = "6123 - 6128",
+year = "2014",
+note = "19th IFAC World Congress",
+issn = "1474-6670",
+doi = "https://doi.org/10.3182/20140824-6-ZA-1003.02312",
+url = "http://www.sciencedirect.com/science/article/pii/S1474667016425711",
+author = "B.T. Polyak and E.N. Gryazina",
+keywords = "Randomized methods, Hit-and-Run, global optimization, linear systems, stabilization",
+abstract = "Hit-and-Run is known to be one of the best versions of Markov Chain Monte Carlo sampler. Nevertheless, in practice the number of iterations required to achieve uniformly distributed samples is rather high. We propose new random walk algorithm based on billiard trajectories and prove its asymptotic uniformity. Numerical experiments demonstrate much faster convergence to uniform distribution for Billiard Walk algorithm compared to Hit-and- Run. We discuss a class of global optimization problems that can be efficiently solved with Monte Carlo sampler."
+}
+
+@article{machado2018fast,
+  title={Fast automated reconstruction of genome-scale metabolic models for microbial species and communities},
+  author={Machado, Daniel and Andrejev, Sergej and Tramontano, Melanie and Patil, Kiran Raosaheb},
+  journal={Nucleic acids research},
+  volume={46},
+  number={15},
+  pages={7542--7553},
+  year={2018},
+  publisher={Oxford University Press}
+}
+
+
+@article{palsson2009metabolic,
+  title={Metabolic systems biology},
+  author={Palsson, Bernhard {\O.}},
+  journal={FEBS letters},
+  volume={583},
+  number={24},
+  pages={3900--3904},
+  year={2009},
+  publisher={Elsevier}
+}
+
+
+@article{cakmak2012new,
+  title={A new metabolomics analysis technique: steady-state metabolic network dynamics analysis},
+  author={Cakmak, Ali and Qi, Xinjian and Cicek, A Ercument and Bederman, Ilya and Henderson, Leigh and Drumm, Mitchell and Ozsoyoglu, Gultekin},
+  journal={Journal of bioinformatics and computational biology},
+  volume={10},
+  number={01},
+  pages={1240003},
+  year={2012},
+  publisher={World Scientific}
+}
+
+@article{shishvan2018homeostatic,
+  title={The homeostatic ensemble for cells},
+  author={Siamak S. Shishvan and Andrea Vigliotti and Vikram S. Deshpande},
+  journal={Biomechanics and Modeling in Mechanobiology},
+  volume={17},
+  number={6},
+  pages={1631--1662},
+  year={2018},
+  publisher={Springer}
+}
+
+
+@misc{chalkis2020volesti,
+      title={volesti: Volume Approximation and Sampling for Convex Polytopes in {R}}, 
+      author={Apostolos Chalkis and Vissarion Fisikopoulos},
+      year={2020},
+      eprint={2007.01578},
+      archivePrefix={arXiv},
+      primaryClass={stat.CO},
+      note={\url{https://github.com/GeomScale/volume_approximation}}
+}
+
+@misc{boostrandom,
+  author = {Jens Maurer and Steven Watanabe},
+  url = {https://www.boost.org/doc/libs/1_73_0/doc/html/boost_random.html},
+  howpublished = {Software},
+  title = {Boost Random Number Library},
+  year = 2017
+}
+
+
+@Manual{eigenweb,
+  author = {Ga\"{e}l Guennebaud and Beno\^{i}t Jacob and others},
+  title = {{Eigen} v3},
+  url = {http://eigen.tuxfamily.org},
+  year = {2010}
+ }
+ 
+@manual{mosek,
+   author = "MOSEK ApS",
+   title = "The MOSEK optimization toolbox for R manual. Version 9.2.",
+   year = 2019,
+   url = "https://docs.mosek.com/9.2/rmosek/index.html"
+ }
+
+@article{Saa16,
+  author    = {Pedro A. Saa and Lars K. Nielsen},
+  title     = {ll-{ACHRB}: a scalable algorithm for sampling the feasible solution space of metabolic networks},
+  journal   = {Bioinform.},
+  volume    = {32},
+  number    = {15},
+  pages     = {2330--2337},
+  year      = {2016},
+  url       = {https://doi.org/10.1093/bioinformatics/btw132},
+  doi       = {10.1093/bioinformatics/btw132}
+}
+
+@article{MacGillivray17,
+author = {Michael MacGillivray and Amy Ko and Emily Gruber and Miranda Sawyer and Eivind Almaas and Allen Holder},
+year = {2017},
+month = {12},
+pages = {},
+title = {Robust Analysis of Fluxes in Genome-Scale Metabolic Pathways},
+volume = {7},
+journal = {Scientific Reports},
+doi = {10.1038/s41598-017-00170-3}
+}
+
+@article{smith84,
+ author = {Robert L. Smith},
+ ISSN = {0030364X, 15265463},
+ abstract = {We consider the Monte Carlo problem of generating points uniformly distributed within an arbitrary bounded (measurable) region. The class of Markovian methods considered generate points asymptotically uniformly distributed within the region. Computational experience suggests the methods are potentially superior to conventional rejection techniques for large dimensional regions.},
+ journal = {Operations Research},
+ number = {6},
+ pages = {1296--1308},
+ publisher = {INFORMS},
+ title = {Efficient {Monte} {Carlo} Procedures for Generating Points Uniformly Distributed Over Bounded Regions},
+ volume = {32},
+ year = {1984}
+}
+
+@article{EF14,
+   author = {{I.Z.} Emiris and V. Fisikopoulos},
+   title = {Practical polytope volume approximation},
+journal="ACM Trans. Math. Soft.",
+year=2018, Volume= 44, Number=4,
+ pages = {38:1--38:21},
+issn = {0098-3500},
+ url = {http://doi.acm.org/10.1145/3194656},
+ doi = {10.1145/3194656},
+ publisher = {ACM},
+ address = {New York, USA},
+ keywords = {Volume approximation, algorithm engineering, birkhoff polytopes, general dimension, open source software, polytope oracle, random walk},
+note="Prelim. version: Proc. SoCG 2014" 
+}
+
+
+
 % ---------------------------------------------------------------
 %                             PREGO
 % ---------------------------------------------------------------
@@ -2349,46 +3194,6 @@ note = "[Online; accessed 7-January-2022]"
 
 
 % ---------------------
-% MMCS
-% ---------------------
-
-@article{Gelman92,
-	title = {Inference from {Iterative} {Simulation} {Using} {Multiple} {Sequences}},
-	volume = {7},
-	issn = {0883-4237},
-	url = {https://www.jstor.org/stable/2246093},
-	abstract = {The {Gibb}s sampler, the algorithm of Metropolis and similar iterative simulation methods are potentially very helpful for summarizing multivariate distributions. Used naively, however, iterative simulation can give misleading answers. Our methods are simple and generally applicable to the output of any iterative simulation; they are designed for researchers primarily interested in the science underlying the data and models they are analyzing, rather than for researchers interested in the probability theory underlying the iterative simulations themselves. Our recommended strategy is to use several independent sequences, with starting points sampled from an overdispersed distribution. At each step of the iterative simulation, we obtain, for each univariate estimand of interest, a distributional estimate and an estimate of how much sharper the distributional estimate might become if the simulations were continued indefinitely. Because our focus is on applied inference for Bayesian posterior distributions in real problems, which often tend toward normality after transformations and marginalization, we derive our results as normal-theory approximations to exact Bayesian inference, conditional on the observed simulations. The methods are illustrated on a random-effects mixture model applied to experimental measurements of reaction times of normal and schizophrenic patients.},
-	number = {4},
-	urldate = {2020-08-13},
-	journal = {Statistical Science},
-	author = {Gelman, Andrew and Rubin, Donald B.},
-	year = {1992},
-	note = {Publisher: Institute of Mathematical Statistics},
-	pages = {457--472}
-}
-
-
-@techreport{ChePioCaz18,
-  TITLE = {{Hamiltonian Monte Carlo with boundary reflections, and application to polytope volume calculations}},
-  AUTHOR = {Chevallier, A. and Pion, S. and Cazals, F.},
-  URL = {https://hal.archives-ouvertes.fr/hal-01919855},
-  TYPE = {Research Report},
-  NUMBER = {RR-9222},
-  INSTITUTION = {{INRIA Sophia Antipolis, France}},
-  YEAR = {2018},
-  KEYWORDS = {Random walk ; HMC ; Billiard walk ; Polytope ; Importance sampling ; Billiard ; Marche al{\'e}atoire},
-  PDF = {https://hal.archives-ouvertes.fr/hal-01919855/file/RR-9222.pdf},
-  HAL_ID = {hal-01919855},
-  HAL_VERSION = {v1},
-}
-
-
-
-
-
-
-
-% ---------------------
 % Microbial communities
 % ---------------------
 
@@ -2844,21 +3649,6 @@ note = "[Online; accessed 7-January-2022]"
   year={2012},
   publisher={Nature Publishing Group}
 }
-
-
-@article{brunk2018recon3d,
-  title={Recon{3D} enables a three-dimensional view of gene variation in human metabolism},
-  author={Brunk, Elizabeth and Sahoo, Swagatika and Zielinski, Daniel C and Altunkaya, Ali and Dr{\"a}ger, Andreas and Mih, Nathan and Gatto, Francesco and Nilsson, Avlant and Gonzalez, German Andres Preciat and Aurich, Maike Kathrin and others},
-  journal={Nature biotechnology},
-  volume={36},
-  number={3},
-  pages={272},
-  year={2018},
-  publisher={Nature Publishing Group}
-}
-
-
-
 
 
 % ---------------------
