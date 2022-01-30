@@ -15,6 +15,7 @@
 % To make lem work
 \newtheorem{thm}{Theorem}
 \newtheorem{lem}[thm]{Lemma}
+\newtheorem{remark}[thm]{Remark}
 
 
 \chapter{Software development to establish metabolic flux sampling 
@@ -28,7 +29,7 @@ Metabolic Networks}
 \textbf{Citation:} Chalkis, A., Fisikopoulos, V., Tsigaridas E. and Zafeiropoulos H.\\ 
 Geometric Algorithms for Sampling the Flux Space of Metabolic Networks. \\ 
 37th International Symposium on Computational Geometry (SoCG 2021) \\ 
-DOI: \href{10.4230/LIPIcs.SoCG.2021.21}{10.4230/LIPIcs.SoCG.2021.21} 
+DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.SoCG.2021.21} 
 
 \subsection{Abstract}
 \label{sec:mmcs-abstract}
@@ -183,7 +184,7 @@ DOI: \href{10.4230/LIPIcs.SoCG.2021.21}{10.4230/LIPIcs.SoCG.2021.21}
    $S$, then we define a polytope that encodes all the possible steady
    states and their  flux distributions \cite{palsson2015systems}.
    We call it the  steady-state \emph{flux space}.
-   Fig.~\ref{fig:workflow} illustrates the complete workflow from building a metabolic network to the computation of a flux distribution.
+   Fig.~\ref{fig:sampling_workflow} illustrates the complete workflow from building a metabolic network to the computation of a flux distribution.
    
    % FBA & limitations
    Using the polytopal representation, a commonly used method for the analysis of a metabolic network is Flux Balance Analysis (FBA)~\cite{orth2010flux}.
@@ -336,12 +337,12 @@ DOI: \href{10.4230/LIPIcs.SoCG.2021.21}{10.4230/LIPIcs.SoCG.2021.21}
 
 
    We introduce a Multi-phase Monte Carlo Sampling (MMCS) algorithm
-   (Sec.~\ref{sec:MMCS} and Alg.~\ref{alg:MMCS}) to sample from a polytope~$P$. In
+   (Sec.~\ref{subsec:mmcs-methods-algor} and Alg.~\ref{alg:MMCS}) to sample from a polytope~$P$. In
    particular, we split the sampling procedure in phases where, starting from $P$,
    each phase uses the sample to round the polytope. This improves the efficiency
    of the random walk in the next phase, see Fig.~\ref{fig:mmcs_phases}.
    For sampling, we propose an improved variant of Billiard Walk (BW)
-   (Sec.~\ref{subsec:billiard} that enjoys faster
+   (Sec.~\ref{subsec:mmcs-methods-bw} that enjoys faster
    arithmetic complexity per step. We also handle efficiently the potential arithmetic inaccuracies near to the boundary, see~\cite{ChePioCaz18}.
    %
    We accompany the MMCS algorithm with a powerful MCMC diagnostic, namely the
@@ -380,7 +381,7 @@ DOI: \href{10.4230/LIPIcs.SoCG.2021.21}{10.4230/LIPIcs.SoCG.2021.21}
 
    % In the next section we present a thorough description of both the biological and the geometrical
    % notions that are the backbone of our framework. 
-   % Section~\ref{sec:billiard}
+   % Section~\ref{subsec:mmcs-methods-bw}
    % details the Billard Walk random walk, while we introduce our Multiphase Monte Carlo
    % Sampling algorithms in 
    % Section~\ref{sec:MMCS}.
@@ -615,7 +616,7 @@ DOI: \href{10.4230/LIPIcs.SoCG.2021.21}{10.4230/LIPIcs.SoCG.2021.21}
    MMCS generates, in a sequence of sampling phases, a set of points,
    that is almost equivalent to $n$ independent uniformly distributed points in $P$, where $n$ is given.
    %%
-   At each phase, it employs Billiard Walk (Section~\ref{subsec:billiard}) 
+   At each phase, it employs Billiard Walk (Section~\ref{subsec:mmcs-methods-bw}) 
    to sample approximate uniformly distributed points, rounding
    to speedup sampling,
    and uses the Effective Sample Size (ESS) diagnostic to decide termination.
@@ -645,7 +646,8 @@ DOI: \href{10.4230/LIPIcs.SoCG.2021.21}{10.4230/LIPIcs.SoCG.2021.21}
    and thus the convergence  to the uniform distribution accelerates
    (Section~\ref{subsec:experiments}).
    That is we obtain faster a sample of better quality.
-   Finally, the (product of the) inverse transformations maps the samples to $P_0 = P$. Fig.~\ref{fig:mmcs_phases}
+   Finally, the (product of the) inverse transformations maps the samples to $P_0 = P$. 
+   Fig.~\ref{fig:mmcs_phases}
    depicts the procedure.
 
 
@@ -671,7 +673,7 @@ DOI: \href{10.4230/LIPIcs.SoCG.2021.21}{10.4230/LIPIcs.SoCG.2021.21}
          An illustration of our Multiphase Monte Carlo Sampling algorithm. The method is given an integer $n$ and starts at phase $i=0$ sampling from $P_0$. In each phase it samples a maximum number of points $\lambda$. If the sum of Effective Sample Size in each phase becomes larger than $n$ before the total number of samples in $P_i$ reaches $\lambda$ then the algorithm terminates. Otherwise, we proceed to a  new phase.
     We map back to $P_0$ all the generated samples of each phase.
       }
-      \label{fig:mmcs}
+      \label{fig:mmcs_phases}
    \end{figure}
 
 
@@ -679,7 +681,6 @@ DOI: \href{10.4230/LIPIcs.SoCG.2021.21}{10.4230/LIPIcs.SoCG.2021.21}
 
    % MMCS ALGO 2
    \begin{figure}
-      \label{alg:MMCS}
       \centering
       \textbf{Algorithm 2:} Multiphase \\ Monte Carlo Sampling$(P, n, l, \lambda, \rho, \tau, W)$
       \medskip
@@ -740,12 +741,13 @@ DOI: \href{10.4230/LIPIcs.SoCG.2021.21}{10.4230/LIPIcs.SoCG.2021.21}
    
       \RETURN $S$
       \end{algorithmic}
+      \label{alg:MMCS}
    \end{figure}
 
 
 
-   \emph{Rounding step}. This step is
-   motivated by the theoretical result in~\cite{Adamczak10} and the rounding
+   \emph{Rounding step}. 
+   This step is motivated by the theoretical result in~\cite{Adamczak10} and the rounding
    algorithms~\cite{Lovasz06, Cousins15}.
    We apply the linear transformation $T_i$ to $P_i$
    so that the sandwiching ratio of $P_{i+1}$ is smaller than that of $P_i$.
@@ -766,15 +768,6 @@ DOI: \href{10.4230/LIPIcs.SoCG.2021.21}{10.4230/LIPIcs.SoCG.2021.21}
    update the average of the estimators of autocorrelation at lag $t$,
    as well as the between-chain variance and the within-sample variance estimators given in~\cite{Gelman92}.
    Finally, we update the ESS using these estimators.
-   
-   
-   \begin{lem}\label{lem:mmcs_complexity}
-   Let $P=\{x\in\RR^d\ |\ Ax\leq b\}$, $A\in\RR^{k\times d},\ b\in\RR^k$ a full dimensional polytope in $\RR^d$.
-   The total number of operations per phase that Alg.~\ref{alg:MMCS} performs, is
-   $\OO(W(\rho + d)k\lambda + \lambda^2d + d^3)$,
-   where $W$ is the walk length for Billiard Walk.
-   \end{lem}
-   
 
    To update the ESS, for every new chain of points the algorithm generates, we compute
    the estimator of its autocorrelation. Then, using Welford's algorithm we
@@ -807,13 +800,17 @@ DOI: \href{10.4230/LIPIcs.SoCG.2021.21}{10.4230/LIPIcs.SoCG.2021.21}
         uniformly distributed in the Chebychev ball of $P$ and performs $\mathcal{O}(1)$
         Billiard Walk steps starting from it.
         The former  takes $\mathcal{O}(d)$ operations and the latter  takes $\mathcal{O}(W(\rho + d)k)$ operations.
-        The total number of chains is $\mathcal{O}(\lambda / l) = \mathcal{O}(\lambda)$, as $l=\mathcal{O}(1)$.
-        Thus, the total cost to generate all the starting points is $\mathcal{O}(d\lambda + W(\rho + d)k\lambda)$. The update of ESS for each univariate marginal requires $\mathcal{O}(1)$ operations, since $l = \mathcal{O}(1)$.
+        The total number of chains is 
+        $\mathcal{O}(\lambda / l) = \mathcal{O}(\lambda)$, 
+        as $l=\mathcal{O}(1)$.
+        Thus, the total cost to generate all the starting points is 
+        $\mathcal{O}(d\lambda + W(\rho + d)k\lambda)$. 
+        The update of ESS for each univariate marginal requires $\mathcal{O}(1)$ operations, 
+        since $l = \mathcal{O}(1)$.
      
         If the termination criterion has not been met after generating $\lambda$ points,
-        then
-        the algorithm computes a linear transformation to put the set of points to isotropic
-        position. We do this by computing the SVD decomposition of the matrix that
+        then the algorithm computes a linear transformation to put the set of points to isotropic position. 
+        We do this by computing the SVD decomposition of the matrix that
         contains the set of points row-wise. This corresponds to an SVD of a
         $\lambda \times d$ matrix and takes $O(\lambda^2d + d^3)$ operations
         \cite{golub13}.
@@ -825,27 +822,323 @@ DOI: \href{10.4230/LIPIcs.SoCG.2021.21}{10.4230/LIPIcs.SoCG.2021.21}
 
 
 
-
-
 % MMCS RESULTS
 \subsection{Results}
+\subsubsection*{Implementation and Experiments}
+\label{sec:experiments}
 
-% MMCS DISCUSSION
-\subsection{Discussion}
+   This section presents the implementation of our approach and the tuning of various parameters. 
+   We present experiments in an extended set of BiGG models \cite{king2016bigg}, including the most complex metabolic networks, the human Recon2D~\cite{swainston16} and Recon3D~\cite{brunk2018recon3d}. 
+   We end up to sample from polytopes of thousands of dimensions and show that our method can estimate precisely the flux distributions. 
+   We analyze various aspects of our method such as the run-time, the efficiency, and the quality of the output.
 
-   Flux sampling at the community level!
+   We compare against the state-of-the-art software for the analysis of
+   metabolic networks, which is the \texttt{Matlab toolbox} of \texttt{cobra}~\cite{heirendt2019creation}. Our implementation for low dimensional
+   networks is two orders of magnitude faster than \texttt{cobra}.
+   As the dimension grows, this gap on the run-time increases.
+   The workflow of \texttt{cobra} for sampling first performs a rounding step and then samples using Coordinate Directions Hit-and-Run (CDHR).
+
+   In~\cite{jadebeck2020hops} they provide a \texttt{C++} implementation of the
+   sampling method that \texttt{cobra} uses and they show that their implementation is
+   approximately $6$ times faster than \texttt{cobra}. Nevertheless, we choose to
+   compare against \texttt{cobra}, since it additionally provides efficient
+   preprocessing methods that are crucial for the experiments, and give an implicit
+   comparison with~\cite{jadebeck2020hops}.
+
+   % Figure 4: Plots with marginds of Recon2 and 3D
+   \begin{figure*}[t!]
+      \centering
+      \includegraphics[scale=0.215]{figures/Thioredoxin}
+      \includegraphics[scale=0.215]{figures/CTPS2}\\
+      \vspace{0.25cm}
+      \includegraphics[scale=0.215]{figures/3DSPHR}
+      \includegraphics[scale=0.215]{figures/GK1}\\
+      \vspace{0.25cm}
+      \includegraphics[scale=0.215]{figures/GLGNS1}
+      \includegraphics[scale=0.215]{figures/PYK}
+      \caption{Estimation, using our tools, of the marginal distribution of 6 reaction fluxes in two constraint-based model of Homo Sapiens metabolism, namely Recon2D~\cite{swainston16} (blue color) and Recon3D~\cite{brunk2018recon3d} (red color).
+      In the case of GK1 we observe how the flux distribution of a reaction may change once the direction of the reaction changes. }
+      \label{fig:recon2-recon3}
+   \end{figure*}
+
+
+   The fast mixing of billiard walk allow us to use all the generated samples to
+   approximate each flux distribution and so we compute a better flux distribution
+   estimation. To estimate each marginal flux distribution, using the samples, we
+   exploit Gaussian kernel density estimation. This is a non-parametric way to
+   estimate the probability density function of a random variable. For more details
+   we refer to~\cite{Jones96}.
+
+   We provide a complete open-source software framework to handle big metabolic
+   networks. 
+   The framework loads a metabolic model in some standard file formats
+   (e.g., \texttt{mat} and \texttt{json} files) and performs an analysis of the model, e.g., it
+   estimates the marginal distributions of a given reaction flux. All the results
+   are reproducible using our publicly available code
+   % \footnote{\url{https://github.com/GeomScale/volume_approximation/tree/v1.1.0-2}}.
+
+
+   The core of our implementation is in \texttt{C++} to optimize performance while the
+   user interface is implemented in \texttt{R}. The package employs
+   % % \eigen~
+   \cite{eigenweb} for linear algebra, 
+   % % \boost~
+   % \cite{boostrandom} for random
+   number generation, 
+   % % \mosek~
+   % \cite{mosek} as the linear programming solver, and expands 
+   % % \volesti~
+   \cite{chalkis2020volesti}, an open-source package for high dimensional sampling and volume approximation.
+
+   All experiments were performed on a PC with \texttt{Intel Core i7-6700 3.40GHz $\times$\ 8 CPU} and \texttt{32GB RAM}.
+   In the sequel, MMCS refers to our implementation.
+
+   \begin{table}[t]
+      \centering
+      \small
+      \begin{tabular}{|c||c|c|c||c|c||c|c|}\hline
+         &  & & & \multicolumn{2}{c}{MMCS} &   \multicolumn{2}{c}{\texttt{cobra}} \\
+      model & m & n & d & Time (sec)  & N  & Time (sec)  & N \\ \hline
+      e\_coli\_core & 72 & 95 &  24 & 6.50e-01 & 3.40e+03 (8)   & 7.20e+01  & 4.61e+06  \\     % time   psrf   M    N
+      iLJ478 & 570 & 652 & 59  & 9.00e+00 & 5.40e+03 (5)  & 4.54e+02  & 2.79e+07 \\                   % & 9 & $100\%$ & 5 & 5400
+      iSB619 & 655 & 743 & 83 & 1.70e+01 &  8.20e+03 (5)  & 9.56e+02  & 5.51e+07  \\
+      iHN637 & 698 & 785 & 88  & 2.00e+01 & 6.80e+03 (4)  & 1.03e+03  & 6.19e+07  \\
+      iJN678 & 795 & 863 & 91 & 2.50e+01 & 8.10e+03 (4)  & 1.17e+03  & 6.62e+07 \\                  % & 25 & $100\%$ & 4 & 8100
+      iNF517  & 650 & 754 & 92  & 1.70e+01 & 6.20e+03 (4)  & 1.33e+03  & 6.77e+07  \\
+      iJN746  & 907 & 1054 & 116 & 5.70e+01 & 8.70e+03 (3)  & 2.22e+03  & 1.07e+08 \\              % & 57 & $100\%$ & 3 & 8700
+      iAB\_RBC\_283  & 342 & 469 & 130 & 5.20e+01 &  1.07e+04 (5)  & 7.85e+03  & 4.05e+08  \\
+      iJR904  & 761 & 1075 &  227  & 2.98e+02 & 1.62e+04 (4) & 8.81e+03  & 4.12e+08   \\
+      iAT\_PLT\_636   & 738 & 1008 & 289  & 3.25e+02  & 1.04e+04 (2)  & 1.73e+04  & 6.68e+08 \\
+      iSDY\_1059 & 1888 & 2539 & 509 & 2.813e+03 & 2.31e+04 (3) & 6.66e+04  & 2.07e+09 \\
+      iAF1260 & 1668 & 2382 & 516 & 6.84e+03 & 5.33e+04 (6)  & 7.04e+04  & 2.13e+09 \\
+      iEC1344\_C  & 1934 & 2726 & 578  & 4.86e+03 & 3.95e+04 (4) & 9.42e+04   & 2.67e+09 \\
+      iJO1366  & 1805 & 2583 & 582 & 6.02e+03 & 5.14e+04 (5)  & 9.99e+04  & 2.71e+09 \\
+      iBWG\_1329 & 1949 & 2741 & 609 & 3.06e+03 & 4.22e+04 (4) & 1.05e+05   & 2.97e+09 \\
+      iML1515 & 1877 & 2712 & 633 &  4.65e+03 & 5.65e+04 (5)  & 1.15e+05   & 3.21e+09 \\
+      Recon1 & 2766 & 3741 & 931 & 8.09e+03 & 1.94e+04 (2) & 3.20e+05  & 6.93e+09 \\
+      Recon2D & 5063 & 7440 & 2430 & 2.48e+04  &  5.44e+04 (2)  & $\sim 140$ days & $1.57e$+$11$   \\
+      Recon3D  & 8399 & 13543 & 5335 & 1.03e+05 &  1.44e+05 (2) & -- & -- \\
+      %Recon3D  & 5335 & 103572 &  144400 (2) & $\checkmark$  & $\sim 410$ days &  & 2.28e+11 & \\
+      \hline
+      \end{tabular}
+      \caption[Recon2 and Recond3D distribution comparison]{\label{tab:results1} Several, $17$, metabolic networks from \cite{king2016bigg}; also  Recon2D and Recon3D from~\cite{Noronha18}.
+         %%
+         The semantics of the tables are as follows: (m) the number of Metabolites,
+         (n) the number of Reactions, %.
+         (d) the dimension of the polytope; (N) is the total number of sampled
+         points $\times$ walk length; for MMCS we stop when the sum of the minimum
+         value of ESS among all the univariate marginals in each phase is $1\,000$
+         (we report the number of phases in parenthesis); for \texttt{cobra} we set the
+         walk length to $8d^2$ and $1.57e$+$08$ for Recon2D
+         following~\cite{haraldsdottir2017chrr}, sample at least $1\,000$ points and
+         stop when all marginals have PSRF $< 1.1$; the run-time of \texttt{cobra} for
+         Recon2D is an estimation of the sequential time and we report it to have a
+         rough comparison with our implementation.}
+   \end{table}
 
 
 
+ \subsection{Parameter tuning for practical performance}\label{subsec:implementation}
+
+   We give details on how we tune the various parameters presented 
+   in Section~\ref{subsec:mmcs-methods-algor} in our implementation.
+
+   \textbf{Parameters of Billiard Walk}: 
+   To employ Billiard Walk (Section~\ref{subsec:mmcs-methods-bw}), we have to efficiently select values for the parameter $\tau$ that controls the length of the trajectory in each step, 
+   for the maximum number of reflections per step $\rho$, and for the walk length $W$
+   of the random walk. 
+   We have experimentally found that if we set $W=1$, then  the empirical
+   distribution converges faster to the uniform distribution. 
+   Thus, we get a higher ESS faster than the case of $W>1$. To set $\tau$ in phase $i$, 
+   first we set $\tau = 6\sqrt{d}r$, 
+   where $r$ is the radius of the Chebychev ball of $P_i$.
+   Next, we start from the center of the Chebychev ball, we perform
+   $100 + 4\sqrt{d}$ Billiard Walk steps, and we store all the points in a set
+   $Q$. Then we set
+   $\tau = \max\{ \max\limits_{q\in Q}\{ ||q-p||_2 \}, 6\sqrt{d}r\}$. 
+   For the maximum number of reflections we have found experimentally that
+   $\rho = 100d$ is violated in less than $0.1\%$ of the total number of Billiard
+   Walk steps in our experiments.
+
+
+   \textbf{Rounding step}: 
+   In each phase $i$ of our method, if the minimum value of
+   ESS among all the marginals has not reached the requested threshold, then we use
+   the generated sample to perform a rounding step by mapping the points to
+   isotropic position. 
+   After we compute the SVD decomposition of (the matrix corresponding to) the point-set, 
+   we rescale the singular values so that the smallest one is $1$; 
+   this is to improve numerical stability as suggested in \cite{Cousins15}.
+
+   We have also experimentally found that to improve the roundness from phase to
+   phase, it suffices to set the maximum number of Billiard Walk points per phase to
+   $\lambda = 20d$, where $d$ is the dimension of the polytope. When, in any phase,
+   the ratio between the maximum and the minimum singular value is smaller than
+   $3$, then we do not perform any new rounding step. In this case, we stay on the
+   current phase until we reach the requested ESS value.
+
+   % A REMARK 
+   \begin{remark}
+      Given the stoichiometric matrix
+      $S\in\mathbb{R}^{m\times n}$ of a metabolic network with 
+      flux bounds $v_{lb}\leq v\leq v_{ub}$, the total number of operations per phase that our implementation MMCS (Algorithm~\ref{alg:MMCS}) performs, according the parameterization given in this section, is $\mathcal{O}(nd^2)$, where $d$ is the dimension of the nullspace of $S$ and $n$ is the number of reactions occur in the metabolic network.
+   \end{remark}
+ 
+ 
+ 
+ \subsection{Experiments}
+ \label{subsec:experiments}
+ 
+   We test and evaluate our software on 17 models from the BIGG database
+   \cite{king2016bigg} as well as Recon2D and Recon3D from~\cite{Noronha18}. In
+   particular, we sample from models that correspond to polytopes of dimension less
+   than $100$; the simplest model in this setting is the well known bacteria
+   \textit{Escherichia Coli}. We also sample from models that correspond to
+   polytopes of dimension a few thousands; this is the case for Recon2D and
+   Recon3D. We do not employ parallelism for any implementation, thus we report
+   only sequential running times.
+
+   We assess the quality of our results by employing both the Effective Sample Size
+   (ESS) and the potential scale reduction factor (PSRF)~\cite{Gelman92}. In
+   particular, we compute the PSRF for each univariate marginal of the sample that
+   MMCS outputs. Following \cite{Gelman92}, a convergence is satisfying according
+   to PSRF when all the marginals have PSRF smaller than $1.1$.
 
 
 
+   In Table~\ref{tab:results1}, we report the results of MMCS and \texttt{cobra}. 
+   For \texttt{cobra}, we report only the run-time of the sampling phase (we do not add to it the preprocessing time). 
+   We run MMCS until we get a value of ESS equal to $1\,000$; i.e.\ we stop
+   when the sum over all phases of the minimum values of ESS among all the
+   marginals is larger than $1\,000$. 
+   All the marginals of the MMCS samples reported in Table~\ref{tab:results1} have PSRF $ < 1.1$. 
+   This is a strong statistical evidence on the quality of the generated sample. 
+
+   The histograms in Figure~\ref{fig:recon2-recon3} illustrate an approximation for the flux distribution of 6 reaction fluxes in Recon2D and Recon3D, respectively. 
+   Notice the difference in estimated densities due to the stoichiometric matrix update from Recon2D to Recon3D. 
+   The marginal flux distribution of reaction Thioredoxin in Recon2D was estimated also in~\cite{haraldsdottir2017chrr} and used as an evidence for the quality of the sample.  
+   In Figure~\ref{fig:copulas}, we employ the copula representation to capture the dependency between two fluxes of reactions and confirm a mutually exclusive pair of biochemical pathways. 
+
+   Comparing runtime performance,  MMCS is one or two orders of magnitude faster than \texttt{cobra} and this gap becomes much larger for higher dimensional models such as Recon2D and Recon3D. 
+   Considering the experiments reported in~\cite{jadebeck2020hops}, they report the run-time of CDHR for each model until it generates a sample with PSFR $1.2$; for Recon3D they report $\sim 1$ day. 
+   Interestingly, for Recon3D, MMCS achieves PSRF $1.2$ after $\sim 1$ hour while reach PSRF $1.1$ after $\sim 1$ day. 
+
+   For some models --we report them in Table~\ref{tab:skip_phases}-- we introduce a further improvement to obtain a better convergence. If there is a marginal in
+   the generated sample from MMCS that has a PSRF larger than $1.1$, then we do not take into account the $k$ first phases, starting with $k=1$ until we get
+   both ESS equal to $1\, 000$ and all the PSRF values smaller than $1.1$ for all the marginals. By "we do not take into account" we mean that  we neither store the generated sample --for the first $k$ phases-- nor we sum up its ESS to the
+   overall ESS considered for termination by MMCS. Note that for these models it is not practical to repeat MMCS runs for different $k$ until we get the required PSRF value. We can obtain the final results --reported in
+   Tables~\ref{tab:results1}-- in one pass. We simply drop a phase when the ESS
+   reaches the requested value but the PSRF is not smaller than $1.1$ for all the
+   marginals. In Table~\ref{tab:skip_phases}, we separately report the MMCS runs for different $k$ just for performance analysis reasons.
 
 
+   % Table: steps and time
+   \begin{table}[t]
+      \centering
+      \begin{tabular}{|l|c|c|c|c|c|}\hline
 
+      model & $k$  & Time (sec) & PSRF $< 1.1$ &  M & N  \\ \hline 
+      iAF1260 & 0 & 6955 & $41\%$ & 6 & 56100\\
+      & 1  & 6943 & $56\%$ & 6 & 54100  \\
+      & 2  & 6890 & $76\%$ & 6 & 55200 \\
+      & 3  & 6867 & $95\%$ & 6 & 53200  \\
+      & 4  & 6840 & $100\%$ & 6 & 53300 \\
+      \hline
+      iBWG\_1329 & 0  & 3067 & $50\%$ & 4 & 42100\\
+      & 1  & 3189 & $97\%$ & 5 & 48800 \\
+      & 2  & 4652 & $100\%$ & 5 & 56500 \\
+      \hline
+      iEC1344 & 0  & 4845 & $77\%$ & 4 & 41100 \\
+      & 1  & 4721 & $96\%$ & 4 & 42500 \\
+      & 2  & 4682 & $100\%$ & 4 & 39500 \\
+      \hline
+      iJO1366 & 0  & 3708 & $66\%$ & 5 & 51500 \\
+      & 1  & 6022 & $100\%$ & 5 & 51400 \\\hline
+      \end{tabular}
+      
+      \caption[MMCS time and PSRF per phase ]{During our experiments we do not take into account the sample of the $k$
+         first phases, thus we do not also count the value of the Effective Sample Size
+         (ESS) in these phases, before we start storing the generated sample and sum up
+         the ESS of each phase. In all cases MMCS stops when the sum of ESS reaches
+         $1000$. For each case we report the total run-time, the percentage of the
+         marginals that have PSRF smaller than $1.1$, the total number of phases (M)
+         needed (including the $k$ first phases), and the total number of Billiard Walk
+         steps (N), including those performed in the $k$ first
+         phases.\label{tab:skip_phases}}
+   \end{table}
 
+   Interestingly, the total number of Billiard Walk steps --and consequently the
+   run-time-- does not increase as $k$ increases in Table~\ref{tab:skip_phases}.
+   This means that the performance of our method improves for these models when we
+   do not take into account the $k$ first phases of MMCS. This happens because the
+   performance of Billiard Walk improves as the polytope becomes more rounded from
+   phase to phase. 
 
+   In Table~\ref{tab:sampling_phases}, we analyze the
+   performance of
+   Billiard Walk for the model iAF1260. We sample $20d$ points per
+   phase with walk length equal to $1$ and we report the average number of
+   reflections, the ESS, the run-time, and the ratio $\sigma_{\max} / \sigma_{\min}$
+   per phase. The latter is the ratio of the maximum over the minimum singular
+   value of the point-set. The larger this ratio is the more skinny the polytope of
+   the corresponding phase is. As the method progresses from the first to the last
+   phase, the average number of reflections and the run-time decrease and the ESS
+   increases. This means that as the polytope becomes more rounded from phase to
+   phase, the Billiard Walk step becomes faster and the generated sample has better
+   quality. This explains why the total run-time does not increase when we do not
+   take into account the first  $k$ phases: the initial phases are slow and
+   they  contribute poorly to the  quality of the final sample; the last phases are
+   fast and contribute with more accurate samples.
+ 
+ 
+ 
+ \section{Conclusions and future work}
+ \label{sec:conclusion}
+ 
+   We propose a novel method for sampling that can sample from a convex
+   polytope in a few thousands of dimensions within a day on modest hardware. 
+   This way, we are able, for the first time, to perform accurate sampling from the
+   latest human metabolic network, Recon3D.
 
+   % Start table 2
+   \begin{table}[h]
+      \centering
+      \begin{tabular}{|c||c|c|c|c|}\hline
+      \multicolumn{5}{c}{Sampling from iAF1260} \\ \hline
+      Phase & Avg. $\#$reflections & ESS & $\frac{\sigma_{\max}}{\sigma_{\min}}$ & Time (sec)  \\ \hline
+      1st & 7819 & 67 & 43459 & 2271 \\
+      2nd & 4909 & 68 & 922 & 1631 \\
+      3rd & 3863 & 77 & 582 & 1278 \\
+      4th & 3198 & 71 & 360 & 1080 \\
+      5th & 1300 & 592 & 29 & 454 \\
+      6th & 1187 & 4821 & 3.5 & 417 \\
+      7th & 1181 & 4567 & 2.8 & 415 \\
+      \hline
+      \end{tabular}
+      \caption[Sampling from iAF1260]{We sample $20d = 10\,320$ points per phase with Billiard Walk and
+      walk length equal to $1$, where $d = 516$ is the dimension of the corresponding
+      polytope. For each phase we report the average number of reflections per
+      BIlliard Walk step, the minimum value of Effective Sample Size among
+      all the univariate marginals, the ratio between the maximum and the
+      minimum singular value of the SVD decomposition of the generated
+      sample, and the run-time.\label{tab:sampling_phases}}
+   \end{table}
+
+   Regarding future work, parallelism could lead to a speedup in the run-time of
+   our method as the algorithm is rather straightforward to parallelize. An
+   additional improvement would be to exploit the sparsity of the stoichiometric
+   matrix $S$ and sample directly from the low dimensional polytope in $\mathbb{R}^n$
+   without projecting to a lower dimensional space.
+
+   Moreover, our method could be extended to any log-concave distribution
+   restricted to the flux space and combined with bayesian metabolic flux analysis,
+   to sample from multivariate, possibly multi-modal target distribution
+   \cite{heinonen2019bayesian} addressing multiple challenges of the method from
+   the biological point of view (e.g., unrealistic assumptions, uncertainty etc.).
+   Last but not least, flux sampling in metabolic models built out from multiple
+   metabolic networks, e.g., representing a microbial community, could also lead
+   to important biological insights.
+ 
    
 % From \citet{price2004genome} :
 % "Pairwise correlation coefficients can be calculated
