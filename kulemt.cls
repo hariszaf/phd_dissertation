@@ -260,7 +260,7 @@
      \IfFileExists{lmodern.sty}{%
        \g@addto@macro\kulemt@loadfont@{%
          \renewcommand{\ttdefault}{lmss}}}{}}%
-    {\kulemt@opt@missingpkg{font=utopia}{fourier}}}
+    {\kulemt@opt@missingpkg{font=lmss}{lmss}}}
 
 \define@key{kulemt}{title}{\title{#1}}
 \def\@title{\kulemt@error{No title given}}
@@ -668,9 +668,11 @@
   
   \begin{center}
    
-    \LARGE	\textbf{Members of the examination committee \\
-    \& \\
-    reading committee} 
+    \LARGE	\textbf{
+       Members of the examination committee \\
+      \& \\
+      reading committee
+    } 
 
     \hfill \break
    
@@ -680,37 +682,37 @@
 
     \hfill \break
 
-    \textbf{Dr Evangelos Pafilis} \\ 
+    \textbf{Dr. Evangelos Pafilis} \\ 
     Hellenic Centre for Marine Research \\ Institute of Marine Biology, Biotechnology and Aquaculture 
 
     \hfill \break
 
-    \textbf{Dr Christoforos Nikolaou} \\
+    \textbf{Dr. Christoforos Nikolaou} \\
     Biomedical Sciences Research Center “Alexander Fleming” \\ Institute of Bioinnovation
 
     \hfill \break
 
-    \textbf{Dr Jens Carlsson} \\
-    University College Dublin \\
-    School of Biology and Environmental Science/Earth Institute
+    \textbf{Prof. Panagiotis Sarris}\\
+    University of Crete \\
+    Department of Biology
 
     \hfill \break
 
-    \textbf{Prof. Ioannis Karakassis}\\
-    University of Crete \\
-    Department of Biology
+    \textbf{Prof. Konstadia (Dina) Lika} \\
+    Univeristy of Crete \\
+    Biology Department
+
+    \hfill \break
+
+    \textbf{Dr. Jens Carlsson} \\
+    University College Dublin \\
+    School of Biology and Environmental Science/Earth Institute
 
     \hfill \break
 
     \textbf{Prof. Karoline Faust} \\
     KU Leuven \\
     Department of Microbiology and Immunology, Rega Institute
-
-    \hfill \break
-
-    
-    One to go: Afous, Klappa or Elias
-
 
   \end{center}
 

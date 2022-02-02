@@ -48,13 +48,28 @@
 \setcounter{tocdepth}{3}
 
 %Begin the document 
-\begin{document}
+\begin{document} 
 
 % PREFACE
 \begin{preface}
   
-   \textit{The problem is to construct a third view, one that sees the entire world neither as an indissoluble whole nor with the equally incorrect, but currently dominant, view that at every level the world is made up of bits and pieces that can be isolated and that have properties that can be studied in isolation. Both ideologies [...] prevent a rich understanding of nature and prevent us from solving the problems to which science is supposed to apply itself. \\
-   - \textbf{Lewontin}}, Biology as Ideology
+   \textit{
+      "The problem is to construct a third view, one that sees the entire world neither as an indissoluble whole nor with the equally incorrect, but currently dominant, view that at every level the world is made up of bits and pieces that can be isolated and that have properties that can be studied in isolation. Both ideologies [...] prevent a rich understanding of nature and prevent us from solving the problems to which science is supposed to apply itself." \\
+      - \textbf{Lewontin}
+      }, Biology as Ideology
+
+   \textit{
+      "
+      % Let us not, however, flatter ourselves overmuch on account of our human victories over nature. 
+      % For each such victory nature takes its revenge on us. 
+      % Each victory, it is true, in the first place brings about the results we expected, but in the second 
+      % and third places it has quite different, unforeseen effects which only too often cancel the first. [...] 
+      Thus at every step we are reminded that we by no means rule over nature like a conqueror over a foreign people, 
+      like someone standing outside nature - but that we, with flesh, blood and brain, belong to nature, 
+      and exist in its midst, and that all our mastery of it consists in the fact that we have the advantage over 
+      all other creatures of being able to learn its laws and apply them correctly."
+      - \textbf{Friedrich Engels}
+      }, Dialectics of Nature
   
 \end{preface}
 
@@ -66,7 +81,105 @@
 %  Abstract in english 
 \begin{abstract}
 
-   Short description on this dissertation.
+
+   % THE QUESTION 
+   % ------------
+   Microbial communities are a cornerstone for most ecosystem types.
+   % From marine sediments to the human gut, microbial communities impact both the structure and the 
+   % functions of an ecosystem, through their abundance, versatility and interactions. 
+   To elucidate the mecahinsms governing such assemblages, it is fundamental to identify 
+   the taxa present (\textit{who}) 
+   and the processeses that occur (\textit{what}) 
+   in the various environments (\textit{where}). 
+   Thanks to a series of technological breakthroughs vast amounts of information/data from all the 
+   various levels of the biological organization
+   % i.e. genome, transcriptome, proteome, metabolome 
+   have been accumulated over the last decades.
+   In this context, microbial ecology studies are now relying on bioinformatics methods and analyses.
+   Therefore, a great number of challenges both from the biologist- and the computer scientist point-of-view 
+   have arisen; 
+   one among the most emerging ones being: 
+   \textit{"what shall we do with all these pieces of information?"}. 
+   The paradigm of Systems Biology addresses this challenge by moving from reductionism
+   to more holistic approaches attempting to interpret how the properties of a system emerge. 
+
+   Aim of this PhD was to 
+   enhance microbiome data analyses by developing software addressing on-going computational challenges 
+   on the study of microbial communities.
+   But also, to exploit state-of-the-art methods to in identify taxa, functions and microbial interactions 
+   in assemblages of various aquatic environmnets.
+   To this end, a number of publically available datasets were used while
+   a swamp from the Karpathos island (Greece), was chosen as a study case for the described framework.
+
+   % THE APPROACH 
+   % -------------
+   % HTS
+   Environmental DNA and metabarcoding have been widely used to estimate the biodiversity (the \textit{who})
+   and the structure of communities. 
+   Vast amount of sequencing data targeting certain marker genes depending the taxonomic group of 
+   interest become available thanks to High Throughput Sequencing technologies. 
+   However, the bioinformatics analysis of such data require multiple steps and parameter settings. 
+   Software workflow-oriented tools along with computing infustructures ease this need to a great extent
+   and \texttt{PEMA} was developed to this end (Chapter~\ref{publ:pema}). 
+   Moreover, eDNA metabarcoding has limitations too. 
+   Cytochrome c oxidase subunit I (COI) marker gene is a commonly used marker gene, especially in studies targeting eukaryotic taxa.
+   It is well known that in COI studies a great number of the OTUs/ASVs returned get no taxonomic hits. 
+   The presence of non-eukaryotic taxa with their simultaneous absence from the most commonly-used reference databases 
+   justify this phenomenon to a great extent. 
+   \texttt{DARN} makes use of a COI-oriented tree of life to provide further insight to such
+   known unknown sequences (Chapter~\ref{publ:darn}).
+
+   % AFOULO-SWAMP
+   Shotgun metagenomics provide further information regarding the processes 
+   that occur in a community (the \textit{what}). 
+   Sediment and microbial mat samples as well as microbial aggregates from 
+   a hypersaline swamp in Tristomo bay (Karpathos, Greece) were analysed. 
+   Both amplicon (16S rRNA) and shotgun sequencing data were used to characterize 
+   the microbial structure of the communities
+   and environmental parameters (e.g. salinity, oxygen concentration, granulometric composition) 
+   were measured at the sampling sites.
+   Key functions supporting life in such environments were identified and metagenome-assembled genomes (MAGs)
+   of major species found were built
+   (Chapter~\ref{cha:swamp}). 
+
+   % DATA INTEGRATION
+   Both amplicon and shotgun metagenomics approaches 
+   % satisfy the question of \textit{who} is present in a community.
+   % The latter, as well as other omics technologies, 
+   % provide great insight into the question of \textit{what} processes occur in a smaple. 
+   along with the rest of the omics technologies, 
+   have led to vast amount of data and metadata, 
+   recording the \textit{who}, the \textit{what} and the \textit{where}. 
+   To enable optimal accessibility and usage of this information,
+   a great number of databases, ontologies as well as community-standards 
+   have been developed.
+   By exploiting data integration techniques to bring such bits of information together, 
+   as well as text mining methods to retrieve knowledge "hidden" among the billions of text lines in 
+   already published literature, the PREGO knowledge-base generates thousands of 
+   \textit{what - where - who} potential associations (Section~\ref{cha:prego}).
+
+   % MET NETS
+   The driving question though is \textit{how} the different microbial taxa ascertain their 
+   endurance as part of a community. 
+   Metabolic interactions among the various taxa play a decisive role for 
+   the composition of such assemblages. 
+   Genome-scale metabolic networks (GEMs) enable the inference of such interactions.
+   Random sampling on the flux space of such metabolic models, 
+   provides a representation of the flux values a model can get under various conditions.
+   However, flux sampling is challenging from a computational point of view.
+   % Markov Chain - oriented approaches can provide alternatives to overvome these challenges. 
+   To address such challenges, a Python library called \texttt{dingo} was developed 
+   using a Multiphase Monte Carlo Sampling algorithm (Chapter~\ref{cha:dingo}).
+   GEMs were built using the MAGs retireved from the Tristomo swamp and 
+   metabolic interactions between them and their environment were investigated.   
+
+   % A SHORT CONLCUSION 
+   % ------------------
+   Similar to microbial communities, bioinformatics methods tend to build assemblages while 
+   "living" on your own is quite rare. 
+   The methods developed during this PhD project combined with state-of-the-art methods
+   anticipate to build a framework  that enables
+   moving from the community to the species level and then back again to the one of the community. 
 
 \end{abstract}
 
@@ -89,14 +202,20 @@
 \begin{flushleft}
   \renewcommand{\arraystretch}{1.1}
   \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
+    COI   & Cytochrome c oxidase subunit I \\
+    ITS   & Internal Transcribed Spacer \\
     NGS   & Next Generation Sequencing \\
     eDNA  & environmental DeoxyriboNucleic Acid \\
+    OTU   & Operational Taxonomic Unit \\
+    ASV   & Amplicon Sequence Variant \\
     HPC   & High Performance Computing \\
     MCMC  & Markov Chain Monte Carlo \\
     MMCS  & Multiphase Monte Carlo Sampling \\
     PREGO & PRocess Environment OrGanism \\
     PEMA  & Pipeline for Environmental DNA Metabarcoding Analysis \\
     DARN  & Dark mAtteR iNvestigator \\
+    PSRF  & Potential Scale Reduction Factor \\
+    ESS   & Effective Sample Size \\
     
   \end{tabularx}
 \end{flushleft}
@@ -127,12 +246,13 @@
 \include{chapters/intro}
 % The who : microbial diversity
 \include{chapters/chap-1}
-% The what and where: ecosystem functioning
+% Karpathos case
+\include{chapters/chap-4}
+
+% The who, the what and where: PREGO
 \include{chapters/chap-2}
 % The why: microbial interactions
 \include{chapters/chap-3}
-% Karpathos case
-\include{chapters/chap-4}
 % Computing in bio-research
 \include{chapters/chap-5}
 % Finally... 
@@ -143,9 +263,6 @@
 \appendixpage*          
 \appendix
 \include{appendices/app-A}
-% \include{appendices/app-B}
-% \include{appendices/app-C}
-% \include{appendices/app-D}
 
 
 \backmatter 

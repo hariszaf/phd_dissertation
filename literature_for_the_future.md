@@ -6,7 +6,17 @@ Based on the:
 of Saldida et al (2019)
 doi: https://doi.org/10.1101/2020.06.29.177063 (biorxiv)
 
-I found out about the following rather useful studies:
+I found out about the following rather useful studies. 
+
+Here are some of the **classic** studies that establish the study of metabolic networks and models:
+- Niebel B, Leupold S, Heinemann M (2019) An upper limit on Gibbs energy dissipation governs cellular metabolism. Nature Metabolism 1:125-132.
+
+- Beard DA, Liang S, Qian H (2002) Energy Balance for Analysis of Complex Metabolic Networks. Biophysical Journal 83:79-86. 
+
+
+
+
+And some more: 
 
 - Noor E, Lewis NE, Milo R (2012) A proof for loop-law constraints in stoichiometric metabolic networks. BMC Systems Biology 6:140.
 
@@ -14,7 +24,6 @@ I found out about the following rather useful studies:
 
 - Noor E, Bar-Even A, Flamholz A, Reznik E, Liebermeister W, Milo R (2014) Pathway Thermodynamics Highlights Kinetic Obstacles in Central Metabolism. PLOS Computational Biology 10:e1003483.
 
-- Niebel B, Leupold S, Heinemann M (2019) An upper limit on Gibbs energy dissipation governs cellular metabolism. Nature Metabolism 1:125-132.
 
 - De Martino D (2013) Thermodynamics of biochemical networks and duality theorems. Physical review E, Statistical, nonlinear, and soft matter physics 87 5:.
 
@@ -28,6 +37,13 @@ I found out about the following rather useful studies:
 
 - Burgard AP, Nikolaev EV, Schilling CH, Maranas CD (2004) Flux coupling analysis of genome-scale metabolic network reconstructions. Genome Res 14:301-312
 
+- Beard DA, Qian H (2007) Relationship between Thermodynamic Driving Force and One-Way Fluxes in Reversible Processes. PLoS ONE 2:e144.
+
+- Price ND, Famili I, Beard DA, Palsson B (2002) Extreme pathways and Kirchhoff's second law. Biophys J 83:2879-2882.
+
+- Price ND, Thiele I, Palsson BØ (2006) Candidate States of Helicobacter pylori’s Genome-Scale Metabolic Network upon Application of “Loop Law” Thermodynamic Constraints. Biophysical Journal 90:3919-3928.
+
+
 
 
 Great guys to keep in mind: Noor, Niebel, De Martino
@@ -38,10 +54,13 @@ Tutorial:
    - [SymbNET 🧬 From Metagenomics to Metabolic Interactions (Day 5)](https://franciscozorrilla.github.io/SymbNET/
 
 
-Tools: 
+Tools & databases: 
 
    - https://equilibrator.weizmann.ac.il/
    - https://equilibrator.weizmann.ac.il/static/classic_rxns/pathway.html#ecm
 
+   - https://www.parameterbalancing.net/pb/static/css/css_template/main.html
+   - https://www.sbtab.net/
 
+   - http://sabio.h-its.org/   
 
