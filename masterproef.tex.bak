@@ -14,35 +14,34 @@
 \setup{font=utopia}
 
 % Here you can load other packages or provide your own definitions
-% ----------------------------------------------------------------
+
 % Finally, hyperref is used for PDF files.
 \usepackage[pdfusetitle, colorlinks, citecolor=cyan, plainpages=false]{hyperref}
 \usepackage[english,greek]{babel}
 \usepackage[utf8x]{inputenc}
-
 % To enable the \citeauthor function
-\usepackage[square, numbers]{natbib}
-
+\usepackage[numbers]{natbib}
 % To have multirows in tables
 \usepackage{multirow}
-
 % To write MMCS algorithm
 \usepackage{algorithmic}
-
 % To have rotated tables
 \usepackage{rotating} 
+
+% To remove page numbering in pages with rotating tables
+% \usepackage{floatpag}
+% \usepackage{float}
 
 % To have check boxes
 \usepackage{pifont}
 \usepackage{amsmath}
-
 % The xspace package provides a single command that looks at what comes after it in the command stream, and decides whether to insert a space to replace one “eaten” by the TEX command decoder. The decision is based on what came after any space, not on whether there was a space (which is unknowable): so if the next thing proves to be punctuation, the chances are there was no space, but if it’s a letter, there’s probably a need for space. This technique is not perfect, but works in a large proportion of cases.
 \usepackage{xspace}
-
 % for lemas
 \usepackage{amsthm}
 \usepackage{amssymb}
-
+% to get MLA bibstyle
+\usepackage{natbib}
 
 % DEFINITIONS
 \def\RR{{\mathbb R}}
@@ -52,18 +51,9 @@
 \newcommand{\OO}{\mathcal{O}\xspace}
 \newcommand{\sO}{\widetilde{\mathcal{O}}\xspace}
 
-% To remove page numbering in pages with rotating tables
-% \usepackage{floatpag}
-% \usepackage{float}
 
 % Set the depth of Table of Contents
 \setcounter{tocdepth}{3}
-
-
-
-
-
-
 
 %Begin the document 
 \begin{document} 
@@ -95,7 +85,7 @@
    It is quite common at this point to thank those who were there for you, 
    who helped with your work and your mental health. 
    It makes perfect sense to put aside for a while all the struggle and the 
-   things that make us feel bad and say some nice words that can help us keep going on. 
+   things tha make us feel bad and say some nice words that can help us keep going on. 
    As this is where I can share some of my thoughts though, 
    if I did so, then this it would not be me. 
    
@@ -112,7 +102,7 @@
    covid made things crystal clear. 
 
 
-   The reason I fist started this PhD and the reason I am on this job is to contribute in changing this. 
+   The reason I fist started this Phd and the reason I am on this job is to contribute in changing this. 
 
 
    To me, this thesis is the sequel of my MSc. 
@@ -142,7 +132,7 @@
    and I consider myself privileged having most of them in my corner. 
 
    At this point I would like to thank my promotors: 
-   Prof. Manolis Ladoukakis; a university teacher who said \textit{"relax; I will join your committee"} 
+   Prof. Manolis Ladoukakis; a university teacher who said \textit{"relax; I will join your committe"} 
    to a sweaty guy who invaded his office crying for help at the last moment; 
    since then he has always been there when it was needed and his guidance has been . 
 
@@ -164,7 +154,7 @@
    Kliou 
   
 
-   Psilos.. best PhD body ever. We ll join microbiology and biogeogeography someday 
+   Psilos.. best PhD body ever. We ll joing microbiology and biogeogeography someday 
 
    Savvas no way I would finish this without him! After this thesis, I can go diving I am sure. 
    
@@ -177,7 +167,7 @@
    Tweens power 
 
    Mom, dad 
-   Granny 
+   Grany 
 
 
    Afous 
@@ -201,9 +191,9 @@
    Microbial communities are a cornerstone for most ecosystem types.
    % From marine sediments to the human gut, microbial communities impact both the structure and the 
    % functions of an ecosystem, through their abundance, versatility and interactions. 
-   To elucidate the mechanisms governing such assemblages, it is fundamental to identify 
+   To elucidate the mecahinsms governing such assemblages, it is fundamental to identify 
    the taxa present (\textit{who}) 
-   and the processes that occur (\textit{what}) 
+   and the processeses that occur (\textit{what}) 
    in the various environments (\textit{where}). 
    Thanks to a series of technological breakthroughs vast amounts of information/data from all the 
    various levels of the biological organization
@@ -221,8 +211,8 @@
    enhance microbiome data analyses by developing software addressing on-going computational challenges 
    on the study of microbial communities.
    On top of that, to exploit state-of-the-art methods to identify taxa, 
-   functions and microbial interactions in assemblages of various aquatic environments.
-   To this end, a number of publicly available data-sets were used while
+   functions and microbial interactions in assemblages of various aquatic environmnets.
+   To this end, a number of publicly available datasets were used while
    a swamp from the Karpathos island (Greece), was chosen as a study case for the described framework.
 
    % THE APPROACH 
@@ -233,7 +223,7 @@
    Vast amount of sequencing data targeting certain marker genes depending the taxonomic group of 
    interest become available thanks to High Throughput Sequencing technologies. 
    However, the bioinformatics analysis of such data require multiple steps and parameter settings. 
-   Software workflow-oriented tools along with computing infrastructures ease this need to a great extent
+   Software workflow-oriented tools along with computing infustructures ease this need to a great extent
    and \texttt{PEMA} was developed to this end (Chapter~\ref{publ:pema}). 
    However, eDNA metabarcoding has limitations too. 
    Cytochrome c oxidase subunit I (COI) marker gene is a commonly used marker gene, especially in studies targeting eukaryotic taxa.
@@ -247,7 +237,7 @@
    Shotgun metagenomics provide further information regarding the processes 
    that occur in a community (the \textit{what}). 
    Sediment and microbial mat samples as well as microbial aggregates from 
-   a hypersaline swamp in Tristomo bay (Karpathos, Greece) were analyzed. 
+   a hypersaline swamp in Tristomo bay (Karpathos, Greece) were analysed. 
    Both amplicon (16S rRNA) and shotgun sequencing data were used to characterize 
    the microbial structure of the communities
    and environmental parameters (e.g. salinity, oxygen concentration, granulometric composition) 
@@ -284,7 +274,7 @@
    % Markov Chain - oriented approaches can provide alternatives to overvome these challenges. 
    To address such challenges, a Python library called \texttt{dingo} was developed 
    using a Multiphase Monte Carlo Sampling algorithm (Chapter~\ref{cha:dingo}).
-   GEMs were built using the MAGs retrieved from the Tristomo swamp and 
+   GEMs were built using the MAGs retireved from the Tristomo swamp and 
    metabolic interactions between them and their environment were investigated.   
 
    % A SHORT CONLCUSION 
@@ -302,7 +292,7 @@
 \begin{abstract*}
 
    Και στα ελληνικά
-   δουλευει σωστά
+   
 \end{abstract*}
 
 % A list of figures and tables is optional
@@ -377,7 +367,7 @@
 
 % The who, the what and where: PREGO
 \include{chapters/chap-2}
-
+\fi
 % The why: microbial interactions
 \include{chapters/chap-3}
 
@@ -386,7 +376,8 @@
 
 % Finally... 
 \include{chapters/conclusion}
-\fi
+% \fi
+
 
 % If there are attachments
 \appendixpage*          
@@ -398,9 +389,10 @@
 
 
 % The bibliography
-\bibliographystyle{unsrtnat}
-% \bibliographystyle{mla-good} % this style was downlowaded from: https://www.reed.edu/cis/help/LaTeX/bibtexstyles.html
+% \bibliographystyle{ieeetr.bst}
+\bibliographystyle{mla-good} % this style was downlowaded from: https://www.reed.edu/cis/help/LaTeX/bibtexstyles.html
 \bibliography{references}
+
 
 
 % The one-page CV
