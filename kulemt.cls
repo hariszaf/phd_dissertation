@@ -692,15 +692,15 @@
 
     \hfill \break
 
-    \textbf{Prof. Panagiotis Sarris}\\
-    University of Crete \\
-    Department of Biology
-
-    \hfill \break
-
     \textbf{Prof. Konstadia (Dina) Lika} \\
     Univeristy of Crete \\
     Biology Department
+
+    \hfill \break
+
+    \textbf{Prof. Panagiotis Sarris}\\
+    University of Crete \\
+    Department of Biology
 
     \hfill \break
 
@@ -717,14 +717,15 @@
   \end{center}
 
 
-
+\if 0
   \null \vfill
-%   \begingroup
-%     \parindent\z@ \parskip .5\baselineskip \sloppypar
-%     \copyright\space Copyright University of Crete\vskip\baselineskip
-%   \endgroup
+  \begingroup
+    \parindent\z@ \parskip .5\baselineskip \sloppypar
+    \copyright\space Copyright University of Crete\vskip\baselineskip
+  \endgroup
   \clearpage
-  }
+\fi
+}
 
 
 

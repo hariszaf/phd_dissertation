@@ -4,13 +4,13 @@
 % 
 % --------------------------------------------------
 
-% DEFINITIONS
-\def\RR{{\mathbb R}}
+% % DEFINITIONS
+% \def\RR{{\mathbb R}}
 
-% COMMANDS
-\newcommand{\dd}[1]{\mathrm{d}#1}
-\newcommand{\OO}{\mathcal{O}\xspace}
-\newcommand{\sO}{\widetilde{\mathcal{O}}\xspace}
+% % COMMANDS
+% \newcommand{\dd}[1]{\mathrm{d}#1}
+% \newcommand{\OO}{\mathcal{O}\xspace}
+% \newcommand{\sO}{\widetilde{\mathcal{O}}\xspace}
 
 % To make lem work
 \newtheorem{thm}{Theorem}
@@ -358,17 +358,18 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    networks. We demonstrate the efficiency of our tools by performing experiments
    on almost all the metabolic networks that are publicly available and by
    comparing with the
-   state-of-the-art software packages as \textit{cobra}
-   (Sec.~\ref{subsec:experiments}). Our implementation is faster than \textit{cobra}
+   state-of-the-art software packages as \texttt{cobra}
+   (Sec.~\ref{subsec:experiments}). Our implementation is faster than \texttt{cobra}
    for low dimensional models,  with a speed-up that ranges from $10$ to $100$ times;
    this gap on running times increases for bigger models
    (Table~\ref{tab:results1}). The quality of the sample our software produces is
    measured with two widely used diagnostics, i.e., ESS and potential scale reduction factor (PSRF)~\cite{Gelman92}. The highlight of
    our method is the ability to sample from the most complicated human metabolic
-   network that is accessible today, namely Recon3D. In Fig.~\ref{fig:copulas} we estimate marginal univariate and bivariate flux distributions in Recon3D which validate
+   network that is accessible today, namely Recon3D. In Fig.~\ref{fig:copulas} we estimate marginal univariate and bivariate flux distributions in Recon3D which validate: \\
    (a) the  quality of the sample by confirming a mutually exclusive pair of biochemical pathways,
-   and that (b) our method indeed generates steady states. In particular, our software
-   can sample $1.44\cdot 10^5$ points from a $5\,335$-dimensional polytope in a day
+   and that \\
+   (b) our method indeed generates steady states. \\
+   In particular, our software can sample $1.44\cdot 10^5$ points from a $5\,335$-dimensional polytope in a day
    using modest hardware. This set of points suffices for the majority of systems
    biology analytics.
    To our understanding this task is out of reach for existing software.
@@ -476,9 +477,8 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    \end{proof}
 
 
-
-
-   The use of floating point arithmetic could result to points outside $P$ due to rounding errors when computing boundary points. To avoid this, when we compute the roots in Equation~(\ref{eq:boundary_oracle}) we exclude the facet that the ray hit in the previous reflection.
+   The use of floating point arithmetic could result to points outside $P$ due to rounding errors when computing boundary points. 
+   To avoid this, when we compute the roots in Equation~(\ref{eq:boundary_oracle}) we exclude the facet that the ray hit in the previous reflection.
 
 
    % BW ALGO - alg:billiard

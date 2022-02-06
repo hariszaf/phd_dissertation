@@ -14,27 +14,26 @@
 \setup{font=utopia}
 
 % Here you can load other packages or provide your own definitions
-
+% ----------------------------------------------------------------
 % Finally, hyperref is used for PDF files.
 \usepackage[pdfusetitle, colorlinks, citecolor=cyan, plainpages=false]{hyperref}
 \usepackage[english,greek]{babel}
 \usepackage[utf8x]{inputenc}
+
 % To enable the \citeauthor function
-\usepackage[numbers]{natbib}
+\usepackage[square, numbers]{natbib}
+
 % To have multirows in tables
 \usepackage{multirow}
+
 % To write MMCS algorithm
 \usepackage{algorithmic}
+
 % To have rotated tables
 \usepackage{rotating} 
 
-% To remove page numbering in pages with rotating tables
-% \usepackage{floatpag}
-% \usepackage{float}
-
 % To have check boxes
 \usepackage{pifont}
-
 \usepackage{amsmath}
 
 % The xspace package provides a single command that looks at what comes after it in the command stream, and decides whether to insert a space to replace one “eaten” by the TEX command decoder. The decision is based on what came after any space, not on whether there was a space (which is unknowable): so if the next thing proves to be punctuation, the chances are there was no space, but if it’s a letter, there’s probably a need for space. This technique is not perfect, but works in a large proportion of cases.
@@ -44,32 +43,147 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 
+
+% DEFINITIONS
+\def\RR{{\mathbb R}}
+
+% COMMANDS
+\newcommand{\dd}[1]{\mathrm{d}#1}
+\newcommand{\OO}{\mathcal{O}\xspace}
+\newcommand{\sO}{\widetilde{\mathcal{O}}\xspace}
+
+% To remove page numbering in pages with rotating tables
+% \usepackage{floatpag}
+% \usepackage{float}
+
 % Set the depth of Table of Contents
 \setcounter{tocdepth}{3}
+
+
+
+
+
+
 
 %Begin the document 
 \begin{document} 
 
 % PREFACE
+
 \begin{preface}
   
    \textit{
-      "The problem is to construct a third view, one that sees the entire world neither as an indissoluble whole nor with the equally incorrect, but currently dominant, view that at every level the world is made up of bits and pieces that can be isolated and that have properties that can be studied in isolation. Both ideologies [...] prevent a rich understanding of nature and prevent us from solving the problems to which science is supposed to apply itself." \\
-      - \textbf{Lewontin}
-      }, Biology as Ideology
+      "The problem is to construct a third view, one that sees the entire world 
+      neither as an indissoluble whole nor with the equally incorrect, but currently dominant, 
+      view that at every level the world is made up of bits and pieces that can be isolated 
+      and that have properties that can be studied in isolation. 
+      Both ideologies [...] prevent a rich understanding of nature and prevent us from solving 
+      the problems to which science is supposed to apply itself." \\
+      }
+   - \textbf{Lewontin}, Biology as Ideology
 
    \textit{
       "
-      % Let us not, however, flatter ourselves overmuch on account of our human victories over nature. 
-      % For each such victory nature takes its revenge on us. 
-      % Each victory, it is true, in the first place brings about the results we expected, but in the second 
-      % and third places it has quite different, unforeseen effects which only too often cancel the first. [...] 
       Thus at every step we are reminded that we by no means rule over nature like a conqueror over a foreign people, 
       like someone standing outside nature - but that we, with flesh, blood and brain, belong to nature, 
       and exist in its midst, and that all our mastery of it consists in the fact that we have the advantage over 
-      all other creatures of being able to learn its laws and apply them correctly."
-      - \textbf{Friedrich Engels}
-      }, Dialectics of Nature
+      all other creatures of being able to learn its laws and apply them correctly." \\
+      }
+   - \textbf{Friedrich Engels}, Dialectics of Nature
+
+
+   It is quite common at this point to thank those who were there for you, 
+   who helped with your work and your mental health. 
+   It makes perfect sense to put aside for a while all the struggle and the 
+   things that make us feel bad and say some nice words that can help us keep going on. 
+   As this is where I can share some of my thoughts though, 
+   if I did so, then this it would not be me. 
+   
+   Alan's Moore character \textit{V} mentioned with great style something about 
+   his fictional England:   
+   \textit{"And the truth is, there is something terribly wrong with this country, isn't there"}.
+   I find this quote  describe , not just about Greece though, but in world-wide extent. 
+
+
+   “Knowledge, like air, is vital to life. Like air, no one should be denied it.”
+   “Everybody is special. Everybody. Everybody is a hero, a lover, a fool, a villain. Everybody. Everybody has their story to tell.”
+
+
+   covid made things crystal clear. 
+
+
+   The reason I fist started this PhD and the reason I am on this job is to contribute in changing this. 
+
+
+   To me, this thesis is the sequel of my MSc. 
+   This work would never have started if it was not for:
+      % C. Chatzipantsiou, 
+      % P. Natsidis, 
+      % C. Kalaitzidou, 
+      % D. Kyriakis, 
+      % A. Linardos, 
+      % M. Kapsetaki, 
+      % A. Kioukis,
+      % Z. Papadovasilakis, 
+      % N. Paschou, 
+      % V. Theodorakis. 
+      % M. Tsochatzidou, 
+      % M. Vasilarou, 
+      % K.M. Verrou.
+   Along with our tutors Alexandros Kanterakis, Spiros Chavlis, 
+   Christoforos Nikolaou, 
+   Pavlos Pavlidis, 
+   Michalis Tsagris (typical example of a 
+   good guy from Greece' \textit{"holly grounds"}) 
+   all of them, each one on his/her own way, pointed out aspects of our science I would have never think on my own. 
+   But above all, in a dark 
+
+   I have to admit that there is always a sly smile on my face every time I think of them 
+   and I consider myself privileged having most of them in my corner. 
+
+   At this point I would like to thank my promotors: 
+   Prof. Manolis Ladoukakis; a university teacher who said \textit{"relax; I will join your committee"} 
+   to a sweaty guy who invaded his office crying for help at the last moment; 
+   since then he has always been there when it was needed and his guidance has been . 
+
+   Dr. Evangelos Pafilis with whom we started working together back in 2017 
+   and thanks to him I had the opportunity to
+
+   Dr. Christoforos Nikolaou who has been an influence to me since I first came in Crete; 
+   it is not just his morals and perspective on science, but being a Liverpool fan and bibliophagist 
+   (I googled and this word does exists)
+   I found someone to make me talk about literature again. 
+
+
+
+   In this context, I would not like to thank but to pay my respects to those that endure 
+   and insist (not) being \textit{common people}.
+
+   Tsocha, louloudi.. 
+   Pascha 
+   Kliou 
+  
+
+   Psilos.. best PhD body ever. We ll join microbiology and biogeogeography someday 
+
+   Savvas no way I would finish this without him! After this thesis, I can go diving I am sure. 
+   
+   Tzortzia, Chlapatsa ... 
+
+   Vouno tsigaraki 
+
+   Stelio, Antoni
+
+   Tweens power 
+
+   Mom, dad 
+   Granny 
+
+
+   Afous 
+
+
+   Elefantas - xazi - ioannaki --> morakia  
   
 \end{preface}
 
@@ -87,9 +201,9 @@
    Microbial communities are a cornerstone for most ecosystem types.
    % From marine sediments to the human gut, microbial communities impact both the structure and the 
    % functions of an ecosystem, through their abundance, versatility and interactions. 
-   To elucidate the mecahinsms governing such assemblages, it is fundamental to identify 
+   To elucidate the mechanisms governing such assemblages, it is fundamental to identify 
    the taxa present (\textit{who}) 
-   and the processeses that occur (\textit{what}) 
+   and the processes that occur (\textit{what}) 
    in the various environments (\textit{where}). 
    Thanks to a series of technological breakthroughs vast amounts of information/data from all the 
    various levels of the biological organization
@@ -106,9 +220,9 @@
    Aim of this PhD was to 
    enhance microbiome data analyses by developing software addressing on-going computational challenges 
    on the study of microbial communities.
-   But also, to exploit state-of-the-art methods to in identify taxa, functions and microbial interactions 
-   in assemblages of various aquatic environmnets.
-   To this end, a number of publically available datasets were used while
+   On top of that, to exploit state-of-the-art methods to identify taxa, 
+   functions and microbial interactions in assemblages of various aquatic environments.
+   To this end, a number of publicly available data-sets were used while
    a swamp from the Karpathos island (Greece), was chosen as a study case for the described framework.
 
    % THE APPROACH 
@@ -119,11 +233,11 @@
    Vast amount of sequencing data targeting certain marker genes depending the taxonomic group of 
    interest become available thanks to High Throughput Sequencing technologies. 
    However, the bioinformatics analysis of such data require multiple steps and parameter settings. 
-   Software workflow-oriented tools along with computing infustructures ease this need to a great extent
+   Software workflow-oriented tools along with computing infrastructures ease this need to a great extent
    and \texttt{PEMA} was developed to this end (Chapter~\ref{publ:pema}). 
-   Moreover, eDNA metabarcoding has limitations too. 
+   However, eDNA metabarcoding has limitations too. 
    Cytochrome c oxidase subunit I (COI) marker gene is a commonly used marker gene, especially in studies targeting eukaryotic taxa.
-   It is well known that in COI studies a great number of the OTUs/ASVs returned get no taxonomic hits. 
+   It is well known that in COI studies a great number of the derived OTUs/ASVs get no taxonomic hits. 
    The presence of non-eukaryotic taxa with their simultaneous absence from the most commonly-used reference databases 
    justify this phenomenon to a great extent. 
    \texttt{DARN} makes use of a COI-oriented tree of life to provide further insight to such
@@ -133,7 +247,7 @@
    Shotgun metagenomics provide further information regarding the processes 
    that occur in a community (the \textit{what}). 
    Sediment and microbial mat samples as well as microbial aggregates from 
-   a hypersaline swamp in Tristomo bay (Karpathos, Greece) were analysed. 
+   a hypersaline swamp in Tristomo bay (Karpathos, Greece) were analyzed. 
    Both amplicon (16S rRNA) and shotgun sequencing data were used to characterize 
    the microbial structure of the communities
    and environmental parameters (e.g. salinity, oxygen concentration, granulometric composition) 
@@ -143,7 +257,7 @@
    (Chapter~\ref{cha:swamp}). 
 
    % DATA INTEGRATION
-   Both amplicon and shotgun metagenomics approaches 
+   Amplicon and shotgun metagenomics approaches 
    % satisfy the question of \textit{who} is present in a community.
    % The latter, as well as other omics technologies, 
    % provide great insight into the question of \textit{what} processes occur in a smaple. 
@@ -170,7 +284,7 @@
    % Markov Chain - oriented approaches can provide alternatives to overvome these challenges. 
    To address such challenges, a Python library called \texttt{dingo} was developed 
    using a Multiphase Monte Carlo Sampling algorithm (Chapter~\ref{cha:dingo}).
-   GEMs were built using the MAGs retireved from the Tristomo swamp and 
+   GEMs were built using the MAGs retrieved from the Tristomo swamp and 
    metabolic interactions between them and their environment were investigated.   
 
    % A SHORT CONLCUSION 
@@ -199,42 +313,47 @@
 
 % The abbrevieations mentioned
 \section*{Abbreviations}
-\begin{flushleft}
-  \renewcommand{\arraystretch}{1.1}
-  \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
-    COI   & Cytochrome c oxidase subunit I \\
-    ITS   & Internal Transcribed Spacer \\
-    NGS   & Next Generation Sequencing \\
-    eDNA  & environmental DeoxyriboNucleic Acid \\
-    OTU   & Operational Taxonomic Unit \\
-    ASV   & Amplicon Sequence Variant \\
-    HPC   & High Performance Computing \\
-    MCMC  & Markov Chain Monte Carlo \\
-    MMCS  & Multiphase Monte Carlo Sampling \\
-    PREGO & PRocess Environment OrGanism \\
-    PEMA  & Pipeline for Environmental DNA Metabarcoding Analysis \\
-    DARN  & Dark mAtteR iNvestigator \\
-    PSRF  & Potential Scale Reduction Factor \\
-    ESS   & Effective Sample Size \\
-    
-  \end{tabularx}
+   \begin{flushleft}
+   \renewcommand{\arraystretch}{1.1}
+   \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
+      COI   & Cytochrome c oxidase subunit I\\
+      ITS   & Internal Transcribed Spacer\\
+      NGS   & Next Generation Sequencing\\
+      eDNA  & environmental DeoxyriboNucleic Acid\\
+      OTU   & Operational Taxonomic Unit\\
+      ASV   & Amplicon Sequence Variant\\
+      HPC   & High Performance Computing\\
+      MCMC  & Markov Chain Monte Carlo\\
+      MMCS  & Multiphase Monte Carlo Sampling\\
+      PREGO & PRocess Environment OrGanism\\
+      PEMA  & Pipeline for Environmental DNA Metabarcoding Analysis\\
+      DARN  & Dark mAtteR iNvestigator\\
+      PSRF  & Potential Scale Reduction Factor\\
+      ESS   & Effective Sample Size\\
+   \end{tabularx}
 \end{flushleft}
 
 
 % The symbols mentioned
-% \section*{Symbols}
-% \begin{flushleft}
-%   \renewcommand{\arraystretch}{1.1}
-%   \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
-%     42    & ``The Answer to the Ultimate Question of Life, the Universe,
-%             and Everything'' according to \cite{h2g2} \\
-%     $c$   & Speed of light \\
-%     $E$   & Energy \\
-%     $m$   & Mass \\
-%     $\pi$ & The number pi \\
-%   \end{tabularx}
-% \end{flushleft}
-
+\section*{Symbols}
+   \begin{flushleft}
+   \renewcommand{\arraystretch}{1.1}
+   \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
+      $\RR$          & Set of real numbers\\
+      $\OO$          & Algorithm complexity\\
+      $\sO$          & Algorithm complexity ignoring polylogarithmic factors\\
+      $\mathbb{E}$   & Expected Value operator\\
+      $\mathcal{U}$  & utility function....\\
+      $\ell$         & a ray\\
+      $P$            & a polytope\\
+      $\tau$         & a trajectory\\
+      $\partial P$   & boundary of the $P$ polytope\\
+      $v$            & a flux vector\\
+      $v_i$          & flux value of the reaction $i$\\
+      $W$            & walk length\\
+      $\rho$         & number of reflections\\
+   \end{tabularx}
+\end{flushleft}
 
 % ---------------------------------------------------
 % The main text!
@@ -242,19 +361,28 @@
 
 % Now the actual text begins
 \mainmatter
+
+
+
+
 % Introduction 
 \include{chapters/intro}
+
 % The who : microbial diversity
 \include{chapters/chap-1}
+
 % Karpathos case
 \include{chapters/chap-4}
 
 % The who, the what and where: PREGO
 \include{chapters/chap-2}
+
 % The why: microbial interactions
 \include{chapters/chap-3}
+
 % Computing in bio-research
 \include{chapters/chap-5}
+
 % Finally... 
 \include{chapters/conclusion}
 
@@ -267,9 +395,12 @@
 
 \backmatter 
 
+
 % The bibliography
-\bibliographystyle{ieeetr.bst}
+\bibliographystyle{unsrtnat}
+% \bibliographystyle{mla-good} % this style was downlowaded from: https://www.reed.edu/cis/help/LaTeX/bibtexstyles.html
 \bibliography{references}
+
 
 % The one-page CV
 \include{chapters/one-pagep-cv}
@@ -280,6 +411,10 @@
 
 % nice words I could use! 
 % intricately = πολύπλοκα
-% extrapolate = extend the application of (a method or conclusion, especially one based on statistics) to an unknown situation by assuming that existing trends will continue or similar methods will be applicable. e.g the results cannot be extrapolated to other patient groups
+% extrapolate = extend the application of (a method or conclusion, especially one based on statistics) to an unknown situation by assuming that
+%               existing trends will continue or similar methods will be applicable. e.g the results cannot be extrapolated to other patient groups
+% pertain     = που αναφέρονται, σχετικά με (παράδειγμα: challenges pertaining to data pre-processing)
+% ample       = επαρκής 
+% 
 % 
 % 
