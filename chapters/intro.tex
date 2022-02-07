@@ -15,7 +15,9 @@
 
 
       % WHO : DIVERSITY 
-
+      \if 0
+      \myparagraph{Microbial taxa and their charachteristics}
+      \fi
       Microbes are considered to be omnipresent in the 
       various ecosystems on Earth~\citep{falkowski2008microbial}.
       It was only until recently, \citeyear{belilla2019hyperdiverse}, that scientists discovered for the first time 
@@ -49,9 +51,10 @@
       and by their distinct genomic structure, expression, and evolution~\cite{dunlap2001microbial}. 
 
       % WHAT : FUNCTIONAL POTENTIAL
-
-      However, 
-      it is not only the number of microbial taxa and their massive biomass that
+      \if 0
+      \myparagraph{Functional potential of microbial communities}
+      \fi 
+      However, it is not only the number of microbial taxa and their massive biomass that
       make the study of microbial communities essential; 
       it is mostly their functional potentials. 
       Life on Earth would not be as we know it, if existed at all, if it was not for the 
@@ -65,10 +68,13 @@
 
       \begin{figure}[h]
          \centering
-         \includegraphics[width=135mm]{figures/ecosystem_functioning.png}
-         \caption[The cycle of C and the role of microbial communiites]{Marine microbial communities contribute to CO$_2$ sequestration, nutrients recycle and thus to the release of CO$_2$ to the atmosphere. 
-         Soil microbial communities decomposers organic matter and release nutrients in the soil 
-         from \citep{cavicchioli2019scientists} doi: \href{https://doi.org/10.1038/s41579-019-0222-5}{10.1038/s41579-019-0222-5}, under \href{http://creativecommons.org/licenses/by/4.0 license}{Creative Commons Attribution 4.0 International License}
+         \includegraphics[width=0.65\textwidth]{figures/Sulfur_Cycle_for_Hydrothermal_Vents.png}
+         \includegraphics[width=0.95\textwidth]{figures/sulfur_village.png}
+         \caption[The cycle of S and the role of microbial communiites]{
+            The cycle of sulfur (S) (up) and the contribution of microbial communities on it (down, image source: \href{https://openstax.org/resources/3002d0fba25221d24455917117482a079a11f321}{OpenStax}).
+            % Marine microbial communities contribute to CO$_2$ sequestration, nutrients recycle and thus to the release of CO$_2$ to the atmosphere. 
+            % Soil microbial communities decomposers organic matter and release nutrients in the soil 
+            % from \citep{cavicchioli2019scientists} doi: \href{https://doi.org/10.1038/s41579-019-0222-5}{10.1038/s41579-019-0222-5}, under \href{http://creativecommons.org/licenses/by/4.0 license}{Creative Commons Attribution 4.0 International License}
          }
          \label{fig:co2}
       \end{figure}
@@ -86,12 +92,14 @@
 
 
       % MICROBIAL ECOLOGY and OPEN QUESTIONS 
-
+      \if 0
+      \myparagraph{Microbial ecology \& open questions}
+      \fi
       Microbial ecology studies the interactions: 
-
       \begin{itemize}
+         \setlength\itemsep{0.05em}
          \item between microbial taxa and their environment
-         \item among the various microbial taxa present in a community
+         \item among the various microbial taxa present in a community, and
          \item between microbial taxa and their host~\cite{isme}
       \end{itemize}
 
@@ -115,23 +123,33 @@
       At the same time though, the taxonomic composition within individual functional groups
       were not affected by such environmental condintions~\cite{louca2016decoupling}.
 
+      % MICROBIAL INTERACTIONS INTRO
+      \if 0
+      \myparagraph{Microbial interactions}
+      \fi
       Moreover, to elucidate how these assemblages work the biotic interactions have to be 
       considered too. 
       Microbial interactions play a fundamental role in deciphering the underlying mechanisms that govern ecosystem functioning \cite{braga2016microbial, faust2012microbial}. 
+      Microbes secrete costly metabolites (called \textbf{byproducts}) to their environment, 
+      which other microbes can absorb and exploit~\cite{pacheco2019costless}.
+      By exchanging metabolic products, mostly as there are also other ways of interactions 
+      e.g. quorum sensing, microbial taxa establish various interactions. 
+      
       The interaction between two taxa can either be nutral or 
       positive / negative.
       In case of a positive interaction, 
       there is a case where both taxa benefit one from another.
       This \textit{win-win} relationship is called \textbf{mutualism} (or "cooperation")
       and it can be a result of
-      \textit{cross-feeding}, in which two species exchange metabolic products~\cite{faust2012microbial}; 
-      microbes secrete costly metabolites (called \textbf{byproducts}) to their environment, 
-      which other microbes can absorb and exploit~\cite{pacheco2019costless}. 
-      There is also the case 
-      where only one of the two taxa
+      \textit{cross-feeding}, in which two species exchange metabolic products~\cite{faust2012microbial}.
+      Such is the case in biofilms where multiple bacterial taxa are working together  
+      building a structure that provides them antibiotic resistance~\cite{santos2019evolutionary}.
+      There is also the case where only one of the two taxa
       benefits without helping or harming the other; 
       this interaction is called \textbf{commensalism}~\cite{faust2012microbial}. 
-      
+      For example, \textit{Nitrosomonas} oxidize ammonia (NH$_3$) into nitrite (NO${_2}^{-}$), so  
+      \textit{Nitrobacter} can use it to obtain energy and oxidize it into nitrate (NO${_3}^{-}$)~\cite{laanbroek2002nitrite}.
+      Such interactions are quite common in microbial communities.
 
       \begin{figure}
          \centering
@@ -143,21 +161,33 @@
          Figure based on \cite{perez2016metabolic}}
          \label{fig:micro-inter-types}
       \end{figure}
-      
 
-      competition between microorganism (where both taxa lose)
+      In case of a negative interaction, can harm each other either way (\textbf{compe-tition}). 
+      That is the case between 
+      \textit{Listeria monocytogenes} and \textit{Lactococcus lactis} in the study of~\citeauthor{freilich2010large} where their resource competition is high enough
+      contributing to their non-overlapping existence~\cite{freilich2010large}.
+      Moreover, similarly to commensalism, 
+      there is also the case when a taxon has a negative affect on the other
+      without getting any harm (\textbf{amensalism}). 
+      Such is the case for \textit{Acidithiobacillus thiooxidant} that produces
+      sulfuric acid (H$_2$SO$_4$) by oxidation of sulfur~\cite{bobadilla2013stoichiometric} which is responsible for lowering of pH in the culture media which inhibits the growth of most other bacteria~\cite{jin2018ph}.
+      Finally, one of the taxa may have a positive affect (host) on the other, but the 
+      latter (parasite) can be harmful to its benefator (\textbf{parasitism})~\cite{faust2012microbial}. 
+      There are multiple cases of parasitism in real-world communities; 
+      specis of the genus \textit{Bdellovibrio} for example, are parasites of other (gram-negative) bacteria~\cite{stolp1979interactions}.
 
-      On the basis of
-      these observations, Gause formulated his law of competitive exclusion, which states that two species with
-      similar niches exclude each other
+      Apparently, the environmental conditions affect the ecological interactinos to a
+      great extent. 
+      A pair of taxa may be competitors in one case but have a nutral intrection in another one. 
+      In addition, evolutionary processes may change certain interactions; 
+      for example moving from commensalism to parasitism~\cite{parmentier2016commensalism}.
+      Both ecological and environmental interactions 
+      play a part in the composition and the functional potential of 
+      microbial assemblages. 
 
-      Amensalism — in which one partner is harmed without any advantage to the other — occurs, for example,
-      when metabolic by-products of a microbial species
-      alter the environment to the detriment of other microorganisms (for example, lactobacilli lowering the pH
-      of the surrounding environment). I
 
 
-
+      % SUBSECTION 1.1.2 
       \subsection{The omics' era}
 
       To discover the microbial taxa present in a sample, scientists have 
@@ -226,6 +256,7 @@
       from the cell to the community level.
       As \citeauthor{polanyi1968life} (\citeyear{polanyi1968life}) underlines 
       "live mechanisms and information in DNA are boundary conditions with a sequence of boundaries above them". 
+      
       \begin{figure}[h]
          \centering
          \includegraphics[width=135mm]{figures/Selection_935.png}
@@ -248,6 +279,9 @@
       \item need for tools 
       \item handle the sequences 
    \end{itemize}
+
+
+   $\longrightarrow$ bridge to next section about data integration
 
 
 \section{Data integration \& data mining in the service of microbial ecology}
