@@ -185,6 +185,9 @@
       microbial assemblages. 
 
 
+      \todo{Mention \textit{indirect interactios} and complexity on multi-species communities}
+
+
 % SECTION 2
 
 \section{High Throughput Sequencing in Microbial Ecology}
@@ -303,7 +306,7 @@
 \section{Data integration in the service of microbial ecology}
 
 
-   \subsection{Moving from \textit{partial} to more \textit{complete} data interpretation}
+   \subsection{Moving from \textit{partial} to more \textit{comprehensive} data interpretation}
 
       Over the last decades, based on
       computational and mathematical analysis and modeling,
@@ -385,9 +388,7 @@
       New insight may come up either from statistical analyses on the unified
       dataset or from their visualization~\cite{leonelli2013integrating}.  
 
-      
-
-   \subsection{Ontologies \& metadata standards}
+   \subsection{Ontologies \& metadata standards: cornerstones for efficient data integration}
 
       Data integration in general, 
       is strongly dependent by the extent that standards are used. 
@@ -421,13 +422,64 @@
       inclduded in a text or in a data set, can be captured by both humans and computers. 
 
 
-      \paragraph{Metadata are fundamental} for all types of data. 
-      Consider sampling patients without knowing who is sick and who is not. 
-      As discussed in Section~\ref{subsec:hts_chal}
+      \paragraph{Metadata are essential} for all types of data. 
+      Consider sampling from a set of healthy and patients 
+      Then what if you do not know what samples are coming from each group? 
+      You data are alread degradaded. 
+
+      In a recent study~\citeauthor{furner2020definitions} gave a list of several definitions of metadata.
+      The one of \citeauthor{zeng_qin_2016} is probably the more inclusive one:
+      \textit{"
+      Structured, encoded data that describes characteristics of information-bearing entities
+      (including individual objects, collections, or systems) to aid in the identification,
+      discovery, assessment, management, and preservation of the described entities."
+      }
+      \textit{Structured} are data that are highly organized and easily decipherable by machine learning algorithms while
+      \textit{encoded} are those that have been converted into digital signals.
+
+      Moreover, for the most efficient design and implementation 
+      but also to ensure the Interoperability of structured metadata 
+      across various computing systems and environments, 
+      a range of \textit{standards} have been developed.  
+      % \textit{Metadata standards} focus on 
+      % data structure (\textit{schemas}), content, value, data format.
+      \textit{Data structure (schemas) standards} and
+      rules for formatting the contents of metadata records 
+      along with
+      \textit{encoding} and \textit{exchange} standards 
+      are combined to build up metadata.
+
+      As mentioned in Section~\ref{subsec:hts_chal}, great efforts have been 
+      made on setting 
+      HTS - related metadata standards\todo{add refs}.
+      That is so because comprehensive metadata is the only 
+      way to ensure:
+      \begin{itemize}
+         \item humans will be able to contextualise where and how the data originated as well as how they were analysed
+         \item computing systems will be able to exploit this metadata provenance further
+      \end{itemize} 
+      Thus, 
+      details regarding \textit{when}, \textit{where} and \textit{how} samples were collected 
+      can be provided. 
+      Moreover, these metadata may align against community developed standards where possible. 
+      For example, addressing the question of \textit{where} a sample was collected, 
+      the answer could be \textit{"lake"} or \textit{ENVO:00000020}.
+      The difference in terms of computer science is huge; 
+      it is probably trivial for a human to think that a \textit{lake} is an aquatic
+      environment and in fact a freshwater one. 
+      However, it is only the \textit{relations} of an ontology that would allow 
+      a computer to come up with the same "conclusions". 
+
+      However, challenges associated with metadata deposition 
+      mean submitters do not always provide comprehensive metadata - 
+      these challenges can range from: lack of training and outreach resulting 
+      in submitters not fully understanding the importance of metadata and 
+      how to comply with standards; 
+      as well as the trade-offs for the archives to provide complex and 
+      thorough validation vs simple user interfaces to ensure 
+      both compliance and submission are as easy as possible.
 
 
-      Metadata standard definition: minimum set and formats (Some flexibility will have to be considered in sharing standards between domain-specific communities).
-      Systems to extract the vast amount of metadata locked in the scientific literature and provide them in standard format (explored by the Biodiversity Focus Group).
 
 
 
@@ -474,14 +526,16 @@
       \fi
 
 
+
       \begin{figure}[!h]
-         \hspace*{-0.9in}
-         \includegraphics[width=.7\textwidth]{figures/SRS1753450_metadata.png}
-         \includegraphics[width=.7\textwidth]{figures/ERS667566_metadata.png}
-         \caption[Samples metadata examples MGnify]{Bad and not perfect example}
+         \hspace*{-1.7in}
+         \includegraphics[width=.75\textwidth]{figures/SRS1753450_metadata.png}
+         \includegraphics[width=.75\textwidth]{figures/ERS667566_metadata.png}
+         \caption[Samples metadata examples MGnify]{Bad and not perfect example
+         \footnote{depending on left-right page, change the hspace properly (-1.7 or )}}
          \label{fig:metadata_examples}
       \end{figure}
-
+      
 
 
       The various layers of metadata necessary for the FAIRification of MAGs should include:
@@ -543,6 +597,19 @@
 
 
    \subsection{Reverse ecology: transforming ecology into a high-throughput field}
+
+
+   , metabolomics is
+   generally considered as the link between genotype and phenotype because the metabolome is the
+   final response of a biological system to genetic or environmental changes~\cite{lima2021role}
+   monitoring the metabolome and the biochemical components obtained by genomics and
+other omics methodologies can offer major improvements in fighting not only cancer but sev-
+eral other diseases by providing new insights into disease pathophysiology and the mechanisms
+responsible by means of differences in drug responses and by customizing drug dosing owing to
+interpatient variability (4, 10, 14).
+
+
+
 
       % - genotype - phenotype relationship \\
       Chapter 15
