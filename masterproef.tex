@@ -39,12 +39,16 @@
 % The xspace package provides a single command that looks at what comes after it in the command stream, and decides whether to insert a space to replace one “eaten” by the TEX command decoder. The decision is based on what came after any space, not on whether there was a space (which is unknowable): so if the next thing proves to be punctuation, the chances are there was no space, but if it’s a letter, there’s probably a need for space. This technique is not perfect, but works in a large proportion of cases.
 \usepackage{xspace}
 
-% for lemas
+% For lemas
 \usepackage{amsthm}
 \usepackage{amssymb}
 
-% to have todo notes
+% To have todo notes
 \usepackage{todonotes}
+
+% To have part A, B etc in a figure
+\usepackage{subcaption}
+\usepackage{caption}
 
 
 % DEFINITIONS
@@ -73,7 +77,7 @@
 \begin{document} 
 
 % PREFACE
-
+% \if 0
 \begin{preface}
   
    \textit{
@@ -192,7 +196,7 @@
    Elefantas - xazi - ioannaki --> morakia  
   
 \end{preface}
-
+% \fi
 
 % TOC
 \tableofcontents
@@ -375,11 +379,9 @@
 \include{chapters/intro}
 
 \if 0
+
 % The who : microbial diversity
 \include{chapters/chap-1}
-
-% Karpathos case
-\include{chapters/chap-4}
 
 % The who, the what and where: PREGO
 \include{chapters/chap-2}
@@ -387,12 +389,19 @@
 % The why: microbial interactions
 \include{chapters/chap-3}
 
+% Karpathos case
+\include{chapters/chap-4}
+
 % Computing in bio-research
 \include{chapters/chap-5}
 
 % Finally... 
 \include{chapters/conclusion}
-\fi
+
+\fi 
+
+% bUFFy funding
+\include{chapters/acknowledgements}
 
 % If there are attachments
 \appendixpage*          

@@ -8,7 +8,7 @@
 % (\textit{who})
 , functions 
 % (\textit{what}) 
-\& interactions 
+\& intections 
 % (\textit{how})
 }
    % WHO : DIVERSITY 
@@ -24,7 +24,7 @@
       However, microbes are not just abundant but 
       exceedingly variant too.
       \citeauthor{locey2016scaling} using a unified scaling law
-      and a log-normal model of biodiversity, 
+      and a lognormal model of biodiversity, 
       estimated microbial diversity at about 1 trillion species~\cite{locey2016scaling}.
       However, despite the extensive studies of the scientific community, 
       less than 1\% of the microbial species on Earth have been identified~\cite{isme}.
@@ -38,13 +38,13 @@
       Similarly, microbes can use CO$_2$ (\textbf{autotrophs}) as their \textit{carbon source},
       or organic compounds (\textbf{heterotrophs}) or both (\textbf{mixotrophs}).
       Finally, based on their \textit{electron source} 
-      microbes are distinguished between those using inorganic compounds (\textbf{lithotrophs}) and those using organic compounds (\textbf{organotrophs})~\cite{madigan2018brock}.
-      Microbial taxa combine combining alternatives of the aforementioned categories 
+      microbes are distinguished bewtween those using inorgarnic compounds (\textbf{lithotrophs}) and those using organic compounds (\textbf{organotrophs})~\cite{madigan2018brock}.
+      Microbial taxa combine combinining alternatives of the aforementioned categories 
       shape a range of microbial profile of all the possible combinations; for example      \textbf{chemolithoautotrophic} bacteria, 
       e.g. nitrifying and sulfur-oxidizing bacteria, as well
       as \textbf{photoautotrophic} bacteria, 
       e.g. purple bacteria and Green sulfur bacteria. 
-      Finally, microbial taxa can also be distinguished by their various ecological distributions and activities, 
+      Finally, microbia taxa can also be disinguished by their various ecological distributions and activities, 
       and by their distinct genomic structure, expression, and evolution~\cite{dunlap2001microbial}. 
 
    % WHAT : FUNCTIONAL POTENTIAL
@@ -61,29 +61,14 @@
       biogeochemical cycles}~\cite{falkowski2008microbial}; meaning that biogeochemical cycling 
       to a global extent
       is powered by the metabolic processes of the microbial taxa~\cite{louca2016decoupling}. 
-      In Figure~\ref{fig:co2} the contribution of microbial communities 
+      In Figure~\ref{fig:co2} the contibution of microbial communities 
       in the cycle of CO$_2$ is shown. 
 
-      \begin{figure}[!h]
+      \begin{figure}[h]
          \centering
-
-         \begin{subfigure}{0.85\textwidth}
-            \includegraphics[width=0.85\textwidth]{figures/Sulfur_Cycle_for_Hydrothermal_Vents.png}
-            \caption{Basic reactions in sulfur cycle} 
-            \label{fig:micr_ecol_a}
-         \end{subfigure}%
-         
-         \hspace*{\fill}   % maximize separation between the subfigures
-
-         \begin{subfigure}{0.85\textwidth}
-            \includegraphics[width=0.85\textwidth]{figures/sulfur_village.png}
-            \caption{Sulfur cycle reactions per environmnetal type} 
-            \label{fig:micr_ecol_b}
-         \end{subfigure}%
-         
-         \hspace*{\fill}
-         
-         \caption[The cycle of S and the role of microbial communities]{
+         \includegraphics[width=0.65\textwidth]{figures/Sulfur_Cycle_for_Hydrothermal_Vents.png}
+         \includegraphics[width=0.95\textwidth]{figures/sulfur_village.png}
+         \caption[The cycle of S and the role of microbial communiites]{
             The cycle of sulfur (S) (up) and the contribution of microbial communities on it (down, image source: \href{https://openstax.org/resources/3002d0fba25221d24455917117482a079a11f321}{OpenStax}).
             % Marine microbial communities contribute to CO$_2$ sequestration, nutrients recycle and thus to the release of CO$_2$ to the atmosphere. 
             % Soil microbial communities decomposers organic matter and release nutrients in the soil 
@@ -93,7 +78,7 @@
       \end{figure}
 
       The biological fluxes of most of the major elements (i.e., carbon, hydrogen, oxygen, nitrogen and sulfur) required
-      for any biological macro-molecule,
+      for any biological macromolecule,
       are driven largely
       by microbially catalyzed, thermodynamically constrained redox reactions~\cite{falkowski2008microbial}. 
       Phosphorus the last of the 6 fundamental elements for life, is also included in the metabolic pathways catalyzed by microbes. 
@@ -102,11 +87,6 @@
       and determine the fitness of most organisms on Earth. 
       In case of human health, specific microbial enzymatic pathways and molecules necessary for health promotion have been well known.
       Some of these "beneficial factors" are already known for probiotics and species in the human microbiome~\cite{marco2021defining}.
-
-
-
-      ~\cite{louca2018function}\todo{talk about taxonomy - functions relationship}
-      
 
 
       % MICROBIAL ECOLOGY and OPEN QUESTIONS 
@@ -139,10 +119,10 @@
       that the distribution of these functional groups were influenced by environmental 
       conditions to a great extent, shaping \textit{metabolic niches}.
       At the same time though, the taxonomic composition within individual functional groups
-      were not affected by such environmental conditions~\cite{louca2016decoupling}.
+      were not affected by such environmental condintions~\cite{louca2016decoupling}.
 
    % MICROBIAL INTERACTIONS INTRO
-   % \if 0fector models describe how species abundance (x) variation depends on metabolite conce
+   % \if 0
    \subsection{Ecological interactions in microbial communities}
    \label{subsec:ecol_interactions}
    % \fi
@@ -154,8 +134,8 @@
       By exchanging metabolic products, mostly as there are also other ways of interactions 
       e.g. quorum sensing, microbial taxa establish various interactions. 
       
-      The interaction between two taxa can either be neutral or 
-      positive / negative (Figure~\ref{fig:micro-inter-types}).
+      The interaction between two taxa can either be nutral or 
+      positive / negative.
       In case of a positive interaction, 
       there is a case where both taxa benefit one from another.
       This \textit{win-win} relationship is called \textbf{mutualism} (or "cooperation")
@@ -170,13 +150,13 @@
       \textit{Nitrobacter} can use it to obtain energy and oxidize it into nitrate (NO${_3}^{-}$)~\cite{laanbroek2002nitrite}.
       Such interactions are quite common in microbial communities.
 
-      \begin{figure}[!h]
+      \begin{figure}
          \centering
          \includegraphics[width=.9\textwidth]{figures/interaction_types.jpg}
          \caption[Microbial interactions types]{Microbial interaction types along 
          with their corresponding metabolic ones.
          Due to certain metabolic interactions, two taxa may have a positive, a negative
-         or a neutral effect one another. 
+         or a nutral effect one another. 
          Figure based on \cite{perez2016metabolic}}
          \label{fig:micro-inter-types}
       \end{figure}
@@ -191,85 +171,21 @@
       Such is the case for \textit{Acidithiobacillus thiooxidant} that produces
       sulfuric acid (H$_2$SO$_4$) by oxidation of sulfur~\cite{bobadilla2013stoichiometric} which is responsible for lowering of pH in the culture media which inhibits the growth of most other bacteria~\cite{jin2018ph}.
       Finally, one of the taxa may have a positive affect (host) on the other, but the 
-      latter (parasite) can be harmful to its benefactor (\textbf{parasitism})~\cite{faust2012microbial}. 
+      latter (parasite) can be harmful to its benefator (\textbf{parasitism})~\cite{faust2012microbial}. 
       There are multiple cases of parasitism in real-world communities; 
-      species of the genus \textit{Bdellovibrio} for example, are parasites of other (gram-negative) bacteria~\cite{stolp1979interactions}.
+      specis of the genus \textit{Bdellovibrio} for example, are parasites of other (gram-negative) bacteria~\cite{stolp1979interactions}.
 
-      However, we have a very limited understanding
-      of such interactions and the ways that are combined to
-      rule community-level behaviors. 
-      Thus, we cannot predict community responses to
-      perturbations (community stability)~\cite{venturelli2018deciphering}.
-      Over the years, various methods have been used to infer such interactions. 
-      co-occurrence modells~\cite{faust2012microbial},
-      time series data and causal models~\cite{mainali2019detecting},
-      through metabolic interactions as proxy~\cite{levy2012reverse}.
-      Dynamic models, such Ordinary Differential Equations (ODEs)
-      and the Generalized Lotka–Volterra (gLV) model~\cite{gonze2018microbial}
-      have been also widely used. 
-      Finally, in recent years, 
-      metabolic networks and constraint-based models have been also used
-      to predict microbial interactions~\cite{heinken2021advances, dukovski2021metabolic}.
-      This last approach allows predictions for the metabolic dynamics of the community 
-      as well as of the exact set of compounds the taxa of the community exchange~\cite{levy2012reverse}.
-      Still though, microbial interactions inference is a challenging task 
-      and several questions are still open. 
-      
-      Apparently, the environmental conditions affect the ecological interactions to a
+      Apparently, the environmental conditions affect the ecological interactinos to a
       great extent. 
-      A pair of taxa may be competitors in one case but have a neutral interaction in another one. 
+      A pair of taxa may be competitors in one case but have a nutral intrection in another one. 
       In addition, evolutionary processes may change certain interactions; 
       for example moving from commensalism to parasitism~\cite{parmentier2016commensalism}.
       Both ecological and environmental interactions 
       play a part in the composition and the functional potential of 
       microbial assemblages. 
-      On top of that, pairwise microbial interactions can be modified by a third organism, 
-      leading to higher-order effects that influence community behaviors~\cite{bairey2016high}. 
-      % Ecological driver species, which exhibit a large impact on community structure and function, represent key nodes in the network that could be manipulated 
-      % to control community states~\cite{gibson2016origins}.
-   \subsection{Reverse ecology: transforming ecology into a high-throughput field}
-   \label{subsec:revec}
 
-      For decades, \textit{reductionism} has been the main conceptual approach 
-      in biological research~\cite{noble2008music}.
-      Traditionally, for studies relating genetics and ecology
-      scientists first identify an ecological adaptive phenotype 
-      and then they try to detect causal genetic variation~\cite{noble2008music}.
-      However, as described in the previous sections, HTS data have turned the page in 
-      Biology research in numerous ways. 
-      Therefore, it is nowdays possible to \textit{reverse} this framework and by 
-      using the genomic information retrieved, to study 
-      the ecology of a species.
-      The \textbf{Reverse Ecology} framework uses advances 
-      in both systems biology and genomic metabolic modeling to implement  
-      community ecology studies 
-      with no a priori assumptions about the organisms under consideration~\cite{cao2016revecor}.
-      Therefore, Reverse Ecology 
-      attempts to interpret HTS (genomic) data as large-scale ecological data~\cite{levy2012reverse}.
 
-      \begin{figure}[!h]
-         \centering
-         \includegraphics[width=135mm]{figures/reverse_ecology.png}
-         \caption[The \textit{Reverse Ecology} framework.]{Without any previous knowledge of the species present in a community (A) and using HTS data (B) one can have an overview of the species present 
-         as well as in the functional profile of the community (C).
-         Especially when the complete genome of a species has been retained (either using 
-         metagenomics (MAG) or using targeted approaches to get this (SAG))
-         researchers can build its corresponding GEM (D) and then 
-         infer the ecology of a taxon predicting 
-         the exogenously acquired compounds as well as ecological interactions between the taxon under study and other species present in a community (E). 
-         Both network topology - and constraint - based methods can be used to this end.
-         Created with \href{BioRender.com}{BioRender.com}.
-         }
-         \label{fig:revecol}
-      \end{figure}
-
-      As shown in Figure~\ref{fig:revecol}, the Reverse Ecology framework 
-      has multiple alternatives and various methods can exploit this concept.
-      The analysis of metabolic networks (see Section~\ref{subsec:modeling}) 
-      plays a great part in several Reverse Ecology approaches.
-      Most parts of this dissertation have been influenced by this, especially 
-      chapters~\ref{cha:prego},~\ref{cha:dingo} and~\ref{cha:swamp}.
-      
+      \todo{Mention \textit{indirect interactios} and complexity on multi-species communities}
 
 
 % SECTION 2
@@ -280,10 +196,10 @@
    \subsection{'Omics methods to access the \textit{who} and the \textit{what}}
    \label{subsec:omics}
       To discover the microbial taxa present in a sample, scientists have 
-      explored multiple ways through the years. 
+      explored multiple ways throught the years. 
       Only a particularly limited proportion of the microbial species 
       can be cultured~\cite{steen2019high}.
-      Therefore, mono-cultures and enrichment cultures allow us to observe 
+      Therefore, monocultures and enrichment cultures allow us to observe 
       only a small fraction of the actual diversity. 
       As a consequence, other methods for the taxonomic identification of theses
       species are required.
@@ -297,12 +213,12 @@
       To a great extent, these methods address the problem of how to produce and get access 
       to the information on different biological systems and molecules.
 
-      In case that the taxonomic assessment of a sample is the aim of a study, 
+      In case that the taxonomic assesment of a sample is the aim of a study, 
       \textit{metabarcoding} (amplicon-targeted metagenomics) and \textit{shotgun metagenomics} can be used as alternative options. 
       Metabarcoding studies are common, well-established, cheaper and less computationally demanding than shotgun metagenomics~\cite{bell2021comparing}. 
       Its primary drawbacks are the limited information present in the short barcoding sequence and the possible taxonomic bias arising from differential efficiency of PCR primer pairing in different species~\cite{blazewicz2013evaluating}. 
       On the other hand, shotgun metagenomics offers a better taxonomic resolution at the species level by obtaining information from random sampling of virtually all genomic regions, and can address microbiome metabolic functions and entire biochemical pathways~\cite{sharpton2014introduction}. 
-      Unfortunately, it requires higher sequencing coverage and, consequently, more complex and demanding downstream bioinformatics analysis~\cite{laudadio2018quantitative}. 
+      Unfortunately, it requires higher sequencing coverage and, consequently, more complex and demanding downstream bioinformatic analysis~\cite{laudadio2018quantitative}. 
       Nevertheless, it has recently been suggested that shotgun metagenomics provides a deeper characterisation of microbiome complexity that metabarcoding recently enabling to profile up to the level of strains, whose non-core genome is responsible for crucial functional differences within the same species, as the fundamental units of the community~\cite{davila2019review, clooney2016comparing, segata2018road}.       
       
       Targeting community composition and functional profiles in several ecological niches, 
@@ -315,29 +231,29 @@
 
       Moving from raw data to taxonomic and functional profiles of a microbial community comes with high computational costs, especially in the case of metagenome studies~\cite{yang2021review}.
       Sequence pre-processing, assembly, classification, and functional annotation consist of several steps the most of which a significant number of algorithms or/and software tools are available~\cite{breitwieser2019review, roumpeka2017review}. 
-      Tailoring each tool's execution parameters to reflect each experiment's idiosyncrasy is vital for legitimate findings, yet it makes analyses of metagenomics data even more complex. 
+      Tailoring each tool's execution parameters to reflect each experiment's idiosyncrasy is vital for legitimate findings, yet it makes analyses of metagenomic data even more complex. 
 
       In addition, there are several challenges on the bioinformatics analysis \textit{per se}.
-      \textit{Taxonomy assignment} in both amplicon- and shotgun metagenomics studies 
+      \textit{Taxonomy assignment} in both amplicon- and shothun metagenomics studies 
       has several issues to meet~\cite{simon2019benchmarking};
       the taxonomy of microbes is a challenge per on its own~\cite{parks2020complete}.
 
       In amplicon studies, among the most major issues is the one of the abundances of the
-      taxa found~\cite{fonseca2018pitfalls, balint2016millions} as well as the presence of pseudo-genes~\cite{song2008many}.
+      taxa found~\cite{fonseca2018pitfalls, balint2016millions} as well as the presence of pseudogenes~\cite{song2008many}.
       In the first case, 
       % a number of 
       issues such as  
       % \begin{itemize}
       %    \setlength\itemsep{0.05em}
          % \item 
-      the usually unknown number of marker gene copies per cell in the various taxa,
+      the usually unknown number of markere gene copies per cell in the various taxa,
          % \item 
       PCR - related biases such as primer-template mismatches, length difference of amplicon, artificial base changes, chimeric molecules 
          % \item 
       and library preparation - related issues such as chimera formation by the mix of amplicons from different samples
       % \end{itemize}
       makes hard for the method to have robust quantitative results~\cite{balint2016millions}. 
-      Reads on the other hand resulting from pseudo-genes or/and highly divergent nuclear mitochondrial pseudo-genes (NUMTS), nonfunctional copies of mtDNA in the nucleus that have been found in major clades of eukaryotic organisms~\cite{bensasson2001mitochondrial}, 
+      Reads on the other hand resulting from pseudogenes or/and highly divergent nuclear mitochondrial pseudogenes (NUMTS), nonfunctional copies of mtDNA in the nucleus that have been found in major clades of eukaryotic organisms~\cite{bensasson2001mitochondrial}, 
       can lead either to false positive taxonomic hits or to non-hits at all,
       adding extra noise to the amplicon results returned.
 
@@ -347,7 +263,7 @@
       nearly-identical DNA (inter-genomic repeats) representing, for example, mobile genetic elements~\cite{ghurye2016focus}.
       At the same time, \textit{binning} is a rather tricky step too; 
       several algorithms have been developed to address it~\cite{yue2020evaluating}
-      while approaches combining the output of individual algorithms have been introduced too~\cite{song2017binning_refiner}.
+      while pproaches combining the output of individual algorithms have been introduced too~\cite{song2017binning_refiner}.
 
 
       The vast amounts of data that come with metagenomic studies and the computational complexity for implementing multiple steps mentioned earlier imply immense computational requirements for their analysis that usually exceed the capacity of a standard personal computer~\cite{merelli2014managing}. 
@@ -384,10 +300,14 @@
       the Minimal Information about any Sequence (MIxS)~\cite{yilmaz2011minimum, yilmaz2011genomic}
       and the \href{https://microbiomedata.org/metadata/}{National Microbiome Data Collaborative (NMDC)}\footnote{\href{https://microbiomedata.org/metadata/}{https://microbiomedata.org/metadata/}}~\cite{wood2020national}
       aim to address these challenges~\cite{wilkinson2016fair}.
+
+
+
 \section{Data integration in the service of microbial ecology}
 
+
    \subsection{Moving from \textit{partial} to more \textit{comprehensive} data interpretation}
-   \label{subsec:integration_intro}
+
       Over the last decades, based on
       computational and mathematical analysis and modeling,
       and by exploiting interdisciplinary data and knowledge, 
@@ -406,21 +326,21 @@
       and many more that thousands of researches use in their every day work. 
       All these approaches, regardless on what they focus, they are all based on data aggregation and data integration approaches. 
       \textit{Data aggregation} denotes the gathering of data from diverse sources
-      in a certain scheme that will allow them to be used as a combined data-set for 
-      further analysis~\cite{simpson2010secure}. 
+      in a certain scheme that will allow them to be used as a combined dataset for 
+      furthere analysis~\cite{simpson2010secure}. 
       In case of microbial ecology, that means that data focusing on the genetic 
       information can be combined with phenotypical data or even with environmental and 
       ecological data.
       \textit{Data integration} on the other hand, is the process of combining everything
       retrieved on the data aggregation step, 
       to get a summarization and unified view of all the accumulated data~\cite{schneider2012teaching}.
-      Such summarizations may lead researchers to new hypotheses that 
+      Such summarizations may lead researhcers to new hypotheses that 
       in turn, will be tested through new experiments (Figure~\ref{fig:data_int}).
 
 
-      \paragraph{Data integration comes with great challenges.}
+      \paragraph{Data integrations comes with great challenges.}
 
-      Apparently, data integration methods are based on the existence of primary databases. 
+      Apparently, data integration methods are based on the existance of primary databases. 
       Each of these database resources come with its own assumptions and schemas. 
       Therefore, it is not a straight-forward task to recognize or assign and maintain 
       the correct names of biological entities across the various databases~\cite{stein2003integrating}.
@@ -428,10 +348,10 @@
       As there is no a global taxonomy system, even the species name can be a 
       great challenge in such approaches; how to retrieve information about a species
       that does not have the same name on the various databases to integrate? 
-      Therefore, retrieving and mapping entities can be rather complex.  
+      Thereofre, retrieving and mapping entities can be rather complex.  
       Similarly to taxonomy, most biological databases are constantly changing. 
       Thus, integration approaches need to be periodically so the always keep updated~\cite{stein2003integrating}.
-      In addition to the heterogeneity of the data \textit{per se},
+      In addition to the heterogenety of the data \textit{per se},
       further challenges that make data integration even harder in case of biological data,
       is the lack of unique standards~\cite{triplet2011systems}.
       In the case of HTS data, great efforts to address this challenge have been 
@@ -464,12 +384,12 @@
       convert them to match the unified data model and 
       then load them into the warehouse~\cite{stein2003integrating}.
       Once these steps have been completed, further analysis of the once
-      several bits of information - now a single data-set, can be performed.
+      several bits of information - now a single dataset, can be performed.
       New insight may come up either from statistical analyses on the unified
-      data-set or from their visualization~\cite{leonelli2013integrating}.  
+      dataset or from their visualization~\cite{leonelli2013integrating}.  
 
    \subsection{Ontologies \& metadata standards: cornerstones for efficient data integration}
-   \label{subsec:metadata_intro}
+
       Data integration in general, 
       is strongly dependent by the extent that standards are used. 
       Especially in case of vast and heterogeneous data, 
@@ -487,7 +407,7 @@
       Ontologies attempt to capture the main concepts in a \textit{knowledge domain}, 
       i.e. a body of knowledge that is often associated with a
       specialized scientific discipline. 
-      For example, considering \textit{where} a species live or \textit{where} a process occurs, one need to describe the environment where the phenomenon under study 
+      For example, considering \textit{where} a species live or \textit{where} a process occurs, one need to describe the environment where the phenomeno under study 
       takes place. 
       Thus, the \href{https://sites.google.com/site/environmentontology}{Environment Ontology (ENVO)}\footnote{\href{https://sites.google.com/site/environmentontology}{https://sites.google.com/site/environmentontology}} aims to provide descriptions of environments~\cite{buttigieg2016environment}.
       Using sets of entities, meaning entities sharing several attributes (\textit{concepts}), 
@@ -499,13 +419,13 @@
       A \textit{vocabulary} includes definitions and an indication of how concepts are inter-related which collectively impose a structure on the domain and constrain the
       \cite{uschold1998enterprise}.
       Ontologies are fundamental for data integration as they ensure that the knowledge
-      included in a text or in a data set, can be captured by both humans and computers. 
+      inclduded in a text or in a data set, can be captured by both humans and computers. 
 
 
       \paragraph{Metadata are essential for most if not all types of data.} 
       Consider sampling from a set of healthy and patients. 
       Then what if you do not know what samples are coming from each group? 
-      You data have been already degraded. 
+      You data have been alread degradaded. 
 
       In a recent study~\citeauthor{furner2020definitions} gave a list of several definitions of metadata.
       The one of~\citeauthor{zeng_qin_2016} is probably the more inclusive one:
@@ -553,7 +473,7 @@
 
 
 
-      Regarding the environmental metadata of a sample, 
+      Regarding the enviromnetal metadata of a sample, 
       ENVO~\cite{buttigieg2016environment} and MIxS~\cite{yilmaz2011minimum}
       are working together to build a solid framework~\cite{environmentontology_2021}. 
       The \textit{broad-scale environmental context} value is representing the 
@@ -590,7 +510,7 @@
       challenges related to HTS - oriented metadata. 
       Metadata describing the sample in case~\ref{fig:metadata_examples_a}
       are limited and neither a human nor a computer is able to 
-      capture the actual environment from where the sample was collected. 
+      capture the actual environmenta from where the sample was collected. 
       In the~\ref{fig:metadata_examples_b} case, accompanying metadata are clearly
       more informative.
       Both a human and computing systems, can capture that the sample comes from 
@@ -650,96 +570,64 @@
       Only by a concerted effort on the part of the database providers, and with the encouragement and support of the research community, will we be able to tame the explosion of biological data~\cite{stein2003integrating}.
 
 
-\section{Metabolic modeling: an interface for the genotype - phenotype relationship}
+
+\section{Metabolic networks: modeling  cellular physiology and growth}
 
 
-   \subsection{Constraint-based modeling for the analysis of metabolic networks}
-   \label{subesec:modling}
-
-      The relationship between genotype and phenotype is fundamental to biology~\todo{add ref}.
-      Metabolism penetrates most of the different levels of living entities horizontally~\cite{schramski2015metabolic} and while it reflects the genomic information it indicates 
-      what is actually going on on a cell at a certain time.
-      Therefore, one can use the \textit{Reverse Ecology} framework (see Section~\ref{subsec:revec})
-      to move all the way from genomic information to metabolism and the environment and then back.
-
-      To this end, \textit{metabolic networks} and their analysis are essential. 
-      The vast number of reaction taking place in a cell are interlinked 
-      (the product of the first acts as the substrate for the next) 
-      building up metabolic pathways,
-      while their stoichiometry allows their mathematical representation. 
-      The sum of all the reactions that take
-      place in an organism.
-      
-      As discussed in~\cite{reed2012shrinking} a great range of constraints 
-      govern the cells' operations; for a thorough overview on the constraints cells operate under, you may see~\cite{palsson2015systems}, Chapter $16.5$. 
-      (Bio)physico-chemical- (e.g., thermodynamics, nutrient uptake, oxygen availability etc.) as well as connectivity-, capacity- and rates-related constraints 
-      are applied on the functions of such a network.
-      Each of the aforementioned constraint categories include multiple constraints, such as 
-      thermodynamics- and gene-expression-oriented constraints that add extra complexity 
-      in the model. 
-      The more constraints a model incoroporates, the more accurate the flux distributions it returns.
+   \subsection{Reverse ecology: transforming ecology into a high-throughput field}
 
 
-      \begin{figure}
-         \hspace*{-1.83in}
-         \begin{tikzpicture}
-            \node[anchor=west, xshift=-15pt, yshift=-200pt]               
-            at (current page.west) {
-               \includegraphics[width=220mm, height=167mm]{
-                  figures/e\_coli\_map.png}
-            };
-            \scriptsize (A) Test
-            
-            \node[anchor=east, xshift=-30pt, yshift=90pt]               
-            at (current page.east) {
-               \includegraphics[width=170mm]{
-                  figures/fraction\_of\_Ecoli\_xml\_transp\_crop.png}
-            };
-            \scriptsize (B) test
+   , metabolomics is
+   generally considered as the link between genotype and phenotype because the metabolome is the
+   final response of a biological system to genetic or environmental changes~\cite{lima2021role}
+   monitoring the metabolome and the biochemical components obtained by genomics and
+other omics methodologies can offer major improvements in fighting not only cancer but sev-
+eral other diseases by providing new insights into disease pathophysiology and the mechanisms
+responsible by means of differences in drug responses and by customizing drug dosing owing to
+interpatient variability (4, 10, 14).
 
-         \end{tikzpicture}
 
-         \caption[Metaboic map and part of its corresponding network file]{Metaboic map and part of its corresponding network file representing the biomass function of the \texttt{e\_coli\_core} BIGG model}
-         \label{fig:met_net}
+
+
+      % - genotype - phenotype relationship \\
+      Chapter 15
+      Reverse Ecology: From Systems
+      to Environments and Back
+
+      \begin{figure}[!h]
+         \centering
+         \includegraphics[width=135mm]{figures/reverse_ecology.png}
+         \caption[The \textit{Reverse Ecology} framework.]{The \textit{Reverse Ecology} framework. Without any previous knowledge of the species present in a community (A) and using HTS data (B) one can have an overview of the species present 
+         as well as in the functional profile of the community (C).
+         Especially when the complete genome of a species has been retained (either using 
+         metagenomics (MAG) or using targeted approaches to get this (SAG))
+         reseachers can build its corresponding GEM (D) and then 
+         infer the ecology of a taxon predicting 
+         the exogenously acquired compounds as well as ecological interactions between the taxon under study and other species present in a community (E). 
+         Both network topology - and constraint - based methods can be used to this end.
+         Created with \href{BioRender.com}{BioRender.com}.
+         }
+         \label{fig:revecol}
       \end{figure}
 
-
-      % \begin{figure}
-      %    \hspace*{-3.0cm}
-      %    \begin{subfigure}{1.2\textwidth}
-      %       \includegraphics[width=1.1\textwidth]{figures/e\_coli\_map.png}
-      %       \caption[]{}
-      %       \label{}
-      %    \end{subfigure}
-            
-      %    \begin{subfigure}{0.95\textwidth}
-      %       \includegraphics[width=\textwidth]{figures/fraction\_of\_Ecoli\_xml.png}
-      %       \caption{test}
-      %       \label{fig:test}
-      %    \end{subfigure}
-         
-      %    % \caption[]{}
-      %    % \label{}
-      % \end{figure}
-
-
-      
----------------------------------------------------------------
-
-      considering physical, enzymatic, and topological constraints underlying the phenotype in a metabolic network. 
-
-      , metabolomics is
-      generally considered as the link between genotype and phenotype because the metabolome is the
-      final response of a biological system to genetic or environmental changes~\cite{lima2021role}
-      monitoring the metabolome and the biochemical components obtained by genomics and
-      other omics methodologies can offer major improvements in fighting not only cancer but sev-
-      eral other diseases by providing new insights into disease pathophysiology and the mechanisms
-      responsible by means of differences in drug responses and by customizing drug dosing owing to
-      interpatient variability (4, 10, 14).
-
-
-
       \if 0 
+
+      (from Roie Levy and Elhanan Borenstein~\cite{levy2012reverse})
+      Reverse Ecology—an emerging new frontier in Evolutionary Systems Biology—aims
+      to extract this information and to obtain novel insights into an organism’s ecology.
+      The Reverse Ecology framework facilitates the translation of high-throughput
+      genomic data into large-scale ecological data, and has the potential to transform
+      ecology into a high-throughput field
+
+
+      the traditional approach taken to studies relating genetics and ecology:
+      first an ecological adaptive phenotype is identified, then various methodologies are
+      employed to detect causal genetic variation.
+
+
+
+
+
 
       In some cases, however, one may wish to predict not only potential interactions
       but also specific metabolic dynamics in a community of microorganisms and the
@@ -749,9 +637,43 @@
       as constraint-based modeling (CBM) [18, 19]. Such models, however, are usually
       limited in scale and require detailed and manually curated data [20].
 
-      \citeauthor{lewis2012constraining} (\citeyear{lewis2012constraining}) 
+
+
+
+
+
+
+      (from RevEcoR publication~\cite{cao2016revecor})
+      A systematic approach for describing microbiome ecologies and the interactions between microbiota is lacking. 
+      To address this challenge, a systems biology approach called \textit{reverse ecology} has been developed 
+      to study the complex interactions and species composition of microbial communities [4]. 
+      Reverse ecology uses genomics to study community ecology with no a priori assumptions about the organisms under consideration. 
+      Researchers can use it to infer the ecology of a system directly from genomic information. 
+      The reverse ecology framework uses advances in systems biology and genomic metabolic modeling and 
+      the system-level analysis of complex biological networks to predict the ecological traits of poorly studied microorganisms, 
+      their interactions with other microorganisms, and the ecology of microbial communities. 
+      Several studies have applied this approach to investigate the interactions between microorganisms 
+      and their surroundings on a large scale [4, 5].
+
+      The relationship between genotype and phenotype is fundamental to biology.
+      Many levels of control are introduced when moving from one to the other. 
+      Systems biology aims at deciphering "the strategy" both at the cell and at higher levels of organization, in case of multicell species, that enables organisms to produce orderly adaptive behavior in the face of widely varying genetic and environmental conditions (\cite{strohman2002maneuvering}); 
+      the term "strategy" is used as per \cite{polanyi1968life}.
+      Systems biology approaches aim at interpreting how a system's properties emerge; 
+      from the cell to the community level.
+      As \citeauthor{polanyi1968life} (\citeyear{polanyi1968life}) underlines 
+      "live mechanisms and information in DNA are boundary conditions with a sequence of boundaries above them". 
+
+
+
+
+      Being at the helm of the most critical celular functions  
+      metabolism and therefore, metabolic networks and their analysis, 
+      play a key role in Systems Biology. 
+      Moreover, \citeauthor{lewis2012constraining} (\citeyear{lewis2012constraining}) 
       describe thoroughly the multiple constraint-based reconstruction and analysis (COBRA) methods 
       that have been developed to support the analysis of such networks. 
+
 
       % SUPERS SOS !!! 
       The modeling frameworks and topology-based analyses discussed above are a
@@ -764,43 +686,19 @@
       as constraint-based modeling (CBM) [18, 19]. 
 
 
-   \fi
 
 
 
    \subsection{Sampling the flux space of a metabolic model: challenges \& potential}
 
 
-      what is flux sampling ?
 
-      how is it better than FBA, FVA ? 
-
-
-      what are the challenges ? 
-
-         why all polytopes so skinny ??
-
-      sampling at the community level - how to build a community model? 
-
-
-      why microbiologists should care about sampling on high dimensional polytopes?
+   \fi
 
 
 
 % SECTION 7 - first draft ready
 \section{Aims and objectives}
-
-   The key role of bioinformatics on microbial ecology studies
-   was described in the previous chapters and especially 
-   when it come to HTS - oriented challenges. 
-   The potentials of addressing a subset of these challenges was also 
-   described. 
-   As HTS technologies become better and better 
-   (lower cost, higher accuracy)
-   and HTS data become more and more available, 
-   efforts to overcome these issues 
-   are undoubtedly of great importance. 
-
 
    The aim of this PhD was double:
    \begin{enumerate}
@@ -826,13 +724,14 @@
 
    In \textbf{Chapter~\ref{cha:dingo}}, the challenges of flux sampling in metabolic models of high dimensions was presented along with a Multiphase Monte Carlo Sampling (MMCS) algorithm we developed. 
 
+   In \textbf{Chapter~\ref{cha:hpc}}, the history of the IMBBC-HCMR HPC facility was presented indicating the vast needs of computing resources in modern analyses in general and in microbial studies more specifically. 
+
    In \textbf{Chapter~\ref{cha:swamp}}, sediment samples from a hypersaline swamp in Tristomo, Karpathos Greece were analysed using both amplicon and shotgun metagenomics. 
    The taxonomic and the functional profiles of the microbial communities present there were investigated. 
    Key metabolic processes for ensuring life at such an extreme environment were identified.
    Microbial interactions of the assemblages retrieved were also studied by exploiting 
    data integration and reverse ecology approaches.  
 
-   In \textbf{Chapter~\ref{cha:hpc}}, the history of the IMBBC-HCMR HPC facility was presented indicating the vast needs of computing resources in modern analyses in general and in microbial studies more specifically. 
 
    Finally, in \textbf{Chapter~\ref{cha:conclusion}}, general discussion and conclusions that have derived from this research were presented. 
 
