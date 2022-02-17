@@ -1,0 +1,128 @@
+\chapter{Computational Geometry}
+\label{app:comp_geom_intro}
+
+\section{Definitions \& concepts}
+
+
+
+   A \textit{hyperplane} is a set of the form
+   \begin{equation}
+      H = \{x \in \mathbb{R}^n : p^{T} \cdot x = t \}      
+   \end{equation}
+   and defines two closed \textit{halfspaces}.
+   Such a halfspaces would be denoted as
+   \begin{equation}
+      \begin{split}
+         H_{-} = \{ x \in \mathbb{R}^n : p^{T} \cdot x \leq t \} \\
+         H_{+} = \{ x \in \mathbb{R}^n : p^{T} \cdot x \geq t \}               
+      \end{split}
+   \end{equation}
+
+   The intersection of a finite number of halfspaces builds a \textit{polyhedron}.
+   A system of inequalities arises:
+   \begin{equation}
+      a_{i}^{t} \cdot x \leq b_{i},  i \in \{1, .., m\}      
+   \end{equation} 
+   where $m$ is the number of halfspaces. 
+   Thus, a polyhedron can be denoted as:
+   \begin{equation}
+      P = \{ x \in \mathbb{R}^n : A \cdot x \leq b \}
+   \end{equation}
+   where $A$ is a $m*n$ matrix
+   with $m$ being the number of halfspaces 
+   and $n$ the dimension of the space. 
+   Finally, $b$ is a vector of the right side of the inequalities ($b_{i}$).
+   
+   A \textit{bounded} polyhedron meaning, 
+   $ \exists M > 0$ such that $\|x\| \leq M$ for all $x \in P$,
+   is called a \textit{\textbf{polytope}}.
+   
+   Some of the inequalities in $A$ though can be geometrically redundant,
+   meaning that if these are removed $P$ remains the same. 
+   The \textit{dimension} of a polytope $P$ is equal to $n - r(P)$
+   where $r(P)$ is the maximum number of linearly independent 
+   defining hyperplanes containing $P$.
+
+   We call \textit{defining hyperplanes} the \textbf{total}
+   hyperplanes defined from the system, meaning 
+   those coming from the $A \cdot x \leq 0$ 
+   plus those coming from any constraints. 
+   For example, maybe we would have $x \geq 0$ then these hyperplanes would be also considered
+   as defining hyperplanes.
+
+   We consider $P$ as a \textit{\textbf{fully dimensional}} polytope
+   if and only if $dim(P) = n$.
+   In other words, 
+   a $d$-polytope is full-dimensional in $d$-space.
+   Each (nonredundant) inequality corresponds to a facet of the polytope
+
+   In case that our system has only inequalities, 
+   then the polytope derived is always full dimensional.
+   However, in case that extra cosntraints as equalities
+   are included, then the polytope derived could be 
+   full-dimensional or not. 
+   If the space defined by the equalities intersects the one 
+   defined by the inequalities, then the polytope is not full-dimensional.
+
+   
+   A \textit{face} is a set of points $ F \subseteq P$ that belongs 
+   to the intersection of a nonempty set of defining hyperplanes 
+   To show that a valid inequality is a face we just need to 
+   find a point in the intersection of the hyperplane it defines
+   and our polytope. 
+   To show that a face is a \textit{\textbf{facet}}, 
+   i.e. a face of dimension $n -1$,
+   we need to show that it belongs to exactly one defining hyperplane.
+   If it belongs to more, then it is no longer a facet.
+
+   \paragraph{Facets are necessary and sufficient} for the complete description of a polytope 
+   in terms of valid inequalities.
+
+   % ----------------------------------------
+
+   % \rule{12cm}{0.25mm} 
+
+
+      If $P$ is full-dimensional then it has a unique minimal description: 
+      \begin{equation}
+         P = \{ x \in \mathbb{R}^n : a_{i}^T \cdot x \leq b_{i}, i = \{1, ..m\} \}
+      \end{equation}
+      where each of the $m$ inequalities is unique to within a positive multiple.
+   
+
+   % \rule{12cm}{0.25mm} 
+
+   % -----------------------------------------
+
+   Points $ x_{1}, x_{2}, ... , x_{k} \in \mathbb{R}^n$ are \textit{affinely independent}
+   if the $k-1$ directions: 
+   $x_{i} - x_{1}, i \in \{2, k\}$
+   are linearly independent. 
+   The maximum number of affinely independent points in $P$ is denoted as $i(P)$. 
+   Now the dimension of $P$ can be defined as:
+   $dim(P) = i(P) - 1$
+
+   To show that $P$ is full-dimensional we just need to 
+   show that it has exactly $n+1$ affinely independent points. 
+
+   A matrix is said to have full rank if its rank equals the largest possible for a matrix of the same dimensions, which is the lesser of the number of rows and columns. 
+   % We compute the rank using echelon forms, 
+   % singular value decomposition (SVD), 
+   % QR decomposition with pivoting 
+
+
+
+
+   % every time we add a hyperplane, we loose one degree of freedom 
+
+
+\section*{Markov Chain Monte Carlo}
+\label{  }
+
+      \begin{definition}
+         A Markov chain or Markov process is a stochastic model describing a sequence of possible events in which the probability of each event depends only on the state attained in the previous event
+      \end{definition}
+   
+      Markov Chain Monte Carlo (MCMC) methods are algorithms that sample from a probabilistic distribution. 
+
+

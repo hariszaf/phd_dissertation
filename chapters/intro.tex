@@ -648,28 +648,107 @@
       On top of that, the non-existence of standards in many cases 
       or the use of more than one standards lead to extra complexity.
       Only by a concerted effort on the part of the database providers, and with the encouragement and support of the research community, will we be able to tame the explosion of biological data~\cite{stein2003integrating}.
-
-
 \section{Metabolic modeling: an interface for the genotype - phenotype relationship}
 
 
    \subsection{Constraint-based modeling for the analysis of metabolic networks}
    \label{subesec:modling}
 
-      The relationship between genotype and phenotype is fundamental to biology~\todo{add ref}.
-      Metabolism penetrates most of the different levels of living entities horizontally~\cite{schramski2015metabolic} and while it reflects the genomic information it indicates 
-      what is actually going on on a cell at a certain time.
-      Therefore, one can use the \textit{Reverse Ecology} framework (see Section~\ref{subsec:revec})
-      to move all the way from genomic information to metabolism and the environment and then back.
-
+      The relationship between genotype and phenotype is fundamental allowing to elucidate 
+      mechanisms that govern the physiology of a species as well as those 
+      ruling at the comminity level
+      ~\cite{morris2020linking}.
+      Meta-
+      bolism penetrates most of the different levels of living entities horizontally~\cite{schramski2015metabolic} and 
+      while it reflects the genomic information it indicates 
+      what is actually going on on a cell at a certain time
+      as a response to genetic or environmental changes~\cite{lima2021role}.
+      One can use the \textit{Reverse Ecology} framework (Section~\ref{subsec:revec})
+      to move all the way from genomic information to metabolism and the environment and back.
       To this end, \textit{metabolic networks} and their analysis are essential. 
       The vast number of reaction taking place in a cell are interlinked 
       (the product of the first acts as the substrate for the next) 
       building up metabolic pathways,
       while their stoichiometry allows their mathematical representation. 
-      The sum of all the reactions that take
-      place in an organism.
+      The rate of turnover of molecules through a metabolic reaction is called \textit{flux}.
+      The metabolic network of a species consists of the sum of all the reactions that 
+      take place in its cell,
+      while \textit{metabolic model} is its representation in a mathematical format (Figure~\ref{fig:met_net})\footnote{               
+         The \textit{Escherichia coli} model of Figure~\ref{fig:met_net} can be found at:\\
+            \href{http://bigg.ucsd.edu/static/models/e_coli_core.xml}{http://bigg.ucsd.edu/static/models/e\_coli\_core.xml}
+      }. 
+      We call \textit{Genome-scale metabolic models (GEMs)} incorporate the vast majority of the 
+      processes that occur in a cell or an organism in a mathematical format~\cite{feist2009reconstruction}.
+
+
+
+      \begin{figure}
+         \hspace*{-1.75in}
+         \begin{tikzpicture}
+            \node[anchor=west, yshift=150]       
+            at (current page.west) {
+               \includegraphics[width=140mm]{
+                  figures/e\_coli\_map_crop\_Transp}
+            };
+            
+            \node[anchor=east, xshift=10pt, yshift=-75pt]               
+            at (current page.east) {
+               \includegraphics[width=148mm]{
+                  figures/transketolase.png}
+            };
+ 
+         \end{tikzpicture}
+
+         \caption[Part of the \textit{Escherichia coli} metaboic network and the Transketolase reaction]{
+            Part of the \href{http://bigg.ucsd.edu/static/models/e_coli_core.xml}{\textit{Escherichia coli} BIGG metaboic network}  
+            and the Transketolase reaction of it as integrated in the model}
+         \label{fig:met_net}
+      \end{figure}
+
+
+      Once the complete genome is retrieved the enzymes and thus the potentially  
+      catalyzed by the organism reactions can be listed. 
+      However, the reconstruction of a GEM is not a straight forward task 
+      and the more the complexity of the species increases, 
+      the more effort is required for this task~\cite{thiele2010protocol}. 
+      Thermodynamics, metabolome, physiological 
+      and labelling data as well as literature can be also integrated in such models \cite{saldida2020unbiased}. 
+
       
+      The analysis of GEMs has been interwoven with constraint-based modeling approachess~\cite{lewis2012constraining}.
+      As all compounds are finite the concentration of each metabolite is bounded \cite{palsson2015systems}, meaning that the models derived from the
+      metabolic networks have constraints.
+      Likewise, as the laws of thermodynamics need to apply in such systems, 
+      the flux of each reaction is also bounded.
+      Therefore, the flux value of each reaction is constraint too.
+      We call 
+      \textit{steady state} the condition where the production rate of each metabolite equals its consumption rate~\cite{cakmak2012new}. 
+      Equation~\ref{eq:intro} represents the main concept of constraint-based modeling at a steady state.
+      \begin{equation}
+      \label{eq:intro}
+         \begin{split}
+               S \cdot v = 0 , \\
+               s.t.  v_{lb,i} \le v_i \le v_{ub, i}
+         \end{split}
+       \end{equation}
+      where
+      $S$ is a $m*n$ table ($m$ being the number of metabolites and $n$ the number of reactions of the model) 
+      that stands for the \textit{stoichiometric matrix} of the model.
+      The columns of $S$ consists of the  
+      \textit{stoichiometric coefficients}, 
+      i.e. the number of molecules a biochemical reaction consumes and produces,
+      of the model's reactions.          
+      $v \in \mathbb{R}^n $ is the \textit{flux vector} that contains the fluxes
+      of each chemical reaction of the network. 
+      As all the fluxes are bounded, for each coordinate $v_i$ of the vector $v$,
+      there are constants $v_{ub, i}$ and  $v_{lb, i}$
+      such that $v_{lb,i} \le v_i \le v_{ub, i}$, for $i \in [n]$, 
+      where $n$ is the number of reactions of the model.
+      The \textit{solution space} of systems such as the one of equation~\ref{eq:intro} 
+      "live" in a \textit{\textbf{polytope}}.
+      Further introductory material on computational 
+      geometry can be found at Appendix~\ref{app:comp_geom_intro}.
+
       As discussed in~\cite{reed2012shrinking} a great range of constraints 
       govern the cells' operations; for a thorough overview on the constraints cells operate under, you may see~\cite{palsson2015systems}, Chapter $16.5$. 
       (Bio)physico-chemical- (e.g., thermodynamics, nutrient uptake, oxygen availability etc.) as well as connectivity-, capacity- and rates-related constraints 
@@ -679,114 +758,116 @@
       in the model. 
       The more constraints a model incoroporates, the more accurate the flux distributions it returns.
 
-
-      \begin{figure}
-         \hspace*{-1.83in}
-         \begin{tikzpicture}
-            \node[anchor=west, xshift=-15pt, yshift=-200pt]               
-            at (current page.west) {
-               \includegraphics[width=220mm, height=167mm]{
-                  figures/e\_coli\_map.png}
-            };
-            \scriptsize (A) Test
-            
-            \node[anchor=east, xshift=-30pt, yshift=90pt]               
-            at (current page.east) {
-               \includegraphics[width=170mm]{
-                  figures/fraction\_of\_Ecoli\_xml\_transp\_crop.png}
-            };
-            \scriptsize (B) test
-
-         \end{tikzpicture}
-
-         \caption[Metaboic map and part of its corresponding network file]{Metaboic map and part of its corresponding network file representing the biomass function of the \texttt{e\_coli\_core} BIGG model}
-         \label{fig:met_net}
-      \end{figure}
-
-
-      % \begin{figure}
-      %    \hspace*{-3.0cm}
-      %    \begin{subfigure}{1.2\textwidth}
-      %       \includegraphics[width=1.1\textwidth]{figures/e\_coli\_map.png}
-      %       \caption[]{}
-      %       \label{}
-      %    \end{subfigure}
-            
-      %    \begin{subfigure}{0.95\textwidth}
-      %       \includegraphics[width=\textwidth]{figures/fraction\_of\_Ecoli\_xml.png}
-      %       \caption{test}
-      %       \label{fig:test}
-      %    \end{subfigure}
-         
-      %    % \caption[]{}
-      %    % \label{}
-      % \end{figure}
-
-
-      
----------------------------------------------------------------
-
-      considering physical, enzymatic, and topological constraints underlying the phenotype in a metabolic network. 
-
-      , metabolomics is
-      generally considered as the link between genotype and phenotype because the metabolome is the
-      final response of a biological system to genetic or environmental changes~\cite{lima2021role}
-      monitoring the metabolome and the biochemical components obtained by genomics and
-      other omics methodologies can offer major improvements in fighting not only cancer but sev-
-      eral other diseases by providing new insights into disease pathophysiology and the mechanisms
-      responsible by means of differences in drug responses and by customizing drug dosing owing to
-      interpatient variability (4, 10, 14).
-
-
-
-      \if 0 
-
-      In some cases, however, one may wish to predict not only potential interactions
-      but also specific metabolic dynamics in a community of microorganisms and the
-      exact set of metabolites being exchanged actively between the various species. The
-      prediction of specific metabolic fluxes is mostly beyond the scope of topology-
-      based metabolic models and requires a more involved modeling framework such
-      as constraint-based modeling (CBM) [18, 19]. Such models, however, are usually
-      limited in scale and require detailed and manually curated data [20].
-
-      \citeauthor{lewis2012constraining} (\citeyear{lewis2012constraining}) 
-      describe thoroughly the multiple constraint-based reconstruction and analysis (COBRA) methods 
-      that have been developed to support the analysis of such networks. 
-
-      % SUPERS SOS !!! 
-      The modeling frameworks and topology-based analyses discussed above are a
-      powerful toolbox for analyzing potential metabolic dependencies between species.
-      In some cases, however, one may wish to predict not only potential interactions
-      but also specific metabolic dynamics in a community of microorganisms and the
-      exact set of metabolites being exchanged actively between the various species. The
-      prediction of specific metabolic fluxes is mostly beyond the scope of topology-
-      based metabolic models and requires a more involved modeling framework such
-      as constraint-based modeling (CBM) [18, 19]. 
-
-
-   \fi
-
+      Using constraint-based modeling scientists can 
+      predict not only potential interactions,
+      topology-based metabolic models are adequate for this task, 
+      but also specific metabolic dynamics in a community~\cite{levy2012reverse}. 
+      The most commonly used constraint-based methods for the analysis of metabolic networks
+      are \textit{\textbf{Flux Balance Analysis (FBA)}}~\cite{orth2010flux} and 
+      \textit{Flux Variability Analysis (FVA)}~\cite{gudmundsson2010computationally}.
+      Both have been used to a great number of studies, providing fundamental isngight~\cite{ shastri2005flux,chapman2015flux}.
+      Models estimate the minimum or the maximum of a specific (linear) \textit{\textbf{objective function}} over the polytope.
+      It is common for the \textit{biomass function} of an
+      organism to be used as the objective function.  
+      The biomass function aims at representing all metabolites needed for a cell or an organism to double.
+      In this setting the optimization of the biomass function is like optimizing the growth of the organism itself \cite{feist2010biomass}.
+      % We can formulate a biomass objective function at different levels of detail and in many cases our knowledge on the composition of the cell/organism under study and its energetic requirements may restrict this process. 
+      On top of that, \textit{dynamic FBA} approaches
+      have tried to to study the transience of metabolism 
+      due to metabolic reprogramming~\cite{mahadevan2002dynamic}.
 
 
    \subsection{Sampling the flux space of a metabolic model: challenges \& potential}
 
+      As mentioned, constraint-based approaches cover a great range of methods~\cite{lewis2012constraining}.
+      FBA has been proved particularly useful
+      however, 
+      it is a \textit{biased} method due to the selection
+      of the objective function. 
+      To study the global features of a metabolic network
+      \textit{unbiased methods} are required. 
+      On top of that, FBA is a method that addresses the question 
+      of what is the minimum or the maximum of a
+      specific objective function,
+      by identifying only a single optimal flux distribution.
+      % Thus, flux-balance-derived methods are commonly used to assess a range of optimality-oriented properties of a metabolic network.
+      % it identifies only a single optimal flux distribution by optimizing the linear
+      % objective function over the polytope that Equation~(\ref{eq:intro})
+      % implies~\cite{orth2010flux}. 
+      However, by construction, there is an infinite number of optimal steady states lie on a certain face of the polytope -- which is also a polytope. 
+      In addition, there is no guarantee that the system under study would select 
+      the optimal steady state that FBA computes.
+      
 
-      what is flux sampling ?
 
-      how is it better than FBA, FVA ? 
-
-
-      what are the challenges ? 
-
-         why all polytopes so skinny ??
-
-      sampling at the community level - how to build a community model? 
+      Using uniformly distributed steady states one could estimate the probability
+      distribution for the flux of any reaction~\cite{herrmann2019flux}, 
+      which can lead to a deep statistical analysis of the metabolic network. 
 
 
-      why microbiologists should care about sampling on high dimensional polytopes?
+      To overcome these obstacles, we sample uniformly from the set of optimal steady
+      states and we express and quantify our uncertainty about each flux by estimating
+      the univariate marginal probability densities~\cite{schellenberger2009use}. 
+      Each probability density corresponds to a reaction flux. 
+      With this information at hand we can compute credible confidence intervals, 
+      estimate the average flux value, or employ other statistical methods. 
+      This procedure relies on collecting, that is sampling, 
+      a sufficient number of uniformly distributed points in the interior of the corresponding polytope.
+
+      To obtain an accurate picture of the whole solution space,
+      once more, we sample uniformly distributed points.
+      This way instead of a single and optimal solution, 
+      the distribution of each each reaction's flux is returned (Figure~\ref{fig:spaces}). 
+      This way, we can now investigate the properties of certain components of the whole network 
+      that potentially can lead to
+      biological insights~\cite{palsson2015systems}.
+
+      \begin{figure}[!h]
+         \centering
+         \includegraphics[width=.9\textwidth]{figures/solution_spaces_transparent.png}
+         \caption[Flux sampling compared to FBA]{A visual comparison of the insight FBA ("Optimal solution") and flux sampling ("Sampling") return}
+         \label{fig:spaces}
+      \end{figure}
 
 
+      Flux sampling has been proved rather valuable for a great range of applications;
+      from design experiments and studying enzymopathies~\cite{price2004uniform}
+      to the study of metabolism under changing environmental conditions~\cite{herrmann2019flux}
+      and the discovery of strain-dependent differences 
+      that affect the aroma production in wine yeasts~\cite{scott2021metabolic}. 
+      
+      Implementations of Markov Chain Monte Carlo algorithms such as 
+      Hit-and-Run (HR)~\cite{smith84},  
+      the Artificial Centering Hit-and-Run
+      (ACHR)~\cite{kaufman1998direction} 
+      and Coordinate Hit-and-Run with Rounding
+      (CHRR)~\cite{haraldsdottir2017chrr}
+      have been adopted and used to a great extent. 
+      Similarly to FBA, flux sampling algorithms, e.g. CHRR, have been integrated in \texttt{cobra}~\cite{heirendt2019creation},
+      the most widely used 
+      software package for metabolic network analysis.
+      Further introductory concepts of MCMC are available at Appendix~\ref{subsec:mcmc_intro}
 
+      On top of that, over the last few years, flux sampling has been 
+      used in computational approaches for inferring microbial interactions 
+      The Computation Of Microbial Ecosystems in Time and Space (COMETS) project and software~\cite{dukovski2021metabolic}
+      first focused on the interactions between a single species and its environment. 
+      Nowdays, metabolic modeling moves to the community level. 
+      Approaches such as the one of \citeauthor{diener2020micom} in their \texttt{MICOM}
+      software, set a new era for the study of microbial ecology. 
+      
+      
+      However, flux sampling is rather challenging from the computational point of view. 
+      The "dimensionality curse" is not a problem to a small GEM such as those of single bacterial taxa.
+      However, to more complex species and especially in the case of community modeling 
+      the dimesion of the derived polytope can be notably high. 
+      Moreover, polytopes derived from metabolic networks are usually rather skinny,
+      partially due to the great range the various flux values may get, 
+      making mixing hard and 
+      adding extra complexity~\cite{Haraldsdottir17,schellenberger2009use}. 
+
+
+      
 % SECTION 7 - first draft ready
 \section{Aims and objectives}
 
@@ -811,7 +892,12 @@
    \end{enumerate}
    All parts of this work are purely computational. 
    Samples and their corresponding sequencing data used in Chapter~\ref{cha:swamp} have been collected 
-   and produced by \href{https://scholar.google.com/citations?user=3zs1rNkAAAAJ&hl=en&oi=sra}{Dr. Christina Pavloudi}. 
+   and produced by 
+   \href{https://scholar.google.com/citations?user=3zs1rNkAAAAJ&hl=en&oi=sra}{Dr. Christina Pavloudi} \footnote{
+      \href{https://scholar.google.com/citations?user=3zs1rNkAAAAJ&hl=en&oi=sra}{
+         https://scholar.google.com/citations?user=3zs1rNkAAAAJ\&hl=en\&oi=sra
+      }
+   }. 
 
    In \textbf{Chapter~\ref{cha:2}}, challenges derived from the analysis of HTS amplicon data are examined.
    A bioinformatics pipeline, called \texttt{PEMA}, for the analysis of several marker genes was developed, combinining several new technologies that allow large scale analysis of hundreds of samples. 
