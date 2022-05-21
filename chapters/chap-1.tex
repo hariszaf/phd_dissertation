@@ -20,6 +20,7 @@
       You may find the Supplementary files of this study through 
       \href{https://academic.oup.com/gigascience/article/9/3/giaa022/5803335\#supplementary-data}{PEMA's publication}
       (\href{https://academic.oup.com/gigascience/article/9/3/giaa022/5803335\#supplementary-data}{https://academic.oup.com/gigascience/article/9/3/giaa022/5803335\#supplementary-data})
+      Here a modified version of the published version is presented in terms of relevance, coherence and formatting.
    }
 }
 \label{publ:pema}
@@ -56,20 +57,20 @@
    % PEMA INTRODUCITON
    \subsection{Introduction}
 
-   Environmental DNA (eDNA) metabarcoding inaugurates a new era in bio- and eco-monitoring \cite{pavan2015dna}. 
-   eDNA refers to genetic material obtained directly from environmental samples (soil, sediment, water, etc.) without any obvious signs of biological source material \cite{thomsen2015environmental}. 
-   Metabarcoding is the combination of DNA taxonomy, based on taxa-specific marker genes (e.g., 16S ribosomal RNA [rRNA] for Bacteria and Archaea, cytochrome oxidase subunit 1 [COI] and 18S rRNA for Metazoa, ITS for Fungi), and high-throughput DNA sequencing technologies; thus, simultaneous identification of a mixture of organisms is attainable \cite{ji2013reliable}. 
-   eDNA metabarcoding attempts to turn the page on the way biodiversity is perceived and monitored \cite{ji2013reliable}. 
+   Environmental DNA (eDNA) metabarcoding inaugurates a new era in bio- and eco-monitoring \citep{pavan2015dna}. 
+   eDNA refers to genetic material obtained directly from environmental samples (soil, sediment, water, etc.) without any obvious signs of biological source material \citep{thomsen2015environmental}. 
+   Metabarcoding is the combination of DNA taxonomy, based on taxa-specific marker genes (e.g., 16S ribosomal RNA [rRNA] for Bacteria and Archaea, cytochrome oxidase subunit 1 [COI] and 18S rRNA for Metazoa, ITS for Fungi), and high-throughput DNA sequencing technologies; thus, simultaneous identification of a mixture of organisms is attainable \citep{ji2013reliable}. 
+   eDNA metabarcoding attempts to turn the page on the way biodiversity is perceived and monitored \citep{ji2013reliable}. 
    This combination is considered to be a potential holistic approach that, once standardized, allows for higher detection capacity and at a lower cost compared to conventional methods of biodiversity assessment. 
    However, from the raw read sequence files to an amplicon study's results, the bioinformatics analysis required can be troublesome for many researchers.
 
-   Well-established pipelines are available to process metabarcoding data for the case of 16S and 18S rRNA marker genes and bacterial communities (e.g., mothur \cite{schloss2009introducing}, QIIME 2 \cite{bolyen2018qiime}, LotuS \cite{hildebrand2014lotus}). 
+   Well-established pipelines are available to process metabarcoding data for the case of 16S and 18S rRNA marker genes and bacterial communities (e.g., mothur \citep{schloss2009introducing}, QIIME 2 \citep{bolyen2018qiime}, LotuS \citep{hildebrand2014lotus}). 
    However, certain limitations accompany each of these and occasionally they can be far from easy-to-use software. Moreover, there is a great need for similarly straightforward and benchmarked approaches for the analysis of other marker genes. With respect to the COI and ITS marker genes, a number of pipelines have been implemented, e.g., 
    \href{https://github.com/enormandeau/barque}{Barque} 
    \footnote{
       \href{https://github.com/enormandeau/barque}{https://github.com/enormandeau/barque}
    }, 
-   ScreenForBio~\cite{axtner2019efficient}, and PIPITS~\cite{gweon2015pipits}. 
+   ScreenForBio~\citep{axtner2019efficient}, and PIPITS~\citep{gweon2015pipits}. 
    However, there is still need for a fast, flexible, easy-to-install, and easy-to-use pipeline for both COI and ITS marker genes.
    
    The pipelines mentioned above, although entrenched, are still hindered by a series of hurdles. 
@@ -88,31 +89,31 @@
    \subsection{Contribution}
 
    PEMA (Pipeline for Environmental DNA Metabarcoding Analysis) is an open source pipeline that bundles state-of-the-art bioinformatic tools for all necessary steps of amplicon analysis and aims to address the aforementioned issues. 
-   It is designed for paired-end sequencing studies and is implemented in the BDS~\cite{cingolani2015bigdatascript} programming language. 
+   It is designed for paired-end sequencing studies and is implemented in the BDS~\citep{cingolani2015bigdatascript} programming language. 
    BDS's ad hoc task parallelism and task synchronization supports heavyweight computation, which PEMA inherits. 
    In addition, BDS supports "checkpoint" files that can be used for partial re-execution and crash recovery of the pipeline. 
    PEMA builds on this feature to serve tool and parameter exploratory customization for optimal metabarcoding analysis fine tuning.
    Switching effortlessly between (molecular) operational taxonomic unit ([M]OTU) clustering and amplicon sequence variant (ASV) inference algorithms is a pertinent example. 
-   Finally, via software containerization technologies such as Docker~\cite{rad2017introduction} and Singularity~\cite{kurtzer2017singularity}, with the latter being HPC-centered, PEMA is distributed in an easy to download and install fashion on a range of systems, from regular computers to cloud or HPC environments.
+   Finally, via software containerization technologies such as Docker~\citep{rad2017introduction} and Singularity~\citep{kurtzer2017singularity}, with the latter being HPC-centered, PEMA is distributed in an easy to download and install fashion on a range of systems, from regular computers to cloud or HPC environments.
    
-   From the biological perspective, monitoring biodiversity at all its different levels is of great importance. Because there is not a single marker gene to detect all taxa, researchers need to use different genes targeting each great taxonomy group separately~\cite{coissac2012bioinformatic}. 
-   To that end, PEMA supports the metabarcoding analysis of both prokaryotic communities, based on the 16S rRNA marker gene, and eukaryotic ones, based on the ITS (for Fungi) and COI and 18S rRNA (for Metazoa) marker genes~\cite{coissac2012bioinformatic}.
+   From the biological perspective, monitoring biodiversity at all its different levels is of great importance. Because there is not a single marker gene to detect all taxa, researchers need to use different genes targeting each great taxonomy group separately~\citep{coissac2012bioinformatic}. 
+   To that end, PEMA supports the metabarcoding analysis of both prokaryotic communities, based on the 16S rRNA marker gene, and eukaryotic ones, based on the ITS (for Fungi) and COI and 18S rRNA (for Metazoa) marker genes~\citep{coissac2012bioinformatic}.
    
-   As high-throughput sequencing (HTS) data become more and more accurate, ASVs, i.e., marker gene amplified sequence reads that differ in $≥1$ nucleotide from each other, become easier to resolve~\cite{callahan2017exact}. 
-   The use of ASVs instead of OTUs has been suggested~\cite{callahan2017exact}; 
-   however, the choice of which approach to use should be based on each study's objective(s) \cite{pauvert2019bioinformatics}.
+   As high-throughput sequencing (HTS) data become more and more accurate, ASVs, i.e., marker gene amplified sequence reads that differ in $≥1$ nucleotide from each other, become easier to resolve~\citep{callahan2017exact}. 
+   The use of ASVs instead of OTUs has been suggested~\citep{callahan2017exact}; 
+   however, the choice of which approach to use should be based on each study's objective(s) \citep{pauvert2019bioinformatics}.
    
    PEMA supports both OTU clustering and ASV inference for all marker genes 
    (see “OTU clustering vs ASV inference” in the “Results and Discussion” section). 
-   Two clustering algorithms, VSEARCH~\cite{rognes2016vsearch} and CROP~\cite{hao2011clustering}, are used for the clustering of reads in (M)OTUs—the former for the case of the 16S/18S rRNA marker genes, the latter for the case of COI and ITS. 
-   Swarm v2~\cite{mahe2015swarm} allows ASV inference in all cases.
+   Two clustering algorithms, VSEARCH~\citep{rognes2016vsearch} and CROP~\citep{hao2011clustering}, are used for the clustering of reads in (M)OTUs—the former for the case of the 16S/18S rRNA marker genes, the latter for the case of COI and ITS. 
+   Swarm v2~\citep{mahe2015swarm} allows ASV inference in all cases.
    
-   Taxonomic assignment is performed in an alignment-based approach, making use of the CREST LCAClassifier \cite{lanzen2012crest} and the Silva database~\cite{quast2012silva} for the case of 16S and 18S rRNA marker genes; 
-   the Unite database \cite{rillig2019role} is used for the ITS gene. 
-   In the 16S marker gene case, phylogeny-based assignment is also supported, based on RAxML-ng \cite{kozlov2019raxml}, 
-   EPA-ng \cite{barbera2019epa}, and Silva \cite{quast2012silva}. 
-   For the COI marker gene, the RDPClassifier \cite{wang2007naive} and the MIDORI database \cite{machida2017metazoan} are used for the taxonomic assignment. 
-   In addition, ecological and phylogenetic analysis are facilitated via the \texttt{phyloseq} R package \cite{mcmurdie2013phyloseq}.
+   Taxonomic assignment is performed in an alignment-based approach, making use of the CREST LCAClassifier \citep{lanzen2012crest} and the Silva database~\citep{quast2012silva} for the case of 16S and 18S rRNA marker genes; 
+   the Unite database \citep{rillig2019role} is used for the ITS gene. 
+   In the 16S marker gene case, phylogeny-based assignment is also supported, based on RAxML-ng \citep{kozlov2019raxml}, 
+   EPA-ng \citep{barbera2019epa}, and Silva \citep{quast2012silva}. 
+   For the COI marker gene, the RDPClassifier \citep{wang2007naive} and the MIDORI database \citep{machida2017metazoan} are used for the taxonomic assignment. 
+   In addition, ecological and phylogenetic analysis are facilitated via the \texttt{phyloseq} R package \citep{mcmurdie2013phyloseq}.
    
    All the pipeline- and third-party module–controlling parameters are defined in a plain "parameter-value pair" text file. Its straightforward format eases the analysis fine tuning, complementary to the aforementioned checkpoint mechanism. A tutorial about PEMA and installation guidance can be found on \href{https://github.com/hariszaf/pema}{PEMA's GitHub repository} 
    \footnote{
@@ -136,27 +137,27 @@
 
    \subsubsection*{Part 1: Quality control and pre-processing of raw data}
 
-   First, FastQC \cite{fastqc} is used to obtain an overall read-quality summary; visual inspection of each sample's quality may recommend removing those insufficient quality, as well as samples with a low number of reads, and rerunning the analysis. 
+   First, FastQC \citep{fastqc} is used to obtain an overall read-quality summary; visual inspection of each sample's quality may recommend removing those insufficient quality, as well as samples with a low number of reads, and rerunning the analysis. 
    To correct errors produced by the sequencer, PEMA incorporates a number of tools. 
-   Trimmomatic \cite{bolger2014trimmomatic} implements a series of trimming steps, which either remove parts of the sequences corresponding to the adapters or the primers, trim and crop parts of the reads, or even remove a read completely, when it fails to reach the quality-filtering standards set by the user. 
-   Cutadapt \cite{martin_cutadapt_2011} is used additionally for the case of ITS to address the variability in length of this marker gene (see Additional File 1: Supplementary Methods). 
-   BayesHammer \cite{nikolenko2013bayeshammer}, an algorithm of the SPAdes assembly toolkit \cite{bankevich2012spades}, revises incorrectly called bases. 
-   PANDAseq \cite{masella2012pandaseq} assembles the overlapping paired-end reads, and then the \texttt{obiuniq} program of OBITools \cite{boyer2016obitools} groups all the identical sequences in every sample, keeping track of their abundances. 
-   The VSEARCH package \cite{rognes2016vsearch} is then invoked for chimera removal; 
+   Trimmomatic \citep{bolger2014trimmomatic} implements a series of trimming steps, which either remove parts of the sequences corresponding to the adapters or the primers, trim and crop parts of the reads, or even remove a read completely, when it fails to reach the quality-filtering standards set by the user. 
+   Cutadapt \citep{martin_cutadapt_2011} is used additionally for the case of ITS to address the variability in length of this marker gene (see Additional File 1: Supplementary Methods). 
+   BayesHammer \citep{nikolenko2013bayeshammer}, an algorithm of the SPAdes assembly toolkit \citep{bankevich2012spades}, revises incorrectly called bases. 
+   PANDAseq \citep{masella2012pandaseq} assembles the overlapping paired-end reads, and then the \texttt{obiuniq} program of OBITools \citep{boyer2016obitools} groups all the identical sequences in every sample, keeping track of their abundances. 
+   The VSEARCH package \citep{rognes2016vsearch} is then invoked for chimera removal; 
    however, if the Swarm v2 algorithm is selected, this step will be performed after the ASV inference (see next section).
 
 
    \subsubsection*{Part 2: (M)OTU clustering and ASV inference}
 
    Quality-controlled and processed sequences are subsequently clustered into (M)OTUs or treated as input for inferring ASVs. 
-   For the case of 16S and 18S rRNA marker genes, VSEARCH \cite{rognes2016vsearch} is used for OTU clustering, while ASVs can be identified by the Swarm v2 algorithm \cite{mahe2015swarm}. 
-   VSEARCH is an accurate and fast tool that can handle large datasets; at the same time it is a great alternative for USEARCH \cite{edgar2010search} because it is distributed under an open source license.
+   For the case of 16S and 18S rRNA marker genes, VSEARCH \citep{rognes2016vsearch} is used for OTU clustering, while ASVs can be identified by the Swarm v2 algorithm \citep{mahe2015swarm}. 
+   VSEARCH is an accurate and fast tool that can handle large datasets; at the same time it is a great alternative for USEARCH \citep{edgar2010search} because it is distributed under an open source license.
 
-   For the ITS and COI marker genes, CROP \cite{hao2011clustering}, an unsupervised probabilistic Bayesian clustering algorithm that models the clustering process using birth-death Markov chain Monte Carlo (MCMC), is used. 
+   For the ITS and COI marker genes, CROP \citep{hao2011clustering}, an unsupervised probabilistic Bayesian clustering algorithm that models the clustering process using birth-death Markov chain Monte Carlo (MCMC), is used. 
    The CROP clustering algorithm is adjusted by a series of parameters that need to be tuned by the user (namely, $b$, $e$, and $z$).
    These parameters depend on specific dataset properties such as the length and the number of reads. 
-   PEMA automatically adjusts $b$, $e$, and $z$ by collecting such information and applying the CROP recommended parameter-setting rules \cite{hao2011clustering}. 
-   ASV inference is conducted by Swarm v2 \cite{mahe2015swarm} in this case too.
+   PEMA automatically adjusts $b$, $e$, and $z$ by collecting such information and applying the CROP recommended parameter-setting rules \citep{hao2011clustering}. 
+   ASV inference is conducted by Swarm v2 \citep{mahe2015swarm} in this case too.
 
    Because the Swarm v2 algorithm is not affected by chimeras (F. Mahé, personal communication), when Swarm v2 is selected, chimera removal occurs after the clustering (see Additional File 1: Supplementary Methods: Swarm v2). 
    This leads to a computational time gain as chimeras are sought among ASVs, instead of ungrouped reads.
@@ -167,17 +168,17 @@
    \subsubsection*{Part 3: Taxonomy assignment}
 
    Alignment-based taxonomy assignment is supported for all marker gene analyses. 
-   In the case of the 16S/18S rRNA and ITS marker genes, the LCAClassifier algorithm of the CREST set of resources and tools [20] is used together with the Silva \cite{quast2012silva} and the Unite \cite{nilsson2019unite} database, respectively, to assign taxonomy to the OTUs. 
+   In the case of the 16S/18S rRNA and ITS marker genes, the LCAClassifier algorithm of the CREST set of resources and tools [20] is used together with the Silva \citep{quast2012silva} and the Unite \citep{nilsson2019unite} database, respectively, to assign taxonomy to the OTUs. 
    Two versions of Silva are included in PEMA: 128 (29 September 2016) and 132 (13 December 2017). 
-   Because classifiers need first to be trained for each database they use, for future Silva \cite{quast2012silva} versions new PEMA versions will be available.
+   Because classifiers need first to be trained for each database they use, for future Silva \citep{quast2012silva} versions new PEMA versions will be available.
 
-   For the COI marker gene, PEMA uses the RDPClassifier \cite{wang2007naive} and the MIDORI reference database \cite{machida2017metazoan} to assign taxonomy of the MOTUs. 
-   The MIDORI database contains quality-controlled metazoan mitochondrial gene sequences from GenBank \cite{benson2018genbank}.
+   For the COI marker gene, PEMA uses the RDPClassifier \citep{wang2007naive} and the MIDORI reference database \citep{machida2017metazoan} to assign taxonomy of the MOTUs. 
+   The MIDORI database contains quality-controlled metazoan mitochondrial gene sequences from GenBank \citep{benson2018genbank}.
 
    Intended primarily for studies from less explored environments, phylogeny - based assignment is available for 16S rRNA marker gene data. 
-   PEMA maps OTUs to a custom reference tree of 1,000 Silva-derived consensus sequences (created using RAxML-ng \cite{kozlov2019raxml} and gappa [phat algorithm] \cite{czech2019methods}, Figure~\ref{fig:pema-phylogeny-assignment}A). 
-   PaPaRa \cite{berger2012papara} and EPA-ng \cite{barbera2019epa} combine the OTU clustering output and the reference tree to produce a phylogeny-aware alignment and map the 16S rRNA OTUs to the custom reference tree. 
-   Beyond the context of PEMA, users may visualize the output with tree viewers such as iTOL \cite{letunic2021interactive} (Figure~\ref{fig:pema-phylogeny-assignment}B).
+   PEMA maps OTUs to a custom reference tree of 1,000 Silva-derived consensus sequences (created using RAxML-ng \citep{kozlov2019raxml} and gappa [phat algorithm] \citep{czech2019methods}, Figure~\ref{fig:pema-phylogeny-assignment}A). 
+   PaPaRa \citep{berger2012papara} and EPA-ng \citep{barbera2019epa} combine the OTU clustering output and the reference tree to produce a phylogeny-aware alignment and map the 16S rRNA OTUs to the custom reference tree. 
+   Beyond the context of PEMA, users may visualize the output with tree viewers such as iTOL \citep{letunic2021interactive} (Figure~\ref{fig:pema-phylogeny-assignment}B).
 
    \begin{figure}[h]
       \centering
@@ -195,11 +196,11 @@
    PEMA's major output is either an (M)OTU or an ASV table with the assigned taxonomies and the abundances of each taxon in every sample. 
    For each sample of the analysis, a subfolder containing statistics about the quality of its reads, as well as the taxonomies and their abundances, is also returned.
 
-   Via the \texttt{phyloseq} R package \cite{mcmurdie2013phyloseq}, downstream ecological analysis of the taxonomically assigned OTUs or ASVs is supported. 
+   Via the \texttt{phyloseq} R package \citep{mcmurdie2013phyloseq}, downstream ecological analysis of the taxonomically assigned OTUs or ASVs is supported. 
    This includes $\alpha-$ and $\beta-$diversity analysis, taxonomic composition, statistical comparisons, and calculation of correlations between samples.
 
-   When selected, in addition to the phyloseq \cite{mcmurdie2013phyloseq} output, a multiple sequence alignment (MSA) and a phylogenetic tree of the OTU/ASVs retrieved can be returned; 
-   for the MSA, the MAFFT \cite{katoh2002mafft, nakamura2018parallelization} aligner is invoked while the latter is built by RAxML-ng \cite{kozlov2019raxml}.
+   When selected, in addition to the phyloseq \citep{mcmurdie2013phyloseq} output, a multiple sequence alignment (MSA) and a phylogenetic tree of the OTU/ASVs retrieved can be returned; 
+   for the MSA, the MAFFT \citep{katoh2002mafft, nakamura2018parallelization} aligner is invoked while the latter is built by RAxML-ng \citep{kozlov2019raxml}.
 
 
    \subsubsection*{PEMA container-based installation}
@@ -244,19 +245,19 @@
       Second, PEMA was used to analyse previously published datasets. 
       PEMA's output was then compared with the original study outcome, as well as with the output of QIIME2, LotuS, Mothur, and Barque (where applicable).
 
-      Four mock communities, 1 for each marker gene, were used. With respect to the 16S rRNA marker gene, a mock community of Gohl et al. \cite{gohl2016systematic} with 20 different bacterial species was studied. 
-      Correspondingly, in the case of the 18S rRNA marker gene, a mock community of Bradley et al. \cite{bradley2016} with 12 algal species was used; 
-      for the ITS, one of Bakker \cite{bakker2018fungal} including 19 different fungal taxa; 
-      and for the case of the COI marker gene, a mock community of Bista et al. \cite{bista2018performance} containing 14 metazoan species. 
+      Four mock communities, 1 for each marker gene, were used. With respect to the 16S rRNA marker gene, a mock community of Gohl et al. \citep{gohl2016systematic} with 20 different bacterial species was studied. 
+      Correspondingly, in the case of the 18S rRNA marker gene, a mock community of Bradley et al. \citep{bradley2016} with 12 algal species was used; 
+      for the ITS, one of Bakker \citep{bakker2018fungal} including 19 different fungal taxa; 
+      and for the case of the COI marker gene, a mock community of Bista et al. \citep{bista2018performance} containing 14 metazoan species. 
       More information on the mock communities, their original studies, and the results of PEMA for various combinations of parameters can be found in Additional File 2: Mock Communities.
 
       Complementary to the mock community evaluation, 2 publicly available datasets from published studies were investigated through PEMA. 
-      For the 16S rRNA marker gene, the dataset reported by Pavloudi et al. \cite{pavloudi2017sediment} was used; 
+      For the 16S rRNA marker gene, the dataset reported by Pavloudi et al. \citep{pavloudi2017sediment} was used; 
       the original study aimed at investigating the sediment prokaryotic diversity along a transect river–lagoon–open sea. 
-      For the COI case, the dataset of Bista et al. \cite{bista2017annual} was used; 
+      For the COI case, the dataset of Bista et al. \citep{bista2017annual} was used; 
       this study investigated whether eDNA can be used for the accurate detection of chironomids (a taxonomic group of macroinvertebrates) in a freshwater habitat.
 
-      In both approaches, the respective \texttt{.fastq} files were downloaded from the European Nucleotide Archive (ENA) of the European Bioinformatics Institute ENA-(EBI) using \textit{ENA File Downloader version 1.2} \cite{harrison2019european} and PEMA was run on the in-house HPC cluster.
+      In both approaches, the respective \texttt{.fastq} files were downloaded from the European Nucleotide Archive (ENA) of the European Bioinformatics Institute ENA-(EBI) using \textit{ENA File Downloader version 1.2} \citep{harrison2019european} and PEMA was run on the in-house HPC cluster.
 
       All analyses were conducted on identical Dell M630 nodes (128 GB RAM, 20 physical Intel Xeon 2.60 GHz cores).
 
@@ -272,7 +273,7 @@
       Precision is calculated as the ratio of true-positive results (TP) over the total number of true- ($TP$) and false-positive results ($FP$) predicted by a model, as follows: $precision = TP/(TP + FP)$; 
       recall is the ratio of TP over the total number of TP and false-negative results (FN): $recall = TP/(TP + FN)$. 
       The $F1$-score is the precision and recall harmonic mean and is calculated by means of the following formula: 
-      $F1 = 2 × (precision × recall)/(precision + recall)$ \cite{sammut2011encyclopedia}.
+      $F1 = 2 × (precision × recall)/(precision + recall)$ \citep{sammut2011encyclopedia}.
 
       Adequate accuracy was achieved when PEMA was used to recover the marker gene – specific mock communities at the genus level.
       Precision and recall scores of ∼80\% or more were observed, with 2 exceptions in precision but also 3 very high scores in recall. 
@@ -292,7 +293,7 @@
 
       When PEMA was performed with the Swarm v2 algorithm ($d$ = 3, strictness = 0.6) without removal of singletons, 18 of the 20 taxa were identified to the genus level and 3 of these even to the species level. 
       There were 2 species that were not found in any of the PEMA runs. 
-      According to Gohl et al. \cite{gohl2016systematic}, there was a discrepancy in the identification of those 2 species that was dependent on the amplification protocol used. 
+      According to Gohl et al. \citep{gohl2016systematic}, there was a discrepancy in the identification of those 2 species that was dependent on the amplification protocol used. 
       It is worth mentioning that as d increases, taxa cannot be identified to species level at all; 
       however, $FP$ assignments decrease. 
       Thus, when $d$ = 30 and strictness = 0.6 for the KAPA samples, Enterococcus was not identified at all; 
@@ -330,22 +331,22 @@
    \subsubsection*{ITS}
 
       When PEMA was performed using the Swarm v2 algorithm ($d$ = 20) and targeting the ITS2 region, ASVs from 5 of the 19 species of the mock community were assigned to species level, $10$ to genus, $2$ to family, and $2$ to class level. 
-      Contrary to the study by Bakker \cite{bakker2018fungal}, PEMA identified the genus Chytriomyces in all $3$ samples, as well as the Ustilaginaceae family. 
+      Contrary to the study by Bakker \citep{bakker2018fungal}, PEMA identified the genus Chytriomyces in all $3$ samples, as well as the Ustilaginaceae family. 
       Only $1$ FP assignment was recorded. 
       When the CROP algorithm was used, PEMA's output was less accurate; 
       the \textit{Fusarium} species contained in the mock community were not identified further than their family (Nectriaceae). 
-      As mentioned by Bakker \cite{bakker2018fungal}, many reads deriving from the \textit{Fusarium spp.} were not assigned to species level because of the quality-trimming step. 
+      As mentioned by Bakker \citep{bakker2018fungal}, many reads deriving from the \textit{Fusarium spp.} were not assigned to species level because of the quality-trimming step. 
       In addition, a manually assembled reference database for the taxonomy assignment was used in the initial study, containing only sequences of the mock community species, which biased this step, making the results not directly comparable to our case.
 
 
    \subsubsection*{COI}
 
-      When PEMA was performed on the Bista et al. dataset \cite{bista2018performance} and using Swarm v2 ($d$ = 10), it identified $12$ of the $14$ species included in the mock community. 
+      When PEMA was performed on the Bista et al. dataset \citep{bista2018performance} and using Swarm v2 ($d$ = 10), it identified $12$ of the $14$ species included in the mock community. 
       The sole non - identified species were \textit{Bithynia leachii} and \textit{Anisus vortex}. For \textit{B. leachii} no entry exists in the MIDORI database, version \texttt{MIDORI\_LONGEST\_1.1}. 
       However, the existence of another species of the genus \textit{Bithynia} was recorded. 
       With respect to \textit{A. vortex}, PEMA returned a high abundance ASV assigned to the \textit{Anisus} genus but with a low confidence level. 
       PEMA managed to identify all the members of the mock community. 
-      This includes \textit{Physa fontinalis}, which was originally not designed to be a member of the mock community but, as Bista et al.~\cite{bista2018performance} explain, was recorded owing to cross - contamination. 
+      This includes \textit{Physa fontinalis}, which was originally not designed to be a member of the mock community but, as Bista et al.~\citep{bista2018performance} explain, was recorded owing to cross - contamination. 
       In the case of the COI marker gene, unique sequences with low abundances (singletons or doubletons) often lead to spurious MOTUs/ASVs. 
       Thus, as shown in Additional File 2: Mock Communities, the FP assignments are decreased when these low-abundant sequences are removed; 
       also, the abundance of the assignments (i.e., read counts) retrieved can indicate $FP$ assignments. 
@@ -358,7 +359,7 @@
 
    \subsubsection*{Comparison with existing software}
 
-      PEMA's features were compared with those of mothur~\cite{schloss2009introducing}, QIIME 2~\cite{bolyen2018qiime}, LotuS~\cite{hildebrand2014lotus} and Barque. 
+      PEMA's features were compared with those of mothur~\citep{schloss2009introducing}, QIIME 2~\citep{bolyen2018qiime}, LotuS~\citep{hildebrand2014lotus} and Barque. 
       Table~\ref{table:pema-feature-comparisons} presents a detailed comparison among the $4$ tools' features in terms of marker gene support, diversity and phylogeny analysis capability, parameter setting and mode of execution, operation system availability, and HPC suitability. 
       As shown, PEMA is equally feature - rich, if not richer in certain feature categories, compared with the other software packages. In particular, PEMA's support for COI marker gene studies is distinctive; 
       $2$ methods for taxonomy assignment are supported, and PEMA's easy parameter setting, step - by - step execution, and container distribution render it user and analysis friendly.
@@ -407,7 +408,7 @@
 
    \subsubsection*{16S rRNA marker gene analysis evaluation}
 
-      To evaluate PEMA's performance, a comparative analysis of the Pavloudi et al. \cite{pavloudi2017sediment} dataset with mothur \cite{schloss2009introducing}, QIIME 2 \cite{bolyen2018qiime}, LotuS \cite{hildebrand2014lotus} and PEMA was conducted.
+      To evaluate PEMA's performance, a comparative analysis of the Pavloudi et al. \citep{pavloudi2017sediment} dataset with mothur \citep{schloss2009introducing}, QIIME 2 \citep{bolyen2018qiime}, LotuS \citep{hildebrand2014lotus} and PEMA was conducted.
 
       It is known that the choice of parameters affects the output of each analysis; 
       therefore, it is expected that different user choices might distort the derived outputs. 
@@ -415,10 +416,10 @@
       The results of the processing of the sequences by PEMA are presented in Table S1. 
       All analyses were conducted on identical Dell M630 nodes ($128$ GB RAM, $20$ physical Intel Xeon $2.60$ GHz cores). 
       LotuS, mothur, and QIIME 2 operated in a single-thread (core) fashion. 
-      PEMA, given the BDS intrinsic parallelization \cite{cingolani2015bigdatascript}, operated with up to the maximum number of node cores (in this case $20$).
+      PEMA, given the BDS intrinsic parallelization \citep{cingolani2015bigdatascript}, operated with up to the maximum number of node cores (in this case $20$).
 
       The execution time and the reported OTU number of each tool are presented in Table~\ref{table:pema-compare-times}. 
-      LotuS and PEMA resulted in a final number of OTUs comparable to that of Pavloudi et. al \cite{pavloudi2017sediment}. 
+      LotuS and PEMA resulted in a final number of OTUs comparable to that of Pavloudi et. al \citep{pavloudi2017sediment}. 
       Clearly, owing to PEMA's parallel execution support, the analysis time can be significantly reduced ($∼1.5$ hours in this case). 
       The execution time depends on the parameters chosen for each software (see Additional File 1: Supplementary Methods).
 
@@ -427,7 +428,7 @@
          \begin{tabular}{@{}lllllll@{}}
          \toprule
          \textbf{} & \textbf{} & \multicolumn{2}{l}{\textbf{QIIME 2}} & \textbf{} & \textbf{} &  \\ \midrule
-         \textbf{Parameter} & \textbf{LotuS} & \textbf{mothur} & \textbf{Deblur} & \textbf{DADA2} & \textbf{PEMA} & \textbf{Pavloudi et al. \cite{pavloudi2017sediment}} \\
+         \textbf{Parameter} & \textbf{LotuS} & \textbf{mothur} & \textbf{Deblur} & \textbf{DADA2} & \textbf{PEMA} & \textbf{Pavloudi et al. \citep{pavloudi2017sediment}} \\
          No. of OTUs & 9,849 & 142,669 & 517 & 1,023 & 6,028 & 7,050 \\
          Execution time (h) & ∼9 & ∼67$^*$  & 2.5 & ∼5 & ∼1.5 & ∼26 \\ \bottomrule
          \end{tabular}
@@ -440,22 +441,22 @@
       thus, it was excluded from further analyses. 
       The results of all the pipelines were analysed with the phyloseq script that is provided with PEMA. 
       The taxonomic assignment of the PEMA - retrieved OTUs is shown in Figure~\ref{fig:pema-barplot}. 
-      The phyla that were found in the samples are similar to the ones that were found in the original study \cite{pavloudi2017sediment}. 
-      Although the lowest number of OTUs was found in the marine station (Kal) (Supplementary Table S3), which is not in accordance with Pavloudi et. al \cite{pavloudi2017sediment}, the general trend of a decreasing number of OTUs with increasing salinity was observed as in the original study (Supplementary Figure S1). 
+      The phyla that were found in the samples are similar to the ones that were found in the original study \citep{pavloudi2017sediment}. 
+      Although the lowest number of OTUs was found in the marine station (Kal) (Supplementary Table S3), which is not in accordance with Pavloudi et. al \citep{pavloudi2017sediment}, the general trend of a decreasing number of OTUs with increasing salinity was observed as in the original study (Supplementary Figure S1). 
       Notably, this result was not observed with the other tested pipelines (Supplementary Table S3). 
       Furthermore, each of the pipelines resulted in a different taxonomic profile (Supplementary Figures S2–S4), with an extreme case of missing the order of Betaproteobacteriales (Supplementary Figures S5–S7).
 
 
-      Moreover, when the PERMANOVA analysis was run for the results of PEMA, LotuS, and DADA2, it was clear that the microbial community composition was significantly different in each of the $3$ sampled habitats (i.e., river, lagoon, open sea) (PERMANOVA: F.Model = $7.0718$, $P < 0.001$; F.Model = $6.5901$, $P < 0.001$; F.Model = $2.2484$, $P < 0.05$, respectively), which is in accordance with Pavloudi et al. \cite{pavloudi2017sediment}. 
+      Moreover, when the PERMANOVA analysis was run for the results of PEMA, LotuS, and DADA2, it was clear that the microbial community composition was significantly different in each of the $3$ sampled habitats (i.e., river, lagoon, open sea) (PERMANOVA: F.Model = $7.0718$, $P < 0.001$; F.Model = $6.5901$, $P < 0.001$; F.Model = $2.2484$, $P < 0.05$, respectively), which is in accordance with Pavloudi et al. \citep{pavloudi2017sediment}. 
       However, this was not the case with Deblur (PERMANOVA: $P > 0.05$). 
-      Overall, PEMA's output is in accordance with the original study \cite{pavloudi2017sediment}, and seen through this perspective PEMA performed equally well with the other tested pipelines, along with having the shortest execution time.
+      Overall, PEMA's output is in accordance with the original study \citep{pavloudi2017sediment}, and seen through this perspective PEMA performed equally well with the other tested pipelines, along with having the shortest execution time.
 
       % OTU BAR PLOT
       \begin{figure}
          \centering
          \includegraphics[width=105mm]{figures/giaa022fig3.jpeg}
          \caption[OTU bar plot at the phylum level.]{
-            OTU bar plot at the phylum level. Bar plot depicting the taxonomy of the retrieved OTUs from PEMA for the dataset of Pavloudi et al. \cite{pavloudi2017sediment}, at the phylum level for the case of the 16S marker gene. AR: Arachthos; ARO: Arachthos Neochori; ARDelta: Arachthos Delta; LOin: Logarou station inside the lagoon; LOout: Logarou station in the channel connecting the lagoon to the gulf; Kal: Kalamitsi.
+            OTU bar plot at the phylum level. Bar plot depicting the taxonomy of the retrieved OTUs from PEMA for the dataset of Pavloudi et al. \citep{pavloudi2017sediment}, at the phylum level for the case of the 16S marker gene. AR: Arachthos; ARO: Arachthos Neochori; ARDelta: Arachthos Delta; LOin: Logarou station inside the lagoon; LOout: Logarou station in the channel connecting the lagoon to the gulf; Kal: Kalamitsi.
          }
          \label{fig:pema-barplot}
       \end{figure}
@@ -463,25 +464,25 @@
 
    \subsubsection*{COI marker gene analysis evaluation}
 
-      Bista et al. \cite{bista2017annual} created 2 COI libraries of different sizes: COIS ($235$ - bp amplicon size) and COIF ($658$ - bp amplicon size). 
+      Bista et al. \citep{bista2017annual} created 2 COI libraries of different sizes: COIS ($235$ - bp amplicon size) and COIF ($658$ - bp amplicon size). 
       The sequencing reads of COIS were selected for PEMA's evaluation; 
       the COIF sequencing read pairs had no overlap so as to be merged and therefore were not considered appropriate for the analysis.
 
       As previously, PEMA's performance was evaluated through a comparative analysis of the 
-      Bista et al.~\cite{bista2017annual} dataset with 
+      Bista et al.~\citep{bista2017annual} dataset with 
       \href{https://github.com/enormandeau/barque}{Barque} 
       \footnote{
          \href{https://github.com/enormandeau/barque}{https://github.com/enormandeau/barque}
       }; 
       the commands and parameters chosen can be found in Additional File 1: Supplementary Methods. 
-      Regarding the creation of the MOTU table, in the Bista et al. \cite{bista2017annual} study VSEARCH \cite{rognes2016vsearch} was used with a clustering at $97\%$ similarity threshold. 
-      Afterwards, the BLAST+ (megablast) algorithm \cite{camacho2009blast} was used against a manually created database including all NCBI GenBank COI sequences of length $>100$  bp (June 2015) while excluding environmental sequences and higher taxonomic level information \cite{bista2017annual}. 
+      Regarding the creation of the MOTU table, in the Bista et al. \citep{bista2017annual} study VSEARCH \citep{rognes2016vsearch} was used with a clustering at $97\%$ similarity threshold. 
+      Afterwards, the BLAST+ (megablast) algorithm \citep{camacho2009blast} was used against a manually created database including all NCBI GenBank COI sequences of length $>100$  bp (June 2015) while excluding environmental sequences and higher taxonomic level information \citep{bista2017annual}. 
       As discussed in the publication, this approach resulted in $138$ unique MOTUs of which $73$ were assigned to species level. 
       For PEMA's evaluation, the chosen clustering algorithm was Swarm v2, using different options for the cluster radius ($d$) parameter (Table~\ref{table:pema-exec-times}); 
-      according to Mahé et al. \cite{mahe2015swarm}, this is the most important parameter because it affects the number of MOTUs that are being created. 
-      The resulting MOTUs were classified against the MIDORI reference database \cite{machida2017metazoan} using RDPClassifier \cite{wang2007naive}. 
+      according to Mahé et al. \citep{mahe2015swarm}, this is the most important parameter because it affects the number of MOTUs that are being created. 
+      The resulting MOTUs were classified against the MIDORI reference database \citep{machida2017metazoan} using RDPClassifier \citep{wang2007naive}. 
       The results of the processing of the sequences are reported in Supplementary Table S3. 
-      For the case of Barque, the BOLD Database was used \cite{ratnasingham2007bold}.
+      For the case of Barque, the BOLD Database was used \citep{ratnasingham2007bold}.
 
 
       % PEMA OUTPUT AND EXECUTION TIME
@@ -503,12 +504,12 @@
 
 
       As shown in Table~\ref{table:pema-exec-times}, PEMA resulted in 83 species-level MOTUs with a cluster radius ($d$) of $2$, which is similar to the findings of the published study (i.e., $73$ species). 
-      Although both the clustering algorithm and the taxonomy assignment methods were different between the original \cite{bista2017annual} and the present study, the results regarding the number of unique species present in the samples are in agreement to a considerable extent.
+      Although both the clustering algorithm and the taxonomy assignment methods were different between the original \citep{bista2017annual} and the present study, the results regarding the number of unique species present in the samples are in agreement to a considerable extent.
 
       The computational time required by PEMA for the completion of the analysis is also reported in Table~\ref{table:pema-exec-times}. 
       Regardless of the value of the d parameter, all analyses were completed in $∼2$ hours, i.e., fast enough to allow parameter testing and customization.
       Regarding Barque, the analysis resulted in the identification of $51$ species-level MOTUs and was concluded in $15$ minutes. 
-      This difference is due to the error correction step of PEMA (BayesHammer algorithm \cite{nikolenko2013bayeshammer}), which plays an important part in the enhanced results that PEMA returns, but it also requires a certain computational time; 
+      This difference is due to the error correction step of PEMA (BayesHammer algorithm \citep{nikolenko2013bayeshammer}), which plays an important part in the enhanced results that PEMA returns, but it also requires a certain computational time; 
       Barque does not have an analogous step, and therefore its overall execution time is shorter.
       
       PEMA performed better than Barque at identifying taxa that were included in the positive control contents of the published study (Table~\ref{table:pema-taxonomies-pema-barque}).
@@ -530,7 +531,7 @@
          \textit{Polypedilum sordens**} &  & \textit{Polypedilum nubeculosum} \\
          \textit{Athripsodes aterrimus**} &  & \textit{Athripsodes albifrons} \\ \bottomrule
          \end{tabular}
-         \caption[Comparing taxonomies retrieved from PEMA and Barque pipelines]{Comparison of the taxonomy of retrieved MOTUs among PEMA, Barque, and the positive controls of Bista et al. \cite{bista2017annual} ; * 
+         \caption[Comparing taxonomies retrieved from PEMA and Barque pipelines]{Comparison of the taxonomy of retrieved MOTUs among PEMA, Barque, and the positive controls of Bista et al. \citep{bista2017annual} ; * 
          Taxonomies identical to the published study (species level), ** Taxonomies identical to the published study (genus level).}
          \label{table:pema-taxonomies-pema-barque}
       \end{table}
@@ -552,21 +553,21 @@
 
       However, the OTU concept is not compulsorily related to the clustering approach; 
       it is widely used to describe results based on its biological meaning but it does not imply clustering. 
-      In addition, according to Callahan et al. \cite{callahan2017exact}, "ASV methods infer the biological sequences in the sample prior to the introduction of amplification and sequencing errors, and distinguish sequence variants differing by as little as one nucleotide." 
+      In addition, according to Callahan et al. \citep{callahan2017exact}, "ASV methods infer the biological sequences in the sample prior to the introduction of amplification and sequencing errors, and distinguish sequence variants differing by as little as one nucleotide." 
       As a result, ASVs could be considered as OTUs of higher resolution.
 
-      It is due to this concept confusion that algorithms whose rationale is considerably closer to the variant-based approach are still considered as OTU clustering algorithms~\cite{callahan2017exact}. 
-      Swarm v2 produces all possible \textit{microvariants} of an amplicon to implement an exact-string comparison~\cite{mahe2015swarm}. 
+      It is due to this concept confusion that algorithms whose rationale is considerably closer to the variant-based approach are still considered as OTU clustering algorithms~\citep{callahan2017exact}. 
+      Swarm v2 produces all possible \textit{microvariants} of an amplicon to implement an exact-string comparison~\citep{mahe2015swarm}. 
       Furthermore, real biological sequences, \textit{clouds of microvariants} are produced as its output, which can be used for comparisons between different studies. Thus, Swarm v2 can be considered as an ASV-inferring algorithm.
 
-      Traditional clustering methods have certain limitations such as arbitrary global clustering thresholds and centroid selection because they depend on the input order and are time-consuming, etc.~\cite{mahe2014swarm}, which variant-based approaches manage to address. 
+      Traditional clustering methods have certain limitations such as arbitrary global clustering thresholds and centroid selection because they depend on the input order and are time-consuming, etc.~\citep{mahe2014swarm}, which variant-based approaches manage to address. 
       However certain algorithms for OTU clustering such as VSEARCH have been proven to be especially reliable, and they are widely used by many researchers. 
       Furthermore, ASVs intend to improve taxonomic resolution; however, a vast number of inferred ASVs (see \href{http://fiererlab.org/2017/05/02/lumping-versus-splitting-is-it-time-for-microbial-ecologists-to-abandon-otus/}{here} 
       \footnote{
          \href{http://fiererlab.org/2017/05/02/lumping-versus-splitting-is-it-time-for-microbial-ecologists-to-abandon-otus/}{http://fiererlab.org/2017/05/02/lumping-versus-splitting-is-it-time-for-microbial-ecologists-to-abandon-otus/}
       } for more) can lead to inflation of diversity estimates, especially in the case of microbial communities, thus making the analysis even more complicated.
 
-      ASV or OTU approaches are supported by PEMA, although we have found that similar ecological results are produced by both these methods, as also suggested by Glassman and Martiny~\cite{glassman2018broadscale}.
+      ASV or OTU approaches are supported by PEMA, although we have found that similar ecological results are produced by both these methods, as also suggested by Glassman and Martiny~\citep{glassman2018broadscale}.
 
 
    \subsubsection*{Beyond environmental ecology, ongoing and future work}
@@ -620,7 +621,7 @@
 
       \textbf{Supplementary Table S1:} Number of sequences after each pre-processing step for the case of 16S rRNA gene.
 
-      \textbf{Supplementary Table S3:} Number of sequences after each pre-processing step for the case of COI, dataset from Bista et al. \cite{bista2017annual}.
+      \textbf{Supplementary Table S3:} Number of sequences after each pre-processing step for the case of COI, dataset from Bista et al. \citep{bista2017annual}.
 
       \textbf{Supplementary Table S2:} Diversity indices of the samples.
 
@@ -639,9 +640,9 @@
       \textbf{Supplementary Figure S7:} Bar plot depicting the taxonomy of the retrieved OTUs from PEMA at the class of Betaproteobacteriales.
    \fi
 
-   \subsection{PEMA modules added after its publication}
+   \subsection{Advances and PEMA modules added since its publication}
 
-      Since its publication, PEMA has been under continuous development and testing.
+      PEMA has been under continuous development and testing.
       Custom databases can be now used to train both classifiers used in the PEMA framework, thus
       the taxonomy assignment step is not limited by the reference databases included on PEMA.
       With the release of the \href{https://github.com/hariszaf/pema/releases/tag/v.2.1.3}{v.2.1.3}
@@ -650,7 +651,25 @@
       On top of that, several modules have been added, mostly in an attempt to address requests from users and
       e-infrustructures (e.g., \href{https://www.lifewatch.eu/internal-joint-initiative/}{LifeWatch ERIC IJI}
       \footnote{\href{https://www.lifewatch.eu/internal-joint-initiative/}{https://www.lifewatch.eu/internal-joint-initiative/}}
-      ). 
+      )(see Figure~\ref{fig:pema-lw}). 
+      Similar efforts have been done so PEMA will be integrated in the 
+      \href{https://hypatia.athenarc.gr/}{HYPATIA}
+      \footnote{\href{https://hypatia.athenarc.gr/}{https://hypatia.athenarc.gr}}, 
+      the Cloud infrastructure of the ELIXIR-GR community.
+
+
+      \begin{figure}[h]
+         \centering
+         \includegraphics[width=0.95\columnwidth]{figures/pema_lw.png}
+         \caption[PEMA at LifeWatch ERIC Tesseract portal]{
+            PEMA is now available through the LifeWatch ERIC portal called Tesseract which is currently under a beta version. 
+            A web interface is now available allowing users that are not familiar with Unix to use PEMA.
+            Most importantly, users that have no access to computing resources required for their analyses
+            can now use the capacity of Tesseract.  
+         }
+         \label{fig:pema-lw}
+      \end{figure}
+
       On its current version (v.2.1.5) it now supports the analysis of one extra
       marker gene, the 12S rRNA gene, by exploiting the 12S Vertebrate Classifier v2.0.0-ref database \citep{teresita_m_porter_2021_5157047}.
       For the case of 18S rRNA marker gene, the PR2 database \citep{guillou2012protist} was integrated 
@@ -662,6 +681,14 @@
       Last but not least, a new version of the parameters file has been made to provide a machine-readable version 
       of it so the values set by the user can be parsed for potential errors in an automatic way. 
 
+      The potential of the eDNA metabarcoding method as well as the 
+      valid PEMA output
+      were emphasized in a recent study where
+      Autono-mous  Reef  Monitoring  Structures (ARMS) data 
+      were combined with amplicon studies to 
+      record, for the first time in Greek waters, the nudibranch 
+      \textit{Anteaeolidiella lurana} (Ev. Marcus \& Er. Marcus, 1967)~\citep{bariche2020new}. 
+   
 
    \newpage
 
@@ -707,47 +734,47 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
    DNA metabarcoding is a rapidly evolving method that is being more frequently employed i
    n a range of fields, such as biodiversity, biomonitoring, molecular ecology and others 
-   \cite{deiner2017environmental, ruppert2019past}. 
+   \citep{deiner2017environmental, ruppert2019past}. 
    Environmental DNA (eDNA) metabarcoding, targeting DNA directly isolated from environmental samples
-   (e.g., water, soil or sediment, \cite{taberlet2012environmental}), is considered a holistic approach 
+   (e.g., water, soil or sediment, \citep{taberlet2012environmental}), is considered a holistic approach 
    (Stat et al. 2017) in terms of biodiversity assessment, providing high detection capacity. 
-   At the same time, it allows wide-scale rapid bio-assessment \cite{stat2017ecosystem} at a relatively
-   low cost as compared to traditional biodiversity survey methods \cite{ji2013reliable}.
+   At the same time, it allows wide-scale rapid bio-assessment \citep{stat2017ecosystem} at a relatively
+   low cost as compared to traditional biodiversity survey methods \citep{ji2013reliable}.
 
    The underlying idea of the method is to take advantage of genetic markers, i.e. marker loci, 
    using primers anchored in conserved regions. 
    These universal markers should have enough sequence variability to allow distinction among 
-   related taxa and be flanked by conserved regions allowing for universal or semi-universal primer design \cite{deagle2014dna}. 
+   related taxa and be flanked by conserved regions allowing for universal or semi-universal primer design \citep{deagle2014dna}. 
    In the case of eukaryotes, the target is most commonly mitochondrial due to higher copy numbers than nuclear DNA and the potential for species level identification. 
-   Furthermore, mitochondria are nearly universally present in eukaryotic organisms, especially in case of metazoa, and can be easily sequenced and used for identification of the species composition of a sample \cite{taberlet2012towards}. 
-   However, it is essential that comprehensive public databases containing well curated, up-to-date sequences from voucher specimens are available \cite{schenekar2020reference}. 
+   Furthermore, mitochondria are nearly universally present in eukaryotic organisms, especially in case of metazoa, and can be easily sequenced and used for identification of the species composition of a sample \citep{taberlet2012towards}. 
+   However, it is essential that comprehensive public databases containing well curated, up-to-date sequences from voucher specimens are available \citep{schenekar2020reference}. 
    This way, sequences generated by universal primers can be compared with the ones in reference databases, assessing sample OTU composition. 
-   The taxonomy assignment step of the eDNA metabarcoding method and thus, the identification via DNA-barcoding, is only as good and accurate as the reference databases \cite{cilleros2019unlocking}. 
+   The taxonomy assignment step of the eDNA metabarcoding method and thus, the identification via DNA-barcoding, is only as good and accurate as the reference databases \citep{cilleros2019unlocking}. 
 
-   Nevertheless, there is not a truly “universal” genetic marker that is capable of being amplified for all species across different taxa \cite{kress2015dna}. 
-   Different markers have been used for different taxonomic groups \cite{deiner2017environmental}. 
-   While bacterial and archaeal diversity is often based on the 16S rRNA gene, for eukaryotes a diverse set of loci is used from the analogous eukaryotic rRNA gene array (e.g., ITS, 18S or 28S rRNA), chloroplast genes (for plants) and mitochondrial DNA (for eukaryotes) in an attempt for species - specific resolution \cite{coissac2012bioinformatic}. 
-   The mitochondrial cytochrome c oxidase subunit I (COI) marker gene has been widely used for the barcoding of the Animalia kingdom for almost two decades \cite{hebert2003barcoding}.
-   There are cases where COI has been the standard marker for metabarcoding, such as in the assessment of freshwater macroinvertebrates \cite{elbrecht2017validation} even though not all taxonomic groups can be differentiated to the species level using this locus \cite{deiner2017environmental}; 
-   for example, in case of fish other loci are widely used such as 12S rRNA gene (hereafter referred to as 12S rRNA) \cite{miya2020mifish}.
+   Nevertheless, there is not a truly “universal” genetic marker that is capable of being amplified for all species across different taxa \citep{kress2015dna}. 
+   Different markers have been used for different taxonomic groups \citep{deiner2017environmental}. 
+   While bacterial and archaeal diversity is often based on the 16S rRNA gene, for eukaryotes a diverse set of loci is used from the analogous eukaryotic rRNA gene array (e.g., ITS, 18S or 28S rRNA), chloroplast genes (for plants) and mitochondrial DNA (for eukaryotes) in an attempt for species - specific resolution \citep{coissac2012bioinformatic}. 
+   The mitochondrial cytochrome c oxidase subunit I (COI) marker gene has been widely used for the barcoding of the Animalia kingdom for almost two decades \citep{hebert2003barcoding}.
+   There are cases where COI has been the standard marker for metabarcoding, such as in the assessment of freshwater macroinvertebrates \citep{elbrecht2017validation} even though not all taxonomic groups can be differentiated to the species level using this locus \citep{deiner2017environmental}; 
+   for example, in case of fish other loci are widely used such as 12S rRNA gene (hereafter referred to as 12S rRNA) \citep{miya2020mifish}.
 
    \subsubsection*{The COI locus}
    \label{subsec:darn-intro-coi}
 
    The mitochondrial cytochrome c oxidase subunit I (also called cox1 or/and COI) is a gene fragment of ~700 bp, widely used for metazoan diversity assessment. Here we present some of the reasons that microbial eukaryotes and prokaryotes are also amplified in such studies, raising the issue of the known unknown sequences.
    COI is a fundamental part of the heme aa3-type mitochondrial cytochrome c oxidase complex: the terminal electron acceptor in the respiratory chain. 
-   Even if aa3-type Cox have been found in bacteria, there are also other cytochrome c oxidase (Cox) groups, such as the cbb3-type cytochrome c oxidases (cbb3-Cox) and the cytochrome ba3 \cite{ekici2012biogenesis, schimo2017cytochrome}.
+   Even if aa3-type Cox have been found in bacteria, there are also other cytochrome c oxidase (Cox) groups, such as the cbb3-type cytochrome c oxidases (cbb3-Cox) and the cytochrome ba3 \citep{ekici2012biogenesis, schimo2017cytochrome}.
 
-   Furthermore, the presence of highly divergent nuclear mitochondrial pseudogenes (numts) has been a widely known issue on the use of COI in barcoding and metabarcoding studies, leading to overestimates of the number of taxa present in a sample \cite{song2008many}.
-   Numts are nonfunctional copies of mtDNA in the nucleus that have been found in major clades of eukaryotic organisms \cite{bensasson2001mitochondrial}.
+   Furthermore, the presence of highly divergent nuclear mitochondrial pseudogenes (numts) has been a widely known issue on the use of COI in barcoding and metabarcoding studies, leading to overestimates of the number of taxa present in a sample \citep{song2008many}.
+   Numts are nonfunctional copies of mtDNA in the nucleus that have been found in major clades of eukaryotic organisms \citep{bensasson2001mitochondrial}.
 
-   Thus, as Mioduchowska et al. (2018) \cite{mioduchowska2018instances} highlight, when universal primers are used targeting the COI locus, it is possible to co-amplify both non-target numts and prokaryotes \cite{siddall2009barcoding}. This has led to multiple erroneous DNA barcoding cases and it is now not rare to encounter bacterial sequences described as metazoan in databases such as GenBank \cite{mioduchowska2018instances}.
+   Thus, as Mioduchowska et al. (2018) \citep{mioduchowska2018instances} highlight, when universal primers are used targeting the COI locus, it is possible to co-amplify both non-target numts and prokaryotes \citep{siddall2009barcoding}. This has led to multiple erroneous DNA barcoding cases and it is now not rare to encounter bacterial sequences described as metazoan in databases such as GenBank \citep{mioduchowska2018instances}.
 
-   Even though there are various known issues \cite{deagle2014dna}, COI is indeed considered as the “gold standard” for community DNA metabarcoding of bulk metazoan samples \cite{andujar2018coi}; 
-   bulk is an environmental sample containing mainly organisms from the taxonomic group under study providing high quality and quantity of DNA \cite{taberletanalysis}. 
+   Even though there are various known issues \citep{deagle2014dna}, COI is indeed considered as the “gold standard” for community DNA metabarcoding of bulk metazoan samples \citep{andujar2018coi}; 
+   bulk is an environmental sample containing mainly organisms from the taxonomic group under study providing high quality and quantity of DNA \citep{taberletanalysis}. 
    However, as highlighted in the same study, this is not the case for eDNA samples. 
-   As Stat et al. (2017) \cite{stat2017ecosystem} state, in the case of eDNA samples, the target region for metazoa is found in general at considerably lower concentrations compared to those from prokaryotes because most primers targeting the COI region amplify large proportions of prokaryotes at the same time \cite{yang2013testing, yang2014using, collins2019non}. 
-   Cold-adapted marine gammaproteobacteria are an indicative example for this case as shown by Siddall et al. (2009) \cite{siddall2009barcoding}.
+   As Stat et al. (2017) \citep{stat2017ecosystem} state, in the case of eDNA samples, the target region for metazoa is found in general at considerably lower concentrations compared to those from prokaryotes because most primers targeting the COI region amplify large proportions of prokaryotes at the same time \citep{yang2013testing, yang2014using, collins2019non}. 
+   Cold-adapted marine gammaproteobacteria are an indicative example for this case as shown by Siddall et al. (2009) \citep{siddall2009barcoding}.
 
 
 
@@ -755,15 +782,15 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    \subsection{Contribution}
    \label{sec:darn-contribution}
 
-   The co-amplification of prokaryotes explained above, is a major reason for why many Operational Taxonomic Units (OTUs) and/or Amplicon Sequence Variants (ASVs) in eDNA metabarcoding studies cannot get taxonomy assignments when metazoan reference databases are used (c.f. Aylagas et al. 2016 \cite{aylagas2016benchmarking}) or they are assigned to metazoan taxa but with very low confidence estimates. 
-   Despite the presence of such OTUs/ASVs to a varying degree in metabarcoding studies using the COI marker gene \cite{siddall2009barcoding}, to the best of our knowledge, there has not been a thorough investigation of the origin for these sequences. 
-   Although unassignable sequences could be informative, there have been few attempts to further investigate this dark matter (e.g., \cite{sinniger2016worldwide, haenel2017ngs}).
+   The co-amplification of prokaryotes explained above, is a major reason for why many Operational Taxonomic Units (OTUs) and/or Amplicon Sequence Variants (ASVs) in eDNA metabarcoding studies cannot get taxonomy assignments when metazoan reference databases are used (c.f. Aylagas et al. 2016 \citep{aylagas2016benchmarking}) or they are assigned to metazoan taxa but with very low confidence estimates. 
+   Despite the presence of such OTUs/ASVs to a varying degree in metabarcoding studies using the COI marker gene \citep{siddall2009barcoding}, to the best of our knowledge, there has not been a thorough investigation of the origin for these sequences. 
+   Although unassignable sequences could be informative, there have been few attempts to further investigate this dark matter (e.g., \citep{sinniger2016worldwide, haenel2017ngs}).
    
-   The aim of this study was to build a framework for extracting such non-target, potentially unassigned (or assigned with low confidence) sequences from COI environmental sequence samples, hereafter referred to as “dark matter” as per Bernard et al. (2018) \cite{bernard2018microbial}. 
+   The aim of this study was to build a framework for extracting such non-target, potentially unassigned (or assigned with low confidence) sequences from COI environmental sequence samples, hereafter referred to as “dark matter” as per Bernard et al. (2018) \citep{bernard2018microbial}. 
    We argue that the vast majority of these sequences represent microbial taxa, such as bacteria and archaea. 
    
-   More specifically, based on the previously described methodology by Barbera et al. (2019) \cite{barbera2019epa} (see also full stack example of the EPA-ng algorithm) for large-scale phylogenetic placements, we built a framework to estimate to what extent the OTUs/ASVs retrieved in an environmental sample represent target taxa or not. 
-   That is, to evaluate the taxonomy assignment step in a metabarcoding analysis, by checking the phylogenetic placement of dark matter sequences. Similar studies have provided great insight into other marker genes, e.g. \cite{jamy2020long}.
+   More specifically, based on the previously described methodology by Barbera et al. (2019) \citep{barbera2019epa} (see also full stack example of the EPA-ng algorithm) for large-scale phylogenetic placements, we built a framework to estimate to what extent the OTUs/ASVs retrieved in an environmental sample represent target taxa or not. 
+   That is, to evaluate the taxonomy assignment step in a metabarcoding analysis, by checking the phylogenetic placement of dark matter sequences. Similar studies have provided great insight into other marker genes, e.g. \citep{jamy2020long}.
 
 
 % DARN METHODS
@@ -774,9 +801,9 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    \label{subsec:darn-methods-tree}
 
    Sequences for the COI region from all the three domains of life were retrieved from curated databases. 
-   Eukaryotic sequences were retrieved from the Midori reference 2 database (version: GB239) \cite{machida2017metazoan}. 
+   Eukaryotic sequences were retrieved from the Midori reference 2 database (version: GB239) \citep{machida2017metazoan}. 
    Initially, $1,315,378$ sequences were retrieved corresponding to $183,330$ unique species from all eukaryotic taxa. 
-   With respect to bacteria and archaea, $3,917$ bacterial COI sequences were obtained from the BOLD database \cite{ratnasingham2007bold}. 
+   With respect to bacteria and archaea, $3,917$ bacterial COI sequences were obtained from the BOLD database \citep{ratnasingham2007bold}. 
    Similarly, $117$ sequences from archaea were obtained from BOLD. 
    In addition, for all the PFam protein sequences related to the accession number for 
    COX1 (\href{http://www.ncbi.nlm.nih.gov/nuccore/PF00115}{PF00115}
@@ -790,9 +817,9 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
    The large number of obtained sequences effectively prevents a phylogenetic tree construction encompassing their total number in terms of building a single phylogenetic tree covering all of the three domains of life (archaea, bacteria, eukaryota). 
    Therefore, consensus representative sequences from each of the three datasets were constructed using 
-   the PhAT algorithm \cite{czech2019methods}; 
+   the PhAT algorithm \citep{czech2019methods}; 
    based on the entropy of a set of sequences, PhAT groups sequences into a given target number of groups so they reflect the diversity of all the sequences in the dataset. 
-   As PhAT uses a multiple sequence alignment (MSA) as input, all the three domain-specific datasets were aligned using the MAFFT alignment software tool v7.453 \cite{katoh2002mafft, nakamura2018parallelization}.
+   As PhAT uses a multiple sequence alignment (MSA) as input, all the three domain-specific datasets were aligned using the MAFFT alignment software tool v7.453 \citep{katoh2002mafft, nakamura2018parallelization}.
    
    % Table with sequences numbers
    \begin{table}[h]
@@ -816,7 +843,7 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    The \texttt{--min-tax-level} parameter of the PhAT algorithm corresponded to the class level, for the case of eukaryotes and to the family level for archaea and bacteria. 
    This parameter forced the PhAT algorithm to build at least one consensus sequence for each class and family respectively. 
    The taxonomy level was not the same for the case of eukaryotes sequence dataset and those of bacteria and archaea, as the number of unique eukaryotic families was one order of magnitude higher. 
-   The PhAT algorithm was invoked through the gappa v0.6.1 collection of algorithms \cite{czech2020genesis}.
+   The PhAT algorithm was invoked through the gappa v0.6.1 collection of algorithms \citep{czech2020genesis}.
 
 
    % Figure with the DARN methodology steps
@@ -843,10 +870,10 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    These sequences were then merged as a single dataset and aligned to build a reference MSA; 
    this time MAFFT was set to return using the \texttt{--globalpair} algorithm and the \texttt{--maxiterate} parameter 
    equal to $1,000$. 
-   The MSA returned was then trimmed with the ClipKIT software package \cite{steenwyk2020clipkit} to keep only phylogenetically informative sites. 
+   The MSA returned was then trimmed with the ClipKIT software package \citep{steenwyk2020clipkit} to keep only phylogenetically informative sites. 
    The final MSA is available on GitHub, see \texttt{trimmed\_all\_consensus\_aligned\_adjust\_dir.aln}.
 
-   The reference tree was then built based on this trimmed MSA using the IQ-TREE2 software \cite{hoang2018ufboot2, minh2020iq}.
+   The reference tree was then built based on this trimmed MSA using the IQ-TREE2 software \citep{hoang2018ufboot2, minh2020iq}.
    ModelFinder was invoked through IQ-TREE2 and the \texttt{GTR+F+R10} model was chosen based on the 
    Bayesian Information Criterion (BIC) among $286$ models that were tested. 
    The phylogenetic tree was then built using $1,000$ bootstrap replicates (\texttt{-B} $1,000$) and 
@@ -860,7 +887,7 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
       \href{https://colab.research.google.com/drive/1XorHsBm1uqx5TTZsH7SeVRkUA2SS8dnY}{https://colab.research.google.com/drive/1XorHsBm1uqx5TTZsH7SeVRkUA2SS8dnY}
    }
    . 
-   The computational resources of the IMBBC High Performance Computing system, called Zorba \cite{zafeiropoulos20210s}, were exploited to address the needs of the tasks.
+   The computational resources of the IMBBC High Performance Computing system, called Zorba \citep{zafeiropoulos20210s}, were exploited to address the needs of the tasks.
 
 
    \subsubsection*{Investigating COI dark matter}
@@ -871,11 +898,11 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    Sequences that are not assigned to a domain are grouped as "distant". 
    It is necessary for the input sequences to represent the proper strand of the locus, 
    i.e. input reads should have forward orientation. 
-   Optionally, DARN invokes the orient module of the vsearch package \cite{rognes2016vsearch} to implement this step, in case the user is not sure about the orientation of the sequences to be analysed.
+   Optionally, DARN invokes the orient module of the vsearch package \citep{rognes2016vsearch} to implement this step, in case the user is not sure about the orientation of the sequences to be analysed.
 
-   The focal query sequences are aligned with respect to the reference MSA using the PaPaRa 2.0 algorithm \cite{berger2012papara}. 
+   The focal query sequences are aligned with respect to the reference MSA using the PaPaRa 2.0 algorithm \citep{berger2012papara}. 
    The query sequences are then split to build a discrete query MSA. 
-   Finally, the Evolutionary Placement Algorithm EPA-ng \cite{barbera2019epa} is used to assign the query sequences to the reference tree.
+   Finally, the Evolutionary Placement Algorithm EPA-ng \citep{barbera2019epa} is used to assign the query sequences to the reference tree.
 
    To visualise the query sequence assignments, a two-step method was developed. 
    First, DARN invokes the gappa examine assign tool which taxonomically assigns placed query sequences by making use of the likelihood weight ratio (LWR) that was assigned to this exact taxonomic path. 
@@ -889,7 +916,7 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    \end{itemize}
    
    In the \texttt{final\_outcome} directory that DARN creates, two \texttt{.html} files, one for each of the Krona plots; 
-   Krona plots are built using the ktImportText command of KronaTools \cite{ondov2011interactive}. 
+   Krona plots are built using the ktImportText command of KronaTools \citep{ondov2011interactive}. 
    In addition four \texttt{.fasta} files are generated including the sequences of the sample that have been assigned to each domain or as "distant". 
    A \texttt{.json} file with the metadata of the analysis is also returned including the identities of the sequences assigned to each domain.
 
@@ -1035,18 +1062,18 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
 
    More specifically, 57 marine, surface water, eDNA samples from Ireland were analysed through 
-      a. QIIME2 \cite{bolyen2018qiime} and DADA2 \cite{callahan2016dada2} and, 
-      b. PEMA \cite{zafeiropoulos2020pema}. 
+      a. QIIME2 \citep{bolyen2018qiime} and DADA2 \citep{callahan2016dada2} and, 
+      b. PEMA \citep{zafeiropoulos2020pema}. 
    Similarly, 18 mangrove and 18 reef marine eDNA samples from Honduras, were analyzed using 
       a. \href{https://github.com/VascoElbrecht/JAMP}{JAMP v0.74} \footnote{
          \href{https://github.com/VascoElbrecht/JAMP}{https://github.com/VascoElbrecht/JAMP}
-      } and DnoisE~\cite{antich2021denoise} and 
+      } and DnoisE~\citep{antich2021denoise} and 
       b. PEMA
-   Furthermore, a sediment sample and two samples from Autonomous Reef Monitoring Structures (ARMS) one conserved in DMSO and another in ethanol from the Obst et al. (2020) \cite{obst2020marine} dataset were analysed using PEMA. 
+   Furthermore, a sediment sample and two samples from Autonomous Reef Monitoring Structures (ARMS) one conserved in DMSO and another in ethanol from the Obst et al. (2020) \citep{obst2020marine} dataset were analysed using PEMA. 
    In addition, one lotic and two lentic samples from Norway were analysed using PEMA. 
    For the case of the lentic samples, multiple parameter sets regarding the ASVs inference step were implemented; 
-   i.e the $d$ parameter of the Swarm v2 \cite{mahe2015swarm} that PEMA invokes was set equal to 2 and 10 to cover 
-   a great range of different cases \cite{kamenova2020flexible}. 
+   i.e the $d$ parameter of the Swarm v2 \citep{mahe2015swarm} that PEMA invokes was set equal to 2 and 10 to cover 
+   a great range of different cases \citep{kamenova2020flexible}. 
    DARN was then executed using the ASVs retrieved in each case as input. 
    All the DARN analyses and the PEMA runs were performed on an Intel(R) Xeon(R) CPU E5649 @ 2.53GHz server of 24 CPUs and 142 GB RAM in the Area52 Research Group at the University College Dublin.
 
@@ -1077,23 +1104,23 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    \subsection{Discussion}
    \label{darn-discusssion}
 
-   By making use of a COI - oriented reference phylogenetic tree built from $1,593$ consensus sequences, to phylogenetically place sequences from COI metabarcoding samples onto it, the surmise for including bacteria, algae, fungi etc. \cite{yang2013testing, aylagas2016benchmarking} was verified. 
+   By making use of a COI - oriented reference phylogenetic tree built from $1,593$ consensus sequences, to phylogenetically place sequences from COI metabarcoding samples onto it, the surmise for including bacteria, algae, fungi etc. \citep{yang2013testing, aylagas2016benchmarking} was verified. 
    Our results demonstrate that standard metabarcoding approaches based on the COI gene region of the mitochondrial genome will not only amplify eukaryotes, but also a large proportion of non-target prokaryotic organisms, such as bacteria and archaea. 
    Clearly, dark matter, and especially bacteria, make up a significant proportion of sequences generated in COI based eDNA metabarcoding datasets. 
-   The large proportion of prokaryotes observed in the present study is corroborated by the findings of \cite{yang2013testing}. 
-   Furthermore, dark matter seems to be particularly common in eDNA as compared to bulk samples \cite{andujar2018coi}. 
+   The large proportion of prokaryotes observed in the present study is corroborated by the findings of \citep{yang2013testing}. 
+   Furthermore, dark matter seems to be particularly common in eDNA as compared to bulk samples \citep{andujar2018coi}. 
    However, it should be mentioned that the high number of prokaryotic sequences in COI metabarcoding data is also reflecting known issues with contamination 
-   \cite{kumar2013blobology, dittami2017detection, de2020contaminations}, 
-   incorrectly labeled reference sequences \cite{steinegger2020terminating} and holobionts 
-   \cite{gilbert2012symbiotic, salvucci2016microbiome} in eukaryotic genomes.
+   \citep{kumar2013blobology, dittami2017detection, de2020contaminations}, 
+   incorrectly labeled reference sequences \citep{steinegger2020terminating} and holobionts 
+   \citep{gilbert2012symbiotic, salvucci2016microbiome} in eukaryotic genomes.
 
    As publicly available bacterial COI sequences are far too few to represent the bacterial and archaeal diversity, their reliable taxonomic identification is not currently possible. 
    This way, bacterial, i.e. non-target, sequences that were amplified during the library preparation have at least the possibility of a taxonomy assignment. 
    Our implementations using DARN indicate that it is essential both for global reference databases (e.g., BOLD, Midori etc) and custom reference databases which are commonly used, to also include non-eukaryotic sequences.
 
    While our approach specifically addressed the COI gene, DARN can be adapted to analyse any locus fragment. 
-   For instance, metabarcoding of environmental samples for the 12S rRNA mitochondrial region is often employed to assess fish biodiversity \cite{weigand2019dna, miya2020mifish} and the approach presented here could be adjusted to allow further analyses of the 12S rRNA data. 
-   In addition, our approach can be used to identify non-target eukaryotes when the target is bacterial taxa \cite{huys2008coamplification}.
+   For instance, metabarcoding of environmental samples for the 12S rRNA mitochondrial region is often employed to assess fish biodiversity \citep{weigand2019dna, miya2020mifish} and the approach presented here could be adjusted to allow further analyses of the 12S rRNA data. 
+   In addition, our approach can be used to identify non-target eukaryotes when the target is bacterial taxa \citep{huys2008coamplification}.
 
    The approaches implemented in DARN can benefit both bulk and eDNA metabarcoding studies, by allowing quality control and further investigation of the unassigned OTUs/ASVs. 
    The approach is also adaptable to other markers than COI. Moreover, the approach presented here allows researchers to better understand the known unknowns and shed light on the dark matter of their metabarcoding sequence data.

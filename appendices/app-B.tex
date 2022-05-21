@@ -1,9 +1,40 @@
 \chapter{Computational Geometry}
 \label{app:comp_geom_intro}
 
+\section{Moving from the concentration to the flux vector}
+\label{}
+
+
+The dynamic mass balance on a chemical compound
+is the difference between the sum of the  fluxes of all the reactions that form it
+and the sum of all the reactions that degrade it.
+
+In general, the following ordinary differential equation expresses such a mass balance:
+
+\begin{equation}
+\frac{d\omega_i}{dt} = \sum_{k} s_{ik} v_{k} = \langle {s_i} \cdot v \rangle ,
+\end{equation}
+
+where $\omega_i$ is the total mass of the $i$-th metabolite, $s_{ik}$ is the stoichiometric coefficient for this metabolite in the $k$-th
+reaction, and $v_k$ is the flux of the $k$-th reaction. By
+considering all the differential equations expressing the dynamic mass balance
+of all the compounds present in a metabolic network, we have
+
+\begin{equation}
+\frac{d\omega}{dt} = S v ,
+\end{equation}
+
+where $S$ is the stoichiometric matrix
+having as rows the  vectors $s_i$.
+In this setting, $S$ is the map of the linear  transformation
+that sends the flux vector to a vector of time derivatives of the concentration vector
+\cite{palsson2015systems}.
+
+
+
+
 \section{Definitions \& concepts}
-
-
+\label{}
 
    A \textit{hyperplane} is a set of the form
    \begin{equation}

@@ -20,8 +20,13 @@
 \usepackage[english,greek]{babel}
 \usepackage[utf8x]{inputenc}
 
-% To enable the \citeauthor function
-\usepackage[square, numbers]{natbib}
+% To enable the \citeauthor function // there is a chance that this is why we cannot have author names 
+% \usepackage[square, numbers]{natbib}
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+% \setcitestyle{authoryear,open={((},close={))}} %Citation-related commands
+
+
 
 % To have multirows in tables
 \usepackage{multirow}
@@ -54,6 +59,7 @@
 \usepackage{mathtools}
 
 
+
 % DEFINITIONS
 \def\RR{{\mathbb R}}
 
@@ -65,24 +71,14 @@
 
 \newtheorem{definition}{Definition}
 
-% To remove page numbering in pages with rotating tables
-% \usepackage{floatpag}
-% \usepackage{float}
-
 % Set the depth of Table of Contents
 \setcounter{tocdepth}{3}
-
-
-
-
-
 
 
 %Begin the document 
 \begin{document} 
 
 % PREFACE
-\if 0
 \begin{preface}
   
    \textit{
@@ -200,8 +196,18 @@
 
    Elefantas - xazi - ioannaki --> morakia  
   
+
+   \begin{figure}[h]
+      \centering
+      \includegraphics[width=\columnwidth]{figures/the_end.png}
+      \caption*{
+         \textit{is that the end?}
+      }
+   \end{figure}
+
+
+
 \end{preface}
-\fi
 
 % TOC
 \tableofcontents
@@ -235,10 +241,9 @@
    Aim of this PhD was to 
    enhance microbiome data analyses by developing software addressing on-going computational challenges 
    on the study of microbial communities.
-   On top of that, to exploit state-of-the-art methods to identify taxa, 
-   functions and microbial interactions in assemblages of various aquatic environments.
-   To this end, a number of publicly available data-sets were used while
-   a swamp from the Karpathos island (Greece), was chosen as a study case for the described framework.
+   On top of that, to exploit such state-of-the-art methods to study microbial assemblages in 
+   extreme environments.
+   To this end, the Tristomo marsh in Karpathos island (Greece), was chosen as a study case.
 
    % THE APPROACH 
    % -------------
@@ -247,29 +252,18 @@
    and the structure of communities. 
    Vast amount of sequencing data targeting certain marker genes depending the taxonomic group of 
    interest become available thanks to High Throughput Sequencing technologies. 
-   However, the bioinformatics analysis of such data require multiple steps and parameter settings. 
-   Software workflow-oriented tools along with computing infrastructures ease this need to a great extent
-   and \texttt{PEMA} was developed to this end (Chapter~\ref{publ:pema}). 
+   However, the bioinformatics analysis of such data require multiple steps and parameter settings as well as increase computing resources. 
+   Workflows along with computing infrastructures ease this need to a great extent;
+   in this nontion, a Pipeline for environmental DNA Metabarcoding Analysis (\texttt{PEMA}) was developed (Chapter~\ref{publ:pema}). 
    However, eDNA metabarcoding has limitations too. 
    Cytochrome c oxidase subunit I (COI) marker gene is a commonly used marker gene, especially in studies targeting eukaryotic taxa.
-   It is well known that in COI studies a great number of the derived OTUs/ASVs get no taxonomic hits. 
-   The presence of non-eukaryotic taxa with their simultaneous absence from the most commonly-used reference databases 
+   It is well known that in COI studies a great number of the derived Operational Taxonomic Unitss (OTUs) get no taxonomic hits. 
+   The presence of pseudogenes but also of non-eukaryotic taxa among the amplicon data, 
+   with the simultaneous absence of the latter from the most commonly-used reference databases 
    justify this phenomenon to a great extent. 
+   To identify such cases the Dark mAtteR iNvestigator~(\texttt{DARN}) software was developed; 
    \texttt{DARN} makes use of a COI-oriented tree of life to provide further insight to such
    known unknown sequences (Chapter~\ref{publ:darn}).
-
-   % AFOULO-SWAMP
-   Shotgun metagenomics provide further information regarding the processes 
-   that occur in a community (the \textit{what}). 
-   Sediment and microbial mat samples as well as microbial aggregates from 
-   a hypersaline swamp in Tristomo bay (Karpathos, Greece) were analyzed. 
-   Both amplicon (16S rRNA) and shotgun sequencing data were used to characterize 
-   the microbial structure of the communities
-   and environmental parameters (e.g. salinity, oxygen concentration, granulometric composition) 
-   were measured at the sampling sites.
-   Key functions supporting life in such environments were identified and metagenome-assembled genomes (MAGs)
-   of major species found were built
-   (Chapter~\ref{cha:swamp}). 
 
    % DATA INTEGRATION
    Amplicon and shotgun metagenomics approaches 
@@ -284,7 +278,7 @@
    have been developed.
    By exploiting data integration techniques to bring such bits of information together, 
    as well as text mining methods to retrieve knowledge "hidden" among the billions of text lines in 
-   already published literature, the PREGO knowledge-base generates thousands of 
+   already published literature, the PREGO knowledge-base returns thousands of 
    \textit{what - where - who} potential associations (Section~\ref{cha:prego}).
 
    % MET NETS
@@ -295,12 +289,25 @@
    Genome-scale metabolic networks (GEMs) enable the inference of such interactions.
    Random sampling on the flux space of such metabolic models, 
    provides a representation of the flux values a model can get under various conditions.
-   However, flux sampling is challenging from a computational point of view.
+   However, flux sampling is challenging from a computational point of view, especially 
+   as the dimension of a metabolic model increases.
    % Markov Chain - oriented approaches can provide alternatives to overvome these challenges. 
    To address such challenges, a Python library called \texttt{dingo} was developed 
    using a Multiphase Monte Carlo Sampling algorithm (Chapter~\ref{cha:dingo}).
-   GEMs were built using the MAGs retrieved from the Tristomo swamp and 
-   metabolic interactions between them and their environment were investigated.   
+   % GEMs were built using the MAGs retrieved from the Tristomo swamp and 
+   % metabolic interactions between them and their environment were investigated.   
+
+   % AFOULO-SWAMP
+   Finally, sediment and microbial mat samples as well as microbial aggregates from 
+   a hypersaline marsh in Tristomo bay (Karpathos, Greece) were analyzed. 
+   Both amplicon (16S rRNA) and shotgun sequencing data were used to characterize 
+   the microbial structure of the communities
+   and environmental parameters (e.g. salinity, oxygen concentration) 
+   were measured at the sampling sites.
+   Key functions supporting life in such environments were identified and metagenome-assembled genomes (MAGs)
+   of novel species found were built
+   (Chapter~\ref{cha:swamp}). 
+
 
    % A SHORT CONLCUSION 
    % ------------------
@@ -309,6 +316,7 @@
    The methods developed during this PhD project combined with state-of-the-art methods
    anticipate to build a framework  that enables
    moving from the community to the species level and then back again to the one of the community. 
+   Such a framework is described for the study of microbial interactions at real-world communities. 
 
 \end{abstract}
 
@@ -316,8 +324,88 @@
 %  Abstract in greek
 \begin{abstract*}
 
-   Και στα ελληνικά
-   δουλευει σωστά
+
+   Οι μικροβιακές κοινότητες αποτελούν ακρογωνιαίο λίθο για τους περισσότερους τύπους οικοσυστημάτων.
+   Για να διευκρινιστούν οι μηχανισμοί που καθορίζουν τέτοιες κοινότητες είναι καθοριστικής σημασίας 
+   η αναγνώριση των τάξων που τις απαρτίζουν (\textit{ποιος}) καθώς και των διεργασιών που πραγματοποιούνται (\textit{τι})
+   στους διάφορους τύπους περιβαλλόντων (\textit{που}).
+   Χάρη σε μια σειρά τεχνολογικών επιτευγμάτων, ιδιαίτερα μεγάλες ποσότητες πληροφορίας/δεδομένων 
+   από όλα τα επίπεδα οργάνωσης της ζωής έχουν σωρευτεί τις τελευταίες δεκαετίες. 
+   Σε αυτό το πλαίσιο, οι μελέτες μικροβιακής οικολογίας είναι άρρηκτα συνδεδεμένες και βασίζονται σε βιοπληροφορικές μεθόδους και αναλύσεις. 
+   Ωστόσο, έχει προκύψει ένας σημαντικός αριθμός προκλήσεων τόσο από την βιολογική σκοπιά όσο και από αυτήν την επιστήμης υπολογιστών.
+   Μεταξύ αυτών, καθοριστικό ερώτημα αποτελεί το \textit{τι μπορούμε να κάνουμε με όλα αυτά τα επιμέρους κομμάτια πληροφορίας;}.
+   Το παράδειγμα της Βιολογίας Συστημάτων απαντά σε αυτό το ερώτημα περνώντας από πιο αναγωγικές σε πιο ολιστικές προσεγγίσεις
+   προσπαθώντας να ερμηνεύσει το πως προκύπτουν και συνδέονται οι ιδιότητες ενός συστήματος. 
+
+   Στόχος αυτής της διδακτορικής διατριβής ήταν να ενισχύσει την ανάλυση δεδομένων από μικροβιώματα 
+   αναπτύσσοντας λογισμικά εργαλεία που να απαντούν σε τρέχουσσες υπολογιστικές προκλήσεις για την 
+   μελέτη μικροβιακών κοινοτήτων. 
+   Επιπλέον, να μελετήσει μικροβιακές κοινότητες σε ακραία περιβάλλοντα εφαρμόζοντας σύγχρονες μεθόδους 
+   για την αναγνώριση τάξων και διεργασιών. 
+   Για την επίτευξη αυτού του στόχου, το έλος Τριστόμου στο νησί της Καρπάθου, επιλέχθηκε ως περιοχή μελέτης.
+
+   Το περιβαλλοντικό  \foreignlanguage{english}{DNA}  και η μέθοδος της μετακωδικοποίησης έχουν χρησιμοποιηθεί σημαντικά για την εκτίμηση της βιοποικιλότητας
+   (\textit{ποιος}) και τη δομή των κοινοτήτων. 
+   Σημαντικός αριθμός αλληλουχικών δεδομένων που στοχεύουν σε ορισμενα γονίδια δείκτες και που εξαρτόνται από τις ταξινομικές ομάδες στόχους, 
+   είναι διαθέσιμα χάρη στις τεχνικές αλληλούχισης υψηλής απόδοσης \foreignlanguage{english}{HTS}. 
+   Ωστόσο, η βιοπληροφορική ανάλυση τέτοιων δεδομένων απαιτούν μεγάλο αριθμό βημάτων και παραμέτρων καθώς και σημαντικούς υπολογιστικούς πόρους. 
+   Οι ροές εργασιών σε συνδυασμό με υπολογιστικές υποδομές μπορούν να απαντήσουν σε αυτές τις απαιτήσεις σε σημαντικό βαθμό. 
+   Σε αυτό το πλαίσιο αναπτύχθηκε η ροή εργασίας \foreignlanguage{english}{PEMA} με στόχο την ανάλυση δεδομένων μετακωδικοποίησης από περιβαλλοντικό~\foreignlanguage{english}{DNA}.
+   Κεφάλαιο~\foreignlanguage{english}{\ref{publ:pema}}.
+   Ωστόσο, η μέθοδος μετακωδικοποίησης χαρακτηρίζεται από σειρά περιορισμών. 
+   Η υπομονάδα~\foreignlanguage{english}{I} της κυτοχρωμικής οξειδάσης~\foreignlanguage{english}{c (COI)}, αποτελεί έναν δείκτη 
+   που χρησιμοποιείται ευρέως, ειδικά στην περίπτωση ευκαρυωτικών τάξων - στόχων. 
+   Είναι γνωστό πως σε μελέτες όπου ο δείκτης αυτός χρησιμοποιείται, ένας μεγάλος αριθμός των λειτουργικών 
+   ταξινομικών μονάδων \foreignlanguage{english}{(OTUs)} που προκύπτουν, δεν καταφέρνουν να ταυτοποιηθούν. 
+   Η παρουσία τοσο ψευδογονιδίων όσο όμως και μη-ευκαρυωτικών τάξων ανάμεσα σε τέτοια αλληλουχικά δεδομένα,
+   με την ταυτόχρονη απουσία των τελευταίων από τις βάσεις αναφοράς, εξηγεί την μη ταυτοποίησή τους σε σημαντικό βαθμό. 
+   Για την αναγνώριση τέτοιων περιπτώσεων, αναπτύχθηκε το υπολογιστικό εργαλείο \foreignlanguage{english}{DARN} το οποίο 
+   αξιοποιεί ένα φυλογενετικό δέντρο που καλύπτει και τις 3 επικράτειες του δέντρου της ζωής, βασισμένο σε αλληλουχίες του 
+   δείκτη Κεφάλαιο~\foreignlanguage{english}{COI}, Κεφάλαιο~\foreignlanguage{english}{\ref{publ:darn}}.
+
+   Μέθοδοι γονιδίων δεικτών και μεταγονιδιωματικής καθώς και το σύνολο των μεθόδων αλληλούχισης υψηλή απόδοσης, 
+   έχουν οδηγήσει στην σώρευση σημαντικά μεγάλου αριθμού δεδομένων και μεταδεδομένων 
+   καταγράφοντας τάξα και διεργασίες σε σειρά τύπους περιβαλλόντων.
+   Για να επιτρέψουν την βέλτιστη προσβασιμότητα και αξιοποίηση αυτής της πληροφορίας,
+   έχουν δημιουργηθεί
+   σειρά βάσεων δεδομένων, οντολογιών αλλά και προτύπων - κανόνων για να ακολουθεί η κοινότητα 
+   για την καταχώρηση τους.
+   Αξιοποιώντας μεθόδους ενσωμάτωσης/ολοκλήρωσης δεδομένων~\foreignlanguage{english}{data integration} για 
+   την εύρεση των διάφορων κομματιών πληροφορίας και την συσχέτισή τους, καθώς και τεχνικών εξόρυξης κειμένου
+   \foreignlanguage{english}{text mining} για την ανάκτηση γνώσης από το σύνολος της δημόσια διαθέσιμης βιβλιογραφίας
+   αναπτύχθηκε η βάση-γνώσης \foreignlanguage{english}{PREGO}, Κεφάλαιο~\foreignlanguage{english}{\ref{cha:prego}}.
+   η οποία επιστρέφει χιλιάδες σχέσεις μεταξύ τάξων, περιβαλλόντων και διεργασιών. 
+
+
+   Καθοριστικό ερώτημα ωστόσο σε οτι αφορά τις μικροβιακές κοινότητες, αποτελεί το "πώς" τα διάφορα μικροβιακά τάξα 
+   εξασφαλίζουν την θέση τους ως μέλη της κοινότητας. 
+   Μεταβολικές αλληλεπιδράσεις μεταξύ των διάφορων τάξων παίζουν καθοριστικό ρόλο για την συγκρότηση 
+   τέτοιων κοινοτήτων. 
+   Μεταβολικά δίκτυα στην κλίμακα του γονιδιώματος (\foreignlanguage{english}{GEMs}) επιτρέπουν την 
+   αναγνώριση τέτοιων αλληλεπιδράσεων. 
+   Η τυχαία δειγματοληψία στον χώρο που ορίζεται από τις πιθανές τιμές που μπορεί να πάρουν οι ροές των αντιδράσεων (\foreignlanguage{english}{flux sampling})
+   επιτρέπει την αναπαράσταση των τιμών που μπορεί να λάβουν αυτές οι ροές κάτω από συγκεκριμένες συνθήκες. 
+   Ωστόσο η μέθοδος \foreignlanguage{english}{flux sampling} είναι ιδιαίτερα απαιτητική από υπολογιστική σκοπιά,
+   ιδιαίτερα όσο η διάσταση του μεταβολικού μοντέλου αυξάνει.
+   Για τον σκοπό αυτό αναπτύχθηκε η βιβλιοθήκη \foreignlanguage{english}{dingo} η οποία κάνει χρήση ενός 
+   πολυφασικού αλγορίθμου \foreignlanguage{english}{Monte Carlo}, Κεφάλαιο~\foreignlanguage{english}{\ref{cha:dingo}}. 
+
+   Τέλος, αναλύθηκαν δείγματα ιζήματος από το έλος Τριστόμου Καρπάθου, καθώς επίσης
+   δείγματα από μικροβιακούς τάπητες~\foreignlanguage{english}{mat} και από μικροβιακά συσσωματώματα~(\foreignlanguage{english}{aggregates}).
+   Για τον σκοπό αυτό, χρησιμοποιήθηκε τόσο η μέθοδος μετακωδικοποίησης με γονίδιο-δείκτη το 16\foreignlanguage{english}{S}
+   όσο και η μέθοδος μεταγονιδιωματικής \foreignlanguage{english}{shotgun}.
+   Επίσης μετρήθηκαν περιβαλλοντικές παράμετροι (όπως αλατότητα, συγκέντρωση οξυγόνου). 
+   Βασικές λειτουργίες που υποστηρίζουν τη ζωή σε τέτοιες συνθήκες εντοπίστηκαν 
+   ενώ ακόμη γονιδιώματα τάξων που εντοπίζονται για πρώτη φορά ανασκευαάστηκαν από τις αλληλουχίες του μεταγονιδιώματος~(\foreignlanguage{english}{MAGs}), Κεφάλαιο~\foreignlanguage{english}{\ref{cha:swamp}}.
+
+   Όπως συμβαίνει και στις μικροβιακές κοινότητες, οι βιοπληροφορικές μέθοδοι σπάνια στέκουν 
+   απομονωμένες, αντίθετα τείνουν να συγκροτούν κι αυτές τις δικές τους "κοινότητες". 
+   Οι μέθοδοι που αναπτύχθηκαν στα πλαίσια αυτής της διατριβής επιδιώκουν να συγκροτήσουν ένα πλαίσιο μελέτης
+   από το επίπεδο της κοινότητας σε αυτό του είδους και από εκεί, πίσω πάλι στην κοινότητα. 
+   Ένα τέτοιο πλαίσιο αναλύεται για την μελέτη μικροβιακών αλληλεπιδράσεων. 
+
+
+
 \end{abstract*}
 
 % A list of figures and tables is optional
@@ -377,11 +465,11 @@
 % Now the actual text begins
 \mainmatter
 
-% Introduction 
-\include{chapters/intro}
+% % Introduction 
+% \include{chapters/intro}
 
-% The who : microbial diversity
-\include{chapters/chap-1}
+% % The who : microbial diversity
+% \include{chapters/chap-1}
 
 % % The who, the what and where: PREGO
 % \include{chapters/chap-2}
@@ -398,20 +486,20 @@
 % Finally... 
 \include{chapters/conclusion}
 
-% bUFFy funding
-\include{chapters/acknowledgements}
+% % bUFFy funding
+% \include{chapters/acknowledgements}
 
-% If there are attachments
-\appendixpage*          
-\appendix
-\include{appendices/app-B}
-\include{appendices/app-A}
+% % If there are attachments
+% \appendixpage*          
+% \appendix
+% \include{appendices/app-B}
+% \include{appendices/app-A}
 
 \backmatter 
 
 
 % The bibliography
-\bibliographystyle{unsrtnat}
+% \bibliographystyle{dinat}
 
 % \bibliographystyle{mla-good} % this style was downlowaded from: https://www.reed.edu/cis/help/LaTeX/bibtexstyles.html
 \bibliography{references}
@@ -422,6 +510,11 @@
 
 % End of document
 \end{document}
+
+
+
+
+
 
 
 % nice words I could use! 

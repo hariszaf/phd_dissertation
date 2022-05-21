@@ -32,7 +32,7 @@ Geometric Algorithms for Sampling the Flux Space of Metabolic Networks. \\
 37th International Symposium on Computational Geometry (SoCG 2021) \\ 
 DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.SoCG.2021.21}~\footnote{
    Authors' names are in alphabetical order. 
-   Here I present a modified version of the published version 
+   Here a modified version of the published version is presented
    in terms of relevance, coherence and formatting.
 }
 
@@ -78,26 +78,26 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    Systems Biology establishes a scientific approach and a paradigm. As a
    research approach, it is the qualitative and quantitative study of the systemic
    properties of a biological entity along with their ever evolving interactions
-   \cite{klipp2016systems, kohl2010systems}.
+   \citep{klipp2016systems, kohl2010systems}.
    By combining experimental studies  with mathematical
    modeling it analyzes the function and the behavior of biological systems.
    In this setting, we model the interactions between the  components of a system
    to shed light  on the system's \textit{raison d'être} and to decipher its underlying mechanisms
-   in terms of evolution, development, and physiology \cite{ideker2001new}.
+   in terms of evolution, development, and physiology \citep{ideker2001new}.
 
    Initially, Systems Biology emerged as a need. New technologies in Biology
    accumulate vast amounts of information/data from different levels of the
    biological organization, i.e., genome, transcriptome, proteome, metabolome
-   \cite{quinn2016sample}. This leads to the emerging question \textit{"what shall
+   \citep{quinn2016sample}. This leads to the emerging question \textit{"what shall
    we do with all these pieces of information"?} The answer, if we consider
    Systems Biology as a paradigm, is to move away from reductionism, still the main
    conceptual approach in biological research, and adopt holistic approaches for
-   interpreting how a system's properties emerge~\cite{noble2008music}. The
+   interpreting how a system's properties emerge~\citep{noble2008music}. The
    following diagram provides a first, rough, mathematical formalization of this
    approach.
 
    \begin{center}
-   \textit{components} $\,\to\,$ \textit{networks} $\,\to\,$ \textit{in silico models} $\,\to\,$\textit{phenotype} \cite{palsson2015systems}. \\ \end{center}
+   \textit{components} $\,\to\,$ \textit{networks} $\,\to\,$ \textit{in silico models} $\,\to\,$\textit{phenotype} \citep{palsson2015systems}. \\ \end{center}
 
    %  Metabolism
    Systems Biology expands in all the different levels of living entities, from the
@@ -105,7 +105,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    penetrates all levels horizontally is \emph{metabolism}; the
    process that modifies molecules and  maintains the living state of a
    cell or an organism through a set of chemical reactions
-   \cite{schramski2015metabolic}. The reactions begin with a particular molecule
+   \citep{schramski2015metabolic}. The reactions begin with a particular molecule
    which they convert into some other molecule(s), while they are catalyzed by
    enzymes in a key-lock relationship.
    We call the quantitative relationships between the components of a reaction   \emph{stoichiometry}.
@@ -124,9 +124,9 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    challenging, time consuming, and computationally intensive task; especially for species of high level of complexity such as \emph{Homo sapiens}.
    Even though sequencing the complete genome of a species is becoming a trivial task
    providing us with quality insight, manual curation is still mandatory and large groups 
-   of researchers need to spend a great amount of time to build such models \cite{thiele2010protocol}.
+   of researchers need to spend a great amount of time to build such models \citep{thiele2010protocol}.
    However, over the last few years, automatic reconstruction approaches for building genome-scale metabolic 
-   models \cite{machado2018fast} of relatively high quality have been developed.
+   models \citep{machado2018fast} of relatively high quality have been developed.
    Either way, we can now obtain the metabolic network of a bacterial species (single cell species)
    of a tissue and even the complete metabolic network of a mammal.
    Biologists are also moving towards obtaining such networks for all the species present in a microbial community. This will allow us to further investigate the dynamics, the functional profile, and the inter-species reactions that occur.
@@ -136,15 +136,15 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    
    % Definitions and background
    In metabolic networks analysis mass and energy are considered to be conserved
-   \cite{palsson2009metabolic}. As many homeostatic states, that is steady internal
-   conditions \cite{shishvan2018homeostatic}, are close to steady states (where the
+   \citep{palsson2009metabolic}. As many homeostatic states, that is steady internal
+   conditions \citep{shishvan2018homeostatic}, are close to steady states (where the
    production rate of each metabolite equals its consumption rate
-   \cite{cakmak2012new}) we commonly use the latter in metabolic networks analysis.
+   \citep{cakmak2012new}) we commonly use the latter in metabolic networks analysis.
 
    Stoichiometric coefficients are the number of molecules a biochemical reaction
    consumes and produces. The coefficients of all the reactions in a network,
    with $m$ metabolites and $n$ reactions ($m < n$),  form
-   the \emph{stoichiometric matrix} $S\in \RR^{m\times n}$~\cite{palsson2015systems}.
+   the \emph{stoichiometric matrix} $S\in \RR^{m\times n}$~\citep{palsson2015systems}.
    %
    % The flux space
    The nullspace of $S$ corresponds to the steady states of the network:
@@ -177,34 +177,34 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    % However, MAGs can be brought together and build the metabolic model of a whole community! 
 
    All physical variables are finite, therefore  the flux (and the concentration)
-   is bounded  \cite{palsson2015systems}; that is
+   is bounded  \citep{palsson2015systems}; that is
    for each coordinate $x_i$ of the $x$, there are $2n$ constants
    $x_{ub, i}$ and  $x_{lb, i}$
    such that  $x_{lb,i} \le x_i \le x_{ub, i}$, for $i  \in [n]$.
    We derive the constraints from explicit experimental information.
    In cases where there is no such information, reactions are left unconstrained by
-   setting arbitrary large values to their corresponding bounds according to their reversibility properties; i.e., if a reaction is reversible then its flux might be negative as well~\cite{lularevic2019improving}.
+   setting arbitrary large values to their corresponding bounds according to their reversibility properties; i.e., if a reaction is reversible then its flux might be negative as well~\citep{lularevic2019improving}.
    The constraints define a $n$-dimensional box
    containing both the steady and the dynamic states of the system.
    If we intersect that box with the nullspace of
    $S$, then we define a polytope that encodes all the possible steady
-   states and their  flux distributions \cite{palsson2015systems}.
+   states and their  flux distributions \citep{palsson2015systems}.
    We call it the  steady-state \emph{flux space}.
    Fig.~\ref{fig:sampling_workflow} illustrates the complete workflow from building a metabolic network to the computation of a flux distribution.
    
    % FBA & limitations
-   Using the polytopal representation, a commonly used method for the analysis of a metabolic network is Flux Balance Analysis (FBA)~\cite{orth2010flux}.
-   FBA identifies a single optimal flux distribution by optimizing a linear objective function over a polytope~\cite{orth2010flux}. Unfortunately, this is a \textit{biased} method because it depends on the  selection of the objective function.
+   Using the polytopal representation, a commonly used method for the analysis of a metabolic network is Flux Balance Analysis (FBA)~\citep{orth2010flux}.
+   FBA identifies a single optimal flux distribution by optimizing a linear objective function over a polytope~\citep{orth2010flux}. Unfortunately, this is a \textit{biased} method because it depends on the  selection of the objective function.
    %%
-   To study the  global features of a metabolic network we need \emph{unbiased methods}. To obtain  an accurate picture of the whole solution space we exploit sampling techniques \cite{schellenberger2009use}.
-   If collect a sufficient number of points uniformly distributed in the interior of the polytope, then the biologists can study the properties of certain components of the whole network and deduce significant biological insights~\cite{palsson2015systems}. Therefore, efficient sampling tools are of great importance.
+   To study the  global features of a metabolic network we need \emph{unbiased methods}. To obtain  an accurate picture of the whole solution space we exploit sampling techniques \citep{schellenberger2009use}.
+   If collect a sufficient number of points uniformly distributed in the interior of the polytope, then the biologists can study the properties of certain components of the whole network and deduce significant biological insights~\citep{palsson2015systems}. Therefore, efficient sampling tools are of great importance.
    
    % COPULAS ON RECOND 3D
    \begin{figure}[h]
       \centering
       \includegraphics[width=125mm]{figures/copulas_cropped.png}
       \caption[Flux distributions in the most recent human metabolic network Recon3D]{
-         Flux distributions in the most recent human metabolic network Recon3D~\cite{brunk2018recon3d}. 
+         Flux distributions in the most recent human metabolic network Recon3D~\citep{brunk2018recon3d}. 
          We estimate the flux distributions of the reactions catalyzed by the enzymes Hexokinase (D-Glucose:ATP) (HEX), Glucose-6-Phosphate Phosphatase, Edoplasmic Reticular (G6PPer)
          and Phosphoenolpyruvate carboxykinase (GTP) (PEPCK).
          As we sample steady states, the production rate of $glc\_\_D \_c$ should be equal to its consumption rate. 
@@ -214,7 +214,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
          Thus, in their copula we observe a negative dependency between HEX and PEPCK.
          A copula is a bivariate probability distribution for which the marginal probability distribution of each variable is uniform.
          It implies a positive dependency when the mass of the distribution concentrates along the up-diagonal (HEX - G6PPer)
-         and a negative dependency when the mass is concentrated along the down-diagonal (HEX - PEPCK). %~\cite{Cales18}.
+         and a negative dependency when the mass is concentrated along the down-diagonal (HEX - PEPCK). %~\citep{Cales18}.
          The bottom line contains the  reactions and their stoichiometry.
       }
       \label{fig:copulas}
@@ -232,7 +232,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    requires, for example, advanced engineering techniques to cope with memory
    requirements and to perform linear algebra operations with large matrices;
    e.g., in
-   Recon3D~\cite{brunk2018recon3d} we compute the null space of a
+   Recon3D~\citep{brunk2018recon3d} we compute the null space of a
    $8\,399 \times 13\,543$ matrix. Second, the polytopes are rather skinny
    (Sec.~\ref{sec:experiments}); this makes it harder for sampling algorithms to
    move in the interior of polytopes and calls for novel practical techniques to
@@ -240,27 +240,27 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
 
    There is extended on-going research concerning advanced algorithms and
    implementations for sampling metabolic networks over the last decades. Markov
-   Chain Monte Carlo algorithms such as Hit-and-Run (HR)~\cite{smith84} have been
+   Chain Monte Carlo algorithms such as Hit-and-Run (HR)~\citep{smith84} have been
    widely used to address the challenges of sampling. Two variants of HR are the
    non-Markovian Artificial Centering Hit-and-Run
-   (ACHR)~\cite{kaufman1998direction} that has been widely used in sampling
-   metabolic models, e.g.,~\cite{Saa16}, and Coordinate Hit-and-Run with Rounding
-   (CHRR)~\cite{haraldsdottir2017chrr}. 
-   The latter is part of the \texttt{cobra} toolbox~\cite{heirendt2019creation}, the most commonly used software package for the analysis of metabolic networks. 
+   (ACHR)~\citep{kaufman1998direction} that has been widely used in sampling
+   metabolic models, e.g.,~\citep{Saa16}, and Coordinate Hit-and-Run with Rounding
+   (CHRR)~\citep{haraldsdottir2017chrr}. 
+   The latter is part of the \texttt{cobra} toolbox~\citep{heirendt2019creation}, the most commonly used software package for the analysis of metabolic networks. 
    CHRR enables sampling from complex metabolic
    networks corresponding to the highest dimensional polytopes so far. There are
    also stochastic formulations where the inclusion of experimental noise in the
    model makes it more compatible with the stochastic nature of biological
-   networks~\cite{MacGillivray17}. The recent study in~\cite{fallahi2020comparison}
+   networks~\citep{MacGillivray17}. The recent study in~\citep{fallahi2020comparison}
    offers an overview as well as an experimental comparison of the currently
    available samplers.
 
    These implementations played a crucial role in actually performing in practice
    uniform sampling from the flux space. However, they are currently limited to
-   handle polytopes of dimension say $\leq 2\, 500$ \cite{fallahi2020comparison,
+   handle polytopes of dimension say $\leq 2\, 500$ \citep{fallahi2020comparison,
    haraldsdottir2017chrr}. This is also the order of magnitude of the most
    complicated, so far, metabolic network model built,
-   Recon3D~\cite{brunk2018recon3d}. By including $13\,543$ metabolic reactions and
+   Recon3D~\citep{brunk2018recon3d}. By including $13\,543$ metabolic reactions and
    involving $4 \,140$ unique metabolites, Recon3D provides a representation of the
    $17\%$ of the functionally of annotated human genes. To our knowledge, there is
    no method that can efficiently handle sampling from the flux space of Recon3D.
@@ -270,14 +270,14 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    % where drug responses can be assessed in the context of individual patient-specific genomes.
    Metabolism governs systems biology at all its levels, including the one of the community.
    Thus, we are not only interested in sampling a sole metabolic network, even if it has the challenges of the human.
-   Sampling in polytopes associated to network of networks are the next big thing in metabolic networks analysis and in Systems Biology \cite{bernstein2019metabolic,perez2016metabolic}.
+   Sampling in polytopes associated to network of networks are the next big thing in metabolic networks analysis and in Systems Biology \citep{bernstein2019metabolic,perez2016metabolic}.
 
    Regarding the sampling process, from the theoretical point of view, we are
    interested in the convergence time, or \textit{mixing time}, of the Markov Chain,
    or geometric \textit{random walk}, to the target distribution. Given a
    $d$-dimensional polytope $P$, the mixing time of several geometric random walks
    (e.g., HR or Ball Walk) grows quadratically with respect to the sandwiching
-   ratio $R/r$ of the polytope~\cite{LovSim,Lovasz06}. Here $r$ and $R$ are the
+   ratio $R/r$ of the polytope~\citep{LovSim,Lovasz06}. Here $r$ and $R$ are the
    radii of the smallest and largest ball with center the origin that contains, and
    is contained, in $P$, respectively; i.e., $rB_d \subseteq P \subseteq RB_d$,
    where $B_d$ is the unit ball. It is crucial to reduce $R/r$, i.e., to put $P$ in
@@ -292,50 +292,50 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    matrix. Thus, to put a polytope $P$ into isotropic position one has to generate
    a set of uniform points in its interior and apply to $P$ the transformation that
    maps the point-set to isotropic position; then iterate this procedure until $P$
-   is in $c$-isotropic position \cite{ Cousins15,Lovasz06}, for a constant~$c$.
-   In~\cite{Adamczak10} they prove that $\OO(d)$ points suffice to achieve
-   $2$-isotropic position. Alternatively in \cite{haraldsdottir2017chrr} they
+   is in $c$-isotropic position \citep{ Cousins15,Lovasz06}, for a constant~$c$.
+   In~\citep{Adamczak10} they prove that $\OO(d)$ points suffice to achieve
+   $2$-isotropic position. Alternatively in \citep{haraldsdottir2017chrr} they
    compute the maximum volume ellipsoid in $P$, they map it to the unit ball, and
    then apply to $P$ the same transformation. They experimentally show that a few
-   iterations suffice to put $P$ in John's position~\cite{John48}. Moreover, there
+   iterations suffice to put $P$ in John's position~\citep{John48}. Moreover, there
    are a few algorithmic contributions that combine sampling with distribution
-   isotropization steps, e.g., the multi-point walk~\cite{Bertsimas04} and the
-   annealing schedule~\cite{Kalai06}.
+   isotropization steps, e.g., the multi-point walk~\citep{Bertsimas04} and the
+   annealing schedule~\citep{Kalai06}.
 
    An important parameter of a random walk is the \textit{}{walk length}, i.e., the number of the intermediate points that a random walk visits before producing a single sample point.
    The longer the walk length of a random walk is, the smaller the distance of the current distribution to the stationary (target) distribution becomes.
-   For the majority of  random walks there are bounds on the walk length to bound the mixing time with respect to a statistical distance. For example, HR generates a sample from a distribution with total variation distance less than $\epsilon$ from the target distribution after $\sO(d^3)$~\cite{Lovasz06} steps, in a well rounded convex body and for log-concave distributions. Similarly, CDHR mixes after a polynomial, in the diameter and the dimension, number of steps~\cite{Laddha20,Narayanan20} for the case of uniform distribution. However, extended practical results have shown that both CDHR and HR converges after $\OO(d^2)$ steps~\cite{Chalkis19, Cousins15, haraldsdottir2017chrr}. The leading algorithms for uniform polytope sampling are the Riemannian Hamiltonian Monte Carlo sampler~\cite{VempalaRiem18} and the Vaidya walk~\cite{Chen18}, with mixing
+   For the majority of  random walks there are bounds on the walk length to bound the mixing time with respect to a statistical distance. For example, HR generates a sample from a distribution with total variation distance less than $\epsilon$ from the target distribution after $\sO(d^3)$~\citep{Lovasz06} steps, in a well rounded convex body and for log-concave distributions. Similarly, CDHR mixes after a polynomial, in the diameter and the dimension, number of steps~\citep{Laddha20,Narayanan20} for the case of uniform distribution. However, extended practical results have shown that both CDHR and HR converges after $\OO(d^2)$ steps~\citep{Chalkis19, Cousins15, haraldsdottir2017chrr}. The leading algorithms for uniform polytope sampling are the Riemannian Hamiltonian Monte Carlo sampler~\citep{VempalaRiem18} and the Vaidya walk~\citep{Chen18}, with mixing
    times $\sO(md^{2/3})$ and $\sO(m^{1/2}d^{3/2})$ steps, respectively.
    However, it is not clear if these random walks can outperform CDHR in practice,
    because of their  high cost per step and numerical instability.
 
-   Billiard Walk (BW)~\cite{Gryazina14} is a random walk that employs linear
+   Billiard Walk (BW)~\citep{Gryazina14} is a random walk that employs linear
    trajectories in a convex body with boundary reflections; alas with an unknown
    mixing time. The closest guarantees for its mixing time are those of HR and
-   stochastic billiards~\cite{Dieker15}. Interestingly,~\cite{Gryazina14} shows
+   stochastic billiards~\citep{Dieker15}. Interestingly,~\citep{Gryazina14} shows
    that, experimentally, BW converges faster than HR for a proper tuning of its
    parameters. The same conclusion follows from the computation of the volume of
-   zonotopes~\cite{Chalkis20}. It is not known how the sandwiching ratio of $P$
+   zonotopes~\citep{Chalkis20}. It is not known how the sandwiching ratio of $P$
    affects the mixing time of BW. Since BW employs reflections on the boundary,
-   we can consider it as a special case of Reflective Hamiltonian Monte Carlo~\cite{ChePioCaz18}.
+   we can consider it as a special case of Reflective Hamiltonian Monte Carlo~\citep{ChePioCaz18}.
 
 
    For almost all random walks the theoretical bounds on their mixing times are
    pessimistic and unrealistic for  computations. Hence,
    if we terminate the random walk earlier, we generate samples that are  usually highly correlated.
-   There are several \textit{MCMC Convergence Diagnostics} \cite{Roy20} to check
+   There are several \textit{MCMC Convergence Diagnostics} \citep{Roy20} to check
    if  the quality of a  sample can  provide an accurate
    approximation of the target distribution. For a dependent sample, a powerful
    diagnostic is the \textit {Effective Sample Size} (ESS). It is the number of
    effectively independent draws from the target distribution that the Markov chain
    is equivalent to. For autocorrelated samples, ESS bounds
-   the uncertainty in estimates \cite{geyer92} and provides  information about
-   the quality of the sample. There are several statistical tests to evaluate the quality of a generated sample, e.g., potential scale reduction factor (PSRF)~\cite{Gelman92}, maximum mean discrepancy (MMD)~\cite{Gretton12},
+   the uncertainty in estimates \citep{geyer92} and provides  information about
+   the quality of the sample. There are several statistical tests to evaluate the quality of a generated sample, e.g., potential scale reduction factor (PSRF)~\citep{Gelman92}, maximum mean discrepancy (MMD)~\citep{Gretton12},
    %(two-sample test)
-   and the uniform tests~\cite{CousinsThesis17}.
+   and the uniform tests~\citep{CousinsThesis17}.
    %%
    Interestingly, 
-   the copula representation we employ in Fig.~\ref{fig:copulas} to capture the dependence between two fluxes of reactions was also used  successfully in a geometric framework to detect financial crises capturing the dependence between portfolio return and volatility~\cite{Cales18}.
+   the copula representation we employ in Fig.~\ref{fig:copulas} to capture the dependence between two fluxes of reactions was also used  successfully in a geometric framework to detect financial crises capturing the dependence between portfolio return and volatility~\citep{Cales18}.
 
    % MMCS CONTRIBUTION
 \subsection{Contribution}
@@ -349,7 +349,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    of the random walk in the next phase, see Fig.~\ref{fig:mmcs_phases}.
    For sampling, we propose an improved variant of Billiard Walk (BW)
    (Sec.~\ref{subsec:mmcs-methods-bw} that enjoys faster
-   arithmetic complexity per step. We also handle efficiently the potential arithmetic inaccuracies near to the boundary, see~\cite{ChePioCaz18}.
+   arithmetic complexity per step. We also handle efficiently the potential arithmetic inaccuracies near to the boundary, see~\citep{ChePioCaz18}.
    %
    We accompany the MMCS algorithm with a powerful MCMC diagnostic, namely the
    estimation of Effective Sample Size (ESS), to identify a satisfactory
@@ -369,7 +369,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    for low dimensional models,  with a speed-up that ranges from $10$ to $100$ times;
    this gap on running times increases for bigger models
    (Table~\ref{tab:results1}). The quality of the sample our software produces is
-   measured with two widely used diagnostics, i.e., ESS and potential scale reduction factor (PSRF)~\cite{Gelman92}. The highlight of
+   measured with two widely used diagnostics, i.e., ESS and potential scale reduction factor (PSRF)~\citep{Gelman92}. The highlight of
    our method is the ability to sample from the most complicated human metabolic
    network that is accessible today, namely Recon3D. In Fig.~\ref{fig:copulas} we estimate marginal univariate and bivariate flux distributions in Recon3D which validate: \\
    (a) the  quality of the sample by confirming a mutually exclusive pair of biochemical pathways,
@@ -411,7 +411,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
 
    The geometric random walk of our choice
    to sample from a polytope
-   is based on  Billiard Walk (BW)~\cite{Gryazina14},
+   is based on  Billiard Walk (BW)~\citep{Gryazina14},
    which we modify to reduce the per-step cost.
 
    For a polytope $P = \{ x \in \RR^d \,|\, A x \leq b  \}$,
@@ -425,7 +425,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    a uniform number in $(0,1)$, that is $\eta\sim\mathcal{U}(0,1)$, and $\tau$ is a
    predefined constant. It is useful to set a bound, say $\rho$, on the number of
    reflections to avoid computationally hard cases where the trajectory may stuck
-   in corners. In \cite{Gryazina14} they set
+   in corners. In \citep{Gryazina14} they set
    $\tau \approx \mathop{diam}(P)$ and $\rho =10d$.
    Our choices for $\tau$ and $\rho$ depend on a
    burn-in step that we detail in  Sec.~\ref{sec:experiments}.
@@ -657,12 +657,12 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    depicts the procedure.
 
 
-   \emph{Termination.} There are no bounds on the mixing time of BW \cite{Gryazina14},
+   \emph{Termination.} There are no bounds on the mixing time of BW \citep{Gryazina14},
    hence for termination we rely on ESS.
    MMCS terminates when the minimum ESS among all the univariate
    marginals is larger than a requested value. We chose the marginal
    distributions (of each flux) because they are essential for systems biologists,
-   see \cite{Bordel10} for a typical example.
+   see \citep{Bordel10} for a typical example.
    In particular, after we generate a chain, the algorithm updates the ESS of each
    univariate marginal to take into account all the points that we have sampled in $P_i$,
    including the newly generated chain. We keep the minimum, say $n_i$, among all
@@ -753,32 +753,32 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
 
 
    \emph{Rounding step}. 
-   This step is motivated by the theoretical result in~\cite{Adamczak10} and the rounding
-   algorithms~\cite{Lovasz06, Cousins15}.
+   This step is motivated by the theoretical result in~\citep{Adamczak10} and the rounding
+   algorithms~\citep{Lovasz06, Cousins15}.
    We apply the linear transformation $T_i$ to $P_i$
    so that the sandwiching ratio of $P_{i+1}$ is smaller than that of $P_i$.
    %This also improves (progressively) the efficiency of BW (Sec.~\ref{sec:experiments}).
-   To find the suitable $T_i$ we compute  the SVD decomposition of the matrix that contains the sample row-wise \cite{Shiri20}.
+   To find the suitable $T_i$ we compute  the SVD decomposition of the matrix that contains the sample row-wise \citep{Shiri20}.
    
    \emph{Updating the  Effective Sample Size.}
    %%
    The effective sample size of a sample of points generated by a process with autocorrelations $\rho_t$ at lag $t$
    is function (actually an infinite series) in the $\rho_t$'s; its exact value is unknown.
-   Following \cite{geyer92}, we efficiently compute ESS employing a finite sum of monotone estimators
+   Following \citep{geyer92}, we efficiently compute ESS employing a finite sum of monotone estimators
    $\hat{\rho}_t$ of the autocorrelation at lag $t$, by exploiting Fast Fourier Transform. 
    Furthermore, given $M$ chains of samples, the autocorrelation estimator $\hat{\rho}_t$ is given by,
    $\hat{\rho}_t = 1 - \frac{C - \frac{1}{M}\sum_{i=1}^{M}\hat{\rho}_{t,i}}{B}$, 
-   where $C$ and $B$ are the within-sample variance estimate and the multi-chain variance estimate given in \cite{Gelman92} and $\hat{\rho}_{t,i}$ is an estimator of the autocorrelation of the $i$-th chain at lag $t$.
+   where $C$ and $B$ are the within-sample variance estimate and the multi-chain variance estimate given in \citep{Gelman92} and $\hat{\rho}_{t,i}$ is an estimator of the autocorrelation of the $i$-th chain at lag $t$.
    To update the ESS, for every new chain of points the algorithm generates, we compute
    $\hat{\rho}_{t,i}$. Then, using Welford's algorithm we
    update the average of the estimators of autocorrelation at lag $t$,
-   as well as the between-chain variance and the within-sample variance estimators given in~\cite{Gelman92}.
+   as well as the between-chain variance and the within-sample variance estimators given in~\citep{Gelman92}.
    Finally, we update the ESS using these estimators.
 
    To update the ESS, for every new chain of points the algorithm generates, we compute
    the estimator of its autocorrelation. Then, using Welford's algorithm we
    update the average of the estimators of autocorrelation at lag $t$,
-   as well as the between-chain variance and the within-sample variance estimators~\cite{Gelman92}.
+   as well as the between-chain variance and the within-sample variance estimators~\citep{Gelman92}.
    Finally, we update the ESS using these estimators.
    
    
@@ -819,7 +819,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
         We do this by computing the SVD decomposition of the matrix that
         contains the set of points row-wise. This corresponds to an SVD of a
         $\lambda \times d$ matrix and takes $O(\lambda^2d + d^3)$ operations
-        \cite{golub13}.
+        \citep{golub13}.
    \end{proof}
 
    In Section~\ref{sec:experiments} we discuss how to tune the parameters of MMCS
@@ -834,22 +834,22 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
 \label{sec:experiments}
 
    This section presents the implementation of our approach and the tuning of various parameters. 
-   We present experiments in an extended set of BiGG models \cite{king2016bigg}, including the most complex metabolic networks, the human Recon2D~\cite{swainston16} and Recon3D~\cite{brunk2018recon3d}. 
+   We present experiments in an extended set of BiGG models \citep{king2016bigg}, including the most complex metabolic networks, the human Recon2D~\citep{swainston16} and Recon3D~\citep{brunk2018recon3d}. 
    We end up to sample from polytopes of thousands of dimensions and show that our method can estimate precisely the flux distributions. 
    We analyze various aspects of our method such as the run-time, the efficiency, and the quality of the output.
 
    We compare against the state-of-the-art software for the analysis of
-   metabolic networks, which is the \texttt{Matlab toolbox} of \texttt{cobra}~\cite{heirendt2019creation}. Our implementation for low dimensional
+   metabolic networks, which is the \texttt{Matlab toolbox} of \texttt{cobra}~\citep{heirendt2019creation}. Our implementation for low dimensional
    networks is two orders of magnitude faster than \texttt{cobra}.
    As the dimension grows, this gap on the run-time increases.
    The workflow of \texttt{cobra} for sampling first performs a rounding step and then samples using Coordinate Directions Hit-and-Run (CDHR).
 
-   In~\cite{jadebeck2020hops} they provide a \texttt{C++} implementation of the
+   In~\citep{jadebeck2020hops} they provide a \texttt{C++} implementation of the
    sampling method that \texttt{cobra} uses and they show that their implementation is
    approximately $6$ times faster than \texttt{cobra}. Nevertheless, we choose to
    compare against \texttt{cobra}, since it additionally provides efficient
    preprocessing methods that are crucial for the experiments, and give an implicit
-   comparison with~\cite{jadebeck2020hops}.
+   comparison with~\citep{jadebeck2020hops}.
 
    % Figure 4: Plots with marginds of Recon2 and 3D
    \begin{figure*}[t!]
@@ -862,7 +862,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
       \vspace{0.25cm}
       \includegraphics[scale=0.215]{figures/GLGNS1}
       \includegraphics[scale=0.215]{figures/PYK}
-      \caption[Comparison of Recon2 and Recon3D flu]{Estimation, using our tools, of the marginal distribution of 6 reaction fluxes in two constraint-based model of Homo Sapiens metabolism, namely Recon2D~\cite{swainston16} (blue color) and Recon3D~\cite{brunk2018recon3d} (red color).
+      \caption[Comparison of Recon2 and Recon3D flu]{Estimation, using our tools, of the marginal distribution of 6 reaction fluxes in two constraint-based model of Homo Sapiens metabolism, namely Recon2D~\citep{swainston16} (blue color) and Recon3D~\citep{brunk2018recon3d} (red color).
       In the case of GK1 we observe how the flux distribution of a reaction may change once the direction of the reaction changes. }
       \label{fig:recon2-recon3}
    \end{figure*}
@@ -873,7 +873,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    estimation. To estimate each marginal flux distribution, using the samples, we
    exploit Gaussian kernel density estimation. This is a non-parametric way to
    estimate the probability density function of a random variable. For more details
-   we refer to~\cite{Jones96}.
+   we refer to~\citep{Jones96}.
 
    We provide a complete open-source software framework to handle big metabolic
    networks. 
@@ -887,14 +887,14 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    The core of our implementation is in \texttt{C++} to optimize performance while the
    user interface is implemented in \texttt{R}. The package employs
    % % \eigen~
-   \cite{eigenweb} for linear algebra, 
+   \citep{eigenweb} for linear algebra, 
    % % \boost~
-   % \cite{boostrandom} for random
+   % \citep{boostrandom} for random
    number generation, 
    % % \mosek~
-   % \cite{mosek} as the linear programming solver, and expands 
+   % \citep{mosek} as the linear programming solver, and expands 
    % % \volesti~
-   \cite{chalkis2020volesti}, an open-source package for high dimensional sampling and volume approximation.
+   \citep{chalkis2020volesti}, an open-source package for high dimensional sampling and volume approximation.
 
    All experiments were performed on a PC with \texttt{Intel Core i7-6700 3.40GHz $\times$\ 8 CPU} and \texttt{32GB RAM}.
    In the sequel, MMCS refers to our implementation.
@@ -927,7 +927,9 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
       %Recon3D  & 5335 & 103572 &  144400 (2) & $\checkmark$  & $\sim 410$ days &  & 2.28e+11 & \\
       \hline
       \end{tabular}
-      \caption[Recon2 and Recond3D distribution comparison]{\label{tab:results1} Several, $17$, metabolic networks from \cite{king2016bigg}; also  Recon2D and Recon3D from~\cite{Noronha18}.
+      \caption[Recon2 and Recond3D distribution comparison]{\label{tab:results1} 
+      Several, $17$, metabolic networks from 
+         \citep{king2016bigg}; also  Recon2D and Recon3D from~\citep{noronha2019virtual}.
          %%
          The semantics of the tables are as follows: (m) the number of Metabolites,
          (n) the number of Reactions, %.
@@ -936,7 +938,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
          value of ESS among all the univariate marginals in each phase is $1\,000$
          (we report the number of phases in parenthesis); for \texttt{cobra} we set the
          walk length to $8d^2$ and $1.57e$+$08$ for Recon2D
-         following~\cite{haraldsdottir2017chrr}, sample at least $1\,000$ points and
+         % following~\citep{haraldsdottir2017chrr}, sample at least $1\,000$ points and
          stop when all marginals have PSRF $< 1.1$; the run-time of \texttt{cobra} for
          Recon2D is an estimation of the sequential time and we report it to have a
          rough comparison with our implementation.}
@@ -974,7 +976,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    isotropic position. 
    After we compute the SVD decomposition of (the matrix corresponding to) the point-set, 
    we rescale the singular values so that the smallest one is $1$; 
-   this is to improve numerical stability as suggested in \cite{Cousins15}.
+   this is to improve numerical stability as suggested in \citep{Cousins15}.
 
    We have also experimentally found that to improve the roundness from phase to
    phase, it suffices to set the maximum number of Billiard Walk points per phase to
@@ -996,8 +998,9 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
  \label{subsec:experiments}
  
    We test and evaluate our software on 17 models from the BIGG database
-   \cite{king2016bigg} as well as Recon2D and Recon3D from~\cite{Noronha18}. In
-   particular, we sample from models that correspond to polytopes of dimension less
+   \citep{king2016bigg} as well as Recon2D and Recon3D 
+   from~\citep{noronha2019virtual}. 
+   In particular, we sample from models that correspond to polytopes of dimension less
    than $100$; the simplest model in this setting is the well known bacteria
    \textit{Escherichia Coli}. We also sample from models that correspond to
    polytopes of dimension a few thousands; this is the case for Recon2D and
@@ -1005,9 +1008,9 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    only sequential running times.
 
    We assess the quality of our results by employing both the Effective Sample Size
-   (ESS) and the potential scale reduction factor (PSRF)~\cite{Gelman92}. In
+   (ESS) and the potential scale reduction factor (PSRF)~\citep{Gelman92}. In
    particular, we compute the PSRF for each univariate marginal of the sample that
-   MMCS outputs. Following \cite{Gelman92}, a convergence is satisfying according
+   MMCS outputs. Following \citep{Gelman92}, a convergence is satisfying according
    to PSRF when all the marginals have PSRF smaller than $1.1$.
 
 
@@ -1022,11 +1025,11 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
 
    The histograms in Figure~\ref{fig:recon2-recon3} illustrate an approximation for the flux distribution of 6 reaction fluxes in Recon2D and Recon3D, respectively. 
    Notice the difference in estimated densities due to the stoichiometric matrix update from Recon2D to Recon3D. 
-   The marginal flux distribution of reaction Thioredoxin in Recon2D was estimated also in~\cite{haraldsdottir2017chrr} and used as an evidence for the quality of the sample.  
+   The marginal flux distribution of reaction Thioredoxin in Recon2D was estimated also in~\citep{haraldsdottir2017chrr} and used as an evidence for the quality of the sample.  
    In Figure~\ref{fig:copulas}, we employ the copula representation to capture the dependency between two fluxes of reactions and confirm a mutually exclusive pair of biochemical pathways. 
 
    Comparing runtime performance,  MMCS is one or two orders of magnitude faster than \texttt{cobra} and this gap becomes much larger for higher dimensional models such as Recon2D and Recon3D. 
-   Considering the experiments reported in~\cite{jadebeck2020hops}, they report the run-time of CDHR for each model until it generates a sample with PSFR $1.2$; for Recon3D they report $\sim 1$ day. 
+   Considering the experiments reported in~\citep{jadebeck2020hops}, they report the run-time of CDHR for each model until it generates a sample with PSFR $1.2$; for Recon3D they report $\sim 1$ day. 
    Interestingly, for Recon3D, MMCS achieves PSRF $1.2$ after $\sim 1$ hour while reach PSRF $1.1$ after $\sim 1$ day. 
 
    For some models --we report them in Table~\ref{tab:skip_phases}-- we introduce a further improvement to obtain a better convergence. If there is a marginal in
@@ -1139,7 +1142,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    Moreover, our method could be extended to any log-concave distribution
    restricted to the flux space and combined with bayesian metabolic flux analysis,
    to sample from multivariate, possibly multi-modal target distribution
-   \cite{heinonen2019bayesian} addressing multiple challenges of the method from
+   \citep{heinonen2019bayesian} addressing multiple challenges of the method from
    the biological point of view (e.g., unrealistic assumptions, uncertainty etc.).
    Last but not least, flux sampling in metabolic models built out from multiple
    metabolic networks, e.g., representing a microbial community, could also lead

@@ -77,25 +77,78 @@
    offering high-quality, cutting-edge alternatives for testing hypotheses about microbiome structure 
    and functioning as well as assembly of eukaryote genomes from complex environmental DNA samples~\citep{tedersoo2021perspectives}.
 
+\section{Containerization technologies and e-infrastructures can ensure both the computational capacity 
+         required and reproducibility}
+\label{chap:compute}
 
-\section{Gaining insight from literature and metadata mining}
+   As shown in Chapter~\ref{cha:hpc} the computing resources required for the analysis of several 
+   microbiome studies may range from those covered by a personal computer to overwhelming the capacity
+   of Tier-2 HPC facilities;
+   this also applies for any biological topic using HTS data. 
+   On top of that, as also shown in Chapter~\ref{cha:hpc}, the maintance of bioinformatics-oriented HPC facilities 
+   comes with a great number of challenges. 
+
+   % PIPELINES
+   By encapsulating a software along with its dependencies in an isolated and easy to reinstall environment (container) 
+   containerization addresses several of them at once; 
+   first, the distribution and the installation becomes now a straight-forward task, requiring only for a containerization technology 
+   present on the facility,
+   second, versioning of the various software used is not an issue anymore as a container may either "save" a version from being obsolete
+   in case it is strongly dependent on that, either keep track of the latest version of the encapsulated software, 
+   morevover, several versions of the same software may be part of different containers without any conficts.
+   In addition, the creation and management of standardized workflows/pipelines is facilitated to a great extent. 
+   Workflow tools such as 
+   \href{https://github.com/common-workflow-language/common-workflow-language}{Common Workflow Language (CWL)}
+   \footnote{\href{https://github.com/common-workflow-language/common-workflow-language}{https://github.com/common-workflow-language/common-workflow-language}}, 
+   \href{https://snakemake.github.io}{Snakemake} 
+   \footnote{\href{https://snakemake.github.io}{https://snakemake.github.io}}
+   and 
+   \href{https://www.nextflow.io}{Nextflow}
+   \footnote{\href{https://www.nextflow.io}{https://www.nextflow.io}}
+   have been proven of high value 
+   in building such pipelines as they support the connection of multiple independent software.
+   MGnify~\citep{mitchell2020mgnify} is a great example of this case. 
+
+   However, more often than not, such workflows require major computing resources to analyse
+   real-world microbiome data sets.
+   To this end, HPC facilities and cloud solutions are required. 
+   Therefore, efforts such as those discussed in Section~\ref{publ:pema} 
+   for containerised tools such as the PEMA workflow~\citep{zafeiropoulos2020pema}
+   to be integrated in e-infrustructures, are rather significant. 
+   This way reproducability is secured and analyses that cannot be performed in a personal computer
+   is accessible to researches that have no access to local servers or HPCs. 
+
+
+\section{High quality metadata enable efficient exploitation of sequecning data in a meta-analysis level}
 \label{chap:concl-associations}
+   
+      It is now common place that both shotgun and long-read metagenomics provide 
+      high quality data enabling the study of real-world microbial communities even at the strain level~\citep{meyer2022critical}.
+      However, these data are not fully exploited unless they come with thorough and standardized metadata;
+      indicatively it has been shown that more than the 20\% of the metagenomes published between 2016 and 2019 
+      were not even accessible~\citep{eckert2020every}.
+      
+      To address such challenges, community-driven initiatives can be of great importance~\citep{vangay2021microbiome}.
+   
+   
+      Environmental metagenomic data provide a new conceptual framework because microorganisms have been established as a major participants 
+      in both climate drivers as well as climate change issues [6]. 
+      Global resources like MGnify [a], MG-RAST [b], JGI/IMG [c] offer access to indexed metagenomic datasets from a number of experiment types 
+      like amplicon or shotgun metagenomic studies (Table 2.1, WP1). 
+      Text or sequence search, as well as browsing predefined hierarchies like biome are possible. 
+      
+   
+   
+      biological insight: example from the paper 
+   
+   
+      value of metadata 
+   
+      provenance 
 
-   biological insight: example from the paper 
 
 
-   value of metadata 
-
-   provenance 
-
-
-
-\section{e-infrastructures can provide both capacity and reproducibility}
-\label{chap:comp}
-
-
-
-\section{Flux sampling can pr}
+\section{Flux sampling illustrates phenotypic changes of a species under different conditions}
 \label{chap:concl-met-nets}
 
 
@@ -107,7 +160,7 @@
 
 
 \section{Future work}
-\label{chap:fut-wor}
+\label{chap:fut-work}
 
 
    to understand the patterns of biodiversity
@@ -129,25 +182,12 @@
 
 
 
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "thesis"
-%%% End: 
-
-
-% PIPELINES
-By encapsulating all software and its dependencies in an isolated and easy to reinstall environment (container) containerization addresses this challenge. In addition, packaging a software per container simplifies management of the software requirements but also facilitates the creation and management of standardized workflows/pipelines. Workflow tools such as 
-\href{https://github.com/common-workflow-language/common-workflow-language}{Common Workflow Language (CWL)}, 
-\href{https://snakemake.github.io}{Snakemake} and \href{https://www.nextflow.io}{Nextflow} have been proven of high value in building such pipelines as they support the connection of multiple independent software.
-Another route of access to metagenomics analysis datasets is the Metagenome Exchange Registry which contains mappings between a number of well-established metagenome analysis platforms and their raw data in INSDC. Its aim is to aid comparison and benchmarking of tools and services as well as to help users explore metagenomics data in INSDC that are analysed by third party services. The registry is available as an API with plans to release a user interface in future.
-
-
 
 
 
 % METADATA
 Thus, it is fundamental for the community to make apprehend the value of 
-this and comply to the standards~\cite{}
+this and comply to the standards~\citep{}
 
 
 
@@ -157,4 +197,4 @@ along with techniques such Raman spectometry etc.
 
 
 steady-state does not consider kinetics or regulatory events
-Integrating stoichiometric approaches with machine learning and more~\cite{sahu2021advances}
+Integrating stoichiometric approaches with machine learning and more~\citep{sahu2021advances}

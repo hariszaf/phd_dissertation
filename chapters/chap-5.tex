@@ -437,7 +437,7 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
    Since the majority of analyses running on the cluster demand dedicated cores, hardware multithreading does not perform well. 
    In our experience, the existence of more (logical) cores in compute nodes misleads the least experienced users into using more threads than the physically available ones, which slows down their executions. 
    In comparison, assisting servers (filesystems, login nodes, web servers) make use of hardware multithreading, since they serve numerous small tasks from different users/sources that commonly contain Input/Output (I/O) operations. 
-   GPUs provide an alternative way for parallel execution, but they are supported by a limited number of bioinformatics software tools. Nevertheless, GPUs can optimize the execution process in specific, widely used bioinformatic analyses, such as sequence alignment \cite{vouzis2011gpu, nobile2017graphics}, image processing in microtomography (e.g., microCT), or basecalling of Nanopore raw data.
+   GPUs provide an alternative way for parallel execution, but they are supported by a limited number of bioinformatics software tools. Nevertheless, GPUs can optimize the execution process in specific, widely used bioinformatic analyses, such as sequence alignment \citep{vouzis2011gpu, nobile2017graphics}, image processing in microtomography (e.g., microCT), or basecalling of Nanopore raw data.
 
 
 
