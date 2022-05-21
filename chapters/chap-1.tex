@@ -139,7 +139,7 @@
    First, FastQC \cite{fastqc} is used to obtain an overall read-quality summary; visual inspection of each sample's quality may recommend removing those insufficient quality, as well as samples with a low number of reads, and rerunning the analysis. 
    To correct errors produced by the sequencer, PEMA incorporates a number of tools. 
    Trimmomatic \cite{bolger2014trimmomatic} implements a series of trimming steps, which either remove parts of the sequences corresponding to the adapters or the primers, trim and crop parts of the reads, or even remove a read completely, when it fails to reach the quality-filtering standards set by the user. 
-   Cutadapt \cite{martin2011cutadapt} is used additionally for the case of ITS to address the variability in length of this marker gene (see Additional File 1: Supplementary Methods). 
+   Cutadapt \cite{martin_cutadapt_2011} is used additionally for the case of ITS to address the variability in length of this marker gene (see Additional File 1: Supplementary Methods). 
    BayesHammer \cite{nikolenko2013bayeshammer}, an algorithm of the SPAdes assembly toolkit \cite{bankevich2012spades}, revises incorrectly called bases. 
    PANDAseq \cite{masella2012pandaseq} assembles the overlapping paired-end reads, and then the \texttt{obiuniq} program of OBITools \cite{boyer2016obitools} groups all the identical sequences in every sample, keeping track of their abundances. 
    The VSEARCH package \cite{rognes2016vsearch} is then invoked for chimera removal; 
@@ -233,10 +233,7 @@
       This eases further analysis both within the PEMA framework (e.g., partial re-execution for parameter exploration) and beyond. 
       An extra subfolder is created when an ecological analysis via the \texttt{phyloseq} package has been selected.
 
-
-   \subsubsection*{PEMA modules added after publication} \todo{REMEMBER TO WRITE THIS PART}
-
-
+      
    % PEMA RESULTS
    \subsection{Results \& Validation}
 
@@ -641,6 +638,31 @@
 
       \textbf{Supplementary Figure S7:} Bar plot depicting the taxonomy of the retrieved OTUs from PEMA at the class of Betaproteobacteriales.
    \fi
+
+   \subsection{PEMA modules added after its publication}
+
+      Since its publication, PEMA has been under continuous development and testing.
+      Custom databases can be now used to train both classifiers used in the PEMA framework, thus
+      the taxonomy assignment step is not limited by the reference databases included on PEMA.
+      With the release of the \href{https://github.com/hariszaf/pema/releases/tag/v.2.1.3}{v.2.1.3}
+      \footnote{\href{https://github.com/hariszaf/pema/releases/tag/v.2.1.3}{https://github.com/hariszaf/pema/releases/tag/v.2.1.3}}
+      version, PEMA was re-architectured completely aiming at an easier way for people to contribute. 
+      On top of that, several modules have been added, mostly in an attempt to address requests from users and
+      e-infrustructures (e.g., \href{https://www.lifewatch.eu/internal-joint-initiative/}{LifeWatch ERIC IJI}
+      \footnote{\href{https://www.lifewatch.eu/internal-joint-initiative/}{https://www.lifewatch.eu/internal-joint-initiative/}}
+      ). 
+      On its current version (v.2.1.5) it now supports the analysis of one extra
+      marker gene, the 12S rRNA gene, by exploiting the 12S Vertebrate Classifier v2.0.0-ref database \citep{teresita_m_porter_2021_5157047}.
+      For the case of 18S rRNA marker gene, the PR2 database \citep{guillou2012protist} was integrated 
+      so now the user may select between Silva and PR2,
+      while Silva v.138 has been also added. 
+      Furtheremore, thanks to the ncbi-taxonomist tool~\citep{buchmann2020collecting}, 
+      PEMA now provides an extended OTU/ASV table where in the last column the NCBI Taxonomy Id 
+      for the taxonomic level closer to the species name rank for which there is one, is available.
+      Last but not least, a new version of the parameters file has been made to provide a machine-readable version 
+      of it so the values set by the user can be parsed for potential errors in an automatic way. 
+
+
    \newpage
 
 

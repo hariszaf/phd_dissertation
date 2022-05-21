@@ -8,40 +8,124 @@
 \label{cha:conclusion}
 
 
-\begin{enumerate}
-   \item Role of technologies such as containerization. 
-   \item Trends for reproducible pipelines and role of infrastuctures
-\end{enumerate}
+\section{Microbial diversity assesment using HTS methods}
+\label{chap:concl-diversity}
+
+   Main goal of this PhD project was to address on-going challenges 
+   related to the bioinformatics analysis of HTS-oriented studies 
+   as well as 
+   to provide ways for the optimal exploitation of such data and of 
+   the current knowledge that is linked to them. 
+
+   The 16S rRNA gene has been used for decades as the golden standard for the 
+   study of microbial communities. 
+   It has been shown that the
+   full-length 16S sequence
+   combined with appropriate treatment of the 
+   intragenomic copy variants 
+   has the potential to provide taxonomic resolution of 
+   bacterial communities even at the strain level~\citep{johnson2019evaluation}.
+   However, when the region is chosen carefully 
+   and a thorough alignment procedure is applied,
+   even short short reads may return phylogenetic information 
+   comparable with the one fron full-length 16S rRNA reads~\citep{jeraldo2011suitability}.
+   This was also shown in Chapter~\ref{cha:swamp} as the 16S rRNA amplicon analysis 
+   was in line with the taxonomy assignment of the shotgun reads. 
+
+   Even if amplicon studies have proven themselves essential for the assessment of 
+   microbial diversity, the bioinformatics analaysis in such studies, 
+   usually comes with several issues; 
+   with the lack of parameter tuning being among the most crucial ones. 
+   As shown in Chapter~\ref{publ:pema} where mock communities were used to validate the PEMA results,
+   it is parameter tuning that determines the 
+   precision and recall scores in such analyses. 
+   Sequencing mock communities along with the rest of the samples   
+   allows the tuning of the bioinformatics analysis based on a known assemblage
+   and thus, it enables parameter tuning based on the idiosyncracy of each particular experiment/study~\citep{bokulich2020measuring}.
+
+   When studying a microbial community, non-prokaryotic species need to be considered too. 
+   In that case, 16S rRNA is not the best marker to use; instead, several markers 
+   have been used for different taxonomic groups. 
+   Thus, several studies aiming at the biodiversity assessment of environmental samples, 
+   make use of several markers and apparently, workflows supporting their analysis are vital. 
+   As shown in Chapter~\ref{publ:pema}, the PEMA approach attempts to address this challenge 
+   by supporting the analysis of several markers but also by
+   supporting the semi-automatic analysis of any marker since training of the classifiers invoked
+   with any local database is possible. 
+
+   Moreover, it is also commonly known that pseudogenes as well as 
+   nuclear mitochondrial pseudogenes (numts) can lead to several biases in such studies \citep{song2008many}.
+   To address this challenge multiple computational efforts have been implemented~\citep{porter2021profile}
+   This issue also applies for the case of Bacteria and Archaea and the 16S rRNA gene~\citep{pei2010diversity}
+   even if it has been shown that bacterial pseudogenes have a great chance of being removed almost directly after their formation;
+   so fast that to be governed by a strictly neutral model of stochastic loss~\citep{kuo2010extinction}.
+   As shown in Chapter~\ref{publ:darn}, a great part of the OTUs/ASVs retrieved from COI amplicon data
+   may actually come from bacterial and/or archaeal taxa.
+   Such approaches need to be merged in amplicon studies as an extra
+   quality control stop but also to enable further investigation of the unassigned OTUs/ASVs. 
+   In Chapter~\ref{publ:darn} is also shown the need for reference databases to also include non-target sequences 
+   so they can distinguish actual hits. 
+
+   However, there is still a major question regarding the microbial diversity assessment; 
+   how could HTS methods be used to recognise novel taxa? 
+   As shown in Chapter~\ref{cha:swamp}, the reconstruction of MAGs from shotgun metagenomics data
+   may play a great role in the description of unknown and currently uncultivated taxa. 
+   Such studies and their corresponding MAGs have enriched our knowledge on the tree of life to a great extent 
+   over the last few years, uncovering several prokaryotic phyla, leading to 
+   radical challenges on their taxonomy and the taxonomy scheme~\citep{parks_gtdb_2022}.
+   Long-read sequencing technologies such as Nanopore and PacBio, have improved their accuracy to a great extent,
+   offering high-quality, cutting-edge alternatives for testing hypotheses about microbiome structure 
+   and functioning as well as assembly of eukaryote genomes from complex environmental DNA samples~\citep{tedersoo2021perspectives}.
+
+
+\section{Gaining insight from literature and metadata mining}
+\label{chap:concl-associations}
+
+   biological insight: example from the paper 
+
+
+   value of metadata 
+
+   provenance 
 
 
 
-\section{The \textit{who}}
-
-   Insight after this PhD on the \textit{who} question. 
-
-   A lot of \texttt{darn} here
-
-   and a lot of \texttt{pema}
-
-   mention the animal christina found 
-
-
-   but also the PREGO-oriented \textit{who} when
-   someone asks who can do a process, or who lives 
-   in a certain environment 
+\section{e-infrastructures can provide both capacity and reproducibility}
+\label{chap:comp}
 
 
 
-
-\section{The \textit{where}}
-
-   Using the swamp samples we found that 
-   bins from there also live in WHERE!
+\section{Flux sampling can pr}
+\label{chap:concl-met-nets}
 
 
 
+   \begin{enumerate}
+      \item Role of technologies such as containerization. 
+      \item Trends for reproducible pipelines and role of infrastuctures
+   \end{enumerate}
 
-\section{The \textit{what}}
+
+\section{Future work}
+\label{chap:fut-wor}
+
+
+   to understand the patterns of biodiversity
+   found in most natural habitats, it is crucial to understand
+   the evolution, distribution and diversity of bacterial nutri-
+   tional preferences and metabolic strategies across the tree
+   of life [52]    \citep{bajic2020ecology}
+
+
+
+   As already discussed, metabolic models 
+   at the community level. 
+   to infer microbial interactions but also to study the fitness of the community. 
+
+
+   Eco-evolutionary dynamics of complex social strategies in microbial communities~\citep{harrington2014eco}
+
+
 
 
 
