@@ -5,7 +5,7 @@
 % --------------------------------------------------
 
 \chapter{
-    Studying real-world microbial communities in extreme environments
+    Studying real-world microbial communities
 }
 \label{cha:swamp}
 
@@ -14,20 +14,46 @@
 \section{
    Deciphering the functional potential of a hypersaline marsh microbial mat community
 }
+\label{publ:tristomo-ecology}
 
-\textbf{Citation:} \\ 
+\textbf{Status:} \\ 
    Pavloudi C, Zafeiropoulos H, 
-   Deciphering the functional potential of a hypersaline marsh microbial mat community.
-   Under submission in FEMS Microbiology Ecology. \\ 
+   Deciphering the functional potential of a hypersaline marsh microbial mat community.\\
+   Under review in FEMS Microbiology Ecology. \\ 
    Shared co-authorship and correspondance.
 
 
 \subsection{Abstract}
 
+   Microbial mats are vertically stratified communities of microorganisms characterised by 
+   pronounced physiochemical gradients allowing for high species diversity 
+   and a wide range of metabolic capabilities. 
+   High Throughput Sequencing has the potential to reveal the biodiversity and function of such ecosystems 
+   in the cycling of elements and organic matter recycling.
+
+   The present study combines 16S rRNA amplicon sequencing and shotgun metagenomics 
+   on sediments and microbial mats from a hypersaline marsh in Tristomo bay 
+   (Karpathos, Greece). 
+   Sampling was conducted in July 2018 and November 2019. 
+   Samples were collected from the microbial mats and the deeper sediment; 
+   orange and pink microbial aggregates observed in the water overlying the 
+   sediment were also collected, as well as sediment samples with no apparent layering.
+
+   Metagenomic assembly and binning in the sample level, revealed 250 bacterial 
+   and 39 archaeal metagenome-assembled genomes, 
+   with completeness estimates higher than 70\%  and contamination less than 5%. 
+   Halobacteria and Bacteroidetes were among the most abundant taxa in the microbial mats. 
+   Photosynthesis was most likely performed by purple sulphur and non-sulphur bacteria. 
+   
+   Overall, both the sequencing methodologies seemed to result in similar 
+   taxonomic compositions. 
+   All samples had the functional capacity for sulphate reduction, 
+   dissimilatory arsenic reduction and conversion of pyruvate to oxaloacetate. 
 
 
 % AFOULOPAPER INTRODUCTION
 \subsection{Introduction}
+\label{swamp:intro}
 
    Microbial mats are vertically stratified communities of functional groups of microorganisms embedded in an organic matrix, 
    which may also contain minerals such as silicates and carbonates 
@@ -46,7 +72,7 @@
    thus enabling a flow of resources and energy for the survival of the overall community 
    \citep{ruvindy_unravelling_2016, prieto-barajas_microbial_2018}. 
    The role of microbial mats has been vital throughout Earth's history since they produced and released reduced gases, 
-   e.g. O2, H2, CH4, in the early earth's atmosphere \citep{hoehler_role_2001}. 
+   e.g. O$_2$, H$_2$, CH$_4$, in the early earth's atmosphere \citep{hoehler_role_2001}. 
    In addition, they constitute the first ecosystems, along with stromatolites 
    \citep{santoyo_unveiling_2021}, 
    and probably are the oldest structured ecosystems on earth~\citep{van_gemerden_microbial_1993}.
@@ -80,7 +106,7 @@
    The study area is included in the Natura 2000 network (site GR4210003) and also in the catalogue of small island wetlands 
    (Government Gazette Issue on Compulsory Expropriations and City-Planning 229/19.6.2012) with the code Y421KAR001 (total area: 1.9 ha) (Figure~\ref{fig:karpathos-marsh} B). 
    It is a seasonal brackish water marsh formed at the edge of a small plain where a seasonal stream ends, 
-   characterised as an intertidal marsh (type H) according to the Ramsar convention. 
+   characterised as an intertidal marsh (type H) according to the \href{https://www.ramsar.org/about/the-convention-on-wetlands-and-its-mission}{Ramsar convention}. 
    In the past, it probably occupied a larger area and was connected to the stream. 
    Most of the area is fenced with dry stones that used to be cultivated systematically. 
    Today crops exist in only a small part and there is livestock grazing around the marsh. 
@@ -99,21 +125,36 @@
    Therefore, microbiome metabolic functions and entire biochemical pathways that occur in a sample can be explored after processing 
    the metagenomic information~\citep{sharpton_introduction_2014}. 
 
-   Over the recent years, HTS approaches have been used to study the taxonomic and the functional profiles of the microbial communities present in microbial mats 
-   (Chen et al. 2020; Wong et al. 2020; Kindler et al. 2022). 
-   Several novel high-level taxa have been discovered, e.g. Zixibacterial order GN15 (Wong et al. 2020), 
+   \begin{figure}[!htbp]
+      \centering
+      \includegraphics[width=0.85\columnwidth]{figures/karpathos-swamp.png}
+      \caption[Tristomo marsh in Karpathos overview]{
+         A) Location of Karpathos island (red pin) in the south east of the Aegean Sea, 
+         B) satellite image of Tristomo bay and the Tristomo marsh (red pin), 
+         C) overview of the marsh in July 2018, 
+         D) overview of the marsh in July 2018, where orange aggregates floating in the water are shown and 
+         E) a sediment core from 2018 including salt crust, microbial mat, sediment and an orange aggregate. 
+         (Map data: ©2022 Google Earth).
+      }
+      \label{fig:karpathos-marsh}
+   \end{figure}   
+
+
+
+   Over the recent years, HTS approaches have been used to study the taxonomic and the functional 
+   profiles of the microbial communities present in microbial mats 
+   \citep{chen_discovery_2020, wong_microbial_2020, kindler_genome-resolved_2022}. 
+   Several novel high-level taxa have been discovered, e.g. Zixibacterial order GN15~\citep{wong_microbial_2020}, 
    and a better understanding on both their adaptive responses in such environments has been established. 
    On top of that, further insight on the mechanisms governing such assemblages has been gained, e.g. the role of photoheterotrophy 
-   (Kindler et al. 2022). 
+   \citep{kindler_genome-resolved_2022}. 
    The aim of the present study was to identify the microbial communities present in samples from the 
    hypersaline Tristomo marsh, as well as their functional and metabolic capabilities.
 
 
-
-
 % AFOULOPAPER METHODS
 \subsection{Methods}
-
+\label{swamp:methods}
 
 \subsubsection*{Sample collection}
 
@@ -162,21 +203,7 @@
    Additional authorization was also provided from the Management Agency of Dodecanese Protected Areas. 
 
 
-   \begin{figure}[h]
-      \centering
-      \includegraphics[width=0.85\columnwidth]{figures/karpathos-swamp.png}
-      \caption[Tristomo marsh in Karpathos overview]{
-         A) Location of Karpathos island (red pin) in the south east of the Aegean Sea, 
-         B) satellite image of Tristomo bay and the Tristomo marsh (red pin), 
-         C) overview of the marsh in July 2018, 
-         D) overview of the marsh in July 2018, where orange aggregates floating in the water are shown and 
-         E) a sediment core from 2018 including salt crust, microbial mat, sediment and an orange aggregate. 
-         (Map data: ©2022 Google Earth).
-      }
-      \label{fig:karpathos-marsh}
-   \end{figure}   
-
-   \begin{figure}[h]
+   \begin{figure}[!htbp]
       \centering
       \includegraphics[width=0.98\columnwidth]{figures/karpathos_16S_phyla.png}
       \caption[Tristomo marsh in Karpathos overview]{
@@ -205,7 +232,8 @@
    The raw sequence reads were processed with PEMA (version 2.1.4) \citep{zafeiropoulos2020pema} using VSEARCH for the creation of OTUs. 
    Taxonomic assignment was performed with the SILVA database (version 132) \citep{quast_silva_2013}. 
    The detailed parameters of the PEMA processing are given in Supplementary File 1. 
-   The phyloseq (version 1.36) \citep{mcmurdie2013phyloseq}, vegan (version  2.5.7) \citep{oksanen_vegan_2020} and ggplot2 (version 3.3.5) \citep{wickham2016package} packages were used in R (version 4.1.1) (R Core Team 2021) for the creation of barcharts, for the nMDS and PERMANOVA, variation partitioning analysis, db-RDA and mantel test. 
+   The phyloseq (version 1.36) \citep{mcmurdie2013phyloseq}, vegan (version  2.5.7) \citep{oksanen_vegan_2020} and ggplot2 (version 3.3.5) \citep{wickham2016package} 
+   packages were used in R (version 4.1.1) (R Core Team 2021) for the creation of barcharts, for the nMDS and PERMANOVA, variation partitioning analysis, db-RDA and mantel test. 
    The scripts of Steinberger (2020) \citep{steinberger_asteinberger9seq_scripts_2020} were used for the simper and the Kruskal-Wallis tests. 
 
 
@@ -220,39 +248,40 @@
 \subsubsection*{Assembly and binning}
 
    Since the samples were sequenced in two lanes, the fastq files of each sample were concatenated before proceeding with the analyses. 
-   Metagenome raw reads were processed with the MetaWRAP workflow (version 1.3.2)~\citep{uritskiy_metawrapflexible_2018}. 
-   Reads were trimmed and qualified using Trim Galore (version 0.5.0)~\citep{krueger_trim_2022}, which is a wrapper around Cutadapt (version 1.18)~\citep{martin_cutadapt_2011} and FastQC. 
-   The clean reads were concatenated and their co-assembly was implemented through the corresponding metaWRAP module, using MEGAHIT v1.1.3. 
-   The quality of the co-assembly was evaluated using QUAST \citep{gurevich_quast_2013} (see \href{https://github.com/hariszaf/karpathos-swamp/blob/main/metaWRAP/assembly_report.html}{assembly\_report.html}). 
+   Metagenome raw reads were processed with the \texttt{MetaWRAP} workflow (version 1.3.2)~\citep{uritskiy_metawrapflexible_2018}. 
+   Reads were trimmed and qualified using \texttt{Trim Galore} (version 0.5.0)~\citep{krueger_trim_2022}, which is a wrapper around \texttt{Cutadapt} (version 1.18)~\citep{martin_cutadapt_2011} and \texttt{FastQC}. 
+   The clean reads were concatenated and their co-assembly was implemented through the corresponding \texttt{MetaWRAP} module, using MEGAHIT v1.1.3. 
+   The quality of the co-assembly was evaluated using \texttt{QUAST}~\citep{gurevich_quast_2013} 
+   (see \href{https://github.com/hariszaf/karpathos-swamp/blob/main/metaWRAP/assembly_report.html}{assembly\_report.html}). 
    Binning was then performed using the clean reads and the co-assembly. 
-   The metaWRAP module for binning was performed using MetaBAT 2 (version 2.12.1)~\citep{kang_metabat_2019} and MaxBin 2 (version 2.2.6)~\citep{wu_maxbin_2016}. 
-   CheckM (version 1.0.12)~\citep{parks_checkm_2015} was used by the metaWRAP module to assess the quality of the bins produced by MetaBAT 2 and MaxBin 2. 
-   Bins were then consolidated and refined using Binning\_refiner (Song and Thomas 2017) as wrapped in the Bin\_refinement module of metaWRAP. 
+   The \texttt{MetaWRAP} module for binning was performed using \texttt{MetaBAT 2} (version 2.12.1)~\citep{kang_metabat_2019} and \texttt{MaxBin 2} (version 2.2.6)~\citep{wu_maxbin_2016}. 
+   \texttt{CheckM} (version 1.0.12)~\citep{parks_checkm_2015} was used by the \texttt{MetaWRAP} module to assess the quality of the bins produced by \texttt{MetaBAT 2} and \texttt{MaxBin 2}. 
+   Bins were then consolidated and refined using \texttt{Binning\_refiner}~\citep{song2017binning_refiner} as wrapped in the Bin\_refinement module of \texttt{MetaWRAP}. 
    The Bin\_refinement module was invoked with the default values for minimum completion (70\%) and maximum contamination (5\%); 
    see binning\_results.png. 
-   The consolidated bins set was further improved using the reassemble\_bins module of metaWRAP. 
-   To this end, bwa (version 0.7.17-r1188) \citep{li_fast_2009}, spades (version v3.13.0) \citep{nurk_metaspades_2017} and CheckM were used; 
+   The consolidated bins set was further improved using the reassemble\_bins module of \texttt{MetaWRAP}. 
+   To this end, bwa (version 0.7.17-r1188) \citep{li_fast_2009}, spades (version v3.13.0) \citep{nurk_metaspades_2017} and \texttt{CheckM} were used; 
    see binning\_reassembled.png. 
-   To estimate bins’ abundances in each sample (in genome copies per million reads), the corresponding metaWRAP module was performed invoking Salmon (version 0.13.1) \citep{patro_salmon_2017}. 
-   The refined bin-set was also used for the blobology module of metaWRAP; 
-   taxonomic annotation of the co-assembled contigs was performed using megaBLAST and the nt database of NCBI. 
+   To estimate bins’ abundances in each sample (in genome copies per million reads), the corresponding \texttt{MetaWRAP} module was performed invoking Salmon (version 0.13.1) \citep{patro_salmon_2017}. 
+   The refined bin-set was also used for the blobology module of \texttt{MetaWRAP}; 
+   taxonomic annotation of the co-assembled contigs was performed using \texttt{megaBLAST} and the nt database of NCBI. 
 
-   The co-assembled contigs and the refined bins set were then used as input to Anvi’o (version 7.1) \citep{eren_anvio_2015}. 
-   Bowtie 2 (version 2.3.5) \citep{langmead_fast_2012} was used to build BAM files and mapping and Prodigal (version 2.6.3) \citep{hyatt_prodigal_2010} for gene prediction. 
+   The co-assembled contigs and the refined bins set were then used as input to \texttt{Anvi’o} (version 7.1) \citep{eren_anvio_2015}. 
+   \texttt{Bowtie 2} (version 2.3.5) \citep{langmead_fast_2012} was used to build BAM files and mapping and Prodigal (version 2.6.3) \citep{hyatt_prodigal_2010} for gene prediction. 
    BAM files were also made out of the clean reads of each sample. 
-   A contigs database was built (using the \texttt{anvi-gen-contigs-database} program) after converting the contigs name as Anvi’o suggests (see contigs-per-bin.sh script) and it was decorated with hits from HMM models (anvi-run-hmms). 
+   A contigs database was built (using the \texttt{anvi-gen-contigs-database} program) after converting the contigs name as \texttt{Anvi’o} suggests (see contigs-per-bin.sh script) and it was decorated with hits from HMM models (anvi-run-hmms). 
    An anvi profile was then built for each of the samples’ bam file (\texttt{anvi-profile}) and they were merged (\texttt{anvi-merge}) into a single profile. 
    The refined bins along with their corresponding renamed contigs were imported as a collection in the merged profile database (\texttt{anvi-import-collection}). 
-   At this point, a first Anvi’o summary was recovered (\texttt{anvi-summarize}) (see 1st\_bins\_summary.txt). 
+   At this point, a first \texttt{Anvi’o} summary was recovered (\texttt{anvi-summarize}) (see 1st\_bins\_summary.txt). 
    Bins with a redundancy >10\% were manually refined and a second summary of the bins set was made (see SECOND\_SUMMARY folder). 
 
 
 \subsubsection*{Taxonomic composition}
 
-   Based on the returned co-assembly from METAWRAP and the clean reads, communities’ taxonomic composition was assessed using  Kraken2 \citep{wood_improved_2019} and the standard Kraken 2 database (NCBI: January 2022); 
+   Based on the returned co-assembly from \texttt{MetaWRAP} and the clean reads, communities’ taxonomic composition was assessed using  Kraken2 \citep{wood_improved_2019} and the standard Kraken 2 database (NCBI: January 2022); 
    Krona plots of the community profiles can be viewed through the kronagram.html. 
-   GTDB-Tk (version 1.7.0) \citep{chaumeil_gtdb-tk_2020} was used to classify genomes with the Genome Taxonomy Database (GTDB, version r202) \citep{parks_gtdb_2022}. 
-   GTDB-Tk made use of pplacer (version 1.1.alpha19-0-g807f6f3) \citep{matsen_pplacer_2010} and FastANI (version 1.32) \citep{jain_high_2018}.
+   \texttt{GTDB-Tk} (version 1.7.0) \citep{chaumeil_gtdb-tk_2020} was used to classify genomes with the Genome Taxonomy Database (GTDB, version r202) \citep{parks_gtdb_2022}. 
+   \texttt{GTDB-Tk} made use of pplacer (version 1.1.alpha19-0-g807f6f3) \citep{matsen_pplacer_2010} and FastANI (version 1.32) \citep{jain_high_2018}.
 
 
 \subsubsection*{Functional annotation}
@@ -261,26 +290,26 @@
    For the functional annotation at the MAG level, using the anvio’ contigs database and the \texttt{anvi-run-kegg-kofams} program, 
    the anvio’ contigs database was annotated with HMM hits from KOfam, a database of KEGG Orthologs (KOs). 
    Likewise, using the \texttt{anvi-run-ncbi-cogs}, NCBI’s Clusters of Orthologous Groups (COGs) based annotations were added. 
-   The MAGs that correspond to the refined bins as they were retrieved after the metaWRAP and the anvio refinement steps, were annotated with KEGG modules; 
+   The MAGs that correspond to the refined bins as they were retrieved after the \texttt{MetaWRAP} and the anvio refinement steps, were annotated with KEGG modules; 
    manually defined functional units of gene and reaction sets \citep{kanehisa_kegg_2012}. 
-   MAGs were “translated” to an anvio collection (i.e., a virtual construct storing bins of items in an anvi’o profile database) and this collection was used 
+   MAGs were “translated” to an anvio collection (i.e., a virtual construct storing bins of items in an \texttt{Anvi’o} profile database) and this collection was used 
    along with the \texttt{anvi-estimate-metabolism} program to determine which enzymes are present in each MAG and compute the completeness of each metabolic
    module (scripts can be found under the \href{https://github.com/hariszaf/karpathos-swamp/tree/main/anvio}{anvio} folder). 
    An nMDS was constructed based on the presence/absence of modules in the MAGs using the jaccard similarity index. 
-   For the functional annotation at the sample level, the clean reads as they were returned by the corresponding metaWRAP module and the DiTing tool~\citep{xue_diting_2021} 
-   were used to estimate the contribution of each sample to the biogeochemical cycles incorporated in DiTing. 
-   DiTing used MEGAHIT \citep{li_megahit_2015} to build the assembly of each sample separately (so, the co-assembly described in the “Assembly and binning” section was not used for this step) 
+   For the functional annotation at the sample level, the clean reads as they were returned by the corresponding \texttt{MetaWRAP} module and the \texttt{DiTing} tool~\citep{xue_diting_2021} 
+   were used to estimate the contribution of each sample to the biogeochemical cycles incorporated in \texttt{DiTing}. 
+   \texttt{DiTing} used MEGAHIT \citep{li_megahit_2015} to build the assembly of each sample separately (so, the co-assembly described in the “Assembly and binning” section was not used for this step) 
    and Prodigal to retrieve the Open Reading Frames (ORFs). 
    KofamScan \citep{aramaki_kofamkoala_2020} was used for the annotation of the ORFs using KEGG ORTHOLOGY terms. 
-   The relative abundances of metabolic and biogeochemical functional pathways in each sample were then determined by DiTing 
-   (see \href{https://github.com/hariszaf/karpathos-swamp/tree/main/DiTing}{DiTing} folder on the GitHub repository for more information). 
+   The relative abundances of metabolic and biogeochemical functional pathways in each sample were then determined by \texttt{DiTing} 
+   (see \href{https://github.com/hariszaf/karpathos-swamp/tree/main/DiTing}{\texttt{DiTing}} folder on the GitHub repository for more information). 
 
 
 \subsubsection*{MAGs reference phylogenies}
 
-   The intersection of single copy genes from the Anvi’o \citep{eren_anvio_2015} Bacteria\_76 and Archaea\_71 sets was used to build the phylogenetic tree of the reconstructed MAGs ($n$ = 25). 
-   The \texttt{anvi-get-sequences-for-hmm-hits} program of Anvi’o was used to extract and align the amino acid sequences of each of these genes from all the MAGs independently. 
-   This Anvi’o program makes use of MUSCLE (version 3.8.1551) \citep{edgar_muscle_2004} to return an alignment of the extracted sequences. 
+   The intersection of single copy genes from the \texttt{Anvi’o} \citep{eren_anvio_2015} Bacteria\_76 and Archaea\_71 sets was used to build the phylogenetic tree of the reconstructed MAGs ($n$ = 25). 
+   The \texttt{anvi-get-sequences-for-hmm-hits} program of \texttt{Anvi’o} was used to extract and align the amino acid sequences of each of these genes from all the MAGs independently. 
+   This \texttt{Anvi’o} program makes use of MUSCLE (version 3.8.1551) \citep{edgar_muscle_2004} to return an alignment of the extracted sequences. 
    Once all the amino acid sequence alignments were extracted, they were trimmed using Clipkit (version 1.1.5) \citep{steenwyk_clipkit_2020}. 
    A super matrix was then built using the single copy genes of the intersection. 
    In cases where a MAG lacked a gene, gaps were filled with dashes; both the initial and the trimmed per gene alignments as well as the final super matrix alignment are available on the project’s GitHub repository 
@@ -294,6 +323,8 @@
 
 % AFOULOPAPER RESULTS
 \subsection{Results}
+\label{swamp:results}
+
 
 \subsubsection*{Taxonomic composition from 16S rRNA amplicon analysis}
 
@@ -329,16 +360,17 @@
    a) \textit{Ignicoccus} hospitalis, b) \textit{Acidilobus} sp. 7A, c) \textit{Vulcanisaeta} spp., d) \textit{Pyrobaculum} spp., 
    e) \textit{Metallosphaera} spp., f) \textit{Caldivirga} sp. and g) \textit{Sulfolobus} sp. 
 
-   Krona plots with the taxonomic profiles of each sample are available on \href{https://github.com/hariszaf/karpathos-swamp/tree/main/metaWRAP/Kraken2}{GitHub}. 
+   Krona plots with the taxonomic profiles of each sample are available on 
+   \href{https://github.com/hariszaf/karpathos-swamp/tree/main/metaWRAP/Kraken2}{GitHub}. 
    Prodigal predicted millions of genes per sample ranging from 2.1 millions (Elos03) to 4.3 (Elos10). 
    Their metabolic capacity/potential is further described in the “Biogeochemical cycles” section. 
    Based on the blobology results, among the 1,513,505 co-assembled contigs a set of 102,250 were binned (see Figure S3); 
-   according to megaBlast and the nt database of NCBI, among the binned contigs 53,536 were bacterial and 2,230 archaeal while 60 contigs were assigned as viral and 739 as eukaryotic. 
+   according to \texttt{megaBlast} and the nt database of NCBI, among the binned contigs 53,536 were bacterial and 2,230 archaeal while 60 contigs were assigned as viral and 739 as eukaryotic. 
    The corresponding numbers for the case of the unbinned contigs were 1-2 orders of magnitude higher; 
    thus, the number of unbinned contigs were 430,028 bacterial, 126,690 archaeal, 15,828 eukaryotic and 1,805  viral correspondingly  (see Figure S4). 
 
 
-   \begin{table}[]
+   \begin{table}
       \begin{tabular}{lll}
       \textbf{} & \textbf{adjusted R2} & \textbf{p} \\
       \textbf{Oxygen + Temperature} & 0.64 & * \\
@@ -353,7 +385,7 @@
 
    In line with the quality definitions described in \citep{bowers_minimum_2017}, metagenome binning generated a total of 289 MAGs; 
    details are shown in the Supplementary File 2. 
-   According to the CheckM software 194 MAGs were reconstructed with a completeness higher than 90\% and a contamination lower than 5\% and 
+   According to the \texttt{CheckM} software 194 MAGs were reconstructed with a completeness higher than 90\% and a contamination lower than 5\% and 
    all the rest had a completeness >70\% and a contamination score <6\%. 
    According to the anvio summary (using the co-assembly as contigs database, the merged samples as profile and the reconstructed MAGs, i.e. the refined bins, as a collection) 
    the redundancy of 10 (bin127, bin114, bin156, bin243, bin268, bin276, bin12, bin269, bin252, bin226) of the reconstructed MAGs was >10\%. 
@@ -372,7 +404,7 @@
 
 \subsubsection*{Phylogenomic placement}
 
-   The GTDB-Tk returned phylogenetic trees of the GTDB partition and the MAGs assigned to the corresponding domain for the 
+   The \texttt{GTDB-Tk} returned phylogenetic trees of the GTDB partition and the MAGs assigned to the corresponding domain for the 
    cases of \href{https://github.com/hariszaf/karpathos-swamp/blob/main/GTDB_TK_bins_classification/elos_70_5.bac120.classify.tree}{bacteria} 
    and \href{https://github.com/hariszaf/karpathos-swamp/blob/main/GTDB_TK_bins_classification/elos_70_5.ar122.classify.tree}{archaea} 
    including the 2 low quality included (bin\_182 : Proteobacteria and bin\_263: Verrucomicrobiota). 
@@ -390,7 +422,7 @@
    In general, bootstrap values were >90\% with only exceptions a number of clades with representatives of the Nanoarchaeota phylum 
    (of which the completeness and the number of single-copy genes present was relatively lower). 
 
-   \begin{figure}[h]
+   \begin{figure}[!htbp]
       \centering
       \includegraphics[width=0.98\columnwidth]{figures/mags_phylogeny.png}
       \caption[Concatenated marker gene phylogeny of the Karpathos’ marsh MAGs]{
@@ -412,7 +444,8 @@
 
 \subsubsection*{Distribution of MAGs across samples}
 
-   Based on the taxonomic end results of the shotgun metagenomic survey (Figure S5; \href{https://github.com/hariszaf/karpathos-swamp/blob/main/metaWRAP/QUANT_BINS/bin_abundance_table.tab}{MAG abundances per sample} (metaWRAP)), 
+   Based on the taxonomic end results of the shotgun metagenomic survey 
+   (Figure S5; \href{https://github.com/hariszaf/karpathos-swamp/blob/main/metaWRAP/QUANT_BINS/bin_abundance_table.tab}{MAG abundances per sample} (\texttt{MetaWRAP})), 
    the most phylum was Bacteroidota (~28\% on average), 
    which almost dominated sample Elos03 (~57\%) and Elos07 (~40\%). 
    The second most abundant phylum was Proteobacteria (~13\% on average), with abundances ranging from ~2\% in Elos02 to ~23\% in Elos01 and ~22\% in Elos07. 
@@ -458,7 +491,7 @@
 \subsubsection*{Functional profiles at the sample level}
 
    A set of 783,693 unique proteins were predicted from a total of 3,532,725 hits with NCBI COGs. 
-   The MEGAHIT assembler as implemented in the framework of DiTing, returned the assembly of each sample 
+   The MEGAHIT assembler as implemented in the framework of \texttt{DiTing}, returned the assembly of each sample 
    ranging from 1,323,538 (Elos03) to 2,773,933 (Elos10) contigs. 
    As shown in Figure~\ref{fig:pathway-abundances}, pathways belonging to the carbon cycle, central metabolism 
    and other metabolism are the most abundant (~23\%, ~19\% and ~18\% of the total pathways on average respectively). 
@@ -487,19 +520,17 @@
    Anaplerotic genes were also very abundant in our samples (~2\%), and in particular the Pyruvate Carboxylase Pathway which produces oxaloacetate from pyruvate and replenishes the intermediates of the TCA cycle. 
 
 
-   \begin{figure}[h]
+   \begin{figure}[!htbp]
       \centering
       \includegraphics[width=0.98\columnwidth]{figures/pathways_karpathos.png}
       \caption[Abundances of the metabolic pathways per biogeochemical cycle, at each sample]{
-         Bar chart showing the abundances of the metabolic pathways per biogeochemical cycle, at each sample, as retrieved from DiTing. 
+         Bar chart showing the abundances of the metabolic pathways per biogeochemical cycle, at each sample, as retrieved from \texttt{DiTing}. 
       }
       \label{fig:pathway-abundances}
    \end{figure}   
 
 
-
-
-   \begin{figure}[h]
+   \begin{figure}[!htbp]
       \centering
       \includegraphics[width=0.98\columnwidth]{figures/sulfur_cycle_karpathos.png}
       \caption[Relative abundances of the pathways involved in the sulphur cycle]{
@@ -512,7 +543,7 @@
    \end{figure}   
 
 
-   \begin{figure}[h]
+   \begin{figure}[!htbp]
       \centering
       \includegraphics[width=0.98\columnwidth]{figures/nitrogen_cycle_karpathos.png}
       \caption[Relative abundances of the pathways involved in the nitrogen cycle]{
@@ -526,13 +557,200 @@
       \label{fig:karpathos-nitrogen}
    \end{figure}   
 
+
 % AFOULOPAPER DISCUSSION
 \subsection{Discussion}
+\label{swamp:discussion}
+
+   Overall, there seems to be an agreement in all three ways that taxonomic composition has been derived for our samples. 
+   Despite the fact that six out of the eleven samples were sequenced using shotgun metagenomics, 
+   still we can compare them with the amplicon data and derive conclusions. In fact, the amplicon survey produced results 
+   that were highly correlated to the results of the classification of the retrieved bins; 
+   such congruence between the two methodologies has been reported in recent studies 
+   \citep{chan_diversity_2015, regalado_combining_2020}
+   although there is also evidence for the opposite~\citep{tessler_large-scale_2017}. 
+   The results from Kraken2 were also correlated to the amplicon and the results of the classification of the retrieved MAGs, 
+   although the correlation was not as strong. 
+   However, Kraken2 is not restricted in the short amplicon length~\citep{johnson_evaluation_2019} 
+   and therefore it was able to reach species level resolution~\citep{lu_ultrafast_2020}.
+
+   The top sediment layer, i.e. the microbial mat, was characterised by the presence of Halobacteria/Halobacteriota, 
+   Halanaerobiia and Nanoarchaeota which are all halophilic and were therefore able to withstand the salt crust that was on top of the mat 
+   \citep{norton_archaeal_1993, casanueva_nanoarchaeal_2008, cinar_prokaryotic_2020, akpolat_prokaryotic_2021}
+   They are almost absent in the deeper sediment layers and they are absent in the winter, 
+   when there was no obvious microbial mat formed, despite the high salinity in sample Elos12. 
+   Therefore, the limiting factor for their presence could have been the lower temperature during the winter season, 
+   since the optimum temperature for representatives of the Halobacteria is higher than 35°C~\citep{grant_halobacterium_2015}. 
+   Halobacteria, and their bacteriorhodopsin, are most likely responsible for the purple layer in the microbial mat, 
+   since they have been shown to cause striking red colours in salt flats~\citep{stoeckenius_bacteriorhodopsin_1979}. 
+   Nanoarchaeota are obligate symbionts and they have found in association with Crenarchaeota/Thermoproteota 
+   \citep{huber_new_2002, podar_insights_2013, munson-mcgee_nanoarchaeota_2015, wurch_genomics-informed_2016, merkel_microbial_2017}.
+   Out of the known host-symbiont pairs and the putative hosts that have been proposed, we identified two of the known hosts 
+   (\textit{Ignicoccus hospitalis} and \textit{Acidilobus} sp. 7A) 
+   and five of the putative hosts \citep{jarett_single-cell_2018}. 
+   However, the Nanoarchaeotal representatives were assigned at taxonomies higher than the species level. 
+   Thus, we can only presume that the symbionts \textit{Nanoarchaeum equitans} and \textit{Nanopusillus acidilobi} 
+   of the aforementioned hosts are present in our data. 
+
+   It was hypothesised that the microbial aggregates would be more closely related to the microbial mat samples 
+   and this was confirmed by our results. 
+   However, the microbial aggregates were mostly characterised by the presence of Bacteroidetes/Bacteroidota and Myxococcota 
+   and the absence, or very low abundance, of Desulfobacterota, Thermoplasmatota and Asgardarchaeota.
+
+   In the photic zone of the microbial mats, phototrophic microorganisms transduce light into energy 
+   using either pigments 
+   (chlorophyll and/or bacteriochlorophylls) or retinal-based rhodopsins~\citep{kurth_carbon_2021}. 
+   In hypersaline microbial mats, phototrophy is possible because light can penetrate salt crusts and therefore 
+   the only limiting factor is the capability of the microbial communities to actually perform 
+   phototrophy under salt-saturated conditions~\citep{meier_limitation_2021}. 
+   Out of the phyla that have been reported to perform (bacterio)chlorophyll-based phototrophy, 
+   i.e. Cyanobacteria, Proteobacteria, Chlorobi/Chlorobia, Chloroflexi/Chloroflexota, Firmicutes, Acidobacteria/Acidobacteriota, 
+   Eremiobacterota and Gemmatimonadetes/Gemmatimonadota (Zeng and Koblížek 2017; Zheng et al. 2022), 
+   only Proteobacteria and Chloroflexi/Chloroflexota were found in high abundances. 
+   Cyanobacteria were very rare in our samples, which can be attributed to the high salinity of the marsh~\citep{diloreto_microbial_2019} 
+   which can lead to osmotic stress and inhibition of photosynthesis~\citep{sudhir_effects_2004}. 
+   So, Cyanobacteria were not the foundation of the microbial mats in our study, 
+   as has been shown in other examples of hypersaline microbial mats 
+   \citep{bolhuis_molecular_2014, wong_molecular_2016}, 
+   which was expected as oxygenic photosynthesis is completely inhibited at saturation-level salinities (40\%)~\citep{meier_limitation_2021}. 
+   However, cyanobacterial genera that  are characterised by strategies and survival mechanisms 
+   that allow them to grow in such high salinities~\citep{oren_cyanobacteria_2015}, 
+   such as \textit{Euhalothece} and \textit{Halothece}, were present in our samples. 
+   Chloroflexi/Chloroflexota were most present in the bottom sediment layer and in the combined sediment samples. 
+   Representatives that were identified from our samples are Chloroflexus aurantiacus~\citep{pierson_phototrophic_1974}
+   and \textit{C. aggregans}~\citep{hanada_chloroflexus_1995}; 
+   they can grow photoautotrophically and photoheterotrophically 
+   under anaerobic conditions but also chemotrophically under aerobic conditions, 
+   using sulphide or hydrogen as an electron donor~\citep{tang_complete_2011, kawai_hydrogen-dependent_2019, kawai_-situ_2021}. 
+   Given that it is unclear if they can harvest light deeper in the sediment and taking into account 
+   the low abundance of Cyanobacteria, it is most probable that Chloroflexi/Chloroflexota grow chemotrophically in our samples. 
+   According to our data, Proteobacteria seem to be taking over the photosynthetic pathways in our samples. 
+   More specifically, some of the species that have been found to perform photosynthesis and are present in our samples are
+   (from the Alphaproteobacteria class) \textit{Citromicrobium} sp.~\citep{jiao_coexistence_2010}, 
+   \textit{Rhodopseudomonas palustris}, \textit{Rhodobacter} sp., \textit{Rhodospirillum rubrum}, 
+   \textit{Roseobacter denitrificans}, \textit{Bradyrhizobium} sp., \textit{Roseobacter} sp. 
+   \citep{larimer_complete_2004, bryant_prokaryotic_2006}
+   and (from the Gammaproteobacteria class) 
+   \textit{Marichromatium purpuratum}~\citep{shiung_photosynthetic_2018}, 
+   \textit{Congregibacter litoralis}~\citep{fuchs_characterization_2007, spring_photosynthetic_2009}, 
+   \textit{Allochromatium} spp.~\citep{kyndt_genome_2020}. 
+   Overall, based on the taxonomic composition of the studied microbial mats, 
+   it seems that they resemble microbial mats from an irregularly inundated tidal flat in Oman~\citep{meier_limitation_2021}.
 
 
+   Our second hypothesis was that samples from the deeper sediment layers collected in the summer would be more similar to 
+   the combined sediment samples collected in the winter. 
+   This was also confirmed by our results, as these samples were clustered together. 
+   However, despite the similarities between the samples, there were also certain differences; 
+   as expected, there is a high degree of spatial variation in the marsh under study~\citep{dillon_spatial_2009}. 
+   Overall, in the deeper sediment layers or where microbial mat was not formed, acetogens such as 
+   \textit{Moorella thermoacetica}, \textit{Clostridium aceticum} and \textit{Acetobacterium woodii}~\citep{schuchmann_energetics_2016}, 
+   were utilising the Wood–Ljungdahl pathway, i.e. using H2 hydrogen as an electron donor and CO2 as an electron acceptor. 
+   Acetogens are either competing directly with hydrogenotrophic methanogenic archaea or interacting syntrophically 
+   with acetotrophic methanogens~\citep{ragsdale_acetogenesis_2008}. 
+   Utilisation of acetate for methanogenesis is present in the genera \textit{Methanosarcina} and \textit{Methanothrix} (Ferry 1992) 
+   which are both found in our samples. 
+   Although while abundant in our samples, methanogens might have been contributing little to anaerobic mineralization, 
+   since in salinities of 180‰ or less they are inhibited by the increased activity of sulphate-reducing bacteria 
+   \citep{sorensen_salinity_2004}. 
+   In addition, sulphate-reducing bacteria might have also been using the Wood-Ljungdahl pathway in reverse 
+   \citep{ragsdale_acetogenesis_2008}. 
+   Sulphate-reducing microorganisms (SRM) from the Euryarchaeota lineage~\citep{muyzer_ecology_2008} were very abundant 
+   in the microbial mat and in the aggregates, while SRM belonging to Deltaproteobacteria~\citep{muyzer_ecology_2008} 
+   are present  in the deeper and the combined sediment samples. 
+   However, the occurrence of SRMs is not synonymous to the occurrence of sulphate reduction in the given habitat~\citep{muyzer_ecology_2008}.
+
+   It has been proposed that arsenic and sulphur cycling can sustain high microbial metabolic rates in permanently anoxic mats~\citep{visscher_modern_2020}. 
+   Bacteria capable of performing anoxygenic photosynthesis using arsenite (As(III)) as an electron donor, 
+   such as \textit{Ectothiorhodospira} sp. and \textit{Halorhodospira halophila}~\citep{hoeft_mccann_arsenite_2017}, are present in our samples. 
+   It is suggested that they are performing oxidation of As(III) to arsenate (As(V)), which is afterwards reduced back to As(III) (Hoeft et al. 2004), 
+   thus explaining the high occurrence of dissimilatory arsenic reduction in our samples. 
+   Arsenate can be an important electron acceptor in the biogeochemical cycling of carbon~\citep{oremland_bacterial_2000}; 
+   thus, arsenate reduction has a great potential to precipitate carbonates and it is energetically better than sulphate reduction~\citep{visscher_modern_2020}, 
+   although the latter is also very abundant in our samples. 
+   Thaumarchaeota, which are involved in nitrification in marine ecosystems~\citep{veuger_nitrification_2013}, 
+   were also present in our samples but in very low abundances, in contrast to other hypersaline microbial mats~\citep{ruvindy_unravelling_2016}. 
+   On the other hand, common nitrifying bacteria such as \textit{Nitrobacter} where abundant in our samples; 
+   however, since nitrification was mostly present in the combined sediments and in the deeper layer, 
+   there seems to be a certain degree of hypersalinity limitation on the growth of nitrifying bacteria, 
+   as has been previously suggested~\citep{jeffries_increases_2012}. 
+   Denitrification was also present in our samples, although mostly in the combined sediment, and it was not limited by 
+   the increased salinity~\citep{laverman_potential_2007}. 
+   Regarding functional annotation of MAGs and their clustering according to taxonomy, 
+   it seems that it is driven by modules that are present in Archaea and absent in Bacteria, and vice versa. 
+   For example, regarding cysteine biosynthesis (M00021), this pathway is still unexplored in Archaea 
+   and although it has been found in certain species, e.g. \textit{Methanosarcina barkeri}, 
+   it is suggested that there might be a different cysteine biosynthesis pathway in Archaea~\citep*{kitabatake_cysteine_2000}. 
+   Likewise, there are no archaeal homologs for the bacterial pantothenate biosynthetic genes~\citep{ronconi_novel_2008}, 
+   therefore pantothenate biosynthesis (M00913) is one of the pathways that contributes 
+   to the differentiation between bacterial and archaeal MAGs. 
+   In addition, acetogen (M00618) is only found in Bacteria.
+   
+   It has been debated if hypersaline environments are thermodynamic limiting the occurrence of self-sustaining 
+   microbial communities~\citep{oren_thermodynamic_2011} or if they are biologically permissive~\citep{lee_nacl-saturated_2018}. 
+   Cells need to implement strategies to counteract the osmotic stress~\citep{gunde-cimerman_strategies_2018} 
+   but these strategies come with an energetic cost~\citep{meier_limitation_2021}. 
+   It has been suggested that hypersaline microbial mats and, in particular, communities below salt crusts, 
+   cannot rely solely on primary production from anoxygenic phototrophy and mineralization from sulphate reduction~\citep{meier_limitation_2021}. 
+   Instead, import of reduced substances and periods of reduced salinity are required, 
+   to allow the occurrence of oxygenic photosynthesis~\citep{meier_limitation_2021}; 
+   in our study site this occurs in winter where evaporation is not as strong as in the summer, 
+   which combined with the increased precipitation, lowers the salinity of the marsh. 
+   During winter months, both the salt crust and the layering of the microbial mat disappears, as in \cite{cardoso_seasonal_2019}, 
+   and it seems that this temporal change and seasonal development of the microbial mats under study is the necessary element for the survival of the microorganisms. 
+   In addition, anaplerotic reactions, that are abundant in our samples, may play an important role in replenishing the intermediates of the TCA cycle, 
+   which is quite abundant in out samples, and thus allowing microbial growth with a carbohydrate 
+   as the sole carbon source~\citep{tong_structure_2013, choi_distinct_2016}. 
+   Although it seems that hypersaline environments are “thermodynamically moderate”, DNA based studies can only identify 
+   the members of a community and not their metabolic activities. 
+   Therefore future studies on hypersaline microbial mats should focus on the combination of metabolomics, 
+   metatranscriptomics and metagenomics, in order to elucidate the functional repertoire of microbial communities, 
+   their metabolic potential and their metabolic and ecological interactions. 
+   Metabolic modelling of the microbial assemblages can shed further light on the effects of the environmental 
+   challenges on the mat construction as well as on which processes are taking place within each mat layer and 
+   among its different layers.
 
 
+\subsection*{Supplementary Material}
+\label{swamp:suppl}   
 
+   The Supplementary Material for this study will be publically available once it is published. 
+   For the time being, they can be found under this \href{https://drive.google.com/drive/folders/1eQiXxsUPJ4QuIFxa1g5dWFw0CySuYvKD?usp=sharing}{Google Drive folder}.
+
+   \textbf{Supplementary Figure 1:} nMDS of the similarity matrix of the samples based on the microbial OTUs relative abundances, as retrieved from the amplicon sequencing. 
+
+   \textbf{Supplementary Figure 2:} Bar chart showing the abundances of the main microbial taxa, at the phylum level, at each sample, as retrieved from Kraken2. 
+
+   \textbf{Supplementary Figure 3:} Blobology scatterplot showing the contigs that were binned (blue) and the contigs that were not binned (grey). 
+
+   \textbf{Supplementary Figure 4:} Blobology scatterplot showing the contigs that were binned and their taxonomic annotation. blue: Bacteria; yellow: Archaea; red: Eukaryota; grey: not assigned. 
+
+   \textbf{Supplementary Figure 5:} Bar chart showing the abundances of the main microbial taxa, at the phylum level, at each sample, as retrieved from the classification of the retrieved MAGs.
+
+   \textbf{Supplementary Figure 6:} \texttt{MetaWRAP} heatmap showing the similarity and clustering of the samples based on the identified bins.  
+
+   \textbf{Supplementary Figure 7:} Distribution of the number of KO terms annotated per MAG. 
+
+   \textbf{Supplementary Figure 8:} Distribution of the number of the complete KEGG modules present per MAG. 
+
+   \textbf{Supplementary Figure 9:} nMDS of the similarity matrix of the MAGs based on the presence/absence of their modules. 
+
+   \textbf{Supplementary Figure 10:} Relative abundances of the pathways involved in the carbon cycle. The pie chart indicates the relative abundance of each pathway in each sample. The size of pie charts represent the total relative abundance of each pathway. 
+                                    CBB: Calvin-Benson-Bassham cycle; rTCA: reductive citric acid cycle; WL: Wood-Ljungdahl pathway; 3HB: 3-hydroxypropionate bicycle; DHC: Dicarboxylate-hydroxybutyrate cycle.
+
+   \textbf{Supplementary Figure 11:} Relative abundances of the pathways involved in the DMSP cycle. The pie chart indicates the relative abundance of each pathway in each sample. The size of pie charts represent the total relative abundance of each pathway. 
+    
+   \textbf{Supplementary File 1:} The parameters for the PEMA processing of the 16S rRNA amplicon data.
+    
+   \textbf{Supplementary File 2:} Details of the MAGs’ processing. 
+   
+
+
+\subsection*{MAGs description}
+
+   In Appendix~\ref{app:mags} the methodology for the description of the reconstructed MAGs 
+   from the Tristomo marsh data can be found. 
+   The novel taxa found will be thoroughly investigated in the near future. 
 
 
 %%% Local Variables: 

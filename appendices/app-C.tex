@@ -1,0 +1,34 @@
+\chapter{Metagenome assembled genomes of novel prokaryotic taxa from a hypersaline marsh microbial mat}
+\label{app:mags}
+
+\section{MAGs description}
+
+    Using Barrnap~\citep{seemann_barrnap_2014} the 16S rRNA gene was extracted from the retrieved MAGs. 
+    For those where a 16S rRNA gene was found, Protologger (version 1.0)~\citep{hitch_automated_2021} 
+    was used for a thorough description of their properties. 
+    On the Protologger framework, MAG’s closest relatives based on 16S rRNA gene sequence similarity were retrieved using 
+    blastn (version 2.12.0+) and The All-Species Living Tree database~\citep{ludwig_release_2021}. 
+    Each MAG was placed on the GTDB phylogeny tree using the GTDB-Tk and average nucleotide identity (ANI) values 
+    were calculated to check whether the MAG is a representative of an already known species; 
+    no ANI value is reported for a genome pair if ANI value is much below 80\%. 
+
+    MAGs were then annotated with Prokka (Seemann 2014b)~\citep{seemann_prokka_2014} 
+    and percentage of conserved proteins (POCP) values~\citep{qin_proposed_2014}  
+    was calculated between MAGs and the genomes that are close to it based on both the 16S rRNA and the genome-based assignment modules. 
+    This was the case only for genomes with validly published names according to the DSMZ nomenclature list. 
+    POCP analysis has been used to distinguish prokaryotic genera since a prokaryotic genus can be defined as a group of species 
+    with all pairwise POCP values higher than 50\%~\citep{qin_proposed_2014}. 
+    The outcome of the Protologger tool for each archaeal MAG can be found on 
+    \href{https://github.com/hariszaf/karpathos-swamp/tree/main/MAGs/arc/with_16S}{GitHub} 
+    and for each \href{https://github.com/hariszaf/karpathos-swamp/tree/main/MAGs/bac/with_16S}{bacterial} too. 
+
+    For MAG cases suggesting multiple novel entries in novel taxonomic groups higher than the species level, 
+    e.g. multiple novel genera within the same family, further POCP values were calculated between each of the MAGs 
+    and all of its closest relatives having a genome on GTDB using in-house scripts. 
+    For these cases, a phylogenetic tree using the MAG’s alignment by the GTDB-Tk and the genomes’ entries in the 
+    GTDB Multiple Sequence Alignment (MSA) was built. 
+    Both the phylogenetic trees and the POCP analyses for these cases are available \href{https://github.com/hariszaf/karpathos-swamp/tree/main/MAGs/Phylogenies}{here}. 
+    In the “Etymology” section the names given to the new taxa are described. 
+    For a thorough investigation of the so-far described characteristics of the reconstructed MAGs’ higher taxonomic levels 
+    (e.g., genus, family etc.) the PREGO knowledge base~\citep{zafeiropoulos_prego_2022} was exploited.
+    All bioinformatics analyses were supported by the IMBBC High Performance Computing system~\citep{zafeiropoulos_0s_2021}.

@@ -7,9 +7,8 @@
 \chapter{Conclusions}
 \label{cha:conclusion}
 
-
-\section{Microbial diversity assesment using HTS methods}
-\label{chap:concl-diversity}
+\section{Bioinformatics approaches enhance microbial diversity assesment based on HTS data}
+\label{concl:diversity}
 
    Main goal of this PhD project was to address on-going challenges 
    related to the bioinformatics analysis of HTS-oriented studies 
@@ -24,7 +23,7 @@
    combined with appropriate treatment of the 
    intragenomic copy variants 
    has the potential to provide taxonomic resolution of 
-   bacterial communities even at the strain level~\citep{johnson2019evaluation}.
+   bacterial communities even at the strain level~\citep{johnson_evaluation_2019}.
    However, when the region is chosen carefully 
    and a thorough alignment procedure is applied,
    even short short reads may return phylogenetic information 
@@ -67,7 +66,7 @@
    so they can distinguish actual hits. 
 
    However, there is still a major question regarding the microbial diversity assessment; 
-   how could HTS methods be used to recognise novel taxa? 
+   how could HTS methods be used to recognise novel taxa and their metabolic potential? 
    As shown in Chapter~\ref{cha:swamp}, the reconstruction of MAGs from shotgun metagenomics data
    may play a great role in the description of unknown and currently uncultivated taxa. 
    Such studies and their corresponding MAGs have enriched our knowledge on the tree of life to a great extent 
@@ -77,97 +76,188 @@
    offering high-quality, cutting-edge alternatives for testing hypotheses about microbiome structure 
    and functioning as well as assembly of eukaryote genomes from complex environmental DNA samples~\citep{tedersoo2021perspectives}.
 
-\section{Containerization technologies and e-infrastructures can ensure both the computational capacity 
-         required and reproducibility}
-\label{chap:compute}
-
-   As shown in Chapter~\ref{cha:hpc} the computing resources required for the analysis of several 
-   microbiome studies may range from those covered by a personal computer to overwhelming the capacity
-   of Tier-2 HPC facilities;
-   this also applies for any biological topic using HTS data. 
-   On top of that, as also shown in Chapter~\ref{cha:hpc}, the maintance of bioinformatics-oriented HPC facilities 
-   comes with a great number of challenges. 
-
-   % PIPELINES
-   By encapsulating a software along with its dependencies in an isolated and easy to reinstall environment (container) 
-   containerization addresses several of them at once; 
-   first, the distribution and the installation becomes now a straight-forward task, requiring only for a containerization technology 
-   present on the facility,
-   second, versioning of the various software used is not an issue anymore as a container may either "save" a version from being obsolete
-   in case it is strongly dependent on that, either keep track of the latest version of the encapsulated software, 
-   morevover, several versions of the same software may be part of different containers without any conficts.
-   In addition, the creation and management of standardized workflows/pipelines is facilitated to a great extent. 
-   Workflow tools such as 
-   \href{https://github.com/common-workflow-language/common-workflow-language}{Common Workflow Language (CWL)}
-   \footnote{\href{https://github.com/common-workflow-language/common-workflow-language}{https://github.com/common-workflow-language/common-workflow-language}}, 
-   \href{https://snakemake.github.io}{Snakemake} 
-   \footnote{\href{https://snakemake.github.io}{https://snakemake.github.io}}
-   and 
-   \href{https://www.nextflow.io}{Nextflow}
-   \footnote{\href{https://www.nextflow.io}{https://www.nextflow.io}}
-   have been proven of high value 
-   in building such pipelines as they support the connection of multiple independent software.
-   MGnify~\citep{mitchell2020mgnify} is a great example of this case. 
-
-   However, more often than not, such workflows require major computing resources to analyse
-   real-world microbiome data sets.
-   To this end, HPC facilities and cloud solutions are required. 
-   Therefore, efforts such as those discussed in Section~\ref{publ:pema} 
-   for containerised tools such as the PEMA workflow~\citep{zafeiropoulos2020pema}
-   to be integrated in e-infrustructures, are rather significant. 
-   This way reproducability is secured and analyses that cannot be performed in a personal computer
-   is accessible to researches that have no access to local servers or HPCs. 
-
+\section{Containerization technologies and e-infrastructures provide the means for computational capacity and reproducibility} 
+\label{concl:comput}
+   
+      As shown in Chapter~\ref{cha:hpc} the computing resources required for the analysis of several 
+      microbiome studies may range from those covered by a personal computer to overwhelming the capacity
+      of Tier-2 HPC facilities;
+      this also applies for any biological topic using HTS data. 
+      On top of that, as also shown in Chapter~\ref{cha:hpc}, the maintance of bioinformatics-oriented HPC facilities 
+      comes with a great number of challenges. 
+   
+      % PIPELINES
+      By encapsulating a software along with its dependencies in an isolated and easy to reinstall environment (container) 
+      containerization addresses several of them at once; 
+      first, the distribution and the installation becomes now a straight-forward task, requiring only for a containerization technology 
+      present on the facility,
+      second, versioning of the various software used is not an issue anymore as a container may either "save" a version from being obsolete
+      in case it is strongly dependent on that, either keep track of the latest version of the encapsulated software, 
+      morevover, several versions of the same software may be part of different containers without any conficts.
+      In addition, the creation and management of standardized workflows/pipelines is facilitated to a great extent. 
+      Workflow tools such as 
+      \href{https://github.com/common-workflow-language/common-workflow-language}{Common Workflow Language (CWL)}
+      \footnote{\href{https://github.com/common-workflow-language/common-workflow-language}{https://github.com/common-workflow-language/common-workflow-language}}, 
+      \href{https://snakemake.github.io}{Snakemake} 
+      \footnote{\href{https://snakemake.github.io}{https://snakemake.github.io}}
+      and 
+      \href{https://www.nextflow.io}{Nextflow}
+      \footnote{\href{https://www.nextflow.io}{https://www.nextflow.io}}
+      have been proven of high value 
+      in building such pipelines as they support the connection of multiple independent software.
+      MGnify~\citep{mitchell2020mgnify} is a great example of this case. 
+   
+      However, more often than not, such workflows require major computing resources to analyse
+      real-world microbiome data sets.
+      To this end, HPC facilities and cloud solutions are required. 
+      Therefore, efforts such as those discussed in Section~\ref{publ:pema} 
+      for containerised tools such as the PEMA workflow~\citep{zafeiropoulos2020pema}
+      to be integrated in e-infrustructures, are rather significant. 
+      This way, reproducability is secured and analyses that cannot be performed in a personal computer
+      is accessible to researches that have no access to local servers or HPCs. 
 
 \section{High quality metadata enable efficient exploitation of sequecning data in a meta-analysis level}
-\label{chap:concl-associations}
+\label{concl:metadata}
    
-      It is now common place that both shotgun and long-read metagenomics provide 
+      It is common knowledge that both shotgun and long-read metagenomics provide 
       high quality data enabling the study of real-world microbial communities even at the strain level~\citep{meyer2022critical}.
       However, these data are not fully exploited unless they come with thorough and standardized metadata;
       indicatively it has been shown that more than the 20\% of the metagenomes published between 2016 and 2019 
       were not even accessible~\citep{eckert2020every}.
-      
-      To address such challenges, community-driven initiatives can be of great importance~\citep{vangay2021microbiome}.
+      To address such challenges, community-driven initiatives can be of great importance~\citep{yilmaz2011minimum, vangay2021microbiome}.
+      Such initiatives could be of great help for more specific topics as well, e.g. protocols suitting the 
+      Ocean Best Practices System~\citep{samuel2021towards}.
+
+      FAIR principles have set a new era on how data are stored and ditributed. 
+      Data and metadata provenance goes even further by allowing not only the reuse of the data, 
+      but also keeping track of where the data came from, potential edits, 
+      as well as of the analyses that are linked to those, both regarding their outcome and the analysis \textit{per se}. 
+      Ensuring FAIR (meta)data could be considered as the first step of data integration~\citep{freire2008provenance, deelman2010metadata}.
+      Nevertheless, (meta)data provenance and data integration share several challenges~\citep{cheney2009provenance}. 
    
-   
-      Environmental metagenomic data provide a new conceptual framework because microorganisms have been established as a major participants 
-      in both climate drivers as well as climate change issues [6]. 
-      Global resources like MGnify [a], MG-RAST [b], JGI/IMG [c] offer access to indexed metagenomic datasets from a number of experiment types 
-      like amplicon or shotgun metagenomic studies (Table 2.1, WP1). 
-      Text or sequence search, as well as browsing predefined hierarchies like biome are possible. 
-      
-   
-   
-      biological insight: example from the paper 
-   
-   
-      value of metadata 
-   
-      provenance 
+      As shown in Section~\ref{cha:prego}, the higher the quality of the accompanying metadata, 
+      the higher the confidence for meta-analysis approaches may get. 
+      Furthermore, metadata accompanying the analyses, i.e. the workflows and their implementation, can provide further 
+      insight on the effect of the various softwares and databases used. 
+      In general, community efforts to set best-practice for formal metadata description
+      and their use for packaging research data with their accompanying metada 
+      such as the one of
+      \href{https://www.researchobject.org/ro-crate/}{RO-Crate} may have a great impact.  
+      Focusing on the microbiome community, 
+      further challenges need to be addressed to this end, 
+      with taxonomy and nomenclature being among the most crucial ones. 
+      The GTDB~\citep{parks_gtdb_2022} that provides \textit{a phylogenetically
+      consistent and rank normalized genome-based taxonomy for prokaryotic genomes sourced from the NCBI Assembly database}
+      combined with efforts such as those of \citeauthor{pallen2021next} to ensure valid names for novel taxa that 
+      will keep being discovered over the next years, could play a great role on addressing this issue. 
+      However, moving all the so-far knowledge in a specific format is far from easy. 
+      At the same time, as discussed in~\ref{cha:prego}, bringing together data of different types can return great insight 
+      by either generate hypotheses or further supporting hypotheses such as the one of~\citeauthor{pavloudi2017diversity} 
+      on the potential use of various electron acceptors from the different strains present in different environmental types
+      (see~\ref{subsec:envo-proc}).
+      This becomes clearer considering that up to now only a small fraction of the microbial diversity has been 
+      described and named (~$24,000$ species~\citep{parte2020list}) with almost $10,000$ of them to have done so, over the last 6 years
+      (see~\href{https://lpsn.dsmz.de/statistics/figure/10}{LPSN statistics}
+      \footnote{\href{https://lpsn.dsmz.de/statistics/figure/10}{https://lpsn.dsmz.de/statistics/figure/10}}
+      ). 
 
+      Moreover, linking the various ontologies related to a certain domain without loosing the 
+      benefits of each of those, is essential for the community. 
+      That means that efforts for mapping entities of an ontology or a database to those of others 
+      sharing a common field, even if there is not a one-to-one relationship, will increase considerably their impact.  
+      Efforts such the one of the Rhea reaction knowledgebase~\citep{bansal2022rhea} 
 
+      By addessing these challenges and by ensuring high quality metadata,
+      data integration techniques will be improved considerably. 
+      Combined with machine learning techniques, such methods 
+      can contribute the most in exploiting the
+      full potential of the HTS data produced
+      and the so-far knowledge
+      for the utmost biological insights that can be drawn~\citep{noor2019biological}.
 
-\section{Flux sampling illustrates phenotypic changes of a species under different conditions}
-\label{chap:concl-met-nets}
+\section{Markov Chain Monte Carlo approaches enable flux sampling at the microbial community level}
+\label{concl:fluxes}
 
+   Metabolic modelling and genome-scale metabolic models in particular, 
+   provide a great framework to study the genotype - phenotype relationship~\citep{lewis2012constraining}.
+   Thus, it enables the investigation on how a species respond under changing environmental conditions too~\citep{herrmann2019flux}. 
+   Flux sampling on microbial GEMs has been proved the most valuable for 
+   the identification of specific reactions that are transcriptionally regulated~\citep{Bordel10}
+   or required under certain conditions for the species to survive~\citep{herrmann2019flux}.
+   But also in the study of the variant by-produts produced by the different strains of a species~\citep{scott2021metabolic}.
 
+   As shown in Chapter~\ref{chap:dingo} 
+   the higher the dimension of the polytope derived from a metabolic model, 
+   the more challenging the sampling on its flux space gets.
+   The dimension of a polytope derived from any single microbial GEM 
+   is at least one order of magnitude lower than 
+   the one from species such as \textit{H. sapiens}.
+   However, in real-world microbial communities it is rare for a species to be on its own.
+   Based on~\cite{perez2016metabolic} there are various approaches for modelling a community as a whole,
+   each coming with several pros and cons.
+   As the \textit{lumped network} approach 
+   neglects microbial diversity dynamics and the dynamics of their corresponding processes, 
+   assuming a \textit{super-organism} where all species share the same reactions and exploit their environment in the same way, 
+   it cannot be used for the study of microbial interactions. 
+   To this end, models that integrate a GEM for every species present, taking into account the relative abundance of each species, 
+   and also 
+   support the exchange of compounds between each species and the environment are required~\citep{diener2020micom}. 
+   Dynamic versions of such models also allow the 
+   changes in the biomass concentrations of each individual species to be taken into account~\citep{zhuang2011genome}. 
+   Approaches like COMETS~\citep{dukovski2021metabolic} and MICOM 
+   have been essential towards this direction. 
+   However, flux sampling has not been merged yet to large-scale approaches 
+   mostly because of the computational challenges that arise as the dimension of the polytope that derives from a model increases.
+   Therefore, approaches such as the MMCS algorithm desribed in Chapter~\ref{chap:dingo} may benefit the community to this end.
 
-   \begin{enumerate}
-      \item Role of technologies such as containerization. 
-      \item Trends for reproducible pipelines and role of infrastuctures
-   \end{enumerate}
+% \section{Seasonality affects microbial mat community structure and functions}
+% \label{conlc:mats}
 
+%    The affects of  
+%    As discussed in Chapter~\ref{} 
+%    \citep{cardoso_seasonal_2019}
 
-\section{Future work}
+%    \ref{swamp:discussion}
+
+\section{Future work: more holistic approaches are essential to uncover the underlying mechanisms governing microbial communities}
 \label{chap:fut-work}
 
 
-   to understand the patterns of biodiversity
-   found in most natural habitats, it is crucial to understand
-   the evolution, distribution and diversity of bacterial nutri-
-   tional preferences and metabolic strategies across the tree
-   of life [52]    \citep{bajic2020ecology}
+   Metagenomics and the rest of the 'omics technologies have turned the page on microbial ecology studies. 
+   However, to address questions such as the seasonality effects on the community structure and its functioning 
+   (see Section~\ref{swamp:discussion}) 
+   Systems Biology approaches are required.
+   As discussed by~\cite{bajic2020ecology} 
+   \textit{"a combination of quantitative high-throughput experiments and predictive metabolic models can help us map the genotype - phenotype map of
+   microbial metabolic strategies}. 
+   Further technologies, such as Raman micro-spectroscopy~\citep{jing2018raman}, can also be of great use to this end. 
+   The prediction of such strategies based on genomic information according to~\citeauthor{bajic2020ecology} will also provide great insight 
+   on the evolvability of metabolic decisions and will
+   shed light on how these decisions affect
+   microbial coexistence in the communities.
+   The software developed in the framework of the PhD can benefit such approaches, either by improving HTS data analysis, 
+   or by enhancing their exploitation or with novel
+   predictive algorithms.
+   Apparently, for each of these fields, there are still several challenges that need to be addressed. 
+
+   Approaches such as PREGO (see Chapter~\ref{cha:prego}) 
+   will not reveal their true potential unless the community embrace a series of standards and 
+   metadata protocols. Thus, it is essential both to develop such checklists 
+   but also to convincr and train the community using them. 
+   As already discussed, machine learning methods (see Conclusion~\ref{concl:metadata}) 
+   as well as network theory and visualizations 
+   may benefit such approaches notably. 
+   
+   Moreover, to infer microbe - microbe associations,
+   co-occurrence networks can be of help 
+   and the incorporation of phenotypical data 
+   such as pH values, optimal temperatures etc. to such networks, may benefit 
+   the inference of such associations to a great extent. 
+   Resources such as FAPROTAX~\citep*{louca2016decoupling}, PhenDB~\citep{feldbauer2015prediction}
+   and BugBase~\citep{Ward133462} provide great input for such a task. 
+
+   Moreover, by coupling data integration with metabolic modelling approaches \todo{MAKE IT WHOLE}
+   more 
 
 
 
@@ -182,19 +272,21 @@
 
 
 
-
-
-
-% METADATA
-Thus, it is fundamental for the community to make apprehend the value of 
-this and comply to the standards~\citep{}
+   % sediments are more phylogenetically diverse than any other environment type.   lozupone2007global
 
 
 
 
-Flux sampling as the future of microbial interaction inference 
-along with techniques such Raman spectometry etc.
+% % METADATA
+% Thus, it is fundamental for the community to make apprehend the value of 
+% this and comply to the standards~\citep{}
 
 
-steady-state does not consider kinetics or regulatory events
-Integrating stoichiometric approaches with machine learning and more~\citep{sahu2021advances}
+
+
+% Flux sampling as the future of microbial interaction inference 
+% along with techniques such Raman spectometry etc.
+
+
+% steady-state does not consider kinetics or regulatory events
+% Integrating stoichiometric approaches with machine learning and more~\citep{sahu2021advances}

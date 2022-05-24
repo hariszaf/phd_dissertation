@@ -224,7 +224,7 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
    \label{subsec:prego-seq-search}
 
    In the case of organisms, PREGO enables sequence-based queries, meaning a sequence (amplicon) can be used as an entry point like it was a taxon name. 
-   To this end, a custom database was built using a set of reference custom databases for four commonly used marker genes. For 16S and 18S rRNA, the SILVA database (v.138) \citep{quast2012silva} and the PR2 database (version\_4.14.0) \citep{guillou2012protist, del2018eukref} were used. 
+   To this end, a custom database was built using a set of reference custom databases for four commonly used marker genes. For 16S and 18S rRNA, the SILVA database (v.138) \citep{quast_silva_2013} and the PR2 database (version\_4.14.0) \citep{guillou2012protist, del2018eukref} were used. 
    Cytochrome c oxidase I (COI) \citep{suter2021capturing} is another commonly used marker gene; 
    for this reason, Midori 2 (version GB243) \citep{leray2018midori} was integrated in PREGO's custom database. 
    Finally, for the Internal transcribed spacer (ITS), common in studies focusing on Fungi, the Unite (version 8.3, accessed 10.05.2021) \citep{nilsson2019unite} database was added.
@@ -300,7 +300,8 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
 
    The \textit{Documents} tab includes a list of scientific publications where the queried entity is mentioned. 
    Through the \textit{Downloads} tab, users are able to get all of the PREGO associations found for their query, per entity type (e.g., all the environments found related to an organism) and per channel (e.g., all the Environments found related to an organism through the \textit{Literature} channel). 
-   This data retrieval functionality is also available via the PREGO API (syntax described in Figure~\ref{fig:prego_api_schema}). Finally, all PREGO associations are available for bulk download from each channel (see Table~\ref{table:prego-appD-comparisons}).
+   This data retrieval functionality is also available via the PREGO API (syntax described in Figure~\ref{fig:prego_api_schema}). 
+   Finally, all PREGO associations are available for bulk download from each channel (see Table~\ref{table:pregoA1}).
 
 
 
@@ -567,8 +568,8 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
    In addition, network visualization tools, like Arena3Dweb \citep{karatzas2021arena3dweb}, could allow interactive browsing of associations through multi-layered graphs. 
    Enrichment analyses, like those performed by OnTheFly2.0 \citep{baltoumas2021onthefly2} or Flame \citep{thanati2021flame}, 
    can be incorporated. 
-   Omics data analysis pipelines, like MiBiOmics \citep{zoppi2021mibiomics}, environment associations with sequences using SeqEnv \citep{sinclair2016seqenv} and biogeochemical associations with metagenomic data with DiTing \citep{xue2021diting} could be enabled by comparing the associations pertinent to different groups of entities. 
-   The computationally intensive tasks of multiple queries, taxonomy assignments to sequences and enrichment analysis could be offered by our in-house High Performance Computing facility (https://hpc.hcmr.gr/, accessed on 24 December 2021) \citep{zafeiropoulos20210s} in synergy with pertinent Research Infrastructures like \href{https://elixir-europe.org}{ELIXIR}\footnote{\href{https://elixir-europe.org}{https://elixir-europe.org}} (accessed on 24 December 2021) and \href{https://www.lifewatch.eu/}{LifeWatch ERIC}\footnote{\href{https://www.lifewatch.eu/}{https://www.lifewatch.eu/}} (accessed on 24 December 2021).
+   Omics data analysis pipelines, like MiBiOmics \citep{zoppi2021mibiomics}, environment associations with sequences using SeqEnv \citep{sinclair2016seqenv} and biogeochemical associations with metagenomic data with DiTing~\citep{xue_diting_2021} could be enabled by comparing the associations pertinent to different groups of entities. 
+   The computationally intensive tasks of multiple queries, taxonomy assignments to sequences and enrichment analysis could be offered by our in-house High Performance Computing facility (https://hpc.hcmr.gr/, accessed on 24 December 2021) \citep{zafeiropoulos_0s_2021} in synergy with pertinent Research Infrastructures like \href{https://elixir-europe.org}{ELIXIR}\footnote{\href{https://elixir-europe.org}{https://elixir-europe.org}} (accessed on 24 December 2021) and \href{https://www.lifewatch.eu/}{LifeWatch ERIC}\footnote{\href{https://www.lifewatch.eu/}{https://www.lifewatch.eu/}} (accessed on 24 December 2021).
 
 
 

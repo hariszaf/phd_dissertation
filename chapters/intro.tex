@@ -151,7 +151,7 @@
    % \if 0fector models describe how species abundance (x) variation depends on metabolite conce
    \subsection{Ecological interactions in microbial communities}
    \label{subsec:ecol_interactions}
-   % \fi
+   
       Moreover, to elucidate how these assemblages work the biotic interactions have to be 
       considered too. 
       Microbial interactions play a fundamental role in deciphering the underlying mechanisms that govern ecosystem functioning \citep{braga2016microbial, faust2012microbial}. 
@@ -271,10 +271,10 @@
 
       As shown in Figure~\ref{fig:revecol}, the Reverse Ecology framework 
       has multiple alternatives and various methods can exploit this concept.
-      The analysis of metabolic networks (see Section~\ref{subsec:modeling}) 
+      The analysis of metabolic networks (see Section~\ref{chap:dingo}) 
       plays a great part in several Reverse Ecology approaches.
       Most parts of this dissertation have been influenced by this, especially 
-      chapters~\ref{cha:prego},~\ref{cha:dingo} and~\ref{cha:swamp}.
+      chapters~\ref{cha:prego},~\ref{chap:dingo} and~\ref{cha:swamp}.
       
 
 
@@ -307,9 +307,10 @@
       \textit{metabarcoding} (amplicon-targeted metagenomics) and \textit{shotgun metagenomics} can be used as alternative options. 
       Metabarcoding studies are common, well-established, cheaper and less computationally demanding than shotgun metagenomics~\citep{bell2021comparing}. 
       Its primary drawbacks are the limited information present in the short barcoding sequence and the possible taxonomic bias arising from differential efficiency of PCR primer pairing in different species~\citep{blazewicz2013evaluating}. 
-      On the other hand, shotgun metagenomics offers a better taxonomic resolution at the species level by obtaining information from random sampling of virtually all genomic regions, and can address microbiome metabolic functions and entire biochemical pathways~\citep{sharpton2014introduction}. 
+      On the other hand, shotgun metagenomics offers a better taxonomic resolution at the species level by obtaining information from random sampling of virtually all genomic regions, and can address microbiome metabolic functions and entire biochemical pathways~\citep{sharpton_introduction_2014}. 
       Unfortunately, it requires higher sequencing coverage and, consequently, more complex and demanding downstream bioinformatics analysis~\citep{laudadio2018quantitative}. 
-      Nevertheless, it has recently been suggested that shotgun metagenomics provides a deeper characterisation of microbiome complexity that metabarcoding recently enabling to profile up to the level of strains, whose non-core genome is responsible for crucial functional differences within the same species, as the fundamental units of the community~\citep{davila2019review, clooney2016comparing, segata2018road}.       
+      Nevertheless, it has recently been suggested that shotgun metagenomics provides a deeper characterisation of microbiome complexity that metabarcoding recently enabling to profile up to the level of strains, whose non-core genome is responsible for crucial functional differences within the same species, 
+      as the fundamental units of the community~\citep{davila2019review, clooney_comparing_2016, segata_road_2018}.       
       
       Targeting community composition and functional profiles in several ecological niches, 
       microbial ecologists produce vast 
@@ -847,12 +848,12 @@
       the Artificial Centering Hit-and-Run
       (ACHR)~\citep{kaufman1998direction} 
       and Coordinate Hit-and-Run with Rounding
-      (CHRR)~\citep{haraldsdottir2017chrr}
+      (CHRR)~\citep{Haraldsdottir17}
       have been adopted and used to a great extent. 
       Similarly to FBA, flux sampling algorithms, e.g. CHRR, have been integrated in \texttt{cobra}~\citep{heirendt2019creation},
       the most widely used 
       software package for metabolic network analysis.
-      Further introductory concepts of MCMC are available at Appendix~\ref{subsec:mcmc_intro}
+      % Further introductory concepts of MCMC are available at Appendix~\ref{subsec:mcmc_intro}
 
       On top of that, over the last few years, flux sampling has been 
       used in computational approaches for inferring microbial interactions 
@@ -891,10 +892,11 @@
 
    The aim of this PhD was double:
    \begin{enumerate}
-      \item to enhance the analysis of microbiome data by building algorithms and software 
-            to address some of the on-going computational challenges on the field.
-      \item to exploit these methods to identify taxa, functions, especially related to sulfur cycle, 
-            and microbial interactions that support life in microbial community assemblages in hypersaline sediments.
+      \item to enhance the analysis of microbiome data 
+            by building algorithms and software 
+            that address limitations and on-going computational challenges
+      \item to exploit state-of-the-art methods to identify taxa and functions  
+            that play a key part in microbial community assemblages in hypersaline sediments.
    \end{enumerate}
    All parts of this work are purely computational. 
    Both samples and their corresponding sequencing data used in Chapter~\ref{cha:swamp} have been collected 
@@ -916,7 +918,7 @@
       \item environmental types and the biological processes that take place there
    \end{enumerate}
 
-   In \textbf{Chapter~\ref{cha:dingo}}, the challenges of flux sampling in metabolic models of high dimensions was presented along with a Multiphase Monte Carlo Sampling (MMCS) algorithm we developed. 
+   In \textbf{Chapter~\ref{chap:dingo}}, the challenges of flux sampling in metabolic models of high dimensions was presented along with a Multiphase Monte Carlo Sampling (MMCS) algorithm we developed. 
 
    In \textbf{Chapter~\ref{cha:swamp}}, sediment samples from a hypersaline swamp in Tristomo, Karpathos Greece were analysed using both amplicon and shotgun metagenomics. 
    The taxonomic and the functional profiles of the microbial communities present there were investigated. 
