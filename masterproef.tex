@@ -38,7 +38,14 @@
 \usepackage{pifont}
 \usepackage{amsmath}
 
-% The xspace package provides a single command that looks at what comes after it in the command stream, and decides whether to insert a space to replace one “eaten” by the TEX command decoder. The decision is based on what came after any space, not on whether there was a space (which is unknowable): so if the next thing proves to be punctuation, the chances are there was no space, but if it’s a letter, there’s probably a need for space. This technique is not perfect, but works in a large proportion of cases.
+% The xspace package provides a single command that looks at what comes after 
+% it in the command stream, and decides whether to insert a space to replace 
+% one “eaten” by the TEX command decoder. 
+% The decision is based on what came after any space, 
+% not on whether there was a space (which is unknowable): 
+% so if the next thing proves to be punctuation, the chances are there was 
+% no space, but if it’s a letter, there’s probably a need for space. 
+% This technique is not perfect, but works in a large proportion of cases.
 \usepackage{xspace}
 
 % For lemas
@@ -156,7 +163,6 @@
 %    \href{https://www.researchgate.net/profile/Sanni-Hintikka}{Dr. Sanni Hintikka} 
 %    and Dr. Laura Gargan who managed to handle both Jens and myself. 
 
-
 %    I would also like to declare my gratitude to the Biodiversity lab of IMBBC. 
 %    I joined the lab almost 5 years ago and I could not find the words to express how glad I am for doing so.
 %    Christara many thanks for being around when needed and for your insight in so many aspects.
@@ -213,7 +219,6 @@
 %    my boxing bag, my colleague, my courage, my coffee and my tobacco, my caress during all this journey. 
 %    \foreignlanguage{greek}{Αφούλη} thank you for making my world go round. \\
 
-
 %    \foreignlanguage{greek}{
 %       \hspace*{\fill} Σκέφτηκα να ξαναζήσω αυτά τα καλά που θυμάμαι \\
 %       \hspace*{\fill} Αυτά που γελάμε όταν τα συζητάμε τσουγκρίζοντας μπύρες τα βράδια \\
@@ -228,13 +233,13 @@
 
 % \end{preface}
 
+
 % TOC
 \tableofcontents
 \newpage
 
 %  Abstract in english 
 \begin{abstract}
-
 
    % THE QUESTION 
    % ------------
@@ -298,7 +303,7 @@
    By exploiting data integration techniques to bring such bits of information together, 
    as well as text mining methods to retrieve knowledge "hidden" among the billions of text lines in 
    already published literature, the PREGO knowledge-base returns thousands of 
-   \textit{what - where - who} potential associations (Section~\ref{cha:prego}).
+   \textit{what - where - who} potential associations (Chapter~\ref{cha:prego}).
 
    % MET NETS
    The driving question though is \textit{how} the different microbial taxa ascertain their 
@@ -325,7 +330,7 @@
    were measured at the sampling sites.
    Key functions supporting life in such environments were identified and metagenome-assembled genomes (MAGs)
    of novel species found were built
-   (Chapter~\ref{cha:swamp}). 
+   (Chapter~\ref{publ:swamp}). 
 
 
    % A SHORT CONLCUSION 
@@ -414,7 +419,7 @@
    όσο και η μέθοδος μεταγονιδιωματικής \foreignlanguage{english}{shotgun}.
    Επίσης μετρήθηκαν περιβαλλοντικές παράμετροι (όπως αλατότητα, συγκέντρωση οξυγόνου). 
    Βασικές λειτουργίες που υποστηρίζουν τη ζωή σε τέτοιες συνθήκες εντοπίστηκαν 
-   ενώ ακόμη γονιδιώματα τάξων που εντοπίζονται για πρώτη φορά ανασκευαάστηκαν από τις αλληλουχίες του μεταγονιδιώματος~(\foreignlanguage{english}{MAGs}), Κεφάλαιο~\foreignlanguage{english}{\ref{cha:swamp}}.
+   ενώ ακόμη γονιδιώματα τάξων που εντοπίζονται για πρώτη φορά ανασκευαάστηκαν από τις αλληλουχίες του μεταγονιδιώματος~(\foreignlanguage{english}{MAGs}), Κεφάλαιο~\foreignlanguage{english}{\ref{publ:swamp}}.
 
    Όπως συμβαίνει και στις μικροβιακές κοινότητες, οι βιοπληροφορικές μέθοδοι σπάνια στέκουν 
    απομονωμένες, αντίθετα τείνουν να συγκροτούν κι αυτές τις δικές τους "κοινότητες". 
@@ -444,9 +449,10 @@
       OTU   & Operational Taxonomic Unit\\
       ASV   & Amplicon Sequence Variant\\
       HPC   & High Performance Computing\\
+      MAG   & Metagenome-assembled Genome\\
       MCMC  & Markov Chain Monte Carlo\\
       MMCS  & Multiphase Monte Carlo Sampling\\
-      PREGO & PRocess Environment OrGanism\\
+      PREGO & PRocess Environment OrGanisms\\
       PEMA  & Pipeline for Environmental DNA Metabarcoding Analysis\\
       DARN  & Dark mAtteR iNvestigator\\
       PSRF  & Potential Scale Reduction Factor\\
@@ -464,12 +470,12 @@
       $\OO$          & Algorithm complexity\\
       $\sO$          & Algorithm complexity ignoring polylogarithmic factors\\
       $\mathbb{E}$   & Expected Value operator\\
-      $\mathcal{U}$  & utility function....\\
-      $\ell$         & a ray\\
-      $P$            & a polytope\\
-      $\tau$         & a trajectory\\
+      % $\mathcal{U}$  & utility function....\\
+      $\ell$         & ray\\
+      $P$            & polytope\\
+      $\tau$         & trajectory\\
       $\partial P$   & boundary of the $P$ polytope\\
-      $v$            & a flux vector\\
+      $v$            & flux vector\\
       $v_i$          & flux value of the reaction $i$\\
       $W$            & walk length\\
       $\rho$         & number of reflections\\
@@ -483,23 +489,23 @@
 % Now the actual text begins
 \mainmatter
 
-% % Introduction 
-% \include{chapters/intro}
+% Introduction 
+\include{chapters/intro}
 
-% % The who : microbial diversity
-% \include{chapters/chap-1}
+% The who : microbial diversity
+\include{chapters/chap-1}
 
-% % The who, the what and where: PREGO
-% \include{chapters/chap-2}
+% The who, the what and where: PREGO
+\include{chapters/chap-2}
 
 % Flux sampling
 \include{chapters/chap-3}
 
-% % Karpathos case
-% \include{chapters/chap-4}
+% Karpathos case
+\include{chapters/chap-4}
 
-% % Computing in bio-research
-% \include{chapters/chap-5}
+% Computing in bio-research
+\include{chapters/chap-5}
 
 % Finally... 
 \include{chapters/conclusion}
@@ -510,9 +516,10 @@
 % If there are attachments
 \appendixpage*          
 \appendix
-\include{appendices/app-B}
 \include{appendices/app-A}
+\include{appendices/app-B}
 \include{appendices/app-C}
+
 \backmatter 
 
 

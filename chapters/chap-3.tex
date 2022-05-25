@@ -34,11 +34,11 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    Authors' names are in alphabetical order. 
    Here a modified version of the published version is presented
    in terms of relevance, coherence and formatting.
+   Proofs for the lemmas mentioned and parameter tuning can be found in the original publication.
    The \texttt{dingo} Python library, a wrapper of the \texttt{C++} code 
    of the MMCS algorithm, is available at 
    \href{https://github.com/geomscale/dingo}{https://github.com/geomscale/dingo}
-   and a relative publication is under preparation.
-   Proofs for the lemmas mentioned and parameter tuning can be found in the original publication. 
+   and a relative publication is under preparation. 
 }
 
 
@@ -205,7 +205,6 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    If collect a sufficient number of points uniformly distributed in the interior of the polytope, then the biologists can study the properties of certain components of the whole network and deduce significant biological insights~\citep{palsson2015systems}. Therefore, efficient sampling tools are of great importance.
    
    % COPULAS ON RECOND 3D
-   \todo{Make a comment on the bad ones from the fig. according to the IEEE review}
    \begin{figure}[h]
       \centering
       \includegraphics[width=125mm]{figures/copulas_cropped.png}
@@ -352,7 +351,9 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    and the uniform tests~\citep{CousinsThesis17}.
    %%
    Interestingly, 
-   the copula representation we employ in Figure~\ref{fig:copulas} to capture the dependence between two fluxes of reactions was also used  successfully in a geometric framework to detect financial crises capturing the dependence between portfolio return and volatility~\citep{Cales18}.
+   the copula representation we employ in Figure~\ref{fig:copulas} to capture the dependence between two fluxes of reactions 
+   was also used successfully in a geometric framework to detect financial crises capturing the dependence 
+   between portfolio return and volatility~\citep{Cales18}.
 
    % MMCS CONTRIBUTION
 \subsection{Contribution}
@@ -388,7 +389,8 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    (Table~\ref{tab:results1}). The quality of the sample our software produces is
    measured with two widely used diagnostics, i.e., ESS and potential scale reduction factor (PSRF)~\citep{Gelman92}. The highlight of
    our method is the ability to sample from the most complicated human metabolic
-   network that is accessible today, namely Recon3D. In Figure~\ref{fig:copulas} we estimate marginal univariate and bivariate flux distributions in Recon3D which validate: 
+   network that is accessible today, namely Recon3D. 
+   In Figure~\ref{fig:copulas} we estimate marginal univariate and bivariate flux distributions in Recon3D which validate: 
    \begin{itemize}
       \item the  quality of the sample by confirming a mutually exclusive pair of biochemical pathways,
       and that
@@ -871,6 +873,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    comparison with~\citep{jadebeck2020hops}.
 
    % Figure 4: Plots with marginds of Recon2 and 3D
+   \if 0 
    \begin{figure*}[t!]
       \centering
       \includegraphics[scale=0.215]{figures/Thioredoxin}
@@ -886,6 +889,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
       \label{fig:recon2-recon3}
    \end{figure*}
    \todo{say something about the immense differences}
+   \fi
 
    The fast mixing of billiard walk allow us to use all the generated samples to
    approximate each flux distribution and so we compute a better flux distribution
@@ -1043,8 +1047,10 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    All the marginals of the MMCS samples reported in Table~\ref{tab:results1} have PSRF $ < 1.1$. 
    This is a strong statistical evidence on the quality of the generated sample. 
 
+   \if 0 
    The histograms in Figure~\ref{fig:recon2-recon3} illustrate an approximation for the flux distribution of 6 reaction fluxes in Recon2D and Recon3D, respectively. 
    Notice the difference in estimated densities due to the stoichiometric matrix update from Recon2D to Recon3D. 
+   \fi
    The marginal flux distribution of reaction Thioredoxin in Recon2D was estimated also in~\citep{Haraldsdottir17} and used as an evidence for the quality of the sample.  
    In Figure~\ref{fig:copulas}, we employ the copula representation to capture the dependency between two fluxes of reactions and confirm a mutually exclusive pair of biochemical pathways. 
 
@@ -1172,4 +1178,27 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    to important biological insights.
  
 
+   % added after IEEE review for the phd 
+
+   The scenario presented in Figure~\ref{fig:copulas} 
+   demonstrates an essential issue of steady-state oriented methods,  
+   that leads to obscure, non-viable flux vectors. 
+   As mentioned, flux sampling like FBA, it also assumes that the system is at a steady state.
+   That means that no matter of the flux of each reaction, 
+   the total concentration of each metabolite is constant.
+   Therefore, in the example shown in Figure~\ref{fig:copulas} (left copula) 
+   glucose is converted to G6P by HEX at the expense of ATP.
+   At the same time, glucose is produced again by the G6PPer phosphatase. 
+   Such a scenario leads to a dead cell but allows us to make sure that the sampling has been implemented
+   the way it should.
+   To use flux sampling in actual scenarios, there must be
+   an uptake flux for glucose and a production of some end product which is
+   excreted in order to force the sampling to produce a viable flux and some
+   more meaningful result. 
+   In the near future, several tests will be added in the \texttt{dingo}
+   Python library ensuring the viability of the samples returned. 
+   Our main goal is to sample on the flux space of a microbial community
+   to infer microbial interactions (see Conclusion~\ref{concl:fluxes}) and maybe, 
+   start getting some answers on the \textit{how} and \textit{why} questions
+   that have made an \textit{"entangled bank"} out of the mechanisms that govern such assemblages. 
 

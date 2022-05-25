@@ -28,7 +28,7 @@
    and a thorough alignment procedure is applied,
    even short short reads may return phylogenetic information 
    comparable with the one fron full-length 16S rRNA reads~\citep{jeraldo2011suitability}.
-   This was also shown in Chapter~\ref{cha:swamp} as the 16S rRNA amplicon analysis 
+   This was also shown in Chapter~\ref{publ:swamp} as the 16S rRNA amplicon analysis 
    was in line with the taxonomy assignment of the shotgun reads. 
 
    Even if amplicon studies have proven themselves essential for the assessment of 
@@ -115,6 +115,8 @@
       to be integrated in e-infrustructures, are rather significant. 
       This way, reproducability is secured and analyses that cannot be performed in a personal computer
       is accessible to researches that have no access to local servers or HPCs. 
+      Further insight on how to address computing-oriented challenges on the analysis of microbiome data
+      are discused in~\citep{hu2022challenges}.  
 
 \section{High quality metadata enable efficient exploitation of sequecning data in a meta-analysis level}
 \label{concl:metadata}
@@ -124,9 +126,10 @@
       However, these data are not fully exploited unless they come with thorough and standardized metadata;
       indicatively it has been shown that more than the 20\% of the metagenomes published between 2016 and 2019 
       were not even accessible~\citep{eckert2020every}.
-      To address such challenges, community-driven initiatives can be of great importance~\citep{yilmaz2011minimum, vangay2021microbiome}.
-      Such initiatives could be of great help for more specific topics as well, e.g. protocols suitting the 
-      Ocean Best Practices System~\citep{samuel2021towards}.
+      To address such challenges, community-driven initiatives can be of great importance~\citep{yilmaz2011minimum, 
+      vangay2021microbiome, hu2022challenges}.
+      Similar initiatives focusing on specific topics, e.g. protocols in the framework of the 
+      Ocean Best Practices System~\citep{samuel2021towards}, are essential.
 
       FAIR principles have set a new era on how data are stored and ditributed. 
       Data and metadata provenance goes even further by allowing not only the reuse of the data, 
@@ -180,11 +183,13 @@
 
    Metabolic modelling and genome-scale metabolic models in particular, 
    provide a great framework to study the genotype - phenotype relationship~\citep{lewis2012constraining}.
-   Thus, it enables the investigation on how a species respond under changing environmental conditions too~\citep{herrmann2019flux}. 
+   Thus, it enables the investigation on how a species respond under changing environmental conditions 
+   too~\citep{herrmann2019flux}. 
    Flux sampling on microbial GEMs has been proved the most valuable for 
    the identification of specific reactions that are transcriptionally regulated~\citep{Bordel10}
    or required under certain conditions for the species to survive~\citep{herrmann2019flux}.
-   But also in the study of the variant by-produts produced by the different strains of a species~\citep{scott2021metabolic}.
+   But also in the study of the variant by-produts produced by the different strains of a 
+   species~\citep{scott2021metabolic}.
 
    As shown in Chapter~\ref{chap:dingo} 
    the higher the dimension of the polytope derived from a metabolic model, 
@@ -197,96 +202,189 @@
    each coming with several pros and cons.
    As the \textit{lumped network} approach 
    neglects microbial diversity dynamics and the dynamics of their corresponding processes, 
-   assuming a \textit{super-organism} where all species share the same reactions and exploit their environment in the same way, 
+   assuming a \textit{super-organism} where all species share the same reactions and exploit their environment 
+   in the same way, 
    it cannot be used for the study of microbial interactions. 
-   To this end, models that integrate a GEM for every species present, taking into account the relative abundance of each species, 
+   To this end, models that integrate a GEM for every species present, 
+   taking into account the relative abundance of each species, 
    and also 
    support the exchange of compounds between each species and the environment are required~\citep{diener2020micom}. 
    Dynamic versions of such models also allow the 
    changes in the biomass concentrations of each individual species to be taken into account~\citep{zhuang2011genome}. 
+   This way, ecological interactions can be inferred;
+   illustratively,~\citeauthor{zhuang2011genome} demonstrated 
+   how the concentration of acetate in the environment can define 
+   whether \textit{Rhodoferax} or its competitor \textit{Geobacter} will survive. 
    Approaches like COMETS~\citep{dukovski2021metabolic} and MICOM 
    have been essential towards this direction. 
    However, flux sampling has not been merged yet to large-scale approaches 
-   mostly because of the computational challenges that arise as the dimension of the polytope that derives from a model increases.
-   Therefore, approaches such as the MMCS algorithm desribed in Chapter~\ref{chap:dingo} may benefit the community to this end.
+   mostly because of the computational challenges that arise as the dimension of the polytope 
+   that derives from a model increases.
+   Therefore, approaches such as the MMCS algorithm desribed in 
+   Chapter~\ref{chap:dingo} may benefit the community to this end.
 
-% \section{Seasonality affects microbial mat community structure and functions}
-% \label{conlc:mats}
+\section{Hypersaline mats host a great range of novel taxa \& their functioning might be subject to anaplerotic reactions}
+\label{conlc:mats}
 
-%    The affects of  
-%    As discussed in Chapter~\ref{} 
-%    \citep{cardoso_seasonal_2019}
+   As discussed in Chapter~\ref{swamp:intro} hypersaline mats 
+   have been studied to a great extent over the last decades.
+   Several novel taxa have been identified for the first time in such environments. 
+   It is well established that in such communities a certain organisation of 
+   the taxa present are stratified~\citep{saghai2017unveiling}
+   and that photosynthesis plays a great part for the mat communities as a total~\citep{oren_cyanobacteria_2015}. 
 
-%    \ref{swamp:discussion}
+   Thanks to their geomorphological and biogeochemical heterogeneity
+   they provide a profuse number of ecological niches for microorganisms
+   leading to highly diverse communities multiple taxa of which have not yet recorded.
+   This was demonstrated to a great extent in Chapter~\ref{swamp:intro} (see also Appendix~\ref{app:C})
+   where more than 200 novel taxa have been found and about 65 of them have 
+   been described, highlight also the potential of shotgun metagenomics. 
+
+   In their study,~\citeauthor{lee_nacl-saturated_2018} demonstrated 
+   that NaCl saturated environments can be considered 
+   “thermodynamically moderate”, meaning they are capable of 
+   active and complete element cycling  
+   and thus they can be considered as self-sustaining systems.
+   To that end and assuming 
+   that sunlight is the sole energy source of the system, 
+   primary production of organic matter 
+   by oxygenic phototrophs is essential for the community to survive~\citep{meier_limitation_2021}. 
+   That is further supported by the the fact that 
+   descpite the fact that oxygenic photosynthesis is thermodynamically possible 
+   at high salt concentrations~\citep{oren_thermodynamic_2011}, 
+   a kinetic inhibition of oxygenic photosynthesis 
+   by decreased oxygen solubility~\citep{abed2007effect}.
+   Thus, Cyanobacteria have been found to be fundamental in hypersaline 
+   microbial mats; 
+   even when their abundance is relatively lower  
+   they are assumed to remain the major group of 
+   primary producers~\citep{bolhuis_molecular_2014}.
+   However, in the Tristomo marsh mats, several phototrophic 
+   Proteobacteria were identified suggesting they also play a great part 
+   in fueling the system. 
+   To investigate what is actually the case, further studies are required (see Conlusion~\ref{chap:fut-work}).
+   % Interestingly, based on our study (see Chapter~\ref{publ:swamp}), 
+   % in the Tristomo marsh mats 
+   % it is mainly representatives of the Proteobacteria phylum that have a key role in
+   % primary production. 
+   % % That would be rather interesting as to our knowledge, it is 
+   % Cyanobacteria that usually play this role could not do so in our case 
+   % as high salinity level were found even in the top leyer of the mats. 
+   Moreover, anaplerotic reactions were identified in high abundances across the samples.
+   It is commonly known that anaplerotic reactions play a key role 
+   in replenishing the intermediates of the TCA cycle~\citep{owen2002key}.  
+   allowing microbial growth 
+   when there is only a certain
+   carbohydrate available~\citep{choi_distinct_2016}, indicating that sunlight 
+   is actually the only carbon source of the system. 
+
+   % Furthermore, it has been demonstrated that seasonality affects mat communities to a great extent
+   % \citep{}
+   % import of reduced substances and periods of reduced salinity are required, 
+   % to allow the occurrence of oxygenic photosynthesis (Meier et al. 2021); 
+   % in our study site this occurs in winter where evaporation is not as strong as in the summer, 
+   % which combined with the increased precipitation, 
+   % lowers the salinity of the marsh. 
+
+   % During winter months, both the salt crust and the layering of the microbial mat disappears, 
+   % as in Cardoso et al. (2019), and it seems that this temporal change and seasonal development 
+   % of the microbial mats under study is the necessary element for the survival of the microorganisms.
+
+   % The affects of  
+   % As discussed in Chapter~\ref{} 
+   % \citep{cardoso_seasonal_2019}
+   % Seasonality affects microbial mat community structure and functions
+   % \ref{swamp:discussion}
+
 
 \section{Future work: more holistic approaches are essential to uncover the underlying mechanisms governing microbial communities}
 \label{chap:fut-work}
 
+   Aim of this PhD was to enhance the analysis of microbiome data from a bioinformatics-point of view
+   and to implement such analyses to investigate life in extreme cases. 
+   As already discussed, HTS methods come up with several challenges and 
+   approaches such as PEMA (see Chapter~\ref{publ:pema}~\citep{zafeiropoulos2020pema}) and 
+   DARN (see Chapter~\ref{publ:darn}~\citep{zafeiropoulos2021dark}) can benefit the community 
+   in terms of fine parameter tuning and easy-to-use analysis and 
+   quality checks for non-target taxa correspondingly. 
+   Apparently, there is still a great number of issues need to be addressed.
+   In case of amplicon studies, abundance estimation of the identified taxa has been crucial.
+   \citeauthor{gloor2017microbiome} in their study in \citeyear{gloor2017microbiome} 
+   claimed that it is the nature of the microbiome data that does not allow them to be anything else but compositional. 
+   However, several studies have been implemented approaches to retrieve 
+   absolute abundances from amplicon data, e.g.~\citep{kim2021measuring, zemb2020absolute}.
+   On top of that, long-read sequencing technologies have been improved radically, 
+   allowing quality sequencing of the complete marker and not just of a certain part of it. 
+   Therefore, approaches such as the Unique Molecular Identifiers (UMIs)~\citep{hiatt2010parallel} 
+   need to be considered and benchmarked. 
+   Yet, as discussed in~\citep{karst2021high}  
+   by using paired UMIs, certain issues that characterise amplicon studies 
+   such as chimeras and degree GC~\citep{benita2003regionalized} ease; 
+   however, long-range PCR issues, 
+   % such as primer bias, off-target products and an upper limit to amplifiable target length 
+   lead to further challenges. 
+   Further improvement of the bioinformatics analysis of the data provided from both these technologies
+   can provide more quantitave microbiome data; a milestone for microbial ecology. 
 
-   Metagenomics and the rest of the 'omics technologies have turned the page on microbial ecology studies. 
-   However, to address questions such as the seasonality effects on the community structure and its functioning 
-   (see Section~\ref{swamp:discussion}) 
-   Systems Biology approaches are required.
-   As discussed by~\cite{bajic2020ecology} 
-   \textit{"a combination of quantitative high-throughput experiments and predictive metabolic models can help us map the genotype - phenotype map of
-   microbial metabolic strategies}. 
-   Further technologies, such as Raman micro-spectroscopy~\citep{jing2018raman}, can also be of great use to this end. 
-   The prediction of such strategies based on genomic information according to~\citeauthor{bajic2020ecology} will also provide great insight 
-   on the evolvability of metabolic decisions and will
-   shed light on how these decisions affect
-   microbial coexistence in the communities.
-   The software developed in the framework of the PhD can benefit such approaches, either by improving HTS data analysis, 
-   or by enhancing their exploitation or with novel
-   predictive algorithms.
-   Apparently, for each of these fields, there are still several challenges that need to be addressed. 
-
-   Approaches such as PREGO (see Chapter~\ref{cha:prego}) 
+   As already discussed, data integration is essential in 
+   exploiting both the data and the so-far knowledge. 
+   Approaches such as PREGO (see Chapter~\ref{cha:prego}~\citep{zafeiropoulos_prego_2022}) 
    will not reveal their true potential unless the community embrace a series of standards and 
-   metadata protocols. Thus, it is essential both to develop such checklists 
-   but also to convincr and train the community using them. 
-   As already discussed, machine learning methods (see Conclusion~\ref{concl:metadata}) 
-   as well as network theory and visualizations 
-   may benefit such approaches notably. 
-   
-   Moreover, to infer microbe - microbe associations,
-   co-occurrence networks can be of help 
-   and the incorporation of phenotypical data 
-   such as pH values, optimal temperatures etc. to such networks, may benefit 
-   the inference of such associations to a great extent. 
+   metadata protocols. 
+   Thus, it is essential both to develop such checklists 
+   but also to convince and train the community to use them. 
+   PREGO-like approaches could benefit a lot from multiomics datasets 
+   as well as by integrating information included in GEMs.
+   We are now in a position when we can imagine (and why not, start implementing)
+   of systems where a species will not be a node in a network, 
+   but a complete network within the one of the community it belongs to.
+   Moreover, to infer microbe - microbe associations and/or interactions,
+   the incorporation of phenotypical data 
+   such as pH values, optimal temperatures etc. to such networks, 
+   is essential. 
    Resources such as FAPROTAX~\citep*{louca2016decoupling}, PhenDB~\citep{feldbauer2015prediction}
    and BugBase~\citep{Ward133462} provide great input for such a task. 
 
-   Moreover, by coupling data integration with metabolic modelling approaches \todo{MAKE IT WHOLE}
-   more 
+   Metagenomics and the rest of the 'omics technologies have turned the page on microbial ecology studies. 
+   However, to address questions such as the seasonality effects on the community structure 
+   and its functioning 
+   (see Section~\ref{swamp:discussion} and Conclusion~\ref{conlc:mats}) 
+   requires the thorough investigation of the dynamics of the community 
+   and of the occurying processes within each of them 
+   as the environmental conditions change,
+   as well as the interactions among the species and their environment.
+   As discussed by~\cite{bajic2020ecology} 
+   \textit{"a combination of quantitative high - throughput experiments and predictive metabolic models 
+   can help us map the genotype - phenotype map of microbial metabolic strategies}. 
+   Further technologies, such as Raman micro-spectroscopy~\citep{jing2018raman}, can also be of great use to this end. 
+   According to~\citeauthor{bajic2020ecology} 
+   the prediction of such strategies will also provide great insight 
+   on the evolvability of metabolic decisions 
+   and will shed light on how these decisions affect
+   microbial coexistence in the communities.
+   % The software developed in the framework of the PhD can benefit such approaches, 
+   % either by improving HTS data analysis, 
+   % or by enhancing their exploitation or with novel predictive algorithms.
+   % Apparently, for each of these fields, there are still several challenges that need to be addressed. 
+   Therefore, HTS approaches and
+   metabolic modeling at the community level build a promising framework to this end.
+   Sampling (see~\ref{chap:dingo}~\citep{chalki2021SoCG})
+   the flux space of such models
+   will benefit microbial interactions inference to a great extent 
+   and will provide essential insight
+   in the study of the 
+   mechanisms that govern real-world microbial assemblages.
+   As the steady-state assumption does not consider kinetics or regulatory events, 
+   the integration of machine learning approaches 
+   can enhance this framework even further~\citep{sahu2021advances}.
 
 
+% ---------------------------------------------
 
-   As already discussed, metabolic models 
-   at the community level. 
-   to infer microbial interactions but also to study the fitness of the community. 
-
-
-   Eco-evolutionary dynamics of complex social strategies in microbial communities~\citep{harrington2014eco}
-
-
-
-
-
-   % sediments are more phylogenetically diverse than any other environment type.   lozupone2007global
-
-
-
-
-% % METADATA
-% Thus, it is fundamental for the community to make apprehend the value of 
-% this and comply to the standards~\citep{}
-
-
-
+% Eco-evolutionary dynamics of complex social strategies in microbial communities~\citep{harrington2014eco}
+% sediments are more phylogenetically diverse than any other environment type.   lozupone2007global
 
 % Flux sampling as the future of microbial interaction inference 
 % along with techniques such Raman spectometry etc.
 
 
-% steady-state does not consider kinetics or regulatory events
-% Integrating stoichiometric approaches with machine learning and more~\citep{sahu2021advances}

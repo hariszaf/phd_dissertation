@@ -1,0 +1,36 @@
+% --------------------------------------------------
+% 
+% This chapter is for Tristomo
+% 
+% --------------------------------------------------
+
+\chapter*{Acknowledgements}
+\label{acknowledge}
+
+
+This dissertation has recieved funding from the Hellenic Foundation 
+for Research and Innovation (HFRI) and the General Secretariat for Research 
+and Technology (GSRT), under grant aggrement No 241 (PREGO project).
+
+
+
+\begin{figure}[!h]
+   \centering
+   \begin{minipage}{.5\textwidth}
+     \centering
+     \includegraphics[width=.75\textwidth]{figures/logo_elidek.png}
+   %   \captionof{figure}{A figure}
+   %   \label{fig:test1}
+   \end{minipage}%
+   \begin{minipage}{.5\textwidth}
+     \centering
+     \includegraphics[width=.65\textwidth]{figures/gsrt.png}
+   %   \captionof{figure}{Another figure}
+   %   \label{fig:test2}
+   \end{minipage}
+   % \caption[Funding logos]{Logos}
+   \label{fig:funding_logos}
+\end{figure}
+   
+
+

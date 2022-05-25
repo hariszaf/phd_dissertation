@@ -704,7 +704,7 @@
 
     \hfill \break
 
-    \textbf{Dr. Jens Carlsson} \\
+    \textbf{Prof. Jens Carlsson} \\
     University College Dublin \\
     School of Biology and Environmental Science/Earth Institute
 

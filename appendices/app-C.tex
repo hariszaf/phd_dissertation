@@ -32,3 +32,52 @@
     For a thorough investigation of the so-far described characteristics of the reconstructed MAGs’ higher taxonomic levels 
     (e.g., genus, family etc.) the PREGO knowledge base~\citep{zafeiropoulos_prego_2022} was exploited.
     All bioinformatics analyses were supported by the IMBBC High Performance Computing system~\citep{zafeiropoulos_0s_2021}.
+
+
+
+\section{Results}
+
+    The vast majority of the taxonomic assignments returned by the GTDB-Tk were 
+    at higher than the species level, 
+    suggesting that most of the MAGs are representatives of novel taxa; 
+    only 4 MAGs were assigned at the species level. 
+    For all non low quality MAGs for which the 16S rRNA gene was retrieved.
+    Protologger was used to investigate further their uniqueness. 
+    Thus, protologues~\citep{tindall_note_1999} accompany 25 archaeal and 100 bacterial 
+    MAGs. 
+    For the cases where multiple MAGs were supposed to be representatives 
+    of a novel higher taxonomic group, e.g. several MAGs suggesting novel genus 
+    or genera within a certain family, the extra POCP analyses that were performed 
+    along with the corresponding phylogenetic tree are available 
+    on GitHub (
+        \href{https://github.com/hariszaf/karpathos-swamp/tree/main/MAGs/arc/with_16S}{archaeal} 
+        and 
+        \href{https://github.com/hariszaf/karpathos-swamp/tree/main/MAGs/bac/with_16S}{bacterial} taxa)
+        \footnote{
+            Links to the protologues will be publically accessible once the MAGs will 
+            be published
+        }. 
+    In total, our MAGs correspond to the novel taxa present in Table~\ref{table:C1}.
+
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{lll}
+        \hline
+        \textbf{Level of novel taxa} & \multicolumn{1}{l|}{\textbf{\# of novel Archaea}} & \multicolumn{1}{l|}{\textbf{\# of novel Bacteria}} \\ \hline
+        \textbf{species} & 5 & 11 \\ 
+        \textbf{genera} & 13 & 22 \\ 
+        \textbf{families} & 4 & 6 \\ 
+        \textbf{orders} & 2 & 2 \\
+        \textbf{phyla} & - & 1 \\ \cline{1-3}
+        \end{tabular}
+        \caption{Number of novel taxa described with a protologue based on the MAGs retrieved}
+        \label{table:C1}
+    \end{table}
+
+
+    GTDB R07-RS207 was recently released (\href{https://forum.gtdb.ecogenomic.org/t/announcing-gtdb-r07-rs207/264}{2022, April}); 
+    the reconstructed MAGs will be 
+    classified against this new version of GTDB before publishing 
+    to take into account genomes and taxa added in this updated version. 
+
