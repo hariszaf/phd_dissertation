@@ -18,13 +18,9 @@
 \newtheorem{remark}[thm]{Remark}
 
 
-\chapter{Software development to establish metabolic flux sampling 
-         approaches at the community level}
+\chapter{A New MCMC Algorithm for Sampling the Flux Space of Metabolic Networks}
 \label{chap:dingo}
 
-
-\section{A New MCMC Algorithm for Sampling the Flux Space of
-Metabolic Networks}
 
 \paragraph{Citation:}
 Chalkis, A., Fisikopoulos, V., Tsigaridas E. and Zafeiropoulos H.\\ 
@@ -32,7 +28,7 @@ Geometric Algorithms for Sampling the Flux Space of Metabolic Networks. \\
 37th International Symposium on Computational Geometry (SoCG 2021) \\ 
 DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.SoCG.2021.21}~\footnote{
    Authors' names are in alphabetical order. 
-   Here a modified version of the published version is presented
+   This is a modified version of the published version,
    in terms of relevance, coherence and formatting.
    Proofs for the lemmas mentioned and parameter tuning can be found in the original publication.
    The \texttt{dingo} Python library, a wrapper of the \texttt{C++} code 
@@ -42,7 +38,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
 }
 
 
-\subsection{Abstract}
+\section{Abstract}
 \label{sec:mmcs-abstract}
 
    Systems Biology is a fundamental field and paradigm that introduces a new era in Biology.
@@ -71,14 +67,10 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    corresponding to a polytope of dimension  $5\,335$, took less than $30$ hours.
    To our knowledge, that is out of reach for existing software.
 
-
-
-
-
-\subsection{Introduction}
+\section{Introduction}
 \label{sec:mmcs-intro}
 
-   \subsubsection*{The field of Systems Biology}
+   \subsection{The field of Systems Biology}
 
    Systems Biology establishes a scientific approach and a paradigm. As a
    research approach, it is the qualitative and quantitative study of the systemic
@@ -122,8 +114,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    Therefore, at the species level, metabolism is a network of its metabolic pathways and we call
    these representations \emph{metabolic networks}.
 
-
-   \subsubsection*{From metabolism to computational geometry}
+   \subsection{From metabolism to computational geometry}
 
    The complete reconstruction of the metabolic network of an organism is a
    challenging, time consuming, and computationally intensive task; especially for species of high level of complexity such as \emph{Homo sapiens}.
@@ -225,8 +216,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
       \label{fig:copulas}
    \end{figure}
 
-
-   \subsubsection*{Metabolic networks through the lens of random sampling} 
+   \subsection{Metabolic networks through the lens of random sampling} 
    \label{subsec:previous_work}
 
    Efficient uniform random sampling on polytopes resulting from metabolic
@@ -355,10 +345,10 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    was also used successfully in a geometric framework to detect financial crises capturing the dependence 
    between portfolio return and volatility~\citep{Cales18}.
 
-   % MMCS CONTRIBUTION
-\subsection{Contribution}
-\label{sec:mmcs-contribution}
 
+% MMCS CONTRIBUTION
+\section{Contribution}
+\label{sec:mmcs-contribution}
 
    We introduce a Multi-phase Monte Carlo Sampling (MMCS) algorithm
    (Section~\ref{subsec:mmcs-methods-algor} and Algorithm~\ref{alg:MMCS}) to sample from a polytope~$P$. In
@@ -383,7 +373,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    on almost all the metabolic networks that are publicly available and by
    comparing with the
    state-of-the-art software packages as \texttt{cobra}
-   (Section~\ref{subsec:experiments}). Our implementation is faster than \texttt{cobra}
+   (Section~\ref{sec:experiments}). Our implementation is faster than \texttt{cobra}
    for low dimensional models,  with a speed-up that ranges from $10$ to $100$ times;
    this gap on running times increases for bigger models
    (Table~\ref{tab:results1}). The quality of the sample our software produces is
@@ -424,10 +414,10 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
 
 
 % MMCS METHODS
-\subsection{Methods \& Implementation}
+\section{Methods \& Implementation}
 \label{sec:mmcs-methods}
 
-\subsubsection*{Efficient Billiard walk}
+\subsection{Efficient Billiard walk}
 \label{subsec:mmcs-methods-bw}
 
    The geometric random walk of our choice
@@ -592,7 +582,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    
    
 
-\subsubsection*{Multiphase Monte Carlo Sampling algorithm}
+\subsection{Multiphase Monte Carlo Sampling algorithm}
 \label{subsec:mmcs-methods-algor}
 
 
@@ -666,7 +656,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    because the sandwiching ratio decreases and so
    the  average number of reflections decreases
    and thus the convergence  to the uniform distribution accelerates
-   (Section~\ref{subsec:experiments}).
+   (Section~\ref{sec:experiments}).
    That is we obtain faster a sample of better quality.
    Finally, the (product of the) inverse transformations maps the samples to $P_0 = P$. 
    Figure~\ref{fig:mmcs_phases}
@@ -850,8 +840,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
 
 
 % MMCS RESULTS
-\subsection{Results}
-\subsubsection*{Implementation and Experiments}
+\section{Results}
 \label{sec:experiments}
 
    This section presents the implementation of our approach and the tuning of various parameters. 
@@ -970,7 +959,7 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
 
 % ---------------------------- DO NOT SHOW IN THE PHD VERSION ------------------------
 \if 0
-\subsection{Parameter tuning for practical performance}\label{subsec:implementation}
+\section{Parameter tuning for practical performance}\label{subsec:implementation}
 
    We give details on how we tune the various parameters presented 
    in Section~\ref{subsec:mmcs-methods-algor} in our implementation.
@@ -1018,9 +1007,6 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
  
 \fi 
  
- \subsection{Experiments}
- \label{subsec:experiments}
- 
    We test and evaluate our software on 17 models from the BIGG database
    \citep{king2016bigg} as well as Recon2D and Recon3D 
    from~\citep{noronha2019virtual}. 
@@ -1036,7 +1022,6 @@ DOI: \href{https://drops.dagstuhl.de/opus/volltexte/2021/13820/}{10.4230/LIPIcs.
    particular, we compute the PSRF for each univariate marginal of the sample that
    MMCS outputs. Following \citep{Gelman92}, a convergence is satisfying according
    to PSRF when all the marginals have PSRF smaller than $1.1$.
-
 
 
    In Table~\ref{tab:results1}, we report the results of MMCS and \texttt{cobra}. 

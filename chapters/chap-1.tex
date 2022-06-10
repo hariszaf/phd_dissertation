@@ -164,7 +164,7 @@
    \end{figure}
 
 
-   \subsubsection*{Part 1: Quality control and pre-processing of raw data}
+   \subsubsection{Part 1: Quality control and pre-processing of raw data}
 
    First, FastQC \citep{fastqc} is used to obtain an overall read-quality summary; 
    visual inspection of each sample's quality may recommend removing those insufficient quality, 
@@ -186,7 +186,7 @@
    after the ASV inference (see next section).
 
 
-   \subsubsection*{Part 2: (M)OTU clustering and ASV inference}
+   \subsubsection{Part 2: (M)OTU clustering and ASV inference}
 
    Quality-controlled and processed sequences are subsequently clustered into (M)OTUs or 
    treated as input for inferring ASVs. 
@@ -219,7 +219,7 @@
    to the user's parameter settings.
 
 
-   \subsubsection*{Part 3: Taxonomy assignment}
+   \subsubsection{Part 3: Taxonomy assignment}
 
    Alignment-based taxonomy assignment is supported for all marker gene analyses. 
    In the case of the 16S/18S rRNA and ITS marker genes, the LCAClassifier algorithm of the CREST 
@@ -256,7 +256,7 @@
       \label{fig:pema-phylogeny-assignment}
    \end{figure}
 
-   \subsubsection*{Part 4: Ecological downstream analysis of the taxonomically assigned (M)OTU/ASV tables}
+   \subsubsection{Part 4: Ecological downstream analysis of the taxonomically assigned (M)OTU/ASV tables}
 
    PEMA's major output is either an (M)OTU or an ASV table with the assigned taxonomies 
    and the abundances of each taxon in every sample. 
@@ -269,7 +269,7 @@
    When selected, in addition to the phyloseq \citep{mcmurdie2013phyloseq} output, a multiple sequence alignment (MSA) and a phylogenetic tree of the OTU/ASVs retrieved can be returned; 
    for the MSA, the MAFFT \citep{katoh2002mafft, nakamura2018parallelization} aligner is invoked while the latter is built by RAxML-ng \citep{kozlov2019raxml}.
 
-
+   \subsubsection{PEMA installation and main output}
    \subsubsection*{PEMA container-based installation}
 
    An easy way of installing PEMA is via its containers. 
@@ -305,7 +305,7 @@
    % PEMA RESULTS
    \subsection{Results \& Validation}
 
-   \subsubsection*{Evaluation}
+   \subsubsection{Evaluation}
 
       To evaluate PEMA, 2 approaches were followed. 
       First, PEMA was benchmarked against mock community data sets. 
@@ -329,7 +329,7 @@
       All analyses were conducted on identical Dell M630 nodes (128 GB RAM, 20 physical Intel Xeon 2.60 GHz cores).
 
 
-   \subsubsection*{Mock community evaluation}
+   \subsubsection{Mock community evaluation}
 
       PEMA was tested against mock communities. 
       An evaluation of its accuracy must capture 
@@ -356,6 +356,7 @@
       Many different parameter settings were tested, especially for the steps of quality trimming of the reads and the OTU clustering/ASV inference. 
       The differences in their output indicate how sensitive this method is, as well as the great need of a mock community in every metabarcoding study—both as a control but also as a \textit{tuning system} for the parameter setting of the pipeline used.
 
+   \subsubsection{Evaluation using real-world data}
    \subsubsection*{16S rRNA}
 
       When PEMA was performed with the Swarm v2 algorithm ($d$ = 3, strictness = 0.6) without removal of singletons, 18 of the 20 taxa were identified to the genus level and 3 of these even to the species level. 
@@ -384,16 +385,12 @@
          \end{center}
       \end{table*}
 
-
-
-
    \subsubsection*{18S rRNA}
 
       When PEMA was performed using the Swarm v2 algorithm ($d$ = 1, strictness = 0.5), 3 of 12 community members were identified to species level (\textit{Isochrysis galbana}, \textit{Nannochloropsis oculata}, and \textit{Thalassiosira pseudonana}), 6 to genus, and the remaining 3 to class; 
       the latter were all the green algae species (Chlorophyta) of the mock community. 
       However, a better $F1$-score ($0.82$) was achieved when the class of Chlorophyceae was not found at all ($d$ = 1, strictness = 0.3) because the FPs were decreased to only $1$. 
       When the VSEARCH algorithm was used, \textit{I. galbana} was identified only to the genus level, the \textit{Nannochloropsis} to the order level (Eustigmatales), and the \textit{Poterioochromonas} genus to its class (Chrysophyceae).
-
 
    \subsubsection*{ITS}
 
@@ -404,7 +401,6 @@
       the \textit{Fusarium} species contained in the mock community were not identified further than their family (Nectriaceae). 
       As mentioned by Bakker \citep{bakker2018fungal}, many reads deriving from the \textit{Fusarium spp.} were not assigned to species level because of the quality-trimming step. 
       In addition, a manually assembled reference database for the taxonomy assignment was used in the initial study, containing only sequences of the mock community species, which biased this step, making the results not directly comparable to our case.
-
 
    \subsubsection*{COI}
 
@@ -423,8 +419,7 @@
       Therefore, assignments with such low abundances should be doubted as TP results in analyses on real data sets.
 
 
-
-   \subsubsection*{Comparison with existing software}
+   \subsubsection{Comparison with existing software}
 
       PEMA's features were compared with those of mothur~\citep{schloss2009introducing}, QIIME 2~\citep{bolyen2018qiime}, LotuS~\citep{hildebrand2014lotus} and Barque. 
       Table~\ref{table:pema-feature-comparisons} presents a detailed comparison among the $4$ tools' features in terms of marker gene support, diversity and phylogeny analysis capability, parameter setting and mode of execution, operation system availability, and HPC suitability. 
@@ -463,7 +458,7 @@
       \end{table}
 
 
-   \subsubsection*{Evaluation on real datasets and against other tools}
+   \subsubsection{Evaluation on real datasets and against other tools}
 
       In the following sections, a comparative study on real datasets of the 16S rRNA and COI marker genes is presented. 
       Analyses using PEMA and the pipelines mentioned above that support each of these $2$ marker genes were performed, both with multiple sets of parameters. 
@@ -608,7 +603,7 @@
    \subsection{Discussion}
    \label{sec:pema-discussion}
 
-   \subsubsection*{OTU clustering vs ASV inference}
+   \subsubsection{OTU clustering vs ASV inference}
    \label{subsec:otu-asv}
 
       There is an ongoing discussion about whether ASVs exceed OTUs. 
@@ -636,8 +631,7 @@
 
       ASV or OTU approaches are supported by PEMA, although we have found that similar ecological results are produced by both these methods, as also suggested by Glassman and Martiny~\citep{glassman2018broadscale}.
 
-
-   \subsubsection*{Beyond environmental ecology, ongoing and future work}
+   \subsubsection{Beyond environmental ecology, ongoing and future work}
    \label{subsec:pema-future}
 
       PEMA is mainly intended to support eDNA metabarcoding analysis and be directly applicable to next - generation biodiversity / ecological assessment studies. 
@@ -660,7 +654,7 @@
 
       By supporting the analysis of the most commonly used marker genes for Bacteria and Archaea (16S rRNA), Fungi (ITS), and Metazoa (COI/18S rRNA), a holistic biodiversity assessment approach is now possible through PEMA and eDNA metabarcoding; although, from a mid-term perspective, it is our intention to allow ad hoc and in - house databases to be used as reference for the taxonomy assignment.
 
-   \subsubsection*{Conclusions}
+   \subsubsection{Conclusions}
    \label{subsec:pema-conclusion}
 
       PEMA is an accurate, execution - friendly and fast pipeline for eDNA metabarcoding analysis. 
@@ -799,7 +793,7 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    \label{sec:darn-intro}
 
    % Parts of the following need to be moved in the main Intro
-   \subsubsection*{Metabarcoding: concept and caveats}
+   \subsubsection{Metabarcoding: concept and caveats}
    \label{subsec:darn-intro-metabar}
 
    DNA metabarcoding is a rapidly evolving method that is being more frequently employed i
@@ -828,7 +822,7 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    There are cases where COI has been the standard marker for metabarcoding, such as in the assessment of freshwater macroinvertebrates \citep{elbrecht2017validation} even though not all taxonomic groups can be differentiated to the species level using this locus \citep{deiner2017environmental}; 
    for example, in case of fish other loci are widely used such as 12S rRNA gene (hereafter referred to as 12S rRNA) \citep{miya2020mifish}.
 
-   \subsubsection*{The COI locus}
+   \subsubsection{The COI locus}
    \label{subsec:darn-intro-coi}
 
    The mitochondrial cytochrome c oxidase subunit I (also called cox1 or/and COI) is a gene fragment of ~700 bp, widely used for metazoan diversity assessment. Here we present some of the reasons that microbial eukaryotes and prokaryotes are also amplified in such studies, raising the issue of the known unknown sequences.
@@ -867,7 +861,7 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    \subsection{Methods \& Implementation}
    \label{sec:darn-methods}
 
-   \subsubsection*{Building the COI tree of life}
+   \subsubsection{Building the COI tree of life}
    \label{subsec:darn-methods-tree}
 
    Sequences for the COI region from all the three domains of life were retrieved from curated databases. 
@@ -961,7 +955,7 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    The computational resources of the IMBBC High Performance Computing system, called Zorba \citep{zafeiropoulos_0s_2021}, were exploited to address the needs of the tasks.
 
 
-   \subsubsection*{Investigating COI dark matter}
+   \subsubsection{Investigating COI dark matter}
    \label{subsec:darn-methods-investigate}
 
    The COI reference tree was subsequently used to build and implement the Dark mAtteR iNvestigator (DARN) software tool. 
@@ -1004,7 +998,7 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 % DARN RESULTS
    \subsection{Results \& Validation}
    \label{darn-results}
-   \subsubsection*{Evaluation of the phylogenetic tree}
+   \subsubsection{Evaluation of the phylogenetic tree}
    \label{darn-results-tree-evaluation}
 
    The inferred phylogenetic tree is shown in Figure~\ref{fig:darn-ref-placements}, with the bacterial (light blue) and archaeal (dark green) branches highlighted;
@@ -1028,7 +1022,7 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
 
    \newpage
 
-   \subsubsection*{DARN using mock community data}
+   \subsubsection{DARN using mock community data}
 
    To examine whether the phylogenetic-based taxonomy assignment addresses a real-world issue, a local blast database was built using the total number of the consensus sequences retrieved. 
    As expected, when the consensus sequences were blasted against this local blastdb, all were matched with their corresponding sequences. 
@@ -1040,7 +1034,7 @@ DOI: \href{https://doi.org/10.3897/mbmg.5.69657}{10.3897/mbmg.5.69657}
    Contrarily, when the phylogenetic tree was used, all the bacterial sequences were captured.
 
 
-   \subsubsection*{DARN using real community data}
+   \subsubsection{DARN using real community data}
 
    To evaluate DARN on the presence of dark matter we analysed a wide range of cases to show the ability of DARN to detect and estimate dark matter under various conditions. 
    Both eDNA and bulk samples, from marine, lotic and lentic environments, were selected to reflect various combinations of primer and amplicon lengths, PCR protocols and bioinformatics analyses (Table~\ref{table:darn-samples-outcomes}).

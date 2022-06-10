@@ -5,25 +5,18 @@
 % --------------------------------------------------
 
 \chapter{
-    Studying real-world microbial communities
+   Deciphering the functional potential of a hypersaline marsh microbial mat community
 }
 \label{publ:swamp}
 
-
-% AFOULOPAPER
-\section{
-   Deciphering the functional potential of a hypersaline marsh microbial mat community
-}
-\label{publ:tristomo-ecology}
-
-\textbf{Status:} \\ 
+\textbf{Citation:} \\ 
    Pavloudi C, Zafeiropoulos H, 
    Deciphering the functional potential of a hypersaline marsh microbial mat community.\\
    Under review in FEMS Microbiology Ecology. \\ 
-   Shared co-authorship and correspondance.
+   Shared co-first authorship and correspondance.
 
 
-\subsection{Abstract}
+\section{Abstract}
 
    Microbial mats are vertically stratified communities of microorganisms characterised by 
    pronounced physiochemical gradients allowing for high species diversity 
@@ -52,7 +45,7 @@
 
 
 % AFOULOPAPER INTRODUCTION
-\subsection{Introduction}
+\section{Introduction}
 \label{swamp:intro}
 
    Microbial mats are vertically stratified communities of functional groups of microorganisms embedded in an organic matrix, 
@@ -153,10 +146,10 @@
 
 
 % AFOULOPAPER METHODS
-\subsection{Methods}
+\section{Methods}
 \label{swamp:methods}
 
-\subsubsection*{Sample collection}
+\subsection{Sample collection}
 
    Samples were collected in July 2018 and November 2019 from the Tristomo marsh (Figure~\ref{fig:karpathos-marsh}). 
    Details on the sample collection are given in Table~\ref{table:sampling}. 
@@ -213,7 +206,7 @@
    \end{figure}   
 
 
-\subsubsection*{DNA extraction, PCR amplification and 16S rRNA sequencing}
+\subsection{DNA extraction, PCR amplification and 16S rRNA sequencing}
 
    DNA was extracted as in \citep{henckel_molecular_1999} and \citep{lueders_enhanced_2004}. 
    Approximately 0.7 g of wet sediment were added to a 2-ml screw-cap vial, prefilled with ~0.7 g of 0.1 mm (diameter) zirconia/silica beads (11079101z, BioSpec, USA). 
@@ -237,7 +230,7 @@
    The scripts of Steinberger (2020) \citep{steinberger_asteinberger9seq_scripts_2020} were used for the simper and the Kruskal-Wallis tests. 
 
 
-\subsubsection*{Shotgun metagenomics sequencing}
+\subsection{Shotgun metagenomics sequencing}
 
    Six samples were selected for shotgun sequencing (Elos01, Elos02, Elos03, Elos07, Elos10 and Elos12). 
    Sample preparation was performed using the Nextera$^{TM}$ DNA Flex Tagmentation and sequencing was done at two lanes of a HiSeq 4000 (2x150bp) at the Norwegian Sequencing Centre (NSC). 
@@ -245,7 +238,7 @@
    (available at: \\ \href{http://www.ebi.ac.uk/ena/data/view/PRJEB46254}{http://www.ebi.ac.uk/ena/data/view/PRJEB46254}).
 
 
-\subsubsection*{Assembly and binning}
+\subsection{Assembly and binning}
 
    Since the samples were sequenced in two lanes, the fastq files of each sample were concatenated before proceeding with the analyses. 
    Metagenome raw reads were processed with the \texttt{MetaWRAP} workflow (version 1.3.2)~\citep{uritskiy_metawrapflexible_2018}. 
@@ -276,7 +269,7 @@
    Bins with a redundancy >10\% were manually refined and a second summary of the bins set was made (see SECOND\_SUMMARY folder). 
 
 
-\subsubsection*{Taxonomic composition}
+\subsection{Taxonomic composition}
 
    Based on the returned co-assembly from \texttt{MetaWRAP} and the clean reads, communities’ taxonomic composition was assessed using  Kraken2 \citep{wood_improved_2019} and the standard Kraken 2 database (NCBI: January 2022); 
    Krona plots of the community profiles can be viewed through the kronagram.html. 
@@ -284,7 +277,7 @@
    \texttt{GTDB-Tk} made use of pplacer (version 1.1.alpha19-0-g807f6f3) \citep{matsen_pplacer_2010} and FastANI (version 1.32) \citep{jain_high_2018}.
 
 
-\subsubsection*{Functional annotation}
+\subsection{Functional annotation}
 
    Functions were predicted at two levels: both at the MAG level, as well as at the sample level. 
    For the functional annotation at the MAG level, using the anvio’ contigs database and the \texttt{anvi-run-kegg-kofams} program, 
@@ -305,7 +298,7 @@
    (see \href{https://github.com/hariszaf/karpathos-swamp/tree/main/DiTing}{\texttt{DiTing}} folder on the GitHub repository for more information). 
 
 
-\subsubsection*{MAGs reference phylogenies}
+\subsection{MAGs reference phylogenies}
 
    The intersection of single copy genes from the \texttt{Anvi’o} \citep{eren_anvio_2015} Bacteria\_76 and Archaea\_71 sets was used to build the phylogenetic tree of the reconstructed MAGs ($n$ = 25). 
    The \texttt{anvi-get-sequences-for-hmm-hits} program of \texttt{Anvi’o} was used to extract and align the amino acid sequences of each of these genes from all the MAGs independently. 
@@ -322,11 +315,11 @@
    All bioinformatics analyses were supported by the IMBBC High Performance Computing system \citep{zafeiropoulos_imbbc_2021}.
 
 % AFOULOPAPER RESULTS
-\subsection{Results}
+\section{Results}
 \label{swamp:results}
 
 
-\subsubsection*{Taxonomic composition from 16S rRNA amplicon analysis}
+\subsection{Taxonomic composition from 16S rRNA amplicon analysis}
 
    The results of the processing of the sequences are shown in Table S1. 
    Sequencing of samples Elos08 and Elos11 was not successful and therefore, they were not included in the following analyses. 
@@ -344,7 +337,7 @@
    The nMDS of the microbial OTUs (Figure S1) showed that their spatial pattern differs both by their type and the year of sampling, which was also confirmed by the PERMANOVA results (Type: F.Model = 2.0396, p < 0.05; Year: F.Model = 2.3098, p < 0.05).
 
 
-\subsubsection*{Co-assembly, binning \& taxonomic composition from shotgun metagenomics analysis}
+\subsection{Co-assembly, binning \& taxonomic composition from shotgun metagenomics analysis}
 
    Shotgun metagenomic sequencing of the chosen six samples resulted in 744 million reads totalling 112.3 Gbp, with each sample ranging between 16.77 and 21.78 Gbp. 
    Co-assembling of all the samples resulted in 1,5 million contigs totalling 5.04 Gbp. 
@@ -381,7 +374,7 @@
       \label{table:psysicochem}
    \end{table}
 
-\subsubsection*{MAGs phylogeny, functional annotation and distribution across samples}
+\subsection{MAGs phylogeny, functional annotation and distribution across samples}
 
    In line with the quality definitions described in \citep{bowers_minimum_2017}, metagenome binning generated a total of 289 MAGs; 
    details are shown in the Supplementary File 2. 
@@ -402,7 +395,7 @@
    Overall, bacterial MAGs had higher completeness scores. 
 
 
-\subsubsection*{Phylogenomic placement}
+\subsection{MAGs phylogenomic placement}
 
    The \texttt{GTDB-Tk} returned phylogenetic trees of the GTDB partition and the MAGs assigned to the corresponding domain for the 
    cases of \href{https://github.com/hariszaf/karpathos-swamp/blob/main/GTDB_TK_bins_classification/elos_70_5.bac120.classify.tree}{bacteria} 
@@ -442,7 +435,7 @@
    \end{figure}   
 
 
-\subsubsection*{Distribution of MAGs across samples}
+\subsection{Distribution of MAGs across samples}
 
    Based on the taxonomic end results of the shotgun metagenomic survey 
    (Figure S5; \href{https://github.com/hariszaf/karpathos-swamp/blob/main/metaWRAP/QUANT_BINS/bin_abundance_table.tab}{MAG abundances per sample} (\texttt{MetaWRAP})), 
@@ -460,7 +453,7 @@
    The MAG 202 that represents a novel phylum is present in samples Elos12, Elos10 and Elos02.
 
 
-\subsubsection*{Functional annotation of MAGs}
+\subsection{Functional annotation of MAGs}
 
    The reconstructed MAGs were annotated with KofamScan with a range of KEGG ORTHOLOGY terms ranging from 354 to 2,879 terms (Figure S7), leading to 1 to 87 complete KEGG modules (Figure S8).
    The archaeal MAGs had, in general, lower completeness scores, lower number of KO terms assigned and less complete modules.
@@ -471,7 +464,7 @@
    When examined separately, again they differ significantly by completeness (PERMANOVA: Bacteria: F.Model = 3.4053, p < 0.001; Archaea: F.Model = 2.4452, p < 0.001).
 
 
-\subsubsection*{Comparison of taxonomies between amplicon and metagenomic analysis}
+\subsection{Comparison of taxonomies between amplicon and metagenomic analysis}
 
    As expected, the taxonomic composition of the microbial communities in our samples depends on the analytical procedure that was followed in each case. 
    However, when the similarity matrices of the samples are compared, the pattern deriving from the relative abundances of the microbial OTUs as derived from the amplicon survey, 
@@ -480,7 +473,7 @@
    (Mantel statistic: r=0.45, p<0.05; r=0.52, p<0.05, respectively), but on a lesser degree. 
 
 
-\subsubsection*{Physicochemical analysis}
+\subsection{Physicochemical analysis}
 
    The physicochemical variables are given in Table S4. 
    According to the variation partitioning analysis (Table~\ref{table:psysicochem}), the combination of oxygen and temperature explained 64\% of the total variation 
@@ -488,7 +481,7 @@
    For the other cases, i.e the amplicon data matrix and the end result of the shotgun metagenomic analysis, residuals were higher than 0.60 and therefore no significant models were retrieved.
 
 
-\subsubsection*{Functional profiles at the sample level}
+\subsection{Functional profiles at the sample level}
 
    A set of 783,693 unique proteins were predicted from a total of 3,532,725 hits with NCBI COGs. 
    The MEGAHIT assembler as implemented in the framework of \texttt{DiTing}, returned the assembly of each sample 
@@ -559,7 +552,7 @@
 
 
 % AFOULOPAPER DISCUSSION
-\subsection{Discussion}
+\section{Discussion}
 \label{swamp:discussion}
 
    Overall, there seems to be an agreement in all three ways that taxonomic composition has been derived for our samples. 
@@ -692,7 +685,10 @@
    therefore pantothenate biosynthesis (M00913) is one of the pathways that contributes 
    to the differentiation between bacterial and archaeal MAGs. 
    In addition, acetogen (M00618) is only found in Bacteria.
-   
+
+\section{Conclusions}
+\label{swamp:concl}
+
    It has been debated if hypersaline environments are thermodynamic limiting the occurrence of self-sustaining 
    microbial communities~\citep{oren_thermodynamic_2011} or if they are 
    biologically permissive~\citep{lee_nacl-saturated_2018}. 
@@ -719,7 +715,7 @@
    among its different layers.
 
 
-\subsection*{Supplementary Material}
+\section*{Supplementary Material}
 \label{swamp:suppl}   
 
    The Supplementary Material for this study will be publically available once it is published. 
@@ -754,7 +750,7 @@
    
 
 
-\subsection*{MAGs description}
+\section*{MAGs description}
 
    In Appendix~\ref{app:mags} the methodology for the description of the reconstructed MAGs 
    from the Tristomo marsh data can be found. 

@@ -5,26 +5,22 @@
 % --------------------------------------------------
 
 
-\chapter{Software development to build a knowledge-base at the systems biology level}
+\chapter{PREGO: a literature- and data-mining resource to associate microorganisms, biological processes, and environment types}
 \label{cha:prego}
 
 
-
-% SECTION 3
-\section[PREGO: a literature- and data-mining resource to associate microorganisms, biological processes, and environment types]{PREGO: a literature- and data-mining resource to associate microorganisms, biological processes, and environment types\footnote{
-   For author contributions and supplementary material please refer to the relevant sections. 
-   Modified version of the published review.
-   }
-}
-
 \textbf{Citation:} \\ 
 Zafeiropoulos H, Paragkamian S, Ninidakis S, Pavlopoulos GA, Jensen LJ, Pafilis E. PREGO: A Literature and Data-Mining Resource to Associate Microorganisms, Biological Processes, and Environment Types. Microorganisms. 2022; 10(2):293. \\ 
-DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganisms10020293}
+DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganisms10020293}\footnote{
+   For author contributions and supplementary material please refer to the relevant sections. 
+   This is a modified version of the published version,
+   in terms of relevance, coherence and formatting.
+   }
 
 
 
 % RPEGO ABSTRACT
-\subsection{Abstract}
+\section{Abstract}
 
    To elucidate ecosystem functioning, it is fundamental to recognize \textit{what} processes occur in which environments (\textit{where}) and which microorganisms carry them out (\textit{who}). 
    Here, we present PREGO, a one-stop-shop knowledge base providing such associations. 
@@ -37,7 +33,7 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
    To demonstrate PREGO's capabilities, a thorough presentation of its web interface is given along with a meta-analysis of experimental results from a lagoon-sediment study of sulfur-cycle related microbes.
 
 % RPEGO INTRODUCTION
-\subsection{Introduction}
+\section{Introduction}
 \label{sec:prego-intro}
 
    Microbes are omnipresent and impact global ecosystem functions \citep{falkowski2008microbial} through their abundance \citep{bar2018biomass}, versatility \citep{delgado2016microbial}, and interactions \citep{rottjers2018hairballs}. 
@@ -96,14 +92,8 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
 
 
 
-
-% RPEGO CONTRIBUTION
-\subsection{Contribution}
-\label{sec:prego-contribution}
-
-
 % RPEGO METHODS
-\subsection{Methods \& Implementation}
+\section{Methods \& Implementation}
 \label{sec:prego-methods}
 
    PREGO is a resource designed to assist molecular ecologists in acquiring a single point overview of what-where-who process–environment–organism associations. The system is comprised of two main parts: (a) a server that periodically harvests data and extracts process-environment-organism associations from the scientific literature, environmental samples, and genome annotation sequences (Figure~\ref{fig:prego-pipeline}, step 1 to 5) and (b) a web-based interface as well as an Application Programming Interface (API) that provides users and programmers with a friendly way to extract and navigate across the process–environment–organism associations (Figure~\ref{fig:prego-pipeline}, step 6).
@@ -123,7 +113,7 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
 
 
 
-   \subsubsection*{Entity Types, Channels, and Associations}
+   \subsection{Entity Types, Channels, and Associations}
    \label{subsec:prego-terms}
 
    PREGO supports three entity types: \textit{Process}, \textit{Environment}, and \textit{Organism}. 
@@ -173,7 +163,7 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
 
 
 
-   \subsubsection*{Text Mining of Scientific Literature}
+   \subsection{Text Mining of Scientific Literature}
    \label{subsec:prego-tm}
 
    PREGO implements a text mining methodology to extract associations of the aforementioned entities from literature. 
@@ -188,7 +178,7 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
    In addition, the tagger extracts each mention in every article to provide the origin of each association it extracts.
 
 
-   \subsubsection*{Annotated Genomes and Isolates}
+   \subsection{Annotated Genomes and Isolates}
    \label{subsec:prego-isolates}
 
    Annotated genomes and isolates comprise the most trustworthy data in PREGO's knowledge base because they refer to a single species/strain and also have manually curated metadata. 
@@ -204,7 +194,7 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
    The BioProject ids that were integrated are the ones that have been assigned a PubMed abstract, a unicellular taxon, and Genome sequencing as data type. Then, using the text mining pipeline, associations were extracted connecting the assigned taxon with the rest of the entities that appear in the abstracts. This method resulted in associations that were assigned a confidence level of three (out of five) because of the combined method of curated data with text mining.
 
 
-   \subsubsection*{Environmental Samples}
+   \subsection{Environmental Samples}
    \label{subsec:prego-envsamples}
 
    MGnify \citep{mitchell2020mgnify} and MG-RAST \citep{wilke2015restful} repositories provide a great number of public metagenomic records. 
@@ -220,7 +210,7 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
    The same scoring scheme was implemented across the channel resources (see Appendix~\ref{app:C} for more details), which ranks these associations with a value in the (0,5] space.
 
 
-   \subsubsection*{Sequence Search}
+   \subsection{Sequence Search}
    \label{subsec:prego-seq-search}
 
    In the case of organisms, PREGO enables sequence-based queries, meaning a sequence (amplicon) can be used as an entry point like it was a taxon name. 
@@ -231,7 +221,7 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
 
 
 
-   \subsubsection*{Back-End Server and Front-End Implementation}
+   \subsection{Back-End Server and Front-End Implementation}
    \label{subsec:prego-back-end}
 
    PREGO is a multi-tier web-based application. 
@@ -244,10 +234,10 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
 
 
 % RPEGO RESULTS
-\subsection{Results \& Validation}
+\section{Results \& Validation}
 \label{sec:prego-results}
 
-   \subsubsection*{The PREGO Web Resource}
+   \subsection{The PREGO Web Resource}
    \label{subsec:prego-web-resource}
 
    Users can access the PREGO contents through its web User Interface (UI) (Figures~\ref{fig:prego_ui} and \ref{fig:prego_ui_resources}), its Application Programming Interface (API) (Figure~\ref{fig:prego_api_schema}), or bulk download of all associations (Appendix D). 
@@ -313,14 +303,14 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
    \end{figure}
 
 
-   \subsubsection*{PREGO in Action}
+   \subsection{PREGO in Action}
    \label{subsec:prego-action}
 
    To demonstrate PREGO's potential, we present four different ways that PREGO can assist molecular ecologists. 
    The demo focuses on the sulfate-reducing microorganisms (SRMs) as well as the processes and environments that relate to sulfate reduction. 
    Through this demo, we highlight how the different channels may provide complementary insights regarding different taxonomic levels and different association types.
 
-   \subsubsection*{\textit{Which Environments Are Related to a Taxon?}}
+   \subsection*{\textit{Which Environments Are Related to a Taxon?}}
    \label{subsec:envo-taxa}
 
    Based on Pavloudi et al. (2017) \citep{pavloudi2017diversity}, several bacterial and archaeal SRM were found in lagoonal sediments, after amplifying and sequencing the dissimilatory sulfite reductase $\beta$-subunit (dsrB). 
@@ -336,7 +326,7 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
    More specifically, the \textit{"sulfur spring"} ENVO term was retrieved from the Environmental samples channel as well.
 
 
-   \subsubsection*{\textit{Which Biological Processes and Molecular Functions Are Related to a Taxon?}}
+   \subsection*{\textit{Which Biological Processes and Molecular Functions Are Related to a Taxon?}}
    \label{subsec:proc-taxa}
 
    According to Pavloudi et al. (2017), \textit{Desulfatiglans anilini} plays an important role in sulfate reduction. 
@@ -347,7 +337,7 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
    Furthermore, PREGO's Molecular Function tab provides more insight on this example. Several GO terms related to sulfate reduction (e.g., terms related to \textit{"sulfite reductase"}) were associated with DSM 4660 strain and Desulfatiglans anilini species in multiple channels. Interestingly, in the case of the strain query, the Annotated Genomes channel returned many GO terms related to the nitrogen fixation, e.g., \textit{"nitric oxide dioxygenase activity"}.
 
 
-   \subsubsection*{\textit{Which Taxa Are Related to a Biological Process?}}
+   \subsection*{\textit{Which Taxa Are Related to a Biological Process?}}
    \label{subsec:taxa-proces}
 
    PREGO can be also used to report organisms that relate to a certain biological process. Searching for \textit{"dissimilatory sulfate reduction"} associations with taxa (\href{https://prego.hcmr.gr/example3}{example 3}\footnote{\href{https://prego.hcmr.gr/example3}{https://prego.hcmr.gr/example3}}, accessed on 24 December 2021) resulted in several taxa that were mentioned in the Pavloudi et al. (2017) study. 
@@ -357,7 +347,7 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
    Hence, manual search of GObp terms that describe the actual biological process of interest is more insightful.
 
 
-   \subsubsection*{\textit{Are There Any Associations between Environments and Biological Processes?}}
+   \subsection*{\textit{Are There Any Associations between Environments and Biological Processes?}}
    \label{subsec:envo-proc}
 
    Are there other environmental types, except the lagoonal sediments, in which sulfate assimilation occurs? In that question, and in \textit{"dissimilatory sulfate reduction"} (\href{https://prego.hcmr.gr/example3}{example 3}) in particular, PREGO assigns the highest score to “sediment” while, among others, \textit{"anoxic water"}, \textit{"oil reservoir"}, \textit{"mud volcano"}, and \textit{"basalt"} are potentially associated with environments related to sulfate reduction.
@@ -369,9 +359,7 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
    This highlights the suggestions of Pavloudi et al. (2017), regarding the potential use of various electron acceptors from the different strains present in different environmental types.
 
 
-
-
-   \subsubsection*{PREGO Contents}
+   \subsection{PREGO Contents}
    \label{subsec:prego-contents}
 
    PREGO contains the literature, environmental samples, and genome annotations of the resources shown in Table~\ref{table:prego1}. 
@@ -437,10 +425,10 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
 
 
 % RPEGO DISCUSSION
-\subsection{Discussion}
+\section{Discussion}
 \label{sec:prego-discussion}
 
-   \subsection*{PREGO Contents}
+   \subsection{PREGO Contents}
    \label{subsec:prego-contents-disc}
 
    On its current version and according to the NCBI Taxonomy that it is based on, PREGO manages to cover a great range of microbial taxa, as most (if not all phyla) are present in the knowledge base (Figure~\ref{fig:prego-entities}). 
@@ -496,8 +484,7 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
    This is in-line with reports in other applications of text mining when using full text articles \citep{westergaard2018comprehensive}. 
    However, the resulting associations are suggestive because of the text mining nature, and therefore subject for further review by the users.
 
-
-   \subsubsection*{Related Tools' Functionality and Content}
+   \subsection{Related Tools' Functionality and Content}
    \label{subsec:prego-similar-platforms}
 
    There is an emerging niche for tools similar to PREGO to bring forward microbe associations and metadata. 
@@ -547,10 +534,8 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
       \label{table:prego4}
    
    \end{table}      
-    
 
-
-   \subsubsection*{PREGO Next Steps}
+   \subsection{PREGO Next Steps}
    \label{subsec:prego-next-steps}
 
    PREGO is a user-friendly association mining and sharing platform. 
@@ -573,7 +558,7 @@ DOI: \href{https://doi.org/10.3390/microorganisms10020293}{10.3390/microorganism
 
 
 
-   \subsubsection*{Availability of Supporting Source Codes:} 
+   \subsection*{Availability of Supporting Source Codes:} 
    The PREGO software modules are available under BSD 2-Clause “Simplified” License. Scripts, where additional libraries have been used, are subject to their individual licenses. More information on each module can be found as listed below:
    
    \begin{itemize}

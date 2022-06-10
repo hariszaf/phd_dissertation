@@ -5,24 +5,21 @@
 % --------------------------------------------------
 
 \chapter{
-   An overview of the computational requirements \& solutions in microbial ecology
+   0s and 1s in marine molecular research: a regional HPC perspective
 }
 \label{cha:hpc}
 
-\section[0s and 1s in marine molecular research: a regional HPC perspective]{
-   0s and 1s in marine molecular research: a regional HPC perspective\footnote{
-      For author contributions, please refer to the relevant section. Modified version of the published review.
-   } 
-}
 
 \textbf{Citation:}
 Zafeiropoulos, H., Gioti, A., Ninidakis, S., Potirakis, A., Paragkamian, S., ... \& 
 Pafilis, E. (2021). 0s and 1s in marine molecular research: a regional HPC perspective. 
-GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab053}{10.1093/gigascience/giab053}
+GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab053}{10.1093/gigascience/giab053}\footnote{
+   For author contributions, please refer to the relevant section. Modified version of the published review.
+}
 
 
 % ZORBA ABSTRACT
-   \subsection{Abstract}
+   \section{Abstract}
    High-performance computing (HPC) systems have become indispensable for modern marine research, 
    providing support to an increasing number and diversity of users. Pairing with the impetus 
    offered by high-throughput methods to key areas such as non-model organism studies, their 
@@ -45,7 +42,7 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
 
 
    % ZORBA INTRODUCTION
-   \subsection{Introduction}
+   \section{Introduction}
 
    The ubiquitous marine environments (more than 70\% of the global surface \citep{noaa}) 
    mold Earth's conditions to a great extent. 
@@ -130,7 +127,7 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
    fashion, on any infrastructure.
 
    % ZORBA CONTRIBUTION
-   \subsection{Contribution}
+   \section{Contribution}
 
    The \href{https://imbbc.hcmr.gr/}{Institute of Marine Biology Biotechnology and Aqua-culture (IMBBC)} 
    has been developing a computing hub that, in conjunction with national and European Research Infrastructures (RIs), 
@@ -143,9 +140,9 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
 
 
    % ZORBA METHODS
-   \subsection{Methods}
+   \section{Methods}
 
-   \subsubsection*{The IMBBC HPC Facility: From a Single Server to a Tier 2 System}
+   \subsection{The IMBBC HPC Facility: From a Single Server to a Tier 2 System}
 
    The IMBBC HPC facility was launched in 2009 to support computational needs over a range of scientific 
    fields in marine biology, with a focus on non-model taxa [39]. 
@@ -237,9 +234,9 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
 
 
    % ZORBA RESULTS
-   \subsection{Results}
+   \section{Results}
 
-   \subsubsection*{Computational Breakdown of the IMBBC HPC-Supported Research}
+   \subsection{Computational Breakdown of the IMBBC HPC-Supported Research}
 
    Systematic labelling of IMBBC HPC-supported published studies ($n = 47$) was performed to highlight their resource requirements. 
    Each study was manually labelled with the relevant scientific field, the data acquisition method, the computational methods, and its resource requirements; 
@@ -310,13 +307,13 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
    
    
    % ZORBA DISCUSSION
-   \subsection{Discussion}
+   \section{Discussion}
 
-   \subsubsection*{Scientific Impact Stories}
+   \subsection{Scientific Impact Stories}
 
    Below, some examples of research results that were made possible with the IMBBC HPC facility are described. This list of use cases is by no means exhaustive, but rather an attempt to highlight different fields of research supported by the facility, along with their distinct computational features.
 
-   \subsubsection*{Invasive species range expansion detected with eDNA data from Autonomous Reef Monitoring Structures}
+   \subsection*{Invasive species range expansion detected with eDNA data from Autonomous Reef Monitoring Structures}
 
    The Mediterranean biodiversity and ecosystems are experiencing profound transformations owing to Lessepsian migration, international shipping, and aquaculture, which lead to the migration of nearly $1,000$ alien species [46]. 
    The first step towards addressing the effects of these invasions is monitoring of the introduced taxa. 
@@ -326,7 +323,7 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
    This finding, confirmed with image analysis of photographic records on a later deployment period, is an example of work conducted within the framework of the European ASSEMBLE plus programme ARMS-MBON (Marine Biodiversity Observation Network). 
    PEMA software \citep{zafeiropoulos2020pema} was used in this study, as well as in the $30$-month pilot phase of ARMS-MBON \citep{katsanevakis2014invading}.
 
-   \subsubsection*{Providing omics resources for large genome-size, non-model taxa}
+   \subsection*{Providing omics resources for large genome-size, non-model taxa}
 
    \textit{Zorba} has been used for building and annotating numerous de novo genome and transcriptome assemblies of marine species, such as the gilthead sea bream \textit{Sparus aurata} \citep{pauletto2018genomic} or the greater amberjack \textit{Seriola dumerili} \citep{sarropoulou2017full}. 
    Both genome and transcriptome assemblies of species with large genomes often exceed the maximum available memory limit, eventually affecting the strategic choices for \textit{Zorba} future upgrades (see Section Future Directions). 
@@ -335,7 +332,7 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
    In the context of this study, an automated containerized pipeline allowing high-quality genome assemblies from Oxford Nanopore and Illumina data was developed (SnakeCube \citep{nelina_angelova_2021_4670966}). 
    The availability of standardized pipelines offers great perspective for in-depth studies of numerous marine species of interest in aquaculture and conservation biology, including rigorous phylogenomic analyses to position each species in the tree of life (e.g., Natsidis et al. \citep{natsidis2019phylogenomics}).
 
-   \subsubsection*{DE analysis of aquaculture fish species sheds light on critical phenotypes}
+   \subsection*{DE analysis of aquaculture fish species sheds light on critical phenotypes}
 
    Distinct, observable properties, such as morphology, development, and behavior, characterize living taxa. 
    The corresponding phenotypes may be controlled by the interplay between specific genotypes and the environment. 
@@ -346,7 +343,7 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
    Through the construction of a regulatory network with putative target genes, microRNAs have been linked to the transcriptome expression patterns. 
    The most recent example is the identification of microRNAs and their putative target genes involved in ovary maturation \citep{papadaki2020non}.
 
-   \subsubsection*{Large-scale ecological statistics: are all taxa equal?}
+   \subsection*{Large-scale ecological statistics: are all taxa equal?}
 
    The nomenclature of living organisms, as well as their descriptions and their classifications under a specific nomenclature code, have been studied for more than $2$ centuries. 
    Up to now, all the species present in an ecosystem have been considered equal in terms of their contributions to diversity. 
@@ -357,7 +354,7 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
    From a Single Server to a Tier 2 System) that made such a calculation possible. This is the first time such a hypothesis has been tested on a global scale. 
    Preliminary results show that the 2 biodiversity indices exhibit complementary patterns and that there is a highly significant yet non-linear relationship between the number of species within a phylum and the average distance through the taxonomic hierarchy.
 
-   \subsubsection*{Discovery of novel enzymes for bioremediation}
+   \subsection*{Discovery of novel enzymes for bioremediation}
 
    Polychlorinated biphenyls are complex, recalcitrant pollutants that pose a serious threat to wildlife and human health. 
    The identification of novel enzymes that can degrade such organic pollutants is being intensively studied in the emerging field of bioremediation. 
@@ -370,9 +367,9 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
 
 
 
-   \subsubsection*{Lessons Learned}
+   \subsection{Lessons Learned}
 
-   \subsubsection*{Depth and breadth are both required for a bioinformatics-oriented HPC}
+   \subsection*{Depth and breadth are both required for a bioinformatics-oriented HPC}
 
    In our experience, the vast majority of the analyses run at the IMBBC HPC infrastructure are CPU-intensive. 
    RAM-intensive jobs ($>128$ GB RAM, see Section Computational Breakdown of the IMBBC HPC-Supported Research) represent only $~0.3\%$ of the total jobs executed over the last $2$ years (see Section B1 in \citep{haris_zafeiropoulos_2021_4665308}). 
@@ -382,7 +379,7 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
    High-memory nodes are necessary for tasks such as de novo assembly of large genomes, while the availability of as many less powerful nodes as possible can speed up the execution of less demanding tasks and free resources for other users. 
    Future research directions and the available budget further dictate tailoring of the HPC depth and breadth. Cloud-based services—e.g., for containerized workflows—may also facilitate this process once these become more affordable.
 
-   \subsubsection*{Quota … overloaded}
+   \subsection*{Quota … overloaded}
 
    We observed that independently of the type of analysis, storage was an issue for all \textit{Zorba} users (Fig. 4). 
    A high percentage of these issues relate to the raw data from HTS projects. These data are permanently stored in the home directories, occupying significant space. 
@@ -399,7 +396,7 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
 
 
 
-   \subsubsection*{Continuous intercommunication among different disciplines matters}
+   \subsection*{Continuous intercommunication among different disciplines matters}
 
    Smooth functioning of an HPC system and exploitation of its full potential for research requires stable employment of a core team of computer scientists and engineers, in close collaboration with an extended team of researchers. 
    At least $4$ disciplines are involved in \textit{Zorba}-related issues: 
@@ -411,7 +408,7 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
    It should be noted that the overall good experience in connectivity among different HPC players derives from \textit{Zorba} being a Tier 2 system, with a number of active permanent users in double digits. The establishment of such inter-communication was relatively straightforward to implement with periodic meetings and the assistance of ticketing and other management solutions (see Section C1 in \citep{haris_zafeiropoulos_2021_4665308}).
 
 
-   \subsubsection*{The way forward: develop locally and share and deploy centrally}
+   \subsection*{The way forward: develop locally and share and deploy centrally}
    
    The various approaches regarding the function of an HPC system are strongly related to the different viewpoints of the academic communities towards the relatively new disciplines of bioinformatics and big data. 
    These approaches are strongly affected by national and international decisions that affect the ability to fund supercomputer systems. 
@@ -427,7 +424,7 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
    Containers are an already established technology, used by the biggest cloud providers worldwide and increasingly by non-profit research institutes. Despite indirect costs (e.g., costs to containerize legacy software), we believe that these technologies will become the norm in the future, especially in the context of reproducibility and interoperability of bioinformatics analysis.
 
 
-   \subsubsection*{Software optimizations for parallel execution}
+   \subsection*{Software optimizations for parallel execution}
 
    The most common ways of achieving implicit or explicit parallelization in modern multicore systems for bioinformatics, computational biology, and systems biology software tools are the software threads—provided by programming languages—and/or the OpenMP API \citep{dagum1998openmp}. 
    These types of multiprocessing make good use of the available cores on a multicore system (single node), but they are not capable of combining the available CPU cores from more than 1 node. 
@@ -441,7 +438,7 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
 
 
 
-   \subsubsection*{Cloud Computing}
+   \subsection*{Cloud Computing}
 
    A recent alternative to traditional HPC systems, such as that described in this review, is cloud computing. 
    Cloud computing is the way of organizing computing resources so they are provided over the Internet ("the cloud"). This paradigm of computing requires the minimum management effort possible \citep{mell2011nist}. 
@@ -463,7 +460,7 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
    Given the features and advantages of each approach (mentioned above) one could foresee the scenario of combining them to address the research community needs.
 
 
-   \subsubsection*{Future Directions}
+   \subsection*{Future Directions}
 
    An upgrade of the existing hardware design of Zorba has been scheduled in $2021$, funded by the CMBR research infrastructure (Fig. 1). More specifically:
 
@@ -494,7 +491,7 @@ GigaScience, 10(8), giab053, doi: \href{https://doi.org/10.1093/gigascience/giab
 
 
 
-   \subsection{Conclusions}
+   \section{Conclusions}
 
    \textit{Zorba} is an established Tier 2 HPC regional facility operating in Crete, Greece. 
    It serves as an interdisciplinary computing hub in the eastern Mediterranean, where studies in marine conservation, invasive species, extreme environments, and aquaculture are of great scientific and socio-economic interest. 

@@ -80,159 +80,165 @@
 %Begin the document 
 \begin{document} 
 
-% % PREFACE
-% \begin{preface}
+% PREFACE
+\if 0
+\begin{preface}
   
-%    % \textit{
-%    %    "The problem is to construct a third view, one that sees the entire world 
-%    %    neither as an indissoluble whole nor with the equally incorrect, but currently dominant, 
-%    %    view that at every level the world is made up of bits and pieces that can be isolated 
-%    %    and that have properties that can be studied in isolation. 
-%    %    Both ideologies [...] prevent a rich understanding of nature and prevent us from solving 
-%    %    the problems to which science is supposed to apply itself."
-%    % }\\
-%    % \hspace*{\fill} \textbf{Lewontin}, Biology as Ideology \\
+   % \textit{
+   %    "The problem is to construct a third view, one that sees the entire world 
+   %    neither as an indissoluble whole nor with the equally incorrect, but currently dominant, 
+   %    view that at every level the world is made up of bits and pieces that can be isolated 
+   %    and that have properties that can be studied in isolation. 
+   %    Both ideologies [...] prevent a rich understanding of nature and prevent us from solving 
+   %    the problems to which science is supposed to apply itself."
+   % }\\
+   % \hspace*{\fill} \textbf{Lewontin}, Biology as Ideology \\
 
-%    % \textit{
-%    %    "
-%    %    Thus at every step we are reminded that we by no means rule over nature like a conqueror over a foreign people, 
-%    %    like someone standing outside nature - but that we, with flesh, blood and brain, belong to nature, 
-%    %    and exist in its midst, and that all our mastery of it consists in the fact that we have the advantage over 
-%    %    all other creatures of being able to learn its laws and apply them correctly." \\
-%    % } \\
-%    % \hspace*{\fill}  \textbf{Friedrich Engels}, Dialectics of Nature 
+   % \textit{
+   %    "
+   %    Thus at every step we are reminded that we by no means rule over nature like a conqueror over a foreign people, 
+   %    like someone standing outside nature - but that we, with flesh, blood and brain, belong to nature, 
+   %    and exist in its midst, and that all our mastery of it consists in the fact that we have the advantage over 
+   %    all other creatures of being able to learn its laws and apply them correctly." \\
+   % } \\
+   % \hspace*{\fill}  \textbf{Friedrich Engels}, Dialectics of Nature 
 
-%    % \noindent\hfil\rule{0.5\textwidth}{.4pt}\hfil \\
+   % \noindent\hfil\rule{0.5\textwidth}{.4pt}\hfil \\
 
-%    As almost all things in nature and in human relationships, I consider 
-%    this thesis as the product of a series of chance-and-necessity events. 
-%    My village, my father and a book
-%    \footnote{\href{https://www.simonandschuster.com/books/My-Life-as-an-Indian/J-W-Schultz/9781634504270}{\textit{My life as an Indian}}, by J. W. Schultz (1907)} 
-%    made me appreciate nature and think highly of the relationship between humans and their environment. 
-%    The first two, they also made me stubborn. 
-%    This stubbornness led me to join the Electrical Engineering department of University of Patras in 2009
-%    even if Biology was my passion since secondary school.
-%    Yet, it also allowed me to find a way to study biology but it was chance that got me in the University of Athens. 
-%    Just a few months before defending my bachelor's thesis,
-%    \href{http://ebd10.ebd.csic.es/}{Prof. Pedro Jordano},
-%    whose work on ecological networks and interactions is fundamental,
-%    mentioned me in his reply to a \textit{"how to become Jordano"} mail of mine, 
-%    that first, I need to get some expertise on Bioinformatics.
-%    It was the same year that the MSc in Bioinformatics in the University of Crete intitiated. 
-%    Again, I dropped the ball by missing the interviews day, yet I made it. 
-%    % After exhausting everyone's patience
-%    % the program aggreed to allow me to give an online interview
-%    % and after a student said she would not join the MSc, I moved in Heraklion. 
-%    A few years later and mostly thanks to Dr. Christina Pavloudi that has shaped 
-%    my research thinking the most,
-%    it is hard to tell what if I was not investigating microbial assemblages.
-%    Therefore, it is all the good and bad circumstances and choices as well as the people 
-%    related to each of those 
-%    that led me at this point that I would like to acknowledge first. 
+   As almost all things in nature and in human relationships, I consider 
+   this thesis as the product of a series of chance-and-necessity events. 
+   My village, my father and a book
+   \footnote{\href{https://www.simonandschuster.com/books/My-Life-as-an-Indian/J-W-Schultz/9781634504270}{\textit{My life as an Indian}}, by J. W. Schultz (1907)} 
+   made me appreciate nature and think highly of the relationship between humans and their environment. 
+   The first two, they also made me stubborn. 
+   This stubbornness led me to join the Electrical Engineering department of University of Patras in 2009
+   even if Biology was my passion since secondary school.
+   However, it also allowed me to find a way to study biology; 
+   yet it was only chance that got me in the University of Athens. 
+   Just a few months before defending my bachelor's thesis,
+   \href{http://ebd10.ebd.csic.es/}{Prof. Pedro Jordano},
+   whose work on ecological networks and interactions is fundamental,
+   mentioned me in his reply to a \textit{"how to become like you"} mail of mine, 
+   that first, I need to get some expertise on Bioinformatics.
+   It was the same year that the MSc in Bioinformatics in the University of Crete intitiated. 
+   Even if I missed the interviews day, I finally made it again, because of being persistent and 
+   thanks to a couple of profersors that were willing to do more for their students 
+   than just doing everything by the book. 
+   % After exhausting everyone's patience
+   % the program aggreed to allow me to give an online interview
+   % and after a student said she would not join the MSc, I moved in Heraklion. 
+   A few years later and mostly thanks to \href{https://cpavloud.github.io/mysite/}{Dr. Christina Pavloudi}  
+   that has shaped 
+   my research thinking the most,
+   it is hard to tell what if I was not investigating microbial assemblages.
+   Therefore, it is all the good and bad circumstances and choices as well as the people 
+   related to each of those 
+   that led me at this point that I would like to acknowledge first. 
 
-%    I would like to thank my promotors for making this work possible: 
-%    \href{https://ladoukakis.weebly.com/}{Prof. Manolis Ladoukakis}, a university teacher who said 
-%    \textit{"relax; I have your back"} 
-%    when I invaded his office crying for help; 
-%    since then I enjoy his guidance for which I am grateful. 
-%    \href{http://lab42open.hcmr.gr/}{Dr. Evangelos Pafilis} with whom we started working together back in 2017 in 
-%    the framework of my MSc thesis. 
-%    I would not have joined this PhD program if it was not for him.
-%    % It was him who made me realise the value of metadata and the importance of the community-driven 
-%    % efforts to address several challenges on bioinformatics. 
-%    \href{http://computational-genomics.weebly.com/}{Dr. Christoforos Nikolaou} was also among our MSc teachers
-%    and has been an influence to me since I first came in Crete;
-%    moreover, being a Liverpool fan, a bibliophagist and now a writer 
-%    has played a great part in making me remember to always keep the balance. 
-%    Also, \href{https://cpavloud.github.io/mysite/}{Dr. Christina Pavloudi} with whom we met during my MSc and since then, she has
-%    not stopped triggering my curiosity and has (almost) never complained with my endless questions to her.
-%    Special thanks to \href{https://tolischal.github.io/}{Dr. Apostolos Chalkis}, 
-%    probably the greatest example of a necessity-and-chance case in my research story so-far, 
-%    with whom we met on the streets of Athens 
-%    and a few years later he called me to ask me if I had ever heard of metabolic networks; 
-%    this was the first time I ever heard of them.
-%    \href{https://who.paris.inria.fr/Elias.Tsigaridas/}{Prof. Elias Tsigaridas} 
-%    and~\href{https://who.paris.inria.fr/Elias.Tsigaridas/}{Dr. Vissarion Fisikopoulos}. 
-%    I learnt a lot being part of the \href{https://geomscale.github.io/}{GeomScale} group 
-%    and it is my belief we were all 
-%    astonished with how magnificent science can be when merging fields and exploring fields you have no idea about. 
-%    Last but not least, I would also like to say a great thank you in all at~\href{https://sites.google.com/view/lab-area52/home}{Area52}. 
-%    \href{https://sites.google.com/view/lab-area52/home/meet-the-team?authuser=0#h.p_TlJiVLurzMia}{Prof. Jens Carlsson} 
-%    who made me passionate with "aliens" and proved me that there are people that have no idea
-%    about how a good olive oil tastes like.
-%    \href{https://www.researchgate.net/profile/Sanni-Hintikka}{Dr. Sanni Hintikka} 
-%    and Dr. Laura Gargan who managed to handle both Jens and myself. 
+   I would like to thank my promotors for making this work possible: 
+   \href{https://ladoukakis.weebly.com/}{Prof. Manolis Ladoukakis}, a university teacher who 
+   when I invaded his office crying for help, he just said
+   \textit{"breathe; you have your committee"}; 
+   since then, I enjoy his guidance for which I am grateful. 
+   \href{http://lab42open.hcmr.gr/}{Dr. Evangelos Pafilis} with whom we started working together back in 2017 in 
+   the framework of my MSc thesis. 
+   I would not have joined this PhD program if it was not for him
+   and most probably I would have not stayed in academia in general.
+   % It was him who made me realise the value of metadata and the importance of the community-driven 
+   % efforts to address several challenges on bioinformatics. 
+   \href{http://computational-genomics.weebly.com/}{Dr. Christoforos Nikolaou} was also among our MSc teachers
+   and has been an influence to me since I first came in Crete;
+   moreover, being a Liverpool fan, a bibliophagist and now a writer 
+   has played a great part in making me remember to always keep the balance. 
+   Also, \href{https://cpavloud.github.io/mysite/}{Dr. Christina Pavloudi} with whom we met during my MSc and since then, she has
+   not stopped triggering my curiosity and has (almost) never complained with my endless questions to her.
+   Special thanks to \href{https://tolischal.github.io/}{Dr. Apostolos Chalkis}, 
+   probably the greatest example of a necessity-and-chance case in my research story so-far, 
+   with whom we met on the streets of Athens 
+   and a few years later he called me to ask me if I had ever heard of metabolic networks; 
+   this was the first time I ever heard of them.
+   \href{https://who.paris.inria.fr/Elias.Tsigaridas/}{Prof. Elias Tsigaridas} 
+   and~\href{https://who.paris.inria.fr/Elias.Tsigaridas/}{Dr. Vissarion Fisikopoulos}. 
+   I learnt a lot being part of the \href{https://geomscale.github.io/}{GeomScale} group 
+   and it is my belief we were all 
+   astonished with how magnificent science can be when merging fields and exploring fields you have no idea about. 
+   Last but not least, I would also like to say a great thank you in all at~\href{https://sites.google.com/view/lab-area52/home}{Area52}. 
+   \href{https://sites.google.com/view/lab-area52/home/meet-the-team?authuser=0#h.p_TlJiVLurzMia}{Prof. Jens Carlsson} 
+   who made me passionate with "aliens" and proved me that there are people that have no idea
+   about how a good olive oil tastes like.
+   \href{https://www.researchgate.net/profile/Sanni-Hintikka}{Dr. Sanni Hintikka} 
+   and Dr. Laura Gargan who managed to handle both Jens and myself. 
 
-%    I would also like to declare my gratitude to the Biodiversity lab of IMBBC. 
-%    I joined the lab almost 5 years ago and I could not find the words to express how glad I am for doing so.
-%    Christara many thanks for being around when needed and for your insight in so many aspects.
-%    Eva, Niki (\foreignlanguage{greek}{τσιγαράκι};), George, Bill, I think I cannot even imagine a PhD without your voices. 
-%    Speaking of voices, Wanda thanks for being soo Wanda to all of us! 
-%    You are our rock!
-%    Emma and Eirini I would consider becoming a web developer only to work with you. 
-%    And of course, 
-%    Stelio and Antoni, the best sys-admins ever as well as among the greatest aficionados of \foreignlanguage{greek}{γουρουνοπούλα}.
-%    \foreignlanguage{greek}{Χλαπάτσα} you goo, I tried so hard not to mention you but you found your way in;
-%    thank you for being \textit{the only voice of reason}.
-%    Also, Georgia, Eirini and Despoina that have made the PhD life so much bearable and fun. 
+   I would also like to declare my gratitude to the Biodiversity lab of IMBBC. 
+   I joined the lab almost 5 years ago and I could not find the words to express how glad I am for doing so.
+   Christara many thanks for being around when needed and for your insight in so many aspects.
+   Eva, Niki (\foreignlanguage{greek}{τσιγαράκι};), George, Bill, I think I cannot even imagine a PhD without your voices. 
+   Speaking of voices, Wanda thanks for being soo Wanda to all of us! 
+   You are our rock!
+   Emma and Eirini I would consider becoming a web developer only to work with you. 
+   And of course, 
+   Stelio and Antoni, the best sys-admins ever as well as among the greatest aficionados of \foreignlanguage{greek}{γουρουνοπούλα}.
+   \foreignlanguage{greek}{Χλαπάτσα} you goo, I tried so hard not to mention you but you found your way in;
+   thank you for being \textit{the only voice of reason}.
+   Also, Georgia, Eirini and Despoina that have made the PhD life so much bearable and fun. 
 
-%    To me, this work would never had even started if it was for almost a dozin of fellow students on our MSc. 
-%    Along with our tutors 
-%    \href{https://www.ics.forth.gr/cbml/person/kanterakis/alexandros%C2%A0}{Dr. Alexandros Kanterakis}, 
-%    \href{https://scholar.google.com/citations?user=HNOIZrAAAAAJ&hl=en}{Dr. Spiros Chavlis}, 
-%    \href{http://pop-gen.eu/wordpress/}{Pavlos Pavlidis}, 
-%    \href{https://economics.soc.uoc.gr/en/staff/37351/17}{Prof. Michalis Tsagris} 
-%    % (typical example of a nice guy from the \textit{"holly grounds"} of Greece) 
-%    you have been a tremendous driving force to me. 
-%    % all of them, each one on his/her own way, 
-%    % pointed out aspects of our science I would have never think on my own. 
-%    % I have to admit that there is always a sly smile on my face every time I think of them 
-%    % and I consider myself privileged having most of them in my corner. 
-%    A big thank you to
-%    Pascha and Mitso for all those "\foreignlanguage{greek}{ε, ναι ρε φίλε!}". 
-%    To Kleioudi for learning me what a \textit{string} variable is and so much more since then.
-%    I would also like to express my special thanks to \href{https://www.researchgate.net/profile/Savvas-Paragkamian-2}{Savvas Paragkamian};
-%    he has been my partner over the last few years and the one that 
-%    kept reminding me why I am doing science even in my darkest hours. 
+   To me, this work would never had even started if it was for almost a dozin of fellow students on our MSc. 
+   Along with our tutors 
+   \href{https://www.ics.forth.gr/cbml/person/kanterakis/alexandros%C2%A0}{Dr. Alexandros Kanterakis}, 
+   \href{https://scholar.google.com/citations?user=HNOIZrAAAAAJ&hl=en}{Dr. Spiros Chavlis}, 
+   \href{http://pop-gen.eu/wordpress/}{Pavlos Pavlidis}, 
+   \href{https://economics.soc.uoc.gr/en/staff/37351/17}{Prof. Michalis Tsagris} 
+   % (typical example of a nice guy from the \textit{"holly grounds"} of Greece) 
+   you have been a tremendous driving force to me. 
+   % all of them, each one on his/her own way, 
+   % pointed out aspects of our science I would have never think on my own. 
+   % I have to admit that there is always a sly smile on my face every time I think of them 
+   % and I consider myself privileged having most of them in my corner. 
+   A big thank you to
+   Pascha and Mitso for all those "\foreignlanguage{greek}{ε, ναι ρε φίλε!}". 
+   To Kleioudi for learning me what a \textit{string} variable is and so much more since then.
+   I would also like to express my special thanks to \href{https://www.researchgate.net/profile/Savvas-Paragkamian-2}{Savvas Paragkamian};
+   he has been my partner over the last few years and the one that 
+   kept reminding me why I am doing science even in my darkest hours. 
 
-%    Most of this work was implemented during a rather rough time;
-%    Sars-Cov-2 revealed so many of the pathogenies of our societies.
-%    Here is my respect and my thanks to a few people that each has set an example to me.
-%    Tsocha \foreignlanguage{greek}{αλάνι} and Nef \foreignlanguage{greek}{λουλούδι μου},
-%    for helping me filter what counts and what does not. 
-%    Manouso and Mougia that some years ago \textit{"scientifically"} demonstrated that 
-%    a mathematician, a physicit and a biologist can be more than characters in a joke.
-%    Also, for never giving up on fighting for what is right. 
-%    Annoula for being my compass, 
-%    pointing out what's right and what's wrong. 
-%    Vali for always bringing us all closer to reality; except for the times you go nuts.  
-%    Angelique for being my elephant and Myrto for being Myrto.  
-%    Leo for being cool and for everything else; mostly for being cool.  
-%    % We will accomplished the merging of our scientific fields some day I am sure!
-%    My parents that have tought me that greatness is among the \textit{common people}.  
-%    I love you and I am proud of you.
-%    My sister that keeps showing me how to be afraid and yet, face it.
-%    And my other sisters, my tween troubles. 
-%    Ioannaki, Ansia, Evou and Antonaki
-%    you are in my heart.
-%    Last, there is a girl that has been my friend, my inspiration, 
-%    my boxing bag, my colleague, my courage, my coffee and my tobacco, my caress during all this journey. 
-%    \foreignlanguage{greek}{Αφούλη} thank you for making my world go round. \\
+   Most of this work was implemented during a rather rough time;
+   Sars-Cov-2 revealed so many of the pathogenies of our societies.
+   Here is my respect and my thanks to a few people that each has set an example to me.
+   Tsocha \foreignlanguage{greek}{αλάνι} and Nef \foreignlanguage{greek}{λουλούδι μου},
+   for helping me filter what counts and what does not. 
+   Manouso and Mougia that some years ago \textit{"scientifically"} demonstrated that 
+   a mathematician, a physicit and a biologist can be more than characters in a joke.
+   Also, for never giving up on fighting for what is right. 
+   Annoula for being my compass, 
+   pointing out what's right and what's wrong. 
+   Vali for always bringing us all closer to reality; except for the times you go nuts.  
+   Angelique for being my elephant and Myrto for being Myrto.  
+   Leo for being cool and for everything else; mostly for being cool.  
+   % We will accomplished the merging of our scientific fields some day I am sure!
+   My parents that have tought me that greatness is among the \textit{common people}.  
+   I love you and I am proud of you.
+   My sister that keeps showing me how to be afraid and yet, face it.
+   And my other sisters, my tween troubles. 
+   Ioannaki, Ansia, Evou and Antonaki
+   you are in my heart.
+   Last, there is a girl that has been my friend, my inspiration, 
+   my boxing bag, my colleague, my courage, my coffee and my tobacco, my caress during all this journey. 
+   \foreignlanguage{greek}{Αφούλη} thank you for making my world go round. \\
 
-%    \foreignlanguage{greek}{
-%       \hspace*{\fill} Σκέφτηκα να ξαναζήσω αυτά τα καλά που θυμάμαι \\
-%       \hspace*{\fill} Αυτά που γελάμε όταν τα συζητάμε τσουγκρίζοντας μπύρες τα βράδια \\
-%       \hspace*{\fill} Εκείνα που κλαίγοντας πάμε μπροστά γιατί θέλουμε πίσω τα πάντα.
-%    }
+   \foreignlanguage{greek}{
+      \hspace*{\fill} Σκέφτηκα να ξαναζήσω αυτά τα καλά που θυμάμαι \\
+      \hspace*{\fill} Αυτά που γελάμε όταν τα συζητάμε τσουγκρίζοντας μπύρες τα βράδια \\
+      \hspace*{\fill} Εκείνα που κλαίγοντας πάμε μπροστά γιατί θέλουμε πίσω τα πάντα.
+   }
    
-%    \noindent\hfil\rule{0.5\textwidth}{.4pt}\hfil \\
+   \noindent\hfil\rule{0.5\textwidth}{.4pt}\hfil \\
 
-%    This dissertation is dedicated to a little seed meant to join us any time now.
+   This dissertation is dedicated to a little seed meant to join us any time now.
    
-%    \foreignlanguage{greek}{Αφιερωμένο σε έναν μικρό σποράκο } 
+   \foreignlanguage{greek}{Αφιερωμένο σε έναν μικρό σποράκο } 
 
-% \end{preface}
-
+\end{preface}
+\fi 
 
 % TOC
 \tableofcontents
