@@ -637,7 +637,7 @@
       \centering \kulemt@fpf@banner
 
       % HZ edited
-      \textmd{Academic year \kulemt@acyear@t}%
+      \textmd{July, 2022}%
       
       \vskip 15\p@
       \ifkulemt@coverpage
