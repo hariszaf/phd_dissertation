@@ -57,11 +57,11 @@
    To address this challenge multiple computational efforts have been implemented~\citep{porter2021profile}
    This issue also applies for the case of Bacteria and Archaea and the 16S rRNA gene~\citep{pei2010diversity}
    even if it has been shown that bacterial pseudogenes have a great chance of being removed almost directly after their formation;
-   so fast that to be governed by a strictly neutral model of stochastic loss~\citep{kuo2010extinction}.
+   so fast so as to be governed by a strictly neutral model of stochastic loss~\citep{kuo2010extinction}.
    As shown in Chapter~\ref{publ:darn}, a great part of the OTUs/ASVs retrieved from COI amplicon data
    may actually come from bacterial and/or archaeal taxa.
    Such approaches need to be merged in amplicon studies as an extra
-   quality control stop but also to enable further investigation of the unassigned OTUs/ASVs. 
+   quality control but also to enable further investigation of the unassigned OTUs/ASVs. 
    In Chapter~\ref{publ:darn} is also shown the need for reference databases to also include non-target sequences 
    so they can distinguish actual hits. 
 
@@ -87,13 +87,13 @@
       comes with a great number of challenges. 
    
       % PIPELINES
-      By encapsulating a software along with its dependencies in an isolated and easy to reinstall environment (container) 
-      containerization addresses several of them at once; 
-      first, the distribution and the installation becomes now a straight-forward task, requiring only for a containerization technology 
-      present on the facility,
-      second, versioning of the various software used is not an issue anymore as a container may either "save" a version from being obsolete
-      in case it is strongly dependent on that, either keep track of the latest version of the encapsulated software, 
-      morevover, several versions of the same software may be part of different containers without any conficts.
+      By encapsulating a software along with its dependencies in an isolated and easy to (re)install environment (container) 
+      containerization addresses several of them at once.
+      First, the distribution and the installation becomes now a straight-forward task, requiring only for a containerization technology 
+      to be present on the facility.
+      Second, versioning of the various software used is not an issue anymore as a container may either "save" a version from being obsolete
+      in case it is strongly dependent on that, either keep track of the latest version of the encapsulated software. 
+      Morevover, several versions of the same software may be part of different containers without any conficts.
       In addition, the creation and management of standardized workflows/pipelines is facilitated to a great extent. 
       Workflow tools such as 
       \href{https://github.com/common-workflow-language/common-workflow-language}{Common Workflow Language (CWL)}
@@ -139,7 +139,7 @@
       Nevertheless, (meta)data provenance and data integration share several challenges~\citep{cheney2009provenance}. 
    
       As shown in Section~\ref{cha:prego}, the higher the quality of the accompanying metadata, 
-      the higher the confidence for meta-analysis approaches may get. 
+      the higher the confidence meta-analysis approaches may get. 
       Furthermore, metadata accompanying the analyses, i.e. the workflows and their implementation, can provide further 
       insight on the effect of the various softwares and databases used. 
       In general, community efforts to set best-practice for formal metadata description
@@ -167,11 +167,11 @@
       Moreover, linking the various ontologies related to a certain domain without loosing the 
       benefits of each of those, is essential for the community. 
       That means that efforts for mapping entities of an ontology or a database to those of others 
-      sharing a common field, even if there is not a one-to-one relationship, will increase considerably their impact.  
-      Efforts such the one of the Rhea reaction knowledgebase~\citep{bansal2022rhea} 
+      sharing a common field, e.g., the Rhea reaction knowledgebase~\citep{bansal2022rhea},
+      even if there is not a one-to-one relationship, will increase considerably their impact.  
 
       By addessing these challenges and by ensuring high quality metadata,
-      data integration techniques will be improved considerably. 
+      data integration techniques will improve considerably. 
       Combined with machine learning techniques, such methods 
       can contribute the most in exploiting the
       full potential of the HTS data produced
@@ -197,7 +197,7 @@
    The dimension of a polytope derived from any single microbial GEM 
    is at least one order of magnitude lower than 
    the one from species such as \textit{H. sapiens}.
-   However, in real-world microbial communities it is rare for a species to be on its own.
+   However, in real-world microbial communities it is rare for a species to exist on its own.
    Based on~\cite{perez2016metabolic} there are various approaches for modelling a community as a whole,
    each coming with several pros and cons.
    As the \textit{lumped network} approach 
@@ -250,10 +250,10 @@
    primary production of organic matter 
    by oxygenic phototrophs is essential for the community to survive~\citep{meier_limitation_2021}. 
    That is further supported by the the fact that 
-   descpite the fact that oxygenic photosynthesis is thermodynamically possible 
+   despite the fact that oxygenic photosynthesis is thermodynamically possible 
    at high salt concentrations~\citep{oren_thermodynamic_2011}, 
    a kinetic inhibition of oxygenic photosynthesis 
-   by decreased oxygen solubility~\citep{abed2007effect}.
+   by decreased oxygen solubility has been observed~\citep{abed2007effect}.
    Thus, Cyanobacteria have been found to be fundamental in hypersaline 
    microbial mats; 
    even when their abundance is relatively lower  
@@ -272,11 +272,11 @@
    % as high salinity level were found even in the top leyer of the mats. 
    Moreover, anaplerotic reactions were identified in high abundances across the samples.
    It is commonly known that anaplerotic reactions play a key role 
-   in replenishing the intermediates of the TCA cycle~\citep{owen2002key}.  
+   in replenishing the intermediates of the TCA cycle~\citep{owen2002key},
    allowing microbial growth 
    when there is only a certain
    carbohydrate available~\citep{choi_distinct_2016}, indicating that sunlight 
-   is actually the only carbon source of the system. 
+   is actually the only energy source of the system. 
 
    % Furthermore, it has been demonstrated that seasonality affects mat communities to a great extent
    % \citep{}
@@ -311,7 +311,7 @@
    In case of amplicon studies, abundance estimation of the identified taxa has been crucial.
    \citeauthor{gloor2017microbiome} in their study in \citeyear{gloor2017microbiome} 
    claimed that it is the nature of the microbiome data that does not allow them to be anything else but compositional. 
-   However, several studies have been implemented approaches to retrieve 
+   However, several studies have implemented approaches to retrieve 
    absolute abundances from amplicon data, e.g.~\citep{kim2021measuring, zemb2020absolute}.
    On top of that, long-read sequencing technologies have been improved radically, 
    allowing quality sequencing of the complete marker and not just of a certain part of it. 
